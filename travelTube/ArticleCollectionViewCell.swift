@@ -7,10 +7,11 @@
 //
 
 import UIKit
+import YouTubePlayer
 
 class ArticleCollectionViewCell: UICollectionViewCell {
 
-    @IBOutlet weak var imageView: UIImageView!
+    @IBOutlet weak var videoPlayer: YouTubePlayerView!
     
     override func awakeFromNib() {
         super.awakeFromNib()

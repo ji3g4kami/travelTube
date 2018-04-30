@@ -15,9 +15,11 @@
 		14DF3C072097166D00215368 /* CategoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14DF3C062097166D00215368 /* CategoryCell.swift */; };
 		14DF3C0A2097191600215368 /* ArticleCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14DF3C082097191600215368 /* ArticleCollectionViewCell.swift */; };
 		14DF3C0B2097191600215368 /* ArticleCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 14DF3C092097191600215368 /* ArticleCollectionViewCell.xib */; };
+		DB96516B76BC72F1ACE1048F /* Pods_travelTube.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 127DDB3116503A9523918E26 /* Pods_travelTube.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		127DDB3116503A9523918E26 /* Pods_travelTube.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_travelTube.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		14DF3BF120970F0F00215368 /* travelTube.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = travelTube.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		14DF3BF420970F0F00215368 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		14DF3BF620970F0F00215368 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
@@ -28,6 +30,8 @@
 		14DF3C062097166D00215368 /* CategoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCell.swift; sourceTree = "<group>"; };
 		14DF3C082097191600215368 /* ArticleCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleCollectionViewCell.swift; sourceTree = "<group>"; };
 		14DF3C092097191600215368 /* ArticleCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ArticleCollectionViewCell.xib; sourceTree = "<group>"; };
+		5C1C8311C9806D60C5C07A3C /* Pods-travelTube.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-travelTube.debug.xcconfig"; path = "Pods/Target Support Files/Pods-travelTube/Pods-travelTube.debug.xcconfig"; sourceTree = "<group>"; };
+		E6E07F4F7358EA50904411DC /* Pods-travelTube.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-travelTube.release.xcconfig"; path = "Pods/Target Support Files/Pods-travelTube/Pods-travelTube.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -35,6 +39,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DB96516B76BC72F1ACE1048F /* Pods_travelTube.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -46,6 +51,8 @@
 			children = (
 				14DF3BF320970F0F00215368 /* travelTube */,
 				14DF3BF220970F0F00215368 /* Products */,
+				CA8EAA4FF1CCE9110433707D /* Pods */,
+				AC0C86CE893265A31F4E8057 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -73,6 +80,23 @@
 			path = travelTube;
 			sourceTree = "<group>";
 		};
+		AC0C86CE893265A31F4E8057 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				127DDB3116503A9523918E26 /* Pods_travelTube.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		CA8EAA4FF1CCE9110433707D /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				5C1C8311C9806D60C5C07A3C /* Pods-travelTube.debug.xcconfig */,
+				E6E07F4F7358EA50904411DC /* Pods-travelTube.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -80,9 +104,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 14DF3C0320970F1100215368 /* Build configuration list for PBXNativeTarget "travelTube" */;
 			buildPhases = (
+				57D55160433A99C924A63280 /* [CP] Check Pods Manifest.lock */,
 				14DF3BED20970F0F00215368 /* Sources */,
 				14DF3BEE20970F0F00215368 /* Frameworks */,
 				14DF3BEF20970F0F00215368 /* Resources */,
+				FFC62F8A753610C0A3E8C118 /* [CP] Embed Pods Frameworks */,
+				4CD62F9B2357ACF09D016F7A /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -139,6 +166,60 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		4CD62F9B2357ACF09D016F7A /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-travelTube/Pods-travelTube-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		57D55160433A99C924A63280 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-travelTube-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		FFC62F8A753610C0A3E8C118 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-travelTube/Pods-travelTube-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/YouTubePlayer/YouTubePlayer.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/YouTubePlayer.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-travelTube/Pods-travelTube-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		14DF3BED20970F0F00215368 /* Sources */ = {
@@ -290,15 +371,13 @@
 		};
 		14DF3C0420970F1100215368 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5C1C8311C9806D60C5C07A3C /* Pods-travelTube.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = ND2LGZT6B5;
 				INFOPLIST_FILE = travelTube/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.davidwu.travelTube;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -308,15 +387,13 @@
 		};
 		14DF3C0520970F1100215368 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E6E07F4F7358EA50904411DC /* Pods-travelTube.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = ND2LGZT6B5;
 				INFOPLIST_FILE = travelTube/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.davidwu.travelTube;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
