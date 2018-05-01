@@ -1,4 +1,5 @@
 PODS:
+  - Alamofire (4.7.2)
   - Firebase/Core (4.13.0):
     - FirebaseAnalytics (= 4.2.0)
     - FirebaseCore (= 4.0.20)
@@ -22,10 +23,12 @@ PODS:
   - YouTubePlayer (0.4.0)
 
 DEPENDENCIES:
+  - Alamofire
   - Firebase/Core
   - YouTubePlayer
 
 SPEC CHECKSUMS:
+  Alamofire: e4fa87002c137ba2d8d634d2c51fabcda0d5c223
   Firebase: 5ec5e863d269d82d66b4bf56856726f8fb8f0fb3
   FirebaseAnalytics: 7ef69e76a5142f643aeb47c780e1cdce4e23632e
   FirebaseCore: 90cb1c53d69b556f112a1bf72b5fcfaad7650790
@@ -34,6 +37,6 @@ SPEC CHECKSUMS:
   nanopb: 5601e6bca2dbf1ed831b519092ec110f66982ca3
   YouTubePlayer: 028451f6772f372d4759866db99824c676ac1473
 
-PODFILE CHECKSUM: de2e2d42e42cc926911fd32df8621f0eaad754d9
+PODFILE CHECKSUM: 7df5e09fccddaa15348783a8d21abcb0f992a14d
 
 COCOAPODS: 1.4.0
