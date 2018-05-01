@@ -1,5 +1,5 @@
 //
-//  MainViewController.swift
+//  VideosViewController.swift
 //  travelTube
 //
 //  Created by 吳登秝 on 2018/4/30.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class MainViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class VideosViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     
 
