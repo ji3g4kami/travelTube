@@ -7,5 +7,5 @@ target 'travelTube' do
 
   # Pods for travelTube
   pod 'YouTubePlayer'
-
+  pod 'Firebase/Core'
 end

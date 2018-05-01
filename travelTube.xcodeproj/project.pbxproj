@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		145D19B920980C1D00BE71D0 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 145D19B820980C1D00BE71D0 /* GoogleService-Info.plist */; };
 		14DF3BF520970F0F00215368 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14DF3BF420970F0F00215368 /* AppDelegate.swift */; };
 		14DF3BF720970F0F00215368 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14DF3BF620970F0F00215368 /* MainViewController.swift */; };
 		14DF3BFA20970F0F00215368 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 14DF3BF820970F0F00215368 /* Main.storyboard */; };
@@ -20,6 +21,7 @@
 
 /* Begin PBXFileReference section */
 		127DDB3116503A9523918E26 /* Pods_travelTube.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_travelTube.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		145D19B820980C1D00BE71D0 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		14DF3BF120970F0F00215368 /* travelTube.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = travelTube.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		14DF3BF420970F0F00215368 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		14DF3BF620970F0F00215368 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
@@ -73,6 +75,7 @@
 				14DF3BFB20970F1100215368 /* Assets.xcassets */,
 				14DF3BFD20970F1100215368 /* LaunchScreen.storyboard */,
 				14DF3C0020970F1100215368 /* Info.plist */,
+				145D19B820980C1D00BE71D0 /* GoogleService-Info.plist */,
 				14DF3C062097166D00215368 /* CategoryCell.swift */,
 				14DF3C082097191600215368 /* ArticleCollectionViewCell.swift */,
 				14DF3C092097191600215368 /* ArticleCollectionViewCell.xib */,
@@ -160,6 +163,7 @@
 			files = (
 				14DF3BFF20970F1100215368 /* LaunchScreen.storyboard in Resources */,
 				14DF3C0B2097191600215368 /* ArticleCollectionViewCell.xib in Resources */,
+				145D19B920980C1D00BE71D0 /* GoogleService-Info.plist in Resources */,
 				14DF3BFC20970F1100215368 /* Assets.xcassets in Resources */,
 				14DF3BFA20970F0F00215368 /* Main.storyboard in Resources */,
 			);
@@ -174,9 +178,14 @@
 			files = (
 			);
 			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-travelTube/Pods-travelTube-resources.sh",
+				"${PODS_ROOT}/GoogleAuthUtilities/Frameworks/frameworks/GoogleAuthUtilities.framework/Resources/GTMOAuth2ViewTouch.xib",
+				"${PODS_ROOT}/GoogleSignIn/Resources/GoogleSignIn.bundle",
 			);
 			name = "[CP] Copy Pods Resources";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GTMOAuth2ViewTouch.nib",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GoogleSignIn.bundle",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -208,11 +217,15 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-travelTube/Pods-travelTube-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
 				"${BUILT_PRODUCTS_DIR}/YouTubePlayer/YouTubePlayer.framework",
+				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/YouTubePlayer.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -362,6 +375,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.3;
 				MTL_ENABLE_DEBUG_INFO = NO;
+				ONLY_ACTIVE_ARCH = NO;
 				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";

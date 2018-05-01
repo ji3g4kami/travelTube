@@ -12,6 +12,7 @@ class CategoryCell: UITableViewCell, UICollectionViewDelegate, UICollectionViewD
 
     @IBOutlet weak var articleCollectionView: UICollectionView!
     let taipeiVideo: [String] = ["R_QzFdQp4_4", "kPFQCpzLTME", "CRq3hOFqlgI"]
+    let taichungVideo: [String] = ["LKbQDq6Q9eI", "Xn8VB0CQFUw"]
     
     override func awakeFromNib() {
         super.awakeFromNib()
