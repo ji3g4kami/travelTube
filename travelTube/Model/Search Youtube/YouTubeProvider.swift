@@ -8,20 +8,19 @@
 
 import Foundation
 import Alamofire
-
-private enum YoutubeAPI {
-    case getDetails(String)
-}
+import YoutubeEngine
 
 struct YoutubeProvider {
-    static func getDetails(of id: String) {
+    // search youtube with ID
+    func getDetails(of videoId: String) {
         let parameters: Parameters = ["part": "snippet",
-                                      "id": id,
+                                      "id": videoId,
                                       "key": youtubeAPIKey]
 
         Alamofire.request(TTConstants.youtubeVideoUrl, method: .get, parameters: parameters, encoding: URLEncoding.default).responseJSON(completionHandler: { (response) in
-            print(response.result.value)
-
+            if let data = response.result.value {
+                print(data)
+            }
         })
 
     }

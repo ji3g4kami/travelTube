@@ -28,6 +28,7 @@
 		14F7BD9120995A5900DE78C9 /* Search.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 14F7BD9020995A5900DE78C9 /* Search.storyboard */; };
 		14F7BD9320995A7E00DE78C9 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14F7BD9220995A7E00DE78C9 /* SearchViewController.swift */; };
 		14F7BD972099935500DE78C9 /* VideoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14F7BD962099935500DE78C9 /* VideoCell.swift */; };
+		14F7BD992099AB7900DE78C9 /* YoutubeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14F7BD982099AB7900DE78C9 /* YoutubeManager.swift */; };
 		DB96516B76BC72F1ACE1048F /* Pods_travelTube.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 127DDB3116503A9523918E26 /* Pods_travelTube.framework */; };
 /* End PBXBuildFile section */
 
@@ -56,6 +57,7 @@
 		14F7BD9020995A5900DE78C9 /* Search.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Search.storyboard; sourceTree = "<group>"; };
 		14F7BD9220995A7E00DE78C9 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		14F7BD962099935500DE78C9 /* VideoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoCell.swift; sourceTree = "<group>"; };
+		14F7BD982099AB7900DE78C9 /* YoutubeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YoutubeManager.swift; sourceTree = "<group>"; };
 		5C1C8311C9806D60C5C07A3C /* Pods-travelTube.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-travelTube.debug.xcconfig"; path = "Pods/Target Support Files/Pods-travelTube/Pods-travelTube.debug.xcconfig"; sourceTree = "<group>"; };
 		E6E07F4F7358EA50904411DC /* Pods-travelTube.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-travelTube.release.xcconfig"; path = "Pods/Target Support Files/Pods-travelTube/Pods-travelTube.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -105,17 +107,18 @@
 		145D19C520985A6B00BE71D0 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				145D19C820985AD800BE71D0 /* HTTP */,
-				145D19C620985A8E00BE71D0 /* YouTubeProvider.swift */,
+				145D19C820985AD800BE71D0 /* Search Youtube */,
 			);
 			path = Model;
 			sourceTree = "<group>";
 		};
-		145D19C820985AD800BE71D0 /* HTTP */ = {
+		145D19C820985AD800BE71D0 /* Search Youtube */ = {
 			isa = PBXGroup;
 			children = (
+				145D19C620985A8E00BE71D0 /* YouTubeProvider.swift */,
+				14F7BD982099AB7900DE78C9 /* YoutubeManager.swift */,
 			);
-			path = HTTP;
+			path = "Search Youtube";
 			sourceTree = "<group>";
 		};
 		145D19CB20985F3300BE71D0 /* Utitlties */ = {
@@ -215,8 +218,8 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 14DF3C0320970F1100215368 /* Build configuration list for PBXNativeTarget "travelTube" */;
 			buildPhases = (
-				14F7BD9420996A2400DE78C9 /* ShellScript */,
 				57D55160433A99C924A63280 /* [CP] Check Pods Manifest.lock */,
+				14F7BD9420996A2400DE78C9 /* ShellScript */,
 				14DF3BED20970F0F00215368 /* Sources */,
 				14DF3BEE20970F0F00215368 /* Frameworks */,
 				14DF3BEF20970F0F00215368 /* Resources */,
@@ -347,6 +350,7 @@
 				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
 				"${BUILT_PRODUCTS_DIR}/ReactiveSwift/ReactiveSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/Result/Result.framework",
+				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
 				"${BUILT_PRODUCTS_DIR}/YouTubePlayer/YouTubePlayer.framework",
 				"${BUILT_PRODUCTS_DIR}/YoutubeEngine/YoutubeEngine.framework",
@@ -358,6 +362,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ReactiveSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Result.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/YouTubePlayer.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/YoutubeEngine.framework",
@@ -375,6 +380,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				14F7BD992099AB7900DE78C9 /* YoutubeManager.swift in Sources */,
 				145D19D32098667D00BE71D0 /* UIStoryboard+David.swift in Sources */,
 				14F7BD9320995A7E00DE78C9 /* SearchViewController.swift in Sources */,
 				145D19CD2098647400BE71D0 /* TabBarViewController.swift in Sources */,
@@ -535,10 +541,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = ND2LGZT6B5;
 				INFOPLIST_FILE = travelTube/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.davidwu.travelTube;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -554,10 +557,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = ND2LGZT6B5;
 				INFOPLIST_FILE = travelTube/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.davidwu.travelTube;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;

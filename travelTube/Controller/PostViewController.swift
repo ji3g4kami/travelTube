@@ -7,24 +7,21 @@
 //
 
 import UIKit
-import ReactiveSwift
+import SDWebImage
 
 class PostViewController: UIViewController {
 
     @IBOutlet private weak var searchBar: UISearchBar!
     @IBOutlet weak var videoTableView: UITableView!
 
-    var videoArray = [Video]()
-    var filteredVideoArray = [Video]()
+    var youtubeArray = [Video]()
 
-    final class YoutubeViewModel {
-        let keyword = MutableProperty("")
-    }
+    var youtubeManager = YoutubeManager()
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        setupVideo()
+        youtubeManager.delegate = self
 
         videoTableView.delegate = self
         videoTableView.dataSource = self
@@ -32,41 +29,31 @@ class PostViewController: UIViewController {
         searchBar.delegate = self
 
     }
+}
 
-    private func setupVideo() {
-        videoArray.append(Video(title: "video", cover: "youtube"))
-        videoArray.append(Video(title: "search", cover: "search"))
-        videoArray.append(Video(title: "post", cover: "news"))
-        videoArray.append(Video(title: "profile", cover: "user"))
-
-        filteredVideoArray = videoArray
+extension PostViewController: YoutubeManagerDelegate {
+    func manager(_ manager: YoutubeManager, didGet videos: [Video], _ paging: Int?) {
+        youtubeArray += videos
+        self.videoTableView.reloadData()
     }
-
 }
 
 extension PostViewController: UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        guard !searchText.isEmpty else {
-            filteredVideoArray = videoArray
-            videoTableView.reloadData()
-            return
-        }
-        filteredVideoArray = videoArray.filter({ video -> Bool in
-            return video.title.lowercased().contains(searchText.lowercased())
-        })
+        youtubeManager.searchYouTube(of: searchText)
         videoTableView.reloadData()
     }
 }
 
 extension PostViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return filteredVideoArray.count
+        return youtubeArray.count
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = videoTableView.dequeueReusableCell(withIdentifier: "videoCell") as? VideoCell else { return UITableViewCell() }
-        cell.titleLabel.text = filteredVideoArray[indexPath.row].title
-        cell.videoCoverImage.image = UIImage(named: filteredVideoArray[indexPath.row].cover)
+        cell.titleLabel.text = youtubeArray[indexPath.row].title
+        cell.videoCoverImage.sd_setImage(with: URL(string: youtubeArray[indexPath.row].image), placeholderImage: #imageLiteral(resourceName: "youtube"))
         return cell
     }
 
@@ -77,11 +64,15 @@ extension PostViewController: UITableViewDelegate, UITableViewDataSource {
 }
 
 class Video {
+    let youtubeId: String
     let title: String
-    let cover: String
+    let image: String
+    let publishDate: TimeInterval
 
-    init(title: String, cover: String) {
+    init(youtubeId: String, title: String, image: String, publishDate: TimeInterval) {
+        self.youtubeId = youtubeId
         self.title = title
-        self.cover = cover
+        self.image = image
+        self.publishDate = publishDate
     }
 }

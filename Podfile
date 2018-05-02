@@ -11,4 +11,6 @@ target 'travelTube' do
   pod 'SwiftLint'
   pod 'Firebase/Core'
   pod 'Alamofire'
+  pod 'SwiftyJSON'
+  pod 'SDWebImage'
 end
