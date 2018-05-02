@@ -15,13 +15,18 @@ extension UIStoryboard {
         return UIStoryboard(name: "Videos", bundle: nil)
     }
     
-    static func profileStoryboard() -> UIStoryboard {
-        
-        return UIStoryboard(name: "Profile", bundle: nil)
-    }
-    
     static func postStoryboard() -> UIStoryboard {
         
         return UIStoryboard(name: "Post", bundle: nil)
+    }
+    
+    static func searchStoryboard() -> UIStoryboard {
+        
+        return UIStoryboard(name: "Search", bundle: nil)
+    }
+    
+    static func profileStoryboard() -> UIStoryboard {
+        
+        return UIStoryboard(name: "Profile", bundle: nil)
     }
 }

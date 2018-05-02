@@ -14,6 +14,8 @@ enum TabBar {
     
     case post
     
+    case search
+    
     case profile
     
     func controller() -> UIViewController {
@@ -22,12 +24,15 @@ enum TabBar {
             
         case .videos:
             return UIStoryboard.videosStoryboard().instantiateInitialViewController()!
-        
-        case .profile:
-            return UIStoryboard.profileStoryboard().instantiateInitialViewController()!
+            
+        case .search:
+            return UIStoryboard.searchStoryboard().instantiateInitialViewController()!
             
         case .post:
             return UIStoryboard.postStoryboard().instantiateInitialViewController()!
+            
+        case .profile:
+            return UIStoryboard.profileStoryboard().instantiateInitialViewController()!
         }
     }
     
@@ -37,10 +42,12 @@ enum TabBar {
             
         case .videos:
             return #imageLiteral(resourceName: "youtube")
-        case .profile:
-            return #imageLiteral(resourceName: "user")
         case .post:
             return #imageLiteral(resourceName: "news")
+        case .search:
+            return #imageLiteral(resourceName: "search")
+        case .profile:
+            return #imageLiteral(resourceName: "user")
         }
     }
     
@@ -49,10 +56,12 @@ enum TabBar {
             
         case .videos:
             return "videos"
-        case .profile:
-            return  "profile"
+        case .search:
+            return  "search"
         case .post:
             return "post"
+        case .profile:
+            return  "profile"
         }
     }
     
@@ -62,19 +71,22 @@ enum TabBar {
             
         case .videos:
             return #imageLiteral(resourceName: "youtube").withRenderingMode(.alwaysTemplate)
-        
-        case .profile:
-            return #imageLiteral(resourceName: "user").withRenderingMode(.alwaysTemplate)
             
         case .post:
             return #imageLiteral(resourceName: "news").withRenderingMode(.alwaysTemplate)
+            
+        case .search:
+            return #imageLiteral(resourceName: "search").withRenderingMode(.alwaysTemplate)
+            
+        case .profile:
+            return #imageLiteral(resourceName: "user").withRenderingMode(.alwaysTemplate)
         }
     }
 }
 
 class TabBarViewController: UITabBarController {
     
-    let tabs: [TabBar] = [.videos, .post, .profile]
+    let tabs: [TabBar] = [.videos, .post, .search, .profile]
     
     override func viewDidLoad() {
         super.viewDidLoad()
