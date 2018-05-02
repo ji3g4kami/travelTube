@@ -12,6 +12,8 @@ enum TabBar {
     
     case videos
     
+    case post
+    
     case profile
     
     func controller() -> UIViewController {
@@ -23,6 +25,9 @@ enum TabBar {
         
         case .profile:
             return UIStoryboard.profileStoryboard().instantiateInitialViewController()!
+            
+        case .post:
+            return UIStoryboard.postStoryboard().instantiateInitialViewController()!
         }
     }
     
@@ -34,6 +39,8 @@ enum TabBar {
             return #imageLiteral(resourceName: "youtube")
         case .profile:
             return #imageLiteral(resourceName: "user")
+        case .post:
+            return #imageLiteral(resourceName: "news")
         }
     }
     
@@ -44,6 +51,8 @@ enum TabBar {
             return "videos"
         case .profile:
             return  "profile"
+        case .post:
+            return "post"
         }
     }
     
@@ -56,13 +65,16 @@ enum TabBar {
         
         case .profile:
             return #imageLiteral(resourceName: "user").withRenderingMode(.alwaysTemplate)
+            
+        case .post:
+            return #imageLiteral(resourceName: "news").withRenderingMode(.alwaysTemplate)
         }
     }
 }
 
 class TabBarViewController: UITabBarController {
     
-    let tabs: [TabBar] = [.videos, .profile]
+    let tabs: [TabBar] = [.videos, .post, .profile]
     
     override func viewDidLoad() {
         super.viewDidLoad()
