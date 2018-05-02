@@ -27,6 +27,7 @@
 		14F7BD8F2099597C00DE78C9 /* PostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14F7BD8E2099597C00DE78C9 /* PostViewController.swift */; };
 		14F7BD9120995A5900DE78C9 /* Search.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 14F7BD9020995A5900DE78C9 /* Search.storyboard */; };
 		14F7BD9320995A7E00DE78C9 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14F7BD9220995A7E00DE78C9 /* SearchViewController.swift */; };
+		14F7BD972099935500DE78C9 /* VideoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14F7BD962099935500DE78C9 /* VideoCell.swift */; };
 		DB96516B76BC72F1ACE1048F /* Pods_travelTube.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 127DDB3116503A9523918E26 /* Pods_travelTube.framework */; };
 /* End PBXBuildFile section */
 
@@ -54,6 +55,7 @@
 		14F7BD8E2099597C00DE78C9 /* PostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostViewController.swift; sourceTree = "<group>"; };
 		14F7BD9020995A5900DE78C9 /* Search.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Search.storyboard; sourceTree = "<group>"; };
 		14F7BD9220995A7E00DE78C9 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
+		14F7BD962099935500DE78C9 /* VideoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoCell.swift; sourceTree = "<group>"; };
 		5C1C8311C9806D60C5C07A3C /* Pods-travelTube.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-travelTube.debug.xcconfig"; path = "Pods/Target Support Files/Pods-travelTube/Pods-travelTube.debug.xcconfig"; sourceTree = "<group>"; };
 		E6E07F4F7358EA50904411DC /* Pods-travelTube.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-travelTube.release.xcconfig"; path = "Pods/Target Support Files/Pods-travelTube/Pods-travelTube.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -84,19 +86,20 @@
 		145D19C3209859CB00BE71D0 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				145D19C4209859DF00BE71D0 /* MainView */,
+				14F7BD952099930C00DE78C9 /* Post */,
+				145D19C4209859DF00BE71D0 /* Main */,
 			);
 			path = View;
 			sourceTree = "<group>";
 		};
-		145D19C4209859DF00BE71D0 /* MainView */ = {
+		145D19C4209859DF00BE71D0 /* Main */ = {
 			isa = PBXGroup;
 			children = (
 				14DF3C082097191600215368 /* ArticleCollectionViewCell.swift */,
 				14DF3C092097191600215368 /* ArticleCollectionViewCell.xib */,
 				14DF3C062097166D00215368 /* CategoryCell.swift */,
 			);
-			path = MainView;
+			path = Main;
 			sourceTree = "<group>";
 		};
 		145D19C520985A6B00BE71D0 /* Model */ = {
@@ -178,6 +181,14 @@
 				145D19B820980C1D00BE71D0 /* GoogleService-Info.plist */,
 			);
 			path = travelTube;
+			sourceTree = "<group>";
+		};
+		14F7BD952099930C00DE78C9 /* Post */ = {
+			isa = PBXGroup;
+			children = (
+				14F7BD962099935500DE78C9 /* VideoCell.swift */,
+			);
+			path = Post;
 			sourceTree = "<group>";
 		};
 		AC0C86CE893265A31F4E8057 /* Frameworks */ = {
@@ -369,6 +380,7 @@
 				145D19CD2098647400BE71D0 /* TabBarViewController.swift in Sources */,
 				145D19C12098545900BE71D0 /* Keys.swift in Sources */,
 				145D19C720985A8E00BE71D0 /* YouTubeProvider.swift in Sources */,
+				14F7BD972099935500DE78C9 /* VideoCell.swift in Sources */,
 				14F7BD8F2099597C00DE78C9 /* PostViewController.swift in Sources */,
 				14DF3BF720970F0F00215368 /* VideosViewController.swift in Sources */,
 				14DF3C0A2097191600215368 /* ArticleCollectionViewCell.swift in Sources */,
