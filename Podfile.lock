@@ -20,11 +20,21 @@ PODS:
     - nanopb/encode (= 0.3.8)
   - nanopb/decode (0.3.8)
   - nanopb/encode (0.3.8)
+  - ReactiveSwift (2.0.1):
+    - Result (~> 3.2)
+  - Result (3.2.4)
+  - SwiftLint (0.25.1)
+  - SwiftyJSON (3.1.4)
+  - YoutubeEngine (0.3.1):
+    - ReactiveSwift (~> 2.0)
+    - SwiftyJSON (~> 3.1.4)
   - YouTubePlayer (0.4.0)
 
 DEPENDENCIES:
   - Alamofire
   - Firebase/Core
+  - SwiftLint
+  - YoutubeEngine
   - YouTubePlayer
 
 SPEC CHECKSUMS:
@@ -35,8 +45,13 @@ SPEC CHECKSUMS:
   FirebaseInstanceID: 8d20d890d65c917f9f7d9950b6e10a760ad34321
   GoogleToolboxForMac: 91c824d21e85b31c2aae9bb011c5027c9b4e738f
   nanopb: 5601e6bca2dbf1ed831b519092ec110f66982ca3
+  ReactiveSwift: 60a29ff35988a964fd2bb759755cb6594de523fc
+  Result: d2d07204ce72856f1fd9130bbe42c35a7b0fea10
+  SwiftLint: ce933681be10c3266e82576dad676fa815a602e9
+  SwiftyJSON: c2842d878f95482ffceec5709abc3d05680c0220
+  YoutubeEngine: a4d3b460c6f1415ddcbfc18afb094a8f113282c7
   YouTubePlayer: 028451f6772f372d4759866db99824c676ac1473
 
-PODFILE CHECKSUM: 7df5e09fccddaa15348783a8d21abcb0f992a14d
+PODFILE CHECKSUM: 4ec4e05db486ebcbbc268754d3ce0727f36fbb4f
 
 COCOAPODS: 1.4.0

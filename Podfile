@@ -7,6 +7,8 @@ target 'travelTube' do
 
   # Pods for travelTube
   pod 'YouTubePlayer'
+  pod 'YoutubeEngine'
+  pod 'SwiftLint'
   pod 'Firebase/Core'
   pod 'Alamofire'
 end

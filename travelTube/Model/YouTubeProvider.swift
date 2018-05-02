@@ -14,16 +14,15 @@ private enum YoutubeAPI {
 }
 
 struct YoutubeProvider {
-    static func getDetails(of id: String){
-        let parameters: Parameters = ["part":"snippet",
+    static func getDetails(of id: String) {
+        let parameters: Parameters = ["part": "snippet",
                                       "id": id,
-                                      "key": YOUTUBE_DATA_API_KEY]
-//        let url = "https://www.googleapis.com/youtube/v3/videos"
-        
+                                      "key": youtubeAPIKey]
+
         Alamofire.request(TTConstants.youtubeVideoUrl, method: .get, parameters: parameters, encoding: URLEncoding.default).responseJSON(completionHandler: { (response) in
             print(response.result.value)
-            
+
         })
-        
+
     }
 }
