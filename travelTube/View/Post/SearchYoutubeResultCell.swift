@@ -1,5 +1,5 @@
 //
-//  VideoCell.swift
+//  SearchYoutubeResultCell.swift
 //  travelTube
 //
 //  Created by 吳登秝 on 2018/5/2.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class VideoCell: UITableViewCell {
+class SearchYoutubeResultCell: UITableViewCell {
 
     @IBOutlet weak var videoCoverImage: UIImageView!
     @IBOutlet weak var titleLabel: UILabel!

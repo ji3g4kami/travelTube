@@ -52,7 +52,7 @@ extension SearchYoutubeViewController: UITableViewDelegate, UITableViewDataSourc
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = videoTableView.dequeueReusableCell(withIdentifier: "videoCell") as? VideoCell else { return UITableViewCell() }
+        guard let cell = videoTableView.dequeueReusableCell(withIdentifier: "SearchYoutubeResultCell") as? SearchYoutubeResultCell else { return UITableViewCell() }
         cell.titleLabel.text = youtubeArray[indexPath.row].title
         cell.videoCoverImage.sd_setImage(with: URL(string: youtubeArray[indexPath.row].image), placeholderImage: #imageLiteral(resourceName: "youtube"))
         return cell
@@ -69,7 +69,7 @@ extension SearchYoutubeViewController: UITableViewDelegate, UITableViewDataSourc
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let destination = segue.destination as? PreviewYoutbeViewController, let indexPath = videoTableView.indexPathForSelectedRow?.row {
-            destination.YTId = youtubeArray[indexPath].youtubeId
+            destination.youtubeId = youtubeArray[indexPath].youtubeId
         }
     }
 

@@ -11,13 +11,13 @@ import  YouTubePlayer
 
 class PreviewYoutbeViewController: UIViewController {
 
-    var YTId: String = ""
-
+    var youtubeId: String = ""
     @IBOutlet weak var youtubePlayer: YouTubePlayerView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        youtubePlayer.playerVars = ["playsinline": 1] as YouTubePlayerView.YouTubePlayerParameters
-        youtubePlayer.loadVideoID(YTId)
+
+        youtubePlayer.playerVars = ["playsinline": "1"] as YouTubePlayerView.YouTubePlayerParameters
+        youtubePlayer.loadVideoID(youtubeId)
     }
 }
