@@ -15,7 +15,7 @@
         <!--Choose Video-->
         <scene sceneID="5Su-Kf-4qx">
             <objects>
-                <viewController id="rzZ-KJ-cRM" customClass="PostViewController" customModule="travelTube" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="rzZ-KJ-cRM" customClass="SearchYoutubeViewController" customModule="travelTube" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="i3l-3i-muh">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -84,11 +84,39 @@
                     <connections>
                         <outlet property="searchBar" destination="3fq-Bg-8cJ" id="EFm-QD-f9a"/>
                         <outlet property="videoTableView" destination="dfP-qB-uDd" id="61r-nb-SFc"/>
+                        <segue destination="EOM-ZU-q0j" kind="show" identifier="fromSearchToPreview" id="S3r-2j-9KO"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MIn-c5-95W" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="728.79999999999995" y="180.35982008995504"/>
+        </scene>
+        <!--Preview Youtbe View Controller-->
+        <scene sceneID="pSS-Zu-43y">
+            <objects>
+                <viewController id="EOM-ZU-q0j" customClass="PreviewYoutbeViewController" customModule="travelTube" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="ShV-xG-dAg">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1Be-26-OIm">
+                                <rect key="frame" x="166" y="323" width="42" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="Tuf-YX-KkI"/>
+                    </view>
+                    <connections>
+                        <outlet property="youtubeId" destination="1Be-26-OIm" id="hU8-Ep-oMW"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="KRP-MQ-pz0" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1546" y="177"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="F8j-mF-Xl1">

@@ -1,5 +1,5 @@
 //
-//  PostViewController.swift
+//  SearchYoutubeViewController.swift
 //  travelTube
 //
 //  Created by 吳登秝 on 2018/5/2.
@@ -9,7 +9,7 @@
 import UIKit
 import SDWebImage
 
-class PostViewController: UIViewController {
+class SearchYoutubeViewController: UIViewController {
 
     @IBOutlet private weak var searchBar: UISearchBar!
     @IBOutlet weak var videoTableView: UITableView!
@@ -31,7 +31,7 @@ class PostViewController: UIViewController {
     }
 }
 
-extension PostViewController: YoutubeManagerDelegate {
+extension SearchYoutubeViewController: YoutubeManagerDelegate {
     func manager(_ manager: YoutubeManager, didGet videos: [Video], _ paging: Int?) {
         youtubeArray.removeAll()
         youtubeArray = videos
@@ -39,14 +39,14 @@ extension PostViewController: YoutubeManagerDelegate {
     }
 }
 
-extension PostViewController: UISearchBarDelegate {
+extension SearchYoutubeViewController: UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         youtubeManager.searchYouTube(of: searchText)
         videoTableView.reloadData()
     }
 }
 
-extension PostViewController: UITableViewDelegate, UITableViewDataSource {
+extension SearchYoutubeViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return youtubeArray.count
     }
@@ -60,6 +60,17 @@ extension PostViewController: UITableViewDelegate, UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 120
+    }
+
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        print(youtubeArray[indexPath.row].youtubeId)
+        performSegue(withIdentifier: "fromSearchToPreview", sender: self)
+    }
+
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let destination = segue.destination as? PreviewYoutbeViewController, let indexPath = videoTableView.indexPathForSelectedRow?.row {
+            destination.YTId = youtubeArray[indexPath].youtubeId
+        }
     }
 
 }
