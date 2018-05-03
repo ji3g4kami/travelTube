@@ -35,6 +35,7 @@ class YoutubeManager {
             }
             DispatchQueue.main.async {
                 self.delegate?.manager(self, didGet: self.videos, 0)
+                self.videos.removeAll()
             }
         }
     }

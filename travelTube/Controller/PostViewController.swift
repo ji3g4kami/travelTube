@@ -33,7 +33,8 @@ class PostViewController: UIViewController {
 
 extension PostViewController: YoutubeManagerDelegate {
     func manager(_ manager: YoutubeManager, didGet videos: [Video], _ paging: Int?) {
-        youtubeArray += videos
+        youtubeArray.removeAll()
+        youtubeArray = videos
         self.videoTableView.reloadData()
     }
 }
