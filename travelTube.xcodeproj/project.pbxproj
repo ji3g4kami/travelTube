@@ -134,9 +134,9 @@
 			isa = PBXGroup;
 			children = (
 				14DF3BF820970F0F00215368 /* Main.storyboard */,
+				14F7BD8C2099580300DE78C9 /* Post.storyboard */,
 				145D19CF2098657200BE71D0 /* Videos.storyboard */,
 				145D19D42098774C00BE71D0 /* Profile.storyboard */,
-				14F7BD8C2099580300DE78C9 /* Post.storyboard */,
 				14F7BD9020995A5900DE78C9 /* Search.storyboard */,
 			);
 			path = Storyboard;
@@ -541,7 +541,10 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = ND2LGZT6B5;
 				INFOPLIST_FILE = travelTube/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.davidwu.travelTube;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -557,7 +560,10 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = ND2LGZT6B5;
 				INFOPLIST_FILE = travelTube/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.davidwu.travelTube;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
