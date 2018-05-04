@@ -113,9 +113,16 @@
                                             </label>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Xez-KR-YWv" customClass="YouTubePlayerView" customModule="YouTubePlayer">
                                                 <rect key="frame" x="0.0" y="0.0" width="375" height="281.5"/>
-                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <color key="backgroundColor" cocoaTouchSystemColor="viewFlipsideBackgroundColor"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" secondItem="Xez-KR-YWv" secondAttribute="height" multiplier="4:3" id="sKK-iU-bhc"/>
+                                                </constraints>
+                                            </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yRk-GJ-wAe" customClass="KSTokenView" customModule="KSTokenView">
+                                                <rect key="frame" x="16" y="298" width="343" height="48"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="48" id="zjg-qd-JsZ"/>
                                                 </constraints>
                                             </view>
                                         </subviews>
@@ -124,9 +131,12 @@
                                             <constraint firstAttribute="height" constant="900" id="GMw-Qz-bc9"/>
                                             <constraint firstItem="M40-cD-5Kn" firstAttribute="centerX" secondItem="1EP-Ce-0Xu" secondAttribute="centerX" id="HCv-Lz-8uW"/>
                                             <constraint firstItem="Xez-KR-YWv" firstAttribute="top" secondItem="1EP-Ce-0Xu" secondAttribute="top" id="WVl-yJ-DyH"/>
+                                            <constraint firstAttribute="trailing" secondItem="yRk-GJ-wAe" secondAttribute="trailing" constant="16" id="cmW-7k-cPp"/>
+                                            <constraint firstItem="yRk-GJ-wAe" firstAttribute="top" secondItem="Xez-KR-YWv" secondAttribute="bottom" constant="16" id="qzL-sV-aAX"/>
                                             <constraint firstItem="Xez-KR-YWv" firstAttribute="leading" secondItem="1EP-Ce-0Xu" secondAttribute="leading" id="tAE-X8-f1x"/>
                                             <constraint firstAttribute="bottom" secondItem="M40-cD-5Kn" secondAttribute="bottom" constant="45" id="uOJ-Te-KwM"/>
                                             <constraint firstAttribute="trailing" secondItem="Xez-KR-YWv" secondAttribute="trailing" id="vVS-a1-8SC"/>
+                                            <constraint firstItem="yRk-GJ-wAe" firstAttribute="leading" secondItem="1EP-Ce-0Xu" secondAttribute="leading" constant="16" id="vzD-8Y-yAS"/>
                                         </constraints>
                                     </view>
                                 </subviews>
@@ -150,6 +160,8 @@
                     </view>
                     <size key="freeformSize" width="375" height="1000"/>
                     <connections>
+                        <outlet property="scrollView" destination="tIc-YF-CNP" id="ylX-4R-HKv"/>
+                        <outlet property="tokenView" destination="yRk-GJ-wAe" id="GJ6-JV-6ua"/>
                         <outlet property="youtubePlayer" destination="Xez-KR-YWv" id="Rtn-yJ-Iic"/>
                     </connections>
                 </viewController>

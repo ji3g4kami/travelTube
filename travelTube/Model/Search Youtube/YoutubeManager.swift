@@ -7,7 +7,6 @@
 //
 
 import YoutubeEngine
-import SwiftyJSON
 
 protocol YoutubeManagerDelegate: class {
     func manager(_ manager: YoutubeManager, didGet videos: [Video], _ paging: Int?)
