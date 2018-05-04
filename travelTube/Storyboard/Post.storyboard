@@ -91,10 +91,10 @@
             </objects>
             <point key="canvasLocation" x="728.79999999999995" y="180.35982008995504"/>
         </scene>
-        <!--Preview Youtbe View Controller-->
+        <!--Editing...-->
         <scene sceneID="pSS-Zu-43y">
             <objects>
-                <viewController id="EOM-ZU-q0j" customClass="PreviewYoutbeViewController" customModule="travelTube" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Editing..." id="EOM-ZU-q0j" customClass="PreviewYoutbeViewController" customModule="travelTube" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ShV-xG-dAg">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="1000"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -112,31 +112,63 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Xez-KR-YWv" customClass="YouTubePlayerView" customModule="YouTubePlayer">
-                                                <rect key="frame" x="0.0" y="0.0" width="375" height="281.5"/>
+                                                <rect key="frame" x="20" y="0.0" width="335" height="188.5"/>
                                                 <color key="backgroundColor" cocoaTouchSystemColor="viewFlipsideBackgroundColor"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="width" secondItem="Xez-KR-YWv" secondAttribute="height" multiplier="4:3" id="sKK-iU-bhc"/>
+                                                    <constraint firstAttribute="width" secondItem="Xez-KR-YWv" secondAttribute="height" multiplier="16:9" id="sKK-iU-bhc"/>
                                                 </constraints>
                                             </view>
+                                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="DGu-U9-AXh">
+                                                <rect key="frame" x="20" y="284.5" width="335" height="335"/>
+                                                <gestureRecognizers/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" secondItem="DGu-U9-AXh" secondAttribute="height" multiplier="1:1" id="Out-LA-Asy"/>
+                                                </constraints>
+                                                <connections>
+                                                    <outlet property="delegate" destination="EOM-ZU-q0j" id="ZLF-wY-R4Y"/>
+                                                    <outletCollection property="gestureRecognizers" destination="n15-vB-5wF" appends="YES" id="OBs-lv-DME"/>
+                                                </connections>
+                                            </mapView>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yRk-GJ-wAe" customClass="KSTokenView" customModule="KSTokenView">
-                                                <rect key="frame" x="16" y="298" width="343" height="48"/>
+                                                <rect key="frame" x="20" y="644.5" width="335" height="48"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="48" id="zjg-qd-JsZ"/>
+                                                    <constraint firstAttribute="height" constant="48" id="Zqz-GD-HP8"/>
                                                 </constraints>
                                             </view>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Share location about the video" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vR5-6k-kaO">
+                                                <rect key="frame" x="71" y="213.5" width="233" height="21"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Annotation title" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="mBc-Gk-h9S">
+                                                <rect key="frame" x="20" y="244.5" width="335" height="30"/>
+                                                <nil key="textColor"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                            </textField>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
+                                            <constraint firstItem="mBc-Gk-h9S" firstAttribute="top" secondItem="vR5-6k-kaO" secondAttribute="bottom" constant="10" id="6bC-Qt-yZz"/>
+                                            <constraint firstItem="mBc-Gk-h9S" firstAttribute="leading" secondItem="1EP-Ce-0Xu" secondAttribute="leading" constant="20" id="AAB-AQ-6Zp"/>
                                             <constraint firstAttribute="height" constant="900" id="GMw-Qz-bc9"/>
                                             <constraint firstItem="M40-cD-5Kn" firstAttribute="centerX" secondItem="1EP-Ce-0Xu" secondAttribute="centerX" id="HCv-Lz-8uW"/>
+                                            <constraint firstItem="mBc-Gk-h9S" firstAttribute="centerX" secondItem="1EP-Ce-0Xu" secondAttribute="centerX" id="K1N-7W-DLe"/>
+                                            <constraint firstAttribute="trailing" secondItem="mBc-Gk-h9S" secondAttribute="trailing" constant="20" id="Pd4-b3-OCo"/>
+                                            <constraint firstItem="vR5-6k-kaO" firstAttribute="centerX" secondItem="1EP-Ce-0Xu" secondAttribute="centerX" id="RSA-tu-bgC"/>
                                             <constraint firstItem="Xez-KR-YWv" firstAttribute="top" secondItem="1EP-Ce-0Xu" secondAttribute="top" id="WVl-yJ-DyH"/>
-                                            <constraint firstAttribute="trailing" secondItem="yRk-GJ-wAe" secondAttribute="trailing" constant="16" id="cmW-7k-cPp"/>
-                                            <constraint firstItem="yRk-GJ-wAe" firstAttribute="top" secondItem="Xez-KR-YWv" secondAttribute="bottom" constant="16" id="qzL-sV-aAX"/>
-                                            <constraint firstItem="Xez-KR-YWv" firstAttribute="leading" secondItem="1EP-Ce-0Xu" secondAttribute="leading" id="tAE-X8-f1x"/>
+                                            <constraint firstItem="DGu-U9-AXh" firstAttribute="top" secondItem="mBc-Gk-h9S" secondAttribute="bottom" constant="10" id="ZgM-D5-OfP"/>
+                                            <constraint firstItem="DGu-U9-AXh" firstAttribute="leading" secondItem="1EP-Ce-0Xu" secondAttribute="leading" constant="20" id="eMM-kj-Uhg"/>
+                                            <constraint firstAttribute="trailing" secondItem="yRk-GJ-wAe" secondAttribute="trailing" constant="20" id="jtF-fr-opf"/>
+                                            <constraint firstItem="yRk-GJ-wAe" firstAttribute="leading" secondItem="1EP-Ce-0Xu" secondAttribute="leading" constant="20" id="kEG-7e-B6q"/>
+                                            <constraint firstItem="yRk-GJ-wAe" firstAttribute="top" secondItem="DGu-U9-AXh" secondAttribute="bottom" constant="25" id="l3I-qa-Iqs"/>
+                                            <constraint firstAttribute="trailing" secondItem="DGu-U9-AXh" secondAttribute="trailing" constant="20" id="oAu-uL-Znv"/>
+                                            <constraint firstItem="Xez-KR-YWv" firstAttribute="leading" secondItem="1EP-Ce-0Xu" secondAttribute="leading" constant="20" id="tAE-X8-f1x"/>
                                             <constraint firstAttribute="bottom" secondItem="M40-cD-5Kn" secondAttribute="bottom" constant="45" id="uOJ-Te-KwM"/>
-                                            <constraint firstAttribute="trailing" secondItem="Xez-KR-YWv" secondAttribute="trailing" id="vVS-a1-8SC"/>
-                                            <constraint firstItem="yRk-GJ-wAe" firstAttribute="leading" secondItem="1EP-Ce-0Xu" secondAttribute="leading" constant="16" id="vzD-8Y-yAS"/>
+                                            <constraint firstAttribute="trailing" secondItem="Xez-KR-YWv" secondAttribute="trailing" constant="20" id="vVS-a1-8SC"/>
+                                            <constraint firstItem="vR5-6k-kaO" firstAttribute="top" secondItem="Xez-KR-YWv" secondAttribute="bottom" constant="25" id="x3u-SR-okT"/>
                                         </constraints>
                                     </view>
                                 </subviews>
@@ -160,12 +192,19 @@
                     </view>
                     <size key="freeformSize" width="375" height="1000"/>
                     <connections>
+                        <outlet property="annotationTextField" destination="mBc-Gk-h9S" id="xNi-T6-y32"/>
+                        <outlet property="mapView" destination="DGu-U9-AXh" id="m78-cg-31U"/>
                         <outlet property="scrollView" destination="tIc-YF-CNP" id="ylX-4R-HKv"/>
                         <outlet property="tokenView" destination="yRk-GJ-wAe" id="GJ6-JV-6ua"/>
                         <outlet property="youtubePlayer" destination="Xez-KR-YWv" id="Rtn-yJ-Iic"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KRP-MQ-pz0" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <pongPressGestureRecognizer allowableMovement="10" minimumPressDuration="1.5" id="n15-vB-5wF">
+                    <connections>
+                        <action selector="addAnnotaion:" destination="EOM-ZU-q0j" id="TPP-xW-LvI"/>
+                    </connections>
+                </pongPressGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="1544.8" y="176.31184407796104"/>
         </scene>

@@ -9,6 +9,7 @@
 import UIKit
 import YouTubePlayer
 import KSTokenView
+import MapKit
 
 class PreviewYoutbeViewController: UIViewController {
 
@@ -17,7 +18,9 @@ class PreviewYoutbeViewController: UIViewController {
 
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var youtubePlayer: YouTubePlayerView!
+    @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var tokenView: KSTokenView!
+    @IBOutlet weak var annotationTextField: UITextField!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,6 +30,25 @@ class PreviewYoutbeViewController: UIViewController {
 
         setupTokenView()
     }
+
+    @IBAction func addAnnotaion(_ sender: UILongPressGestureRecognizer) {
+        let touchpoint = sender.location(in: mapView)
+        let touchCoordinate: CLLocationCoordinate2D = mapView.convert(touchpoint, toCoordinateFrom: mapView)
+        let annotation = MKPointAnnotation()
+        annotation.coordinate = touchCoordinate
+        if let title = annotationTextField.text {
+            annotation.title = title
+            mapView.addAnnotation(annotation)
+        }
+    }
+//    override func viewWillAppear(_ animated: Bool) {
+//        super.viewWillAppear(false)
+//        self.navigationController?.setNavigationBarHidden(true, animated: false)
+//    }
+//
+//    override var prefersStatusBarHidden: Bool {
+//        return true
+//    }
 }
 
 extension PreviewYoutbeViewController: KSTokenViewDelegate {
