@@ -126,7 +126,6 @@
                                                 </constraints>
                                                 <connections>
                                                     <outlet property="delegate" destination="EOM-ZU-q0j" id="ZLF-wY-R4Y"/>
-                                                    <outletCollection property="gestureRecognizers" destination="n15-vB-5wF" appends="YES" id="OBs-lv-DME"/>
                                                 </connections>
                                             </mapView>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yRk-GJ-wAe" customClass="KSTokenView" customModule="KSTokenView">
@@ -153,7 +152,7 @@
                                         <constraints>
                                             <constraint firstItem="mBc-Gk-h9S" firstAttribute="top" secondItem="vR5-6k-kaO" secondAttribute="bottom" constant="10" id="6bC-Qt-yZz"/>
                                             <constraint firstItem="mBc-Gk-h9S" firstAttribute="leading" secondItem="1EP-Ce-0Xu" secondAttribute="leading" constant="20" id="AAB-AQ-6Zp"/>
-                                            <constraint firstAttribute="height" constant="900" id="GMw-Qz-bc9"/>
+                                            <constraint firstAttribute="height" priority="250" constant="900" id="GMw-Qz-bc9"/>
                                             <constraint firstItem="M40-cD-5Kn" firstAttribute="centerX" secondItem="1EP-Ce-0Xu" secondAttribute="centerX" id="HCv-Lz-8uW"/>
                                             <constraint firstItem="mBc-Gk-h9S" firstAttribute="centerX" secondItem="1EP-Ce-0Xu" secondAttribute="centerX" id="K1N-7W-DLe"/>
                                             <constraint firstAttribute="trailing" secondItem="mBc-Gk-h9S" secondAttribute="trailing" constant="20" id="Pd4-b3-OCo"/>
@@ -200,11 +199,6 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KRP-MQ-pz0" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <pongPressGestureRecognizer allowableMovement="10" minimumPressDuration="1.5" id="n15-vB-5wF">
-                    <connections>
-                        <action selector="addAnnotaion:" destination="EOM-ZU-q0j" id="TPP-xW-LvI"/>
-                    </connections>
-                </pongPressGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="1544.8" y="176.31184407796104"/>
         </scene>

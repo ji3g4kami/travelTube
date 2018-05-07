@@ -15,6 +15,7 @@ PODS:
   - GoogleToolboxForMac/Defines (2.1.4)
   - GoogleToolboxForMac/NSData+zlib (2.1.4):
     - GoogleToolboxForMac/Defines (= 2.1.4)
+  - IQKeyboardManagerSwift (6.0.2)
   - KSTokenView (4.0.1)
   - nanopb (0.3.8):
     - nanopb/decode (= 0.3.8)
@@ -37,6 +38,7 @@ PODS:
 DEPENDENCIES:
   - Alamofire
   - Firebase/Core
+  - IQKeyboardManagerSwift
   - KSTokenView
   - SDWebImage
   - SwiftLint
@@ -50,6 +52,7 @@ SPEC CHECKSUMS:
   FirebaseCore: 90cb1c53d69b556f112a1bf72b5fcfaad7650790
   FirebaseInstanceID: 8d20d890d65c917f9f7d9950b6e10a760ad34321
   GoogleToolboxForMac: 91c824d21e85b31c2aae9bb011c5027c9b4e738f
+  IQKeyboardManagerSwift: 59d4b0e140bc546c3c76ae5bb35b3dafd10b8172
   KSTokenView: 73bd70340b9f64b8324a55e5be5e9bd94a4d139e
   nanopb: 5601e6bca2dbf1ed831b519092ec110f66982ca3
   ReactiveSwift: 60a29ff35988a964fd2bb759755cb6594de523fc
@@ -60,6 +63,6 @@ SPEC CHECKSUMS:
   YoutubeEngine: a4d3b460c6f1415ddcbfc18afb094a8f113282c7
   YouTubePlayer: 028451f6772f372d4759866db99824c676ac1473
 
-PODFILE CHECKSUM: 9819d25ed8267e1d5d3f0fc131cf3b9a4a5b3d8d
+PODFILE CHECKSUM: 0c7a15583fd5ea9ecc7ff59d38fc30f4f0da4c73
 
 COCOAPODS: 1.4.0

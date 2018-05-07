@@ -13,4 +13,5 @@ target 'travelTube' do
   pod 'Alamofire'
   pod 'SDWebImage'
   pod 'KSTokenView'
+  pod 'IQKeyboardManagerSwift'
 end

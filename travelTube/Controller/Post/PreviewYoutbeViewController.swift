@@ -31,16 +31,16 @@ class PreviewYoutbeViewController: UIViewController {
         setupTokenView()
     }
 
-    @IBAction func addAnnotaion(_ sender: UILongPressGestureRecognizer) {
-        let touchpoint = sender.location(in: mapView)
-        let touchCoordinate: CLLocationCoordinate2D = mapView.convert(touchpoint, toCoordinateFrom: mapView)
-        let annotation = MKPointAnnotation()
-        annotation.coordinate = touchCoordinate
-        if let title = annotationTextField.text {
-            annotation.title = title
-            mapView.addAnnotation(annotation)
-        }
-    }
+//    @IBAction func addAnnotaion(_ sender: UILongPressGestureRecognizer) {
+//        let touchpoint = sender.location(in: mapView)
+//        let touchCoordinate: CLLocationCoordinate2D = mapView.convert(touchpoint, toCoordinateFrom: mapView)
+//        let annotation = MKPointAnnotation()
+//        annotation.coordinate = touchCoordinate
+//        if let title = annotationTextField.text {
+//            annotation.title = title
+//            mapView.addAnnotation(annotation)
+//        }
+//    }
 //    override func viewWillAppear(_ animated: Bool) {
 //        super.viewWillAppear(false)
 //        self.navigationController?.setNavigationBarHidden(true, animated: false)
@@ -52,14 +52,6 @@ class PreviewYoutbeViewController: UIViewController {
 }
 
 extension PreviewYoutbeViewController: KSTokenViewDelegate {
-
-    func tokenViewDidBeginEditing(_ tokenView: KSTokenView) {
-        scrollView.setContentOffset(CGPoint(x: 0, y: 200), animated: true)
-    }
-
-    func tokenViewDidEndEditing(_ tokenView: KSTokenView) {
-        scrollView.setContentOffset(CGPoint(x: 0, y: 0), animated: true)
-    }
 
     func setupTokenView() {
         tokenView.delegate = self
