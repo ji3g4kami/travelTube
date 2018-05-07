@@ -37,6 +37,14 @@ class PreviewYoutbeViewController: UIViewController {
         annotationTableView.register(xib, forCellReuseIdentifier: "AnnotationCell")
     }
 
+    @IBAction func postButtonPreesed(_ sender: UIButton) {
+        let article = [
+            "youtubeId": self.youtubeId,
+            "annotations": self.annotations
+            ] as [String: Any]
+        print(article)
+    }
+
     @IBAction func addAnnotaion(_ sender: UIButton) {
         let annotation = MKPointAnnotation()
         let centerCoordinate = mapView.centerCoordinate
