@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1414065020A023D800BFB170 /* AnnotationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1414064E20A023D800BFB170 /* AnnotationCell.swift */; };
+		1414065120A023D800BFB170 /* AnnotationCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1414064F20A023D800BFB170 /* AnnotationCell.xib */; };
 		145D19B920980C1D00BE71D0 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 145D19B820980C1D00BE71D0 /* GoogleService-Info.plist */; };
 		145D19C12098545900BE71D0 /* Keys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 145D19C02098545900BE71D0 /* Keys.swift */; };
 		145D19C720985A8E00BE71D0 /* YouTubeProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 145D19C620985A8E00BE71D0 /* YouTubeProvider.swift */; };
@@ -34,6 +36,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1414064E20A023D800BFB170 /* AnnotationCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnnotationCell.swift; sourceTree = "<group>"; };
+		1414064F20A023D800BFB170 /* AnnotationCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AnnotationCell.xib; sourceTree = "<group>"; };
 		145D19B820980C1D00BE71D0 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		145D19C02098545900BE71D0 /* Keys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Keys.swift; sourceTree = "<group>"; };
 		145D19C620985A8E00BE71D0 /* YouTubeProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YouTubeProvider.swift; sourceTree = "<group>"; };
@@ -201,6 +205,8 @@
 			isa = PBXGroup;
 			children = (
 				14F7BD962099935500DE78C9 /* SearchYoutubeResultCell.swift */,
+				1414064E20A023D800BFB170 /* AnnotationCell.swift */,
+				1414064F20A023D800BFB170 /* AnnotationCell.xib */,
 			);
 			path = Post;
 			sourceTree = "<group>";
@@ -290,6 +296,7 @@
 				145D19D02098657200BE71D0 /* Videos.storyboard in Resources */,
 				14F7BD9120995A5900DE78C9 /* Search.storyboard in Resources */,
 				14F7BD8D2099580300DE78C9 /* Post.storyboard in Resources */,
+				1414065120A023D800BFB170 /* AnnotationCell.xib in Resources */,
 				145D19B920980C1D00BE71D0 /* GoogleService-Info.plist in Resources */,
 				14DF3BFC20970F1100215368 /* Assets.xcassets in Resources */,
 				14DF3BFA20970F0F00215368 /* Main.storyboard in Resources */,
@@ -404,6 +411,7 @@
 				14DF3BF520970F0F00215368 /* AppDelegate.swift in Sources */,
 				14DF3C072097166D00215368 /* CategoryCell.swift in Sources */,
 				145D19CA20985CED00BE71D0 /* Constants.swift in Sources */,
+				1414065020A023D800BFB170 /* AnnotationCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -552,7 +560,10 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = ND2LGZT6B5;
 				INFOPLIST_FILE = travelTube/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.davidwu.travelTube;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -568,7 +579,10 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = ND2LGZT6B5;
 				INFOPLIST_FILE = travelTube/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.davidwu.travelTube;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;

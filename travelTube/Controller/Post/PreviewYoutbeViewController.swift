@@ -22,6 +22,7 @@ class PreviewYoutbeViewController: UIViewController {
     @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var tokenView: KSTokenView!
     @IBOutlet weak var annotationTextField: UITextField!
+    @IBOutlet weak var annotationTableView: UITableView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,6 +31,10 @@ class PreviewYoutbeViewController: UIViewController {
         youtubePlayer.loadVideoID(youtubeId)
 
         setupTokenView()
+        annotationTableView.delegate = self
+        annotationTableView.dataSource = self
+        let xib = UINib(nibName: "AnnotationCell", bundle: nil)
+        annotationTableView.register(xib, forCellReuseIdentifier: "AnnotationCell")
     }
 
     @IBAction func addAnnotaion(_ sender: UIButton) {
@@ -40,11 +45,8 @@ class PreviewYoutbeViewController: UIViewController {
             annotation.title = title
             mapView.addAnnotation(annotation)
             annotations.append(annotation)
+            annotationTableView.reloadData()
         }
-    }
-
-    @IBAction func remove(_ sender: UIButton) {
-        mapView.removeAnnotation(annotations[0])
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -52,6 +54,28 @@ class PreviewYoutbeViewController: UIViewController {
         self.navigationController?.setNavigationBarHidden(true, animated: false)
     }
 
+}
+
+extension PreviewYoutbeViewController: UITableViewDelegate, UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return annotations.count
+    }
+
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let cell = annotationTableView.dequeueReusableCell(withIdentifier: "AnnotationCell") as? AnnotationCell else {
+            return UITableViewCell()
+        }
+        cell.textField.text = annotations[indexPath.row].title
+        cell.deleteButton.tag = indexPath.row
+        cell.deleteButton.addTarget(self, action: #selector(deleteAnnotation), for: .touchUpInside)
+        return cell
+    }
+
+    @objc func deleteAnnotation(_ sender: UIButton) {
+        mapView.removeAnnotation(annotations[sender.tag])
+        annotations.remove(at: sender.tag)
+        annotationTableView.reloadData()
+    }
 }
 
 extension PreviewYoutbeViewController: KSTokenViewDelegate {
