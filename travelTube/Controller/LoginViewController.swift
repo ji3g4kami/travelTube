@@ -15,11 +15,21 @@ class LoginViewController: UIViewController, GIDSignInUIDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         GIDSignIn.sharedInstance().uiDelegate = self
-        GIDSignIn.sharedInstance().signInSilently()
-        // TODO(developer) Configure the sign-in button look/feel
     }
 
     @IBAction func login(_ sender: UIButton) {
         GIDSignIn.sharedInstance().signIn()
+        Auth.auth().addStateDidChangeListener { (auth, user) in
+            if user != nil {
+                if UserDefaults.standard.string(forKey: "uid") != nil && Auth.auth().currentUser != nil {
+                    //User was already logged in
+                }
+
+                UserDefaults.standard.setValue(user?.uid, forKeyPath: "uid")
+
+                self.performSegue(withIdentifier: "CurrentlyLoggedIn", sender: nil)
+
+            }
+        }
     }
 }
