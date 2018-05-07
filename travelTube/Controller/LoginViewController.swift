@@ -20,15 +20,12 @@ class LoginViewController: UIViewController, GIDSignInUIDelegate {
     @IBAction func login(_ sender: UIButton) {
         GIDSignIn.sharedInstance().signIn()
         Auth.auth().addStateDidChangeListener { (auth, user) in
-            if user != nil {
-                if UserDefaults.standard.string(forKey: "uid") != nil && Auth.auth().currentUser != nil {
-                    //User was already logged in
-                }
-
-                UserDefaults.standard.setValue(user?.uid, forKeyPath: "uid")
-
-                self.performSegue(withIdentifier: "CurrentlyLoggedIn", sender: nil)
-
+            if let uid = user?.uid {
+                UserManager.shared.uid = uid
+            }
+            if auth.currentUser != nil {
+                UserManager.shared.isLoggedIn = true
+                self.performSegue(withIdentifier: "toMain", sender: nil)
             }
         }
     }

@@ -24,13 +24,13 @@ public class UserManager {
         }
     }
 
-    var userId: String {
+    var uid: String {
         get {
             // swiftlint:disable force_cast
-            return defaults.value(forKey: "userId") as! String
+            return defaults.value(forKey: "uid") as! String
         }
         set {
-            defaults.set(newValue, forKey: "userId")
+            defaults.set(newValue, forKey: "uid")
         }
     }
 }
