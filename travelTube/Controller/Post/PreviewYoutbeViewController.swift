@@ -15,6 +15,7 @@ class PreviewYoutbeViewController: UIViewController {
 
     var youtubeId: String = ""
     let names: [String] = ["Taiwan", "Delicacy", "History"]
+    var annotations: [MKPointAnnotation] = []
 
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var youtubePlayer: YouTubePlayerView!
@@ -31,24 +32,26 @@ class PreviewYoutbeViewController: UIViewController {
         setupTokenView()
     }
 
-//    @IBAction func addAnnotaion(_ sender: UILongPressGestureRecognizer) {
-//        let touchpoint = sender.location(in: mapView)
-//        let touchCoordinate: CLLocationCoordinate2D = mapView.convert(touchpoint, toCoordinateFrom: mapView)
-//        let annotation = MKPointAnnotation()
-//        annotation.coordinate = touchCoordinate
-//        if let title = annotationTextField.text {
-//            annotation.title = title
-//            mapView.addAnnotation(annotation)
-//        }
-//    }
-//    override func viewWillAppear(_ animated: Bool) {
-//        super.viewWillAppear(false)
-//        self.navigationController?.setNavigationBarHidden(true, animated: false)
-//    }
-//
-//    override var prefersStatusBarHidden: Bool {
-//        return true
-//    }
+    @IBAction func addAnnotaion(_ sender: UIButton) {
+        let annotation = MKPointAnnotation()
+        let centerCoordinate = mapView.centerCoordinate
+        annotation.coordinate = centerCoordinate
+        if let title = annotationTextField.text {
+            annotation.title = title
+            mapView.addAnnotation(annotation)
+            annotations.append(annotation)
+        }
+    }
+
+    @IBAction func remove(_ sender: UIButton) {
+        mapView.removeAnnotation(annotations[0])
+    }
+
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(false)
+        self.navigationController?.setNavigationBarHidden(true, animated: false)
+    }
+
 }
 
 extension PreviewYoutbeViewController: KSTokenViewDelegate {
