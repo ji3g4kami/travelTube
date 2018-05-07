@@ -14,4 +14,7 @@ target 'travelTube' do
   pod 'SDWebImage'
   pod 'KSTokenView'
   pod 'IQKeyboardManagerSwift'
+  pod 'Firebase/Auth'
+  pod 'FirebaseDatabase'
+  pod 'GoogleSignIn'
 end
