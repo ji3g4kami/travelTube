@@ -12,7 +12,6 @@ class AnnotationCell: UITableViewCell {
 
     @IBOutlet weak var textField: UITextField!
     @IBOutlet weak var deleteButton: UIButton!
-    @IBOutlet weak var editButton: UIButton!
 
     override func awakeFromNib() {
         super.awakeFromNib()

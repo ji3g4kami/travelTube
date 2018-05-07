@@ -189,11 +189,15 @@
                                                 </prototypes>
                                             </tableView>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JhW-dH-0Oy">
-                                                <rect key="frame" x="172" y="389" width="30" height="46"/>
+                                                <rect key="frame" x="172.5" y="389" width="30" height="46"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="28"/>
                                                 <state key="normal" title="+">
                                                     <color key="titleColor" red="0.1215686275" green="0.12941176469999999" blue="0.14117647059999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 </state>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wVl-p9-Frp">
+                                                <rect key="frame" x="172" y="808" width="31" height="30"/>
+                                                <state key="normal" title="Post"/>
                                             </button>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -201,9 +205,11 @@
                                             <constraint firstAttribute="trailing" secondItem="P0Z-cE-1CS" secondAttribute="trailing" constant="20" id="CQT-mY-fBw"/>
                                             <constraint firstAttribute="height" priority="250" constant="900" id="GMw-Qz-bc9"/>
                                             <constraint firstItem="DGu-U9-AXh" firstAttribute="top" secondItem="vR5-6k-kaO" secondAttribute="bottom" constant="10" id="Got-wg-bHT"/>
+                                            <constraint firstItem="wVl-p9-Frp" firstAttribute="centerX" secondItem="1EP-Ce-0Xu" secondAttribute="centerX" id="JOg-Bc-pmz"/>
                                             <constraint firstItem="vR5-6k-kaO" firstAttribute="centerX" secondItem="1EP-Ce-0Xu" secondAttribute="centerX" id="RSA-tu-bgC"/>
                                             <constraint firstItem="Xez-KR-YWv" firstAttribute="top" secondItem="1EP-Ce-0Xu" secondAttribute="top" id="WVl-yJ-DyH"/>
                                             <constraint firstItem="yRk-GJ-wAe" firstAttribute="top" secondItem="P0Z-cE-1CS" secondAttribute="bottom" constant="20" id="WpO-Yy-3dv"/>
+                                            <constraint firstItem="wVl-p9-Frp" firstAttribute="top" secondItem="yRk-GJ-wAe" secondAttribute="bottom" constant="32" id="Yx1-ff-eaq"/>
                                             <constraint firstItem="DGu-U9-AXh" firstAttribute="leading" secondItem="1EP-Ce-0Xu" secondAttribute="leading" constant="20" id="eMM-kj-Uhg"/>
                                             <constraint firstAttribute="trailing" secondItem="yRk-GJ-wAe" secondAttribute="trailing" constant="20" id="jtF-fr-opf"/>
                                             <constraint firstItem="yRk-GJ-wAe" firstAttribute="leading" secondItem="1EP-Ce-0Xu" secondAttribute="leading" constant="20" id="kEG-7e-B6q"/>
