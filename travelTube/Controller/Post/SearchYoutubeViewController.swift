@@ -69,7 +69,7 @@ extension SearchYoutubeViewController: UITableViewDelegate, UITableViewDataSourc
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let destination = segue.destination as? PreviewYoutbeViewController, let indexPath = videoTableView.indexPathForSelectedRow?.row {
-            destination.youtubeId = youtubeArray[indexPath].youtubeId
+            destination.youtube = youtubeArray[indexPath]
         }
     }
 

@@ -199,7 +199,7 @@
                                                 <rect key="frame" x="172" y="808" width="31" height="30"/>
                                                 <state key="normal" title="Post"/>
                                                 <connections>
-                                                    <action selector="postButtonPreesed:" destination="EOM-ZU-q0j" eventType="touchUpInside" id="vho-DD-eAR"/>
+                                                    <action selector="postArticle:" destination="EOM-ZU-q0j" eventType="touchUpInside" id="SBz-eq-h0S"/>
                                                 </connections>
                                             </button>
                                         </subviews>

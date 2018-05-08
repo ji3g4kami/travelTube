@@ -7,6 +7,7 @@
 //
 
 import Firebase
+import FirebaseDatabase
 import GoogleSignIn
 
 public class AuthManager {
@@ -16,8 +17,9 @@ public class AuthManager {
     func login(completion: @escaping () -> Void) {
         GIDSignIn.sharedInstance().signIn()
         Auth.auth().addStateDidChangeListener { (auth, user) in
-            if let uid = user?.uid {
+            if let uid = user?.uid, let userEmail = user?.email, let userName = user?.displayName {
                 UserManager.shared.uid = uid
+                FirebaseManager.shared.ref.child("users").child(UserManager.shared.uid).setValue(["userName": userName, "userEmail": userEmail])
             }
             if auth.currentUser != nil {
                 UserManager.shared.isLoggedIn = true

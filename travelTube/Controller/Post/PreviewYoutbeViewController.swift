@@ -13,7 +13,7 @@ import MapKit
 
 class PreviewYoutbeViewController: UIViewController {
 
-    var youtubeId: String = ""
+    var youtube: Video?
     let names: [String] = ["Taiwan", "Delicacy", "History"]
     var annotations: [MKPointAnnotation] = []
 
@@ -28,21 +28,14 @@ class PreviewYoutbeViewController: UIViewController {
         super.viewDidLoad()
 
         youtubePlayer.playerVars = ["playsinline": "1"] as YouTubePlayerView.YouTubePlayerParameters
-        youtubePlayer.loadVideoID(youtubeId)
-
+        if let youtubeId = youtube?.youtubeId {
+            youtubePlayer.loadVideoID(youtubeId)
+        }
         setupTokenView()
         annotationTableView.delegate = self
         annotationTableView.dataSource = self
         let xib = UINib(nibName: "AnnotationCell", bundle: nil)
         annotationTableView.register(xib, forCellReuseIdentifier: "AnnotationCell")
-    }
-
-    @IBAction func postButtonPreesed(_ sender: UIButton) {
-        let article = [
-            "youtubeId": self.youtubeId,
-            "annotations": self.annotations
-            ] as [String: Any]
-        print(article)
     }
 
     @IBAction func addAnnotaion(_ sender: UIButton) {
@@ -60,6 +53,31 @@ class PreviewYoutbeViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(false)
         self.navigationController?.setNavigationBarHidden(true, animated: false)
+    }
+
+    @IBAction func postArticle(_ sender: Any) {
+        guard let video = youtube else {
+            print("failed unwrapping youtube")
+            return
+        }
+        var markers = [Any]()
+        for annotation in annotations {
+            let marker = [
+                "title": annotation.title!,
+                "logitutde": annotation.coordinate.longitude,
+                "latitude": annotation.coordinate.latitude
+                ] as [String: Any]
+            markers.append(marker)
+        }
+        FirebaseManager.shared.ref.child("articles").child("\(video.youtubeId)***\(UserManager.shared.uid)").setValue([
+        "youtubeTitle": video.title,
+        "youtubeImage": video.image,
+        "youtubePublishDate": video.publishDate,
+        "youtubeId": video.youtubeId,
+        "postTime": Date().timeIntervalSince1970,
+        "uid": UserManager.shared.uid,
+        "annotations": markers
+        ])
     }
 
 }
