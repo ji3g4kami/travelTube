@@ -57,14 +57,27 @@
             </objects>
             <point key="canvasLocation" x="3144.8000000000002" y="412.44377811094455"/>
         </scene>
-        <!--View Controller-->
+        <!--Logout View Controller-->
         <scene sceneID="Yyx-xh-t1p">
             <objects>
-                <viewController id="Aqn-cw-0B4" sceneMemberID="viewController">
+                <viewController id="Aqn-cw-0B4" customClass="LogoutViewController" customModule="travelTube" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="K6f-GD-tLE">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ah5-Jy-jYL">
+                                <rect key="frame" x="295" y="109" width="48" height="30"/>
+                                <state key="normal" title="Logout"/>
+                                <connections>
+                                    <action selector="logoutPressed:" destination="Aqn-cw-0B4" eventType="touchUpInside" id="bgH-o8-23s"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="ob5-HC-MFv" firstAttribute="trailing" secondItem="ah5-Jy-jYL" secondAttribute="trailing" constant="32" id="OvJ-4I-uyA"/>
+                            <constraint firstItem="ah5-Jy-jYL" firstAttribute="top" secondItem="ob5-HC-MFv" secondAttribute="top" constant="89" id="ief-gu-Fyr"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="ob5-HC-MFv"/>
                     </view>
                 </viewController>

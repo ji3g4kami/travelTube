@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import Firebase
 import GoogleSignIn
 
 class LoginViewController: UIViewController, GIDSignInUIDelegate {
@@ -18,15 +17,8 @@ class LoginViewController: UIViewController, GIDSignInUIDelegate {
     }
 
     @IBAction func login(_ sender: UIButton) {
-        GIDSignIn.sharedInstance().signIn()
-        Auth.auth().addStateDidChangeListener { (auth, user) in
-            if let uid = user?.uid {
-                UserManager.shared.uid = uid
-            }
-            if auth.currentUser != nil {
-                UserManager.shared.isLoggedIn = true
-                self.performSegue(withIdentifier: "toMain", sender: nil)
-            }
+        AuthManager.shared.login {
+            self.performSegue(withIdentifier: "toMain", sender: nil)
         }
     }
 }

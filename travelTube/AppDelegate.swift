@@ -23,11 +23,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
         IQKeyboardManager.shared.enable = true
 
         if !UserManager.shared.isLoggedIn {
-            let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
-            let loginVC = storyboard.instantiateViewController(withIdentifier: "LoginViewController") as? LoginViewController
-            window?.rootViewController = loginVC
+            toLoginPage()
         }
         return true
+    }
+
+    func toLoginPage() {
+        let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
+        let loginVC = storyboard.instantiateViewController(withIdentifier: "LoginViewController") as? LoginViewController
+        window?.rootViewController = loginVC
     }
 
     @available(iOS 9.0, *)

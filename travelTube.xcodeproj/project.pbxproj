@@ -24,6 +24,7 @@
 		14DA419C20A13F3000A74254 /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 14DA419A20A13F3000A74254 /* SWRevealViewController.m */; };
 		14DA419F20A141D600A74254 /* LogoutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14DA419E20A141D600A74254 /* LogoutViewController.swift */; };
 		14DA41A120A1420200A74254 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14DA41A020A1420200A74254 /* ProfileViewController.swift */; };
+		14DA41A420A1522B00A74254 /* AuthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14DA41A320A1522B00A74254 /* AuthManager.swift */; };
 		14DF3BF520970F0F00215368 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14DF3BF420970F0F00215368 /* AppDelegate.swift */; };
 		14DF3BF720970F0F00215368 /* VideosViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14DF3BF620970F0F00215368 /* VideosViewController.swift */; };
 		14DF3BFA20970F0F00215368 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 14DF3BF820970F0F00215368 /* Main.storyboard */; };
@@ -62,6 +63,7 @@
 		14DA419B20A13F3000A74254 /* SWRevealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWRevealViewController.h; sourceTree = "<group>"; };
 		14DA419E20A141D600A74254 /* LogoutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoutViewController.swift; sourceTree = "<group>"; };
 		14DA41A020A1420200A74254 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		14DA41A320A1522B00A74254 /* AuthManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthManager.swift; sourceTree = "<group>"; };
 		14DF3BF120970F0F00215368 /* travelTube.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = travelTube.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		14DF3BF420970F0F00215368 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		14DF3BF620970F0F00215368 /* VideosViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideosViewController.swift; sourceTree = "<group>"; };
@@ -139,6 +141,7 @@
 		145D19C520985A6B00BE71D0 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				14DA41A220A151FA00A74254 /* Auth */,
 				145D19C820985AD800BE71D0 /* Search Youtube */,
 			);
 			path = Model;
@@ -210,6 +213,14 @@
 				14DA41A020A1420200A74254 /* ProfileViewController.swift */,
 			);
 			path = Profile;
+			sourceTree = "<group>";
+		};
+		14DA41A220A151FA00A74254 /* Auth */ = {
+			isa = PBXGroup;
+			children = (
+				14DA41A320A1522B00A74254 /* AuthManager.swift */,
+			);
+			path = Auth;
 			sourceTree = "<group>";
 		};
 		14DF3BE820970F0F00215368 = {
@@ -479,6 +490,7 @@
 				145D19CA20985CED00BE71D0 /* Constants.swift in Sources */,
 				1414065020A023D800BFB170 /* AnnotationCell.swift in Sources */,
 				14DA41A120A1420200A74254 /* ProfileViewController.swift in Sources */,
+				14DA41A420A1522B00A74254 /* AuthManager.swift in Sources */,
 				14DA419F20A141D600A74254 /* LogoutViewController.swift in Sources */,
 				1414065620A0821800BFB170 /* UserManager.swift in Sources */,
 			);

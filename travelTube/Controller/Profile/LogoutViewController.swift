@@ -15,4 +15,11 @@ class LogoutViewController: UIViewController {
 
         // Do any additional setup after loading the view.
     }
+    @IBAction func logoutPressed(_ sender: UIButton) {
+        AuthManager.shared.logout {
+            // get a reference to the app delegate
+            let appDelegate: AppDelegate? = UIApplication.shared.delegate as? AppDelegate
+            appDelegate?.toLoginPage()
+        }
+    }
 }
