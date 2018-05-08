@@ -12,7 +12,7 @@ class GoogleLoginButton: UIButton {
     override func awakeFromNib() {
         self.setupView()
     }
-    
+
     func setupView() {
         self.layer.cornerRadius = 5.0
     }

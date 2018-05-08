@@ -10,16 +10,38 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Profile-->
         <scene sceneID="Xgb-Ev-kus">
             <objects>
-                <viewController id="HEp-6u-iFx" sceneMemberID="viewController">
+                <viewController id="HEp-6u-iFx" customClass="SWRevealViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="j5f-bT-YUF">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="VpU-j3-xwq"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Profile" id="J8Q-1j-d17">
+                        <barButtonItem key="rightBarButtonItem" image="menu" id="xPV-ud-zqu"/>
+                    </navigationItem>
+                    <connections>
+                        <segue destination="Aqn-cw-0B4" kind="custom" identifier="sw_right" customClass="SWRevealViewControllerSegueSetController" id="8E8-DD-1Vs"/>
+                        <segue destination="Fjx-yx-ldH" kind="custom" identifier="sw_front" customClass="SWRevealViewControllerSegueSetController" id="lbu-uv-6jP"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="25o-Ui-rwv" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1436" y="-11.244377811094454"/>
+        </scene>
+        <!--Profile-->
+        <scene sceneID="yQt-tc-kfb">
+            <objects>
+                <viewController id="HGT-Le-yuN" customClass="ProfileViewController" customModule="travelTube" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Jb2-sq-LdA">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="profile" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NPH-xe-g4t">
-                                <rect key="frame" x="166" y="323" width="49" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BGv-v5-dzV">
+                                <rect key="frame" x="184" y="323" width="42" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
@@ -27,12 +49,49 @@
                             </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <viewLayoutGuide key="safeArea" id="VpU-j3-xwq"/>
+                        <viewLayoutGuide key="safeArea" id="cpR-wc-LKt"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Profile" id="2WD-Tv-siU"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="0sO-mG-Fey" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3144.8000000000002" y="412.44377811094455"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="Yyx-xh-t1p">
+            <objects>
+                <viewController id="Aqn-cw-0B4" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="K6f-GD-tLE">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="ob5-HC-MFv"/>
                     </view>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="25o-Ui-rwv" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="AHl-hO-F7P" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="783" y="15"/>
+            <point key="canvasLocation" x="2191" y="-262"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="U4c-66-VAl">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Fjx-yx-ldH" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="t0v-IG-9nM">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="HGT-Le-yuN" kind="relationship" relationship="rootViewController" id="dZg-kd-JRb"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="epG-AM-876" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2205.5999999999999" y="412.44377811094455"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="menu" width="25" height="25"/>
+    </resources>
 </document>

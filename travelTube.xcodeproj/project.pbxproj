@@ -21,6 +21,9 @@
 		145D19D32098667D00BE71D0 /* UIStoryboard+David.swift in Sources */ = {isa = PBXBuildFile; fileRef = 145D19D22098667D00BE71D0 /* UIStoryboard+David.swift */; };
 		145D19D52098774C00BE71D0 /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 145D19D42098774C00BE71D0 /* Profile.storyboard */; };
 		148F90FF209AAFF300308179 /* PreviewYoutbeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 148F90FE209AAFF300308179 /* PreviewYoutbeViewController.swift */; };
+		14DA419C20A13F3000A74254 /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 14DA419A20A13F3000A74254 /* SWRevealViewController.m */; };
+		14DA419F20A141D600A74254 /* LogoutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14DA419E20A141D600A74254 /* LogoutViewController.swift */; };
+		14DA41A120A1420200A74254 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14DA41A020A1420200A74254 /* ProfileViewController.swift */; };
 		14DF3BF520970F0F00215368 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14DF3BF420970F0F00215368 /* AppDelegate.swift */; };
 		14DF3BF720970F0F00215368 /* VideosViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14DF3BF620970F0F00215368 /* VideosViewController.swift */; };
 		14DF3BFA20970F0F00215368 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 14DF3BF820970F0F00215368 /* Main.storyboard */; };
@@ -54,6 +57,11 @@
 		145D19D22098667D00BE71D0 /* UIStoryboard+David.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIStoryboard+David.swift"; sourceTree = "<group>"; };
 		145D19D42098774C00BE71D0 /* Profile.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Profile.storyboard; sourceTree = "<group>"; };
 		148F90FE209AAFF300308179 /* PreviewYoutbeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewYoutbeViewController.swift; sourceTree = "<group>"; };
+		14DA419920A13F2F00A74254 /* travelTube-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "travelTube-Bridging-Header.h"; sourceTree = "<group>"; };
+		14DA419A20A13F3000A74254 /* SWRevealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWRevealViewController.m; sourceTree = "<group>"; };
+		14DA419B20A13F3000A74254 /* SWRevealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWRevealViewController.h; sourceTree = "<group>"; };
+		14DA419E20A141D600A74254 /* LogoutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoutViewController.swift; sourceTree = "<group>"; };
+		14DA41A020A1420200A74254 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		14DF3BF120970F0F00215368 /* travelTube.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = travelTube.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		14DF3BF420970F0F00215368 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		14DF3BF620970F0F00215368 /* VideosViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideosViewController.swift; sourceTree = "<group>"; };
@@ -98,6 +106,7 @@
 		145D19C2209859A900BE71D0 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				14DA419D20A141BB00A74254 /* Profile */,
 				148F90FD209AAEBA00308179 /* Post */,
 				14DF3BF620970F0F00215368 /* VideosViewController.swift */,
 				145D19CC2098647400BE71D0 /* TabBarViewController.swift */,
@@ -147,6 +156,7 @@
 		145D19CB20985F3300BE71D0 /* Utitlties */ = {
 			isa = PBXGroup;
 			children = (
+				14DA419820A13F1600A74254 /* SWReveal */,
 				145D19C02098545900BE71D0 /* Keys.swift */,
 				145D19C920985CED00BE71D0 /* Constants.swift */,
 				1414065520A0821800BFB170 /* UserManager.swift */,
@@ -181,6 +191,25 @@
 				148F90FE209AAFF300308179 /* PreviewYoutbeViewController.swift */,
 			);
 			path = Post;
+			sourceTree = "<group>";
+		};
+		14DA419820A13F1600A74254 /* SWReveal */ = {
+			isa = PBXGroup;
+			children = (
+				14DA419B20A13F3000A74254 /* SWRevealViewController.h */,
+				14DA419A20A13F3000A74254 /* SWRevealViewController.m */,
+				14DA419920A13F2F00A74254 /* travelTube-Bridging-Header.h */,
+			);
+			path = SWReveal;
+			sourceTree = "<group>";
+		};
+		14DA419D20A141BB00A74254 /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				14DA419E20A141D600A74254 /* LogoutViewController.swift */,
+				14DA41A020A1420200A74254 /* ProfileViewController.swift */,
+			);
+			path = Profile;
 			sourceTree = "<group>";
 		};
 		14DF3BE820970F0F00215368 = {
@@ -283,6 +312,7 @@
 				TargetAttributes = {
 					14DF3BF020970F0F00215368 = {
 						CreatedOnToolsVersion = 9.3;
+						LastSwiftMigration = 0930;
 						SystemCapabilities = {
 							com.apple.Keychain = {
 								enabled = 1;
@@ -431,6 +461,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1414065920A095AA00BFB170 /* GoogleLoginButton.swift in Sources */,
+				14DA419C20A13F3000A74254 /* SWRevealViewController.m in Sources */,
 				14F7BD992099AB7900DE78C9 /* YoutubeManager.swift in Sources */,
 				145D19D32098667D00BE71D0 /* UIStoryboard+David.swift in Sources */,
 				14F7BD9320995A7E00DE78C9 /* SearchViewController.swift in Sources */,
@@ -447,6 +478,8 @@
 				14DF3C072097166D00215368 /* CategoryCell.swift in Sources */,
 				145D19CA20985CED00BE71D0 /* Constants.swift in Sources */,
 				1414065020A023D800BFB170 /* AnnotationCell.swift in Sources */,
+				14DA41A120A1420200A74254 /* ProfileViewController.swift in Sources */,
+				14DA419F20A141D600A74254 /* LogoutViewController.swift in Sources */,
 				1414065620A0821800BFB170 /* UserManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -593,6 +626,7 @@
 			baseConfigurationReference = 57712F2A9CB788610E57F0B0 /* Pods-travelTube.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = travelTube/travelTube.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = ND2LGZT6B5;
@@ -603,6 +637,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.davidwu.travelTube;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "travelTube/Utitlties/SWReveal/travelTube-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -613,6 +649,7 @@
 			baseConfigurationReference = E5DD83A0E9365B8302E2BF40 /* Pods-travelTube.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = travelTube/travelTube.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = ND2LGZT6B5;
@@ -623,6 +660,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.davidwu.travelTube;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "travelTube/Utitlties/SWReveal/travelTube-Bridging-Header.h";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
