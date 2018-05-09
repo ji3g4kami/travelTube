@@ -10,6 +10,7 @@ import UIKit
 import YouTubePlayer
 import KSTokenView
 import MapKit
+import FirebaseDatabase
 
 class PreviewYoutbeViewController: UIViewController {
 
@@ -69,15 +70,35 @@ class PreviewYoutbeViewController: UIViewController {
                 ] as [String: Any]
             markers.append(marker)
         }
-        FirebaseManager.shared.ref.child("articles").child("\(video.youtubeId)***\(UserManager.shared.uid)").setValue([
-        "youtubeTitle": video.title,
-        "youtubeImage": video.image,
-        "youtubePublishDate": video.publishDate,
-        "youtubeId": video.youtubeId,
-        "postTime": Date().timeIntervalSince1970,
-        "uid": UserManager.shared.uid,
-        "annotations": markers
+        let tags: [String] = tokenView.text.components(separatedBy: ", ")
+        let newArticleId = FirebaseManager.shared.ref.childByAutoId().key
+        FirebaseManager.shared.ref.child("articles").child(newArticleId).setValue([
+            "youtubeTitle": video.title,
+            "youtubeImage": video.image,
+            "youtubePublishDate": video.publishDate,
+            "youtubeId": video.youtubeId,
+            "postTime": Date().timeIntervalSince1970,
+            "uid": UserManager.shared.uid,
+            "annotations": markers,
+            "status": "post",
+            "tag": tags
         ])
+        // Making tags
+        for tag in tags {
+            var tempArticleIdArray = [String]()
+            let ref = FirebaseManager.shared.ref.child("tages").child("\(tag)")
+            ref.observeSingleEvent(of: .value, with: { (snapshot) in
+                if let value = snapshot.value as? NSArray {
+                    for articleId in value {
+                        // swiftlint:disable force_cast
+                        tempArticleIdArray.append(articleId as! String)
+                    }
+                    tempArticleIdArray.append(newArticleId)
+                    print("tempArticleIdArray", tempArticleIdArray)
+                    ref.setValue(tempArticleIdArray)
+                }
+            })
+        }
     }
 
 }
