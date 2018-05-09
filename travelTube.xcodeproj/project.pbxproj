@@ -20,7 +20,7 @@
 		145D19D02098657200BE71D0 /* Videos.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 145D19CF2098657200BE71D0 /* Videos.storyboard */; };
 		145D19D32098667D00BE71D0 /* UIStoryboard+David.swift in Sources */ = {isa = PBXBuildFile; fileRef = 145D19D22098667D00BE71D0 /* UIStoryboard+David.swift */; };
 		145D19D52098774C00BE71D0 /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 145D19D42098774C00BE71D0 /* Profile.storyboard */; };
-		148F90FF209AAFF300308179 /* PreviewYoutbeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 148F90FE209AAFF300308179 /* PreviewYoutbeViewController.swift */; };
+		148F90FF209AAFF300308179 /* PostArticleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 148F90FE209AAFF300308179 /* PostArticleViewController.swift */; };
 		14DA419C20A13F3000A74254 /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 14DA419A20A13F3000A74254 /* SWRevealViewController.m */; };
 		14DA419F20A141D600A74254 /* LogoutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14DA419E20A141D600A74254 /* LogoutViewController.swift */; };
 		14DA41A120A1420200A74254 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14DA41A020A1420200A74254 /* ProfileViewController.swift */; };
@@ -58,7 +58,7 @@
 		145D19CF2098657200BE71D0 /* Videos.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Videos.storyboard; sourceTree = "<group>"; };
 		145D19D22098667D00BE71D0 /* UIStoryboard+David.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIStoryboard+David.swift"; sourceTree = "<group>"; };
 		145D19D42098774C00BE71D0 /* Profile.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Profile.storyboard; sourceTree = "<group>"; };
-		148F90FE209AAFF300308179 /* PreviewYoutbeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewYoutbeViewController.swift; sourceTree = "<group>"; };
+		148F90FE209AAFF300308179 /* PostArticleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostArticleViewController.swift; sourceTree = "<group>"; };
 		14DA419920A13F2F00A74254 /* travelTube-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "travelTube-Bridging-Header.h"; sourceTree = "<group>"; };
 		14DA419A20A13F3000A74254 /* SWRevealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWRevealViewController.m; sourceTree = "<group>"; };
 		14DA419B20A13F3000A74254 /* SWRevealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWRevealViewController.h; sourceTree = "<group>"; };
@@ -194,7 +194,7 @@
 			isa = PBXGroup;
 			children = (
 				14F7BD8E2099597C00DE78C9 /* SearchYoutubeViewController.swift */,
-				148F90FE209AAFF300308179 /* PreviewYoutbeViewController.swift */,
+				148F90FE209AAFF300308179 /* PostArticleViewController.swift */,
 			);
 			path = Post;
 			sourceTree = "<group>";
@@ -471,7 +471,7 @@
 				14F7BD992099AB7900DE78C9 /* YoutubeManager.swift in Sources */,
 				145D19D32098667D00BE71D0 /* UIStoryboard+David.swift in Sources */,
 				14F7BD9320995A7E00DE78C9 /* SearchViewController.swift in Sources */,
-				148F90FF209AAFF300308179 /* PreviewYoutbeViewController.swift in Sources */,
+				148F90FF209AAFF300308179 /* PostArticleViewController.swift in Sources */,
 				145D19CD2098647400BE71D0 /* TabBarViewController.swift in Sources */,
 				145D19C12098545900BE71D0 /* Keys.swift in Sources */,
 				145D19C720985A8E00BE71D0 /* YouTubeProvider.swift in Sources */,

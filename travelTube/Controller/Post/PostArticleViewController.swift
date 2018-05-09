@@ -1,5 +1,5 @@
 //
-//  PreviewYoutbeViewController.swift
+//  PostArticleViewController.swift
 //  travelTube
 //
 //  Created by 吳登秝 on 2018/5/3.
@@ -12,7 +12,7 @@ import KSTokenView
 import MapKit
 import FirebaseDatabase
 
-class PreviewYoutbeViewController: UIViewController {
+class PostArticleViewController: UIViewController {
 
     var youtube: Video?
     var storedTags = [String]()
@@ -128,7 +128,7 @@ class PreviewYoutbeViewController: UIViewController {
 
 }
 
-extension PreviewYoutbeViewController: UITableViewDelegate, UITableViewDataSource {
+extension PostArticleViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return annotations.count
     }
@@ -150,7 +150,7 @@ extension PreviewYoutbeViewController: UITableViewDelegate, UITableViewDataSourc
     }
 }
 
-extension PreviewYoutbeViewController: KSTokenViewDelegate {
+extension PostArticleViewController: KSTokenViewDelegate {
 
     func setupTokenView() {
         tokenView.delegate = self

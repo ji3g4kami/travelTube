@@ -94,7 +94,7 @@
         <!--Editing...-->
         <scene sceneID="pSS-Zu-43y">
             <objects>
-                <viewController title="Editing..." id="EOM-ZU-q0j" customClass="PreviewYoutbeViewController" customModule="travelTube" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Editing..." id="EOM-ZU-q0j" customClass="PostArticleViewController" customModule="travelTube" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ShV-xG-dAg">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="1000"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
