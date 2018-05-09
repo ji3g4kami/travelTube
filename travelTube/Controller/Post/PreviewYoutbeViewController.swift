@@ -81,7 +81,11 @@ class PreviewYoutbeViewController: UIViewController {
                 ] as [String: Any]
             markers.append(marker)
         }
-        let tags: [String] = tokenView.text.components(separatedBy: ", ")
+        var tags: [String] = tokenView.text.components(separatedBy: ", ")
+        var tag0 = Array(tags[0])
+        tag0.remove(at: 0)
+        tags[0] = String(tag0)
+
         let newArticleId = FirebaseManager.shared.ref.childByAutoId().key
         FirebaseManager.shared.ref.child("articles").child(newArticleId).setValue([
             "youtubeTitle": video.title,
