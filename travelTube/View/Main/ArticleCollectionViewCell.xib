@@ -19,22 +19,21 @@
                 <rect key="frame" x="0.0" y="0.0" width="244" height="163"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
-                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IzI-Em-U0m" customClass="YouTubePlayerView" customModule="YouTubePlayer">
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="gBb-Ye-jrd">
                         <rect key="frame" x="0.0" y="0.0" width="244" height="163"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                    </view>
+                    </imageView>
                 </subviews>
             </view>
             <constraints>
-                <constraint firstItem="IzI-Em-U0m" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="QB9-OE-iX6"/>
-                <constraint firstItem="IzI-Em-U0m" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="SMD-zO-J7z"/>
-                <constraint firstAttribute="bottom" secondItem="IzI-Em-U0m" secondAttribute="bottom" id="f3p-SV-d0w"/>
-                <constraint firstAttribute="trailing" secondItem="IzI-Em-U0m" secondAttribute="trailing" id="pai-vk-nI6"/>
+                <constraint firstItem="gBb-Ye-jrd" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="8Pf-ux-Gqk"/>
+                <constraint firstAttribute="trailing" secondItem="gBb-Ye-jrd" secondAttribute="trailing" id="8tG-BN-apy"/>
+                <constraint firstItem="gBb-Ye-jrd" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="DEV-fJ-gYl"/>
+                <constraint firstAttribute="bottom" secondItem="gBb-Ye-jrd" secondAttribute="bottom" id="zxv-sl-t23"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
             <size key="customSize" width="244" height="163"/>
             <connections>
-                <outlet property="videoPlayer" destination="IzI-Em-U0m" id="z09-CS-yTo"/>
+                <outlet property="youtubeImage" destination="gBb-Ye-jrd" id="wIB-Lh-4Ck"/>
             </connections>
             <point key="canvasLocation" x="132" y="110.5"/>
         </collectionViewCell>

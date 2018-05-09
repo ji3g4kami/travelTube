@@ -19,8 +19,6 @@ class VideosViewController: UIViewController, UITableViewDelegate, UITableViewDa
 
         catgoryTableView.estimatedRowHeight = 120
         catgoryTableView.tableFooterView = UIView()
-
-//        YoutubeProvider.getDetails(of: "R_QzFdQp4_4")
     }
 
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {

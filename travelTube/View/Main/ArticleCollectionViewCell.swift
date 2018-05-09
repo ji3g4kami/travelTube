@@ -11,8 +11,8 @@ import YouTubePlayer
 
 class ArticleCollectionViewCell: UICollectionViewCell {
 
-    @IBOutlet weak var videoPlayer: YouTubePlayerView!
-
+    @IBOutlet weak var youtubeImage: UIImageView!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

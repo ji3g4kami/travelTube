@@ -11,8 +11,6 @@ import UIKit
 class CategoryCell: UITableViewCell, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
 
     @IBOutlet weak var articleCollectionView: UICollectionView!
-    let taipeiVideo: [String] = ["R_QzFdQp4_4", "kPFQCpzLTME", "CRq3hOFqlgI"]
-    let taichungVideo: [String] = ["LKbQDq6Q9eI", "Xn8VB0CQFUw"]
 
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -30,16 +28,16 @@ class CategoryCell: UITableViewCell, UICollectionViewDelegate, UICollectionViewD
     }
 
     func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return 1
+        return 10
     }
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return taipeiVideo.count
+        return 1
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if let cell: ArticleCollectionViewCell = collectionView.dequeueReusableCell(withReuseIdentifier: "articleCell", for: indexPath) as? ArticleCollectionViewCell {
-            cell.videoPlayer.loadVideoID(taipeiVideo[indexPath.row])
+            cell.youtubeImage.image = #imageLiteral(resourceName: "youtube")
             return cell
         }
         return UICollectionViewCell()
