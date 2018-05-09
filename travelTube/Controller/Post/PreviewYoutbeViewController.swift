@@ -15,7 +15,7 @@ import FirebaseDatabase
 class PreviewYoutbeViewController: UIViewController {
 
     var youtube: Video?
-    let names: [String] = ["Taiwan", "Delicacy", "History"]
+    var storedTags = [String]()
     var annotations: [MKPointAnnotation] = []
 
     @IBOutlet weak var scrollView: UIScrollView!
@@ -32,11 +32,22 @@ class PreviewYoutbeViewController: UIViewController {
         if let youtubeId = youtube?.youtubeId {
             youtubePlayer.loadVideoID(youtubeId)
         }
+        queryTags()
         setupTokenView()
         annotationTableView.delegate = self
         annotationTableView.dataSource = self
         let xib = UINib(nibName: "AnnotationCell", bundle: nil)
         annotationTableView.register(xib, forCellReuseIdentifier: "AnnotationCell")
+    }
+
+    func queryTags() {
+        FirebaseManager.shared.ref.child("tages").observeSingleEvent(of: .value) { (snapshot) in
+            if let tagsDict = snapshot.value as? [String: AnyObject] {
+                for tag in tagsDict.keys {
+                    self.storedTags.append(tag)
+                }
+            }
+        }
     }
 
     @IBAction func addAnnotaion(_ sender: UIButton) {
@@ -143,12 +154,12 @@ extension PreviewYoutbeViewController: KSTokenViewDelegate {
 
     func tokenView(_ tokenView: KSTokenView, performSearchWithString string: String, completion: ((_ results: [AnyObject]) -> Void)?) {
         if string.isEmpty {
-            completion!(names as [AnyObject])
+            completion!(storedTags as [AnyObject])
             return
         }
 
         var data: [String] = []
-        for value: String in names {
+        for value: String in storedTags {
             if value.lowercased().range(of: string.lowercased()) != nil {
                 data.append(value)
             }
