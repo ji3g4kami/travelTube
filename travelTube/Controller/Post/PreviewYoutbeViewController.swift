@@ -86,12 +86,10 @@ class PreviewYoutbeViewController: UIViewController {
         tag0.remove(at: 0)
         tags[0] = String(tag0)
 
-        let newArticleId = FirebaseManager.shared.ref.childByAutoId().key
-        FirebaseManager.shared.ref.child("articles").child(newArticleId).setValue([
+        FirebaseManager.shared.ref.child("articles").child(video.youtubeId).setValue([
             "youtubeTitle": video.title,
             "youtubeImage": video.image,
             "youtubePublishDate": video.publishDate,
-            "youtubeId": video.youtubeId,
             "postTime": Date().timeIntervalSince1970,
             "uid": UserManager.shared.uid,
             "annotations": markers,
@@ -104,7 +102,7 @@ class PreviewYoutbeViewController: UIViewController {
             let ref = FirebaseManager.shared.ref.child("tages").child("\(tag)")
             // new tag
             if !storedTags.contains(tag) {
-                tempArticleIdArray.append(newArticleId)
+                tempArticleIdArray.append(video.youtubeId)
                 ref.setValue(tempArticleIdArray)
             } else {
                 ref.observeSingleEvent(of: .value, with: { (snapshot) in
@@ -113,7 +111,7 @@ class PreviewYoutbeViewController: UIViewController {
                             // swiftlint:disable force_cast
                             tempArticleIdArray.append(articleId as! String)
                         }
-                        tempArticleIdArray.append(newArticleId)
+                        tempArticleIdArray.append(video.youtubeId)
                         ref.setValue(tempArticleIdArray)
                     }
                 })
