@@ -97,7 +97,6 @@ class PostArticleViewController: UIViewController {
             "updateTime": Date().timeIntervalSince1970,
             "uid": UserManager.shared.uid,
             "annotations": markers,
-            "status": "post",
             "tag": tags
         ])
         // Making tags
