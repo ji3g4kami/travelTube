@@ -115,6 +115,9 @@ class PreviewYoutbeViewController: UIViewController {
                 })
             }
         }
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let videosVC = storyboard.instantiateViewController(withIdentifier: "TabBarViewController")
+        present(videosVC, animated: true, completion: nil)
     }
 
 }

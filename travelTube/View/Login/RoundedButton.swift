@@ -8,7 +8,7 @@
 
 import UIKit
 
-class GoogleLoginButton: UIButton {
+class RoundedButton: UIButton {
     override func awakeFromNib() {
         self.setupView()
     }

@@ -8,6 +8,7 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -195,9 +196,12 @@
                                                     <color key="titleColor" red="0.1215686275" green="0.12941176469999999" blue="0.14117647059999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 </state>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wVl-p9-Frp">
-                                                <rect key="frame" x="172" y="808" width="31" height="30"/>
-                                                <state key="normal" title="Post"/>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wVl-p9-Frp" customClass="RoundedButton" customModule="travelTube" customModuleProvider="target">
+                                                <rect key="frame" x="242.5" y="808" width="112.5" height="30"/>
+                                                <color key="backgroundColor" red="0.36078431372549019" green="0.72156862745098038" blue="0.36078431372549019" alpha="1" colorSpace="calibratedRGB"/>
+                                                <state key="normal" title="Post">
+                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
                                                 <connections>
                                                     <action selector="postArticle:" destination="EOM-ZU-q0j" eventType="touchUpInside" id="SBz-eq-h0S"/>
                                                 </connections>
@@ -208,7 +212,7 @@
                                             <constraint firstAttribute="trailing" secondItem="P0Z-cE-1CS" secondAttribute="trailing" constant="20" id="CQT-mY-fBw"/>
                                             <constraint firstAttribute="height" priority="250" constant="900" id="GMw-Qz-bc9"/>
                                             <constraint firstItem="DGu-U9-AXh" firstAttribute="top" secondItem="vR5-6k-kaO" secondAttribute="bottom" constant="10" id="Got-wg-bHT"/>
-                                            <constraint firstItem="wVl-p9-Frp" firstAttribute="centerX" secondItem="1EP-Ce-0Xu" secondAttribute="centerX" id="JOg-Bc-pmz"/>
+                                            <constraint firstItem="wVl-p9-Frp" firstAttribute="width" secondItem="1EP-Ce-0Xu" secondAttribute="width" multiplier="0.3" id="H5f-0K-pcm"/>
                                             <constraint firstItem="vR5-6k-kaO" firstAttribute="centerX" secondItem="1EP-Ce-0Xu" secondAttribute="centerX" id="RSA-tu-bgC"/>
                                             <constraint firstItem="Xez-KR-YWv" firstAttribute="top" secondItem="1EP-Ce-0Xu" secondAttribute="top" id="WVl-yJ-DyH"/>
                                             <constraint firstItem="yRk-GJ-wAe" firstAttribute="top" secondItem="P0Z-cE-1CS" secondAttribute="bottom" constant="20" id="WpO-Yy-3dv"/>
@@ -219,6 +223,7 @@
                                             <constraint firstItem="JhW-dH-0Oy" firstAttribute="centerX" secondItem="1EP-Ce-0Xu" secondAttribute="centerX" id="kz0-IH-TPd"/>
                                             <constraint firstItem="P0Z-cE-1CS" firstAttribute="top" secondItem="DGu-U9-AXh" secondAttribute="bottom" id="nfz-nE-2rz"/>
                                             <constraint firstAttribute="trailing" secondItem="DGu-U9-AXh" secondAttribute="trailing" constant="20" id="oAu-uL-Znv"/>
+                                            <constraint firstAttribute="trailing" secondItem="wVl-p9-Frp" secondAttribute="trailing" constant="20" id="oHm-jg-B4e"/>
                                             <constraint firstItem="JhW-dH-0Oy" firstAttribute="centerY" secondItem="DGu-U9-AXh" secondAttribute="centerY" id="plo-7s-kQL"/>
                                             <constraint firstItem="Xez-KR-YWv" firstAttribute="leading" secondItem="1EP-Ce-0Xu" secondAttribute="leading" constant="20" id="tAE-X8-f1x"/>
                                             <constraint firstAttribute="trailing" secondItem="Xez-KR-YWv" secondAttribute="trailing" constant="20" id="vVS-a1-8SC"/>
