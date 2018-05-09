@@ -94,7 +94,7 @@ class PostArticleViewController: UIViewController {
             "youtubeTitle": video.title,
             "youtubeImage": video.image,
             "youtubePublishDate": video.publishDate,
-            "postTime": Date().timeIntervalSince1970,
+            "updateTime": Date().timeIntervalSince1970,
             "uid": UserManager.shared.uid,
             "annotations": markers,
             "status": "post",
