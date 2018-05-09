@@ -67,6 +67,10 @@ class PreviewYoutbeViewController: UIViewController {
         self.navigationController?.setNavigationBarHidden(true, animated: false)
     }
 
+    @IBAction func discardArticle(_ sender: Any) {
+        navigationController?.popViewController(animated: true)
+    }
+
     @IBAction func postArticle(_ sender: Any) {
         guard let video = youtube else {
             print("failed unwrapping youtube")
