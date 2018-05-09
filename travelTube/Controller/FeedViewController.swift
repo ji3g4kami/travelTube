@@ -1,5 +1,5 @@
 //
-//  VideosViewController.swift
+//  FeedViewController.swift
 //  travelTube
 //
 //  Created by 吳登秝 on 2018/4/30.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class VideosViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class FeedViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
     @IBOutlet weak var catgoryTableView: UITableView!
 

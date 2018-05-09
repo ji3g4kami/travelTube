@@ -10,9 +10,9 @@ import UIKit
 
 extension UIStoryboard {
 
-    static func videosStoryboard() -> UIStoryboard {
+    static func feedStoryboard() -> UIStoryboard {
 
-        return UIStoryboard(name: "Videos", bundle: nil)
+        return UIStoryboard(name: "Feed", bundle: nil)
     }
 
     static func postStoryboard() -> UIStoryboard {

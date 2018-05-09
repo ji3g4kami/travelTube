@@ -10,10 +10,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Videos View Controller-->
+        <!--Feed-->
         <scene sceneID="5Ze-7g-pu6">
             <objects>
-                <viewController id="jeR-ZA-1qN" customClass="VideosViewController" customModule="travelTube" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="jeR-ZA-1qN" customClass="FeedViewController" customModule="travelTube" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="rg2-Yg-UHG">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -73,7 +73,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="QJA-vK-vhf"/>
                     </view>
-                    <navigationItem key="navigationItem" id="w0i-t1-Wbv"/>
+                    <navigationItem key="navigationItem" title="Feed" id="w0i-t1-Wbv"/>
                     <connections>
                         <outlet property="catgoryTableView" destination="cfC-HE-C4r" id="A40-Wz-ab3"/>
                     </connections>

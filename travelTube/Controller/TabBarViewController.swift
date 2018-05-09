@@ -10,7 +10,7 @@ import UIKit
 
 enum TabBar {
 
-    case videos
+    case feed
 
     case post
 
@@ -22,8 +22,8 @@ enum TabBar {
 
         switch self {
 
-        case .videos:
-            return UIStoryboard.videosStoryboard().instantiateInitialViewController()!
+        case .feed:
+            return UIStoryboard.feedStoryboard().instantiateInitialViewController()!
 
         case .search:
             return UIStoryboard.searchStoryboard().instantiateInitialViewController()!
@@ -40,7 +40,7 @@ enum TabBar {
 
         switch self {
 
-        case .videos:
+        case .feed:
             return #imageLiteral(resourceName: "youtube")
         case .post:
             return #imageLiteral(resourceName: "news")
@@ -54,8 +54,8 @@ enum TabBar {
     func title() -> String {
         switch self {
 
-        case .videos:
-            return "videos"
+        case .feed:
+            return "feed"
         case .search:
             return  "search"
         case .post:
@@ -69,7 +69,7 @@ enum TabBar {
 
         switch self {
 
-        case .videos:
+        case .feed:
             return #imageLiteral(resourceName: "youtube").withRenderingMode(.alwaysTemplate)
 
         case .post:
@@ -86,7 +86,7 @@ enum TabBar {
 
 class TabBarViewController: UITabBarController {
 
-    let tabs: [TabBar] = [.videos, .post, .search, .profile]
+    let tabs: [TabBar] = [.feed, .post, .search, .profile]
 
     override func viewDidLoad() {
         super.viewDidLoad()

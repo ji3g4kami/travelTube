@@ -27,12 +27,8 @@ class CategoryCell: UITableViewCell, UICollectionViewDelegate, UICollectionViewD
         // Configure the view for the selected state
     }
 
-    func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return 10
-    }
-
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 1
+        return 10
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {

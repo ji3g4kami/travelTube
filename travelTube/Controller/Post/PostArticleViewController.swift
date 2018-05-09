@@ -121,8 +121,8 @@ class PostArticleViewController: UIViewController {
             }
         }
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let videosVC = storyboard.instantiateViewController(withIdentifier: "TabBarViewController")
-        present(videosVC, animated: true, completion: nil)
+        let feedVC = storyboard.instantiateViewController(withIdentifier: "TabBarViewController")
+        present(feedVC, animated: true, completion: nil)
     }
 
 }
