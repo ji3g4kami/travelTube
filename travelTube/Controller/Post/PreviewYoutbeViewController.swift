@@ -98,17 +98,22 @@ class PreviewYoutbeViewController: UIViewController {
         for tag in tags {
             var tempArticleIdArray = [String]()
             let ref = FirebaseManager.shared.ref.child("tages").child("\(tag)")
-            ref.observeSingleEvent(of: .value, with: { (snapshot) in
-                if let value = snapshot.value as? NSArray {
-                    for articleId in value {
-                        // swiftlint:disable force_cast
-                        tempArticleIdArray.append(articleId as! String)
+            // new tag
+            if !storedTags.contains(tag) {
+                tempArticleIdArray.append(newArticleId)
+                ref.setValue(tempArticleIdArray)
+            } else {
+                ref.observeSingleEvent(of: .value, with: { (snapshot) in
+                    if let value = snapshot.value as? NSArray {
+                        for articleId in value {
+                            // swiftlint:disable force_cast
+                            tempArticleIdArray.append(articleId as! String)
+                        }
+                        tempArticleIdArray.append(newArticleId)
+                        ref.setValue(tempArticleIdArray)
                     }
-                    tempArticleIdArray.append(newArticleId)
-                    print("tempArticleIdArray", tempArticleIdArray)
-                    ref.setValue(tempArticleIdArray)
-                }
-            })
+                })
+            }
         }
     }
 
