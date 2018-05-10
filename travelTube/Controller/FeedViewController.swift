@@ -45,6 +45,9 @@ class FeedViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
 
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        if section == 0 {
+            return "New"
+        }
         return "Section Title \(section)"
     }
 
@@ -58,7 +61,7 @@ class FeedViewController: UIViewController, UITableViewDelegate, UITableViewData
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if let cell = catgoryTableView.dequeueReusableCell(withIdentifier: "categoryCell", for: indexPath) as? CategoryCell {
-            if indexPath.row == 0 {
+            if indexPath.section == 0 {
                 cell.articleArray = self.articleArray
                 cell.articleCollectionView.reloadData()
             }
