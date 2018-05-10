@@ -11,7 +11,7 @@ import UIKit
 class ArticleCollectionViewCell: UICollectionViewCell {
 
     @IBOutlet weak var youtubeImage: UIImageView!
-    
+
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

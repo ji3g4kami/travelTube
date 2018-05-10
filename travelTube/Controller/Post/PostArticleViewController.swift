@@ -68,7 +68,8 @@ class PostArticleViewController: UIViewController {
     }
 
     @IBAction func discardArticle(_ sender: Any) {
-        navigationController?.popViewController(animated: true)
+        navigationController?.popToRootViewController(animated: true)
+//        navigationController?.popViewController(animated: true)
     }
 
     @IBAction func postArticle(_ sender: Any) {
@@ -120,9 +121,6 @@ class PostArticleViewController: UIViewController {
                 })
             }
         }
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let feedVC = storyboard.instantiateViewController(withIdentifier: "TabBarViewController")
-        present(feedVC, animated: true, completion: nil)
     }
 
 }

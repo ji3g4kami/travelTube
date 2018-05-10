@@ -203,6 +203,7 @@
                                                 </state>
                                                 <connections>
                                                     <action selector="postArticle:" destination="EOM-ZU-q0j" eventType="touchUpInside" id="SBz-eq-h0S"/>
+                                                    <segue destination="C7a-x1-Y9u" kind="unwind" unwindAction="backToFeed:" id="HNM-w7-QC7"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1TS-gb-CqT" customClass="RoundedButton" customModule="travelTube" customModuleProvider="target">
@@ -273,6 +274,7 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KRP-MQ-pz0" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="C7a-x1-Y9u" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="1544.8" y="176.31184407796104"/>
         </scene>

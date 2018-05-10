@@ -23,6 +23,11 @@ class FeedViewController: UIViewController, UITableViewDelegate, UITableViewData
         getNewFeed()
     }
 
+    @IBAction func backToFeed(_ segue: UIStoryboardSegue) {
+        let postArticleVC = segue.source as? PostArticleViewController
+        postArticleVC?.navigationController?.popViewController(animated: false)
+    }
+
     func getNewFeed() {
         FirebaseManager.shared.ref.child("articles").observeSingleEvent(of: .value, with: { (snapshot) in
             print(snapshot)
