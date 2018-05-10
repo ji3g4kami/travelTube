@@ -92,6 +92,7 @@ class PostArticleViewController: UIViewController {
         tags[0] = String(tag0)
 
         FirebaseManager.shared.ref.child("articles").child(video.youtubeId).setValue([
+            "youtubeId": video.youtubeId,
             "youtubeTitle": video.title,
             "youtubeImage": video.image,
             "youtubePublishDate": video.publishDate,

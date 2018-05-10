@@ -12,6 +12,7 @@ import FirebaseDatabase
 class FeedViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
     @IBOutlet weak var catgoryTableView: UITableView!
+    var articleArray = [[String: Any]]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,13 +30,16 @@ class FeedViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
 
     func getNewFeed() {
-
+        articleArray.removeAll()
         FirebaseManager.shared.ref.child("articles").queryOrdered(byChild: "updateTime").queryStarting(atValue: 0).observe(.value) { (snapshot) in
             // swiftlint:disable force_cast
             for rest in snapshot.children.allObjects as! [DataSnapshot] {
                 if let restDict = rest.value as? [String: Any] {
-                    print(restDict)
+                    self.articleArray.append(restDict)
                 }
+            }
+            DispatchQueue.main.async {
+                self.catgoryTableView.reloadData()
             }
         }
     }
@@ -54,6 +58,10 @@ class FeedViewController: UIViewController, UITableViewDelegate, UITableViewData
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if let cell = catgoryTableView.dequeueReusableCell(withIdentifier: "categoryCell", for: indexPath) as? CategoryCell {
+            if indexPath.row == 0 {
+                cell.articleArray = self.articleArray
+                cell.articleCollectionView.reloadData()
+            }
             return cell
         }
         return UITableViewCell()

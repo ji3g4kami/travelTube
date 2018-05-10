@@ -7,10 +7,12 @@
 //
 
 import UIKit
+import SDWebImage
 
 class CategoryCell: UITableViewCell, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
 
     @IBOutlet weak var articleCollectionView: UICollectionView!
+    var articleArray = [[String: Any]]()
 
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -28,12 +30,13 @@ class CategoryCell: UITableViewCell, UICollectionViewDelegate, UICollectionViewD
     }
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 10
+        return articleArray.count
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if let cell: ArticleCollectionViewCell = collectionView.dequeueReusableCell(withReuseIdentifier: "articleCell", for: indexPath) as? ArticleCollectionViewCell {
-            cell.youtubeImage.image = #imageLiteral(resourceName: "youtube")
+            // swiftlint:disable force_cast
+            cell.youtubeImage.sd_setImage(with: URL(string: articleArray[indexPath.row]["youtubeImage"] as! String), placeholderImage: #imageLiteral(resourceName: "youtube"))
             return cell
         }
         return UICollectionViewCell()
