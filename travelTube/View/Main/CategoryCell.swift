@@ -43,8 +43,11 @@ class CategoryCell: UITableViewCell, UICollectionViewDelegate, UICollectionViewD
     }
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let size = CGSize(width: 150, height: 120)
-        return size
+        if indexPath.section == 0 {
+            return CGSize(width: 250, height: 200)
+        } else {
+            return CGSize(width: 150, height: 120)
+        }
     }
 
 }

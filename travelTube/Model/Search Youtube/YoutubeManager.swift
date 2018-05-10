@@ -27,7 +27,7 @@ class YoutubeManager {
             }
 
             for videoItem in page.items {
-                if let youtubeId = videoItem.video?.id, let title = videoItem.video?.snippet?.title, let image = videoItem.video?.snippet?.defaultImage.url.absoluteString, let publishDate = videoItem.video?.snippet?.publishDate.timeIntervalSince1970 {
+                if let youtubeId = videoItem.video?.id, let title = videoItem.video?.snippet?.title, let image = videoItem.video?.snippet?.highImage.url.absoluteString, let publishDate = videoItem.video?.snippet?.publishDate.timeIntervalSince1970 {
                     let video = Video(youtubeId: youtubeId, title: title, image: image, publishDate: publishDate)
                     self.videos.append(video)
                 }

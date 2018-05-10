@@ -33,6 +33,7 @@ class FeedViewController: UIViewController, UITableViewDelegate, UITableViewData
         articleArray.removeAll()
         FirebaseManager.shared.ref.child("articles").queryOrdered(byChild: "updateTime").queryStarting(atValue: 0).observe(.value) { (snapshot) in
             // swiftlint:disable force_cast
+            self.articleArray.removeAll()
             for rest in snapshot.children.allObjects as! [DataSnapshot] {
                 if let restDict = rest.value as? [String: Any] {
                     self.articleArray.append(restDict)
@@ -41,6 +42,20 @@ class FeedViewController: UIViewController, UITableViewDelegate, UITableViewData
             DispatchQueue.main.async {
                 self.catgoryTableView.reloadData()
             }
+        }
+    }
+
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        if section == 0 {
+            return 50.0
+        }
+        return 30.0
+    }
+
+    func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
+        let header = view as! UITableViewHeaderFooterView
+        if section == 0 {
+            header.textLabel?.font = UIFont(name: "Futura", size: 40)
         }
     }
 
@@ -62,12 +77,20 @@ class FeedViewController: UIViewController, UITableViewDelegate, UITableViewData
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if let cell = catgoryTableView.dequeueReusableCell(withIdentifier: "categoryCell", for: indexPath) as? CategoryCell {
             if indexPath.section == 0 {
-                cell.articleArray = self.articleArray
+                cell.articleArray.removeAll()
+                cell.articleArray = self.articleArray.reversed()
                 cell.articleCollectionView.reloadData()
             }
             return cell
         }
         return UITableViewCell()
+    }
+
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        if indexPath.section == 0 {
+            return 200
+        }
+        return 120
     }
 
 }
