@@ -19,6 +19,14 @@ class FeedViewController: UIViewController, UITableViewDelegate, UITableViewData
 
         catgoryTableView.estimatedRowHeight = 120
         catgoryTableView.tableFooterView = UIView()
+
+        getNewFeed()
+    }
+
+    func getNewFeed() {
+        FirebaseManager.shared.ref.child("articles").observeSingleEvent(of: .value, with: { (snapshot) in
+            print(snapshot)
+        })
     }
 
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
