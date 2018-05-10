@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import FirebaseDatabase
 
 class FeedViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
@@ -16,7 +17,6 @@ class FeedViewController: UIViewController, UITableViewDelegate, UITableViewData
         super.viewDidLoad()
         catgoryTableView.delegate = self
         catgoryTableView.dataSource = self
-
         catgoryTableView.estimatedRowHeight = 120
         catgoryTableView.tableFooterView = UIView()
 
@@ -29,9 +29,15 @@ class FeedViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
 
     func getNewFeed() {
-        FirebaseManager.shared.ref.child("articles").observeSingleEvent(of: .value, with: { (snapshot) in
-            print(snapshot)
-        })
+
+        FirebaseManager.shared.ref.child("articles").queryOrdered(byChild: "updateTime").queryStarting(atValue: 0).observe(.value) { (snapshot) in
+            // swiftlint:disable force_cast
+            for rest in snapshot.children.allObjects as! [DataSnapshot] {
+                if let restDict = rest.value as? [String: Any] {
+                    print(restDict)
+                }
+            }
+        }
     }
 
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
