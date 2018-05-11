@@ -77,7 +77,16 @@ DEPENDENCIES:
   - SDWebImage
   - SwiftLint
   - YoutubeEngine
-  - YouTubePlayer
+  - YouTubePlayer (from `https://github.com/boompieman/Swift-YouTube-Player.git`)
+
+EXTERNAL SOURCES:
+  YouTubePlayer:
+    :git: https://github.com/boompieman/Swift-YouTube-Player.git
+
+CHECKOUT OPTIONS:
+  YouTubePlayer:
+    :commit: d8d5af152fe1dd57eee4b0d7ed6f051d3deb78bb
+    :git: https://github.com/boompieman/Swift-YouTube-Player.git
 
 SPEC CHECKSUMS:
   Alamofire: e4fa87002c137ba2d8d634d2c51fabcda0d5c223
@@ -101,8 +110,8 @@ SPEC CHECKSUMS:
   SwiftLint: ce933681be10c3266e82576dad676fa815a602e9
   SwiftyJSON: c2842d878f95482ffceec5709abc3d05680c0220
   YoutubeEngine: a4d3b460c6f1415ddcbfc18afb094a8f113282c7
-  YouTubePlayer: 028451f6772f372d4759866db99824c676ac1473
+  YouTubePlayer: b6b44df6bb613dbb6e82f8130ed468f7e04cc1e5
 
-PODFILE CHECKSUM: ca485da5566374ec92bdad375f51332ba04f37d0
+PODFILE CHECKSUM: 32193d88c4d9959fac0f52d642d60b4cd76dadc5
 
 COCOAPODS: 1.4.0

@@ -6,7 +6,7 @@ target 'travelTube' do
   use_frameworks!
 
   # Pods for travelTube
-  pod 'YouTubePlayer'
+  pod 'YouTubePlayer', :git => 'https://github.com/boompieman/Swift-YouTube-Player.git'
   pod 'YoutubeEngine'
   pod 'SwiftLint'
   pod 'Firebase/Core'
