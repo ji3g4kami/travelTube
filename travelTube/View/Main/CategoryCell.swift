@@ -49,12 +49,12 @@ class CategoryCell: UITableViewCell, UICollectionViewDelegate, UICollectionViewD
     }
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return articleIdArray.count
+        return articleImageArray.count
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if let cell: ArticleCollectionViewCell = collectionView.dequeueReusableCell(withReuseIdentifier: "articleCell", for: indexPath) as? ArticleCollectionViewCell {
-            cell.youtubeImage.sd_setImage(with: URL(string: "https://i.ytimg.com/vi/4hixBsBy48I/hqdefault.jpg"), placeholderImage: #imageLiteral(resourceName: "youtube"))
+            cell.youtubeImage.sd_setImage(with: URL(string: articleImageArray[indexPath.row]), placeholderImage: #imageLiteral(resourceName: "youtube"))
             return cell
         }
         return UICollectionViewCell()
