@@ -12,7 +12,6 @@ import FirebaseDatabase
 class FeedViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
     @IBOutlet weak var catgoryTableView: UITableView!
-    var articleArray = [[String: Any]]()
     var tagsArray = [[String: [String]]]()
 
     override func viewDidLoad() {
@@ -22,29 +21,12 @@ class FeedViewController: UIViewController, UITableViewDelegate, UITableViewData
         catgoryTableView.estimatedRowHeight = 120
         catgoryTableView.tableFooterView = UIView()
 
-        getNewFeed()
         getTagsArray()
     }
 
     @IBAction func backToFeed(_ segue: UIStoryboardSegue) {
         let postArticleVC = segue.source as? PostArticleViewController
         postArticleVC?.navigationController?.popViewController(animated: false)
-    }
-
-    func getNewFeed() {
-        articleArray.removeAll()
-        FirebaseManager.shared.ref.child("articles").queryOrdered(byChild: "updateTime").queryStarting(atValue: 0).observe(.value) { (snapshot) in
-            // swiftlint:disable force_cast
-            self.articleArray.removeAll()
-            for rest in snapshot.children.allObjects as! [DataSnapshot] {
-                if let restDict = rest.value as? [String: Any] {
-                    self.articleArray.append(restDict)
-                }
-            }
-            DispatchQueue.main.async {
-                self.catgoryTableView.reloadData()
-            }
-        }
     }
 
     func getTagsArray() {
@@ -92,11 +74,6 @@ class FeedViewController: UIViewController, UITableViewDelegate, UITableViewData
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if let cell = catgoryTableView.dequeueReusableCell(withIdentifier: "categoryCell", for: indexPath) as? CategoryCell {
-            if indexPath.section == 0 {
-                cell.articleArray.removeAll()
-                cell.articleArray = self.articleArray.reversed()
-                cell.articleCollectionView.reloadData()
-            }
             return cell
         }
         return UITableViewCell()
