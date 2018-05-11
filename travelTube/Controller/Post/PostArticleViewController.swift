@@ -41,7 +41,7 @@ class PostArticleViewController: UIViewController {
     }
 
     func queryTags() {
-        FirebaseManager.shared.ref.child("tages").observeSingleEvent(of: .value) { (snapshot) in
+        FirebaseManager.shared.ref.child("tags").observeSingleEvent(of: .value) { (snapshot) in
             if let tagsDict = snapshot.value as? [String: AnyObject] {
                 for tag in tagsDict.keys {
                     self.storedTags.append(tag)
@@ -104,7 +104,7 @@ class PostArticleViewController: UIViewController {
         // Making tags
         for tag in tags {
             var tempArticleIdArray = [String]()
-            let ref = FirebaseManager.shared.ref.child("tages").child("\(tag)")
+            let ref = FirebaseManager.shared.ref.child("tags").child("\(tag)")
             // new tag
             if !storedTags.contains(tag) {
                 tempArticleIdArray.append(video.youtubeId)

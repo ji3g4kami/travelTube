@@ -13,6 +13,7 @@ class FeedViewController: UIViewController, UITableViewDelegate, UITableViewData
 
     @IBOutlet weak var catgoryTableView: UITableView!
     var articleArray = [[String: Any]]()
+    var tagsArray = [[String: [String]]]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,6 +23,7 @@ class FeedViewController: UIViewController, UITableViewDelegate, UITableViewData
         catgoryTableView.tableFooterView = UIView()
 
         getNewFeed()
+        getTagsArray()
     }
 
     @IBAction func backToFeed(_ segue: UIStoryboardSegue) {
@@ -37,6 +39,22 @@ class FeedViewController: UIViewController, UITableViewDelegate, UITableViewData
             for rest in snapshot.children.allObjects as! [DataSnapshot] {
                 if let restDict = rest.value as? [String: Any] {
                     self.articleArray.append(restDict)
+                }
+            }
+            DispatchQueue.main.async {
+                self.catgoryTableView.reloadData()
+            }
+        }
+    }
+
+    func getTagsArray() {
+        FirebaseManager.shared.ref.child("tags").observe(.value) { (snapshot) in
+            self.tagsArray.removeAll()
+            // swiftlint:disable force_cast
+            for child in snapshot.children.allObjects as! [DataSnapshot] {
+                if let value = child.value as? [String] {
+                    let tagDict = [child.key: value]
+                    self.tagsArray.append(tagDict)
                 }
             }
             DispatchQueue.main.async {
@@ -63,11 +81,12 @@ class FeedViewController: UIViewController, UITableViewDelegate, UITableViewData
         if section == 0 {
             return "New"
         }
-        return "Section Title \(section)"
+        let tagName = Array(tagsArray[section-1].keys)
+        return tagName[0]
     }
 
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 3
+        return tagsArray.count + 1
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
