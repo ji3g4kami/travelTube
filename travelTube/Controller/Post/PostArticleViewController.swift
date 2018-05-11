@@ -86,10 +86,16 @@ class PostArticleViewController: UIViewController {
                 ] as [String: Any]
             markers.append(marker)
         }
+
         var tags: [String] = tokenView.text.components(separatedBy: ", ")
-        var tag0 = Array(tags[0])
-        tag0.remove(at: 0)
-        tags[0] = String(tag0)
+        if tags[0].count < 2 {
+            tags.removeAll()
+        } else {
+            var tag0 = Array(tags[0])
+            tag0.remove(at: 0)
+            tags[0] = String(tag0)
+        }
+        tags.append("New")
 
         FirebaseManager.shared.ref.child("articles").child(video.youtubeId).setValue([
             "youtubeId": video.youtubeId,
@@ -165,13 +171,14 @@ extension PostArticleViewController: KSTokenViewDelegate {
     }
 
     func tokenView(_ tokenView: KSTokenView, performSearchWithString string: String, completion: ((_ results: [AnyObject]) -> Void)?) {
+
         if string.isEmpty {
-            completion!(storedTags as [AnyObject])
+            completion!(storedTags.filter({ $0 != "New" }) as [AnyObject])
             return
         }
 
         var data: [String] = []
-        for value: String in storedTags {
+        for value: String in storedTags.filter({ $0 != "New" }) {
             if value.lowercased().range(of: string.lowercased()) != nil {
                 data.append(value)
             }
