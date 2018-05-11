@@ -78,15 +78,12 @@ class FeedViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
 
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        if section == 0 {
-            return "New"
-        }
-        let tagName = Array(tagsArray[section-1].keys)
+        let tagName = Array(tagsArray[section].keys)
         return tagName[0]
     }
 
     func numberOfSections(in tableView: UITableView) -> Int {
-        return tagsArray.count + 1
+        return tagsArray.count
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
