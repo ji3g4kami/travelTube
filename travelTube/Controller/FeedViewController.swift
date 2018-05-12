@@ -77,6 +77,7 @@ class FeedViewController: UIViewController, UITableViewDelegate, UITableViewData
             cell.articleIdArray = articleIdArray
             cell.requstArticleData()
 //            NotificationCenter.default.post(name: NSNotification.Name(rawValue: "Have AricleIds from FeedVC"), object: nil)
+            print("CategoryCell Size: ", cell.frame.size)
             return cell
         }
         return UITableViewCell()

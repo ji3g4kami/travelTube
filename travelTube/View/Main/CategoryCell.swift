@@ -55,17 +55,14 @@ class CategoryCell: UITableViewCell, UICollectionViewDelegate, UICollectionViewD
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if let cell: ArticleCollectionViewCell = collectionView.dequeueReusableCell(withReuseIdentifier: "articleCell", for: indexPath) as? ArticleCollectionViewCell {
             cell.youtubeImage.sd_setImage(with: URL(string: articleImageArray[indexPath.row]), placeholderImage: #imageLiteral(resourceName: "youtube"))
+            print("ArticleCell Size: ", cell.frame.size)
             return cell
         }
         return UICollectionViewCell()
     }
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        if indexPath.section == 0 {
-            return CGSize(width: 250, height: 200)
-        } else {
-            return CGSize(width: 150, height: 120)
-        }
+        return CGSize(width: collectionView.frame.height*5/4, height: collectionView.frame.height)
     }
 
 }
