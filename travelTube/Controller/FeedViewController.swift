@@ -74,7 +74,7 @@ class FeedViewController: UIViewController, UITableViewDelegate, UITableViewData
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if let cell = catgoryTableView.dequeueReusableCell(withIdentifier: "categoryCell", for: indexPath) as? CategoryCell {
             let articleIdArray = Array(tagsArray[indexPath.section].values)[0]
-            cell.articleIdArray = articleIdArray
+            cell.articleIdArray = articleIdArray.reversed()
             cell.requstArticleData()
 //            NotificationCenter.default.post(name: NSNotification.Name(rawValue: "Have AricleIds from FeedVC"), object: nil)
             return cell
