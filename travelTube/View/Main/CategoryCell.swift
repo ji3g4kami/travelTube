@@ -30,7 +30,6 @@ class CategoryCell: UITableViewCell, UICollectionViewDelegate, UICollectionViewD
     func requstArticleData() {
         articleImageArray.removeAll()
         for articleId in articleIdArray {
-            print(articleId)
             FirebaseManager.shared.ref.child("articles").child(articleId).child("youtubeImage").observeSingleEvent(of: .value) { (snapshot) in
                 if let url = snapshot.value as? String {
                     self.articleImageArray.append(url)
@@ -55,7 +54,7 @@ class CategoryCell: UITableViewCell, UICollectionViewDelegate, UICollectionViewD
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if let cell: ArticleCollectionViewCell = collectionView.dequeueReusableCell(withReuseIdentifier: "articleCell", for: indexPath) as? ArticleCollectionViewCell {
             cell.youtubeImage.sd_setImage(with: URL(string: articleImageArray[indexPath.row]), placeholderImage: #imageLiteral(resourceName: "youtube"))
-            print("ArticleCell Size: ", cell.frame.size)
+            cell.layer.cornerRadius = cell.layer.frame.height*0.1
             return cell
         }
         return UICollectionViewCell()
