@@ -10,6 +10,7 @@ target 'travelTube' do
   pod 'YoutubeEngine'
   pod 'SwiftLint'
   pod 'Firebase/Core'
+  pod 'Firebase/Invites'
   pod 'Alamofire'
   pod 'SDWebImage'
   pod 'KSTokenView'

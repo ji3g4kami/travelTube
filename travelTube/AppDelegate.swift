@@ -44,6 +44,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
             return GIDSignIn.sharedInstance().handle(url, sourceApplication: options[UIApplicationOpenURLOptionsKey.sourceApplication] as? String, annotation: [:])
     }
 
+    func application(_ application: UIApplication,
+                     open url: URL, sourceApplication: String?, annotation: Any) -> Bool {
+        if GIDSignIn.sharedInstance().handle(url, sourceApplication: sourceApplication, annotation: annotation) {
+            return true
+        }
+        
+        return Invites.handleUniversalLink(url) { invite, error in
+            if let err = error {
+                print(err)
+            }
+        }
+    }
+
     func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!, withError error: Error!) {
         if let error = error {
             print(error)

@@ -65,11 +65,26 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ah5-Jy-jYL">
-                                <rect key="frame" x="295" y="109" width="48" height="30"/>
-                                <state key="normal" title="Logout"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ah5-Jy-jYL" customClass="RoundedButton" customModule="travelTube" customModuleProvider="target">
+                                <rect key="frame" x="252" y="109" width="91" height="36"/>
+                                <inset key="contentEdgeInsets" minX="10" minY="6" maxX="0.0" maxY="6"/>
+                                <inset key="imageEdgeInsets" minX="-8" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                <state key="normal" title="Logout" image="btn_logout">
+                                    <color key="titleColor" red="0.1215686275" green="0.12941176469999999" blue="0.14117647059999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
                                 <connections>
                                     <action selector="logoutPressed:" destination="Aqn-cw-0B4" eventType="touchUpInside" id="bgH-o8-23s"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UFA-jN-zFz" customClass="RoundedButton" customModule="travelTube" customModuleProvider="target">
+                                <rect key="frame" x="283" y="195" width="54" height="34"/>
+                                <inset key="contentEdgeInsets" minX="10" minY="6" maxX="0.0" maxY="6"/>
+                                <inset key="imageEdgeInsets" minX="-8" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                <state key="normal" title="Invite">
+                                    <color key="titleColor" red="0.1215686275" green="0.12941176469999999" blue="0.14117647059999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="inviteTapped:" destination="Aqn-cw-0B4" eventType="touchUpInside" id="vws-HZ-YSJ"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -77,6 +92,8 @@
                         <constraints>
                             <constraint firstItem="ob5-HC-MFv" firstAttribute="trailing" secondItem="ah5-Jy-jYL" secondAttribute="trailing" constant="32" id="OvJ-4I-uyA"/>
                             <constraint firstItem="ah5-Jy-jYL" firstAttribute="top" secondItem="ob5-HC-MFv" secondAttribute="top" constant="89" id="ief-gu-Fyr"/>
+                            <constraint firstItem="UFA-jN-zFz" firstAttribute="top" secondItem="ah5-Jy-jYL" secondAttribute="bottom" constant="50" id="j6m-yL-0SW"/>
+                            <constraint firstItem="ob5-HC-MFv" firstAttribute="trailing" secondItem="UFA-jN-zFz" secondAttribute="trailing" constant="38" id="jBx-GU-CL8"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="ob5-HC-MFv"/>
                     </view>
@@ -105,6 +122,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="btn_logout" width="24" height="24"/>
         <image name="menu" width="25" height="25"/>
     </resources>
 </document>
