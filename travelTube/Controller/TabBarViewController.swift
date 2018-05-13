@@ -86,10 +86,15 @@ enum TabBar {
 
 class TabBarViewController: UITabBarController {
 
-    let tabs: [TabBar] = [.feed, .post, .search, .profile]
+    var tabs: [TabBar] = [.feed, .post, .search, .profile]
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        if UserManager.shared.isLoggedIn == "anonymous" {
+            tabs = [.feed, .search, .profile]
+        } else {
+            tabs = [.feed, .post, .search, .profile]
+        }
         setupTab()
     }
 
