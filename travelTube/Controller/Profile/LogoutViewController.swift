@@ -33,7 +33,7 @@ class LogoutViewController: UIViewController, InviteDelegate {
             let alert = UIAlertController(title: "Please Sign In", message: "You can only invite when signed in with Google", preferredStyle: .alert)
             let cancelAction = UIAlertAction(title: "Cancel", style: .default, handler: nil)
             alert.addAction(cancelAction)
-            let signInAction = UIAlertAction(title: "SignIn", style: .cancel, handler: { (action) -> Void in
+            let signInAction = UIAlertAction(title: "SignIn", style: .cancel, handler: { (_) -> Void in
                 AuthManager.shared.logout {
                     // get a reference to the app delegate
                     let appDelegate: AppDelegate? = UIApplication.shared.delegate as? AppDelegate

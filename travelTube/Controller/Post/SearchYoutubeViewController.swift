@@ -15,7 +15,7 @@ class SearchYoutubeViewController: UIViewController {
     @IBOutlet weak var videoTableView: UITableView!
 
     var youtubeArray = [Video]()
-
+    var nextPageToken: String?
     var youtubeManager = YoutubeManager()
 
     override func viewDidLoad() {
@@ -32,17 +32,17 @@ class SearchYoutubeViewController: UIViewController {
 }
 
 extension SearchYoutubeViewController: YoutubeManagerDelegate {
-    func manager(_ manager: YoutubeManager, didGet videos: [Video], _ paging: Int?) {
-        youtubeArray.removeAll()
-        youtubeArray = videos
+    func manager(_ manager: YoutubeManager, didGet videos: [Video], _ paging: String?) {
+        nextPageToken = paging
+        youtubeArray += videos
         self.videoTableView.reloadData()
     }
 }
 
 extension SearchYoutubeViewController: UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        youtubeArray.removeAll()
         youtubeManager.searchYouTube(of: searchText)
-        videoTableView.reloadData()
     }
 }
 
@@ -56,6 +56,12 @@ extension SearchYoutubeViewController: UITableViewDelegate, UITableViewDataSourc
         cell.titleLabel.text = youtubeArray[indexPath.row].title
         cell.videoCoverImage.sd_setImage(with: URL(string: youtubeArray[indexPath.row].image), placeholderImage: #imageLiteral(resourceName: "youtube"))
         return cell
+    }
+
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        if indexPath.row == youtubeArray.count-1 {
+            youtubeManager.continueSearch(pageToken: nextPageToken)
+        }
     }
 
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
