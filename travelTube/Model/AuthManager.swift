@@ -22,14 +22,14 @@ public class AuthManager {
                 FirebaseManager.shared.ref.child("users").child(UserManager.shared.uid).setValue(["userName": userName, "userEmail": userEmail])
             }
             if auth.currentUser != nil {
-                UserManager.shared.isLoggedIn = true
-                print("Logged In")
+                UserManager.shared.isLoggedIn = "gmail"
+                print("Logged In with Gmail")
                 completion()
             }
         }
     }
 
-    func signInAnonymously(from viewController: UIViewController ,completion: @escaping () -> Void) {
+    func signInAnonymously(from viewController: UIViewController, completion: @escaping () -> Void) {
         Auth.auth().signInAnonymously { (user, error) in
             if let err = error {
                 let alert = UIAlertController(title: "Sign In Error", message: err.localizedDescription, preferredStyle: .alert)
@@ -39,7 +39,7 @@ public class AuthManager {
             }
             if let user = user {
                 if user.isAnonymous {
-                    UserManager.shared.isLoggedIn = true
+                    UserManager.shared.isLoggedIn = "anonymous"
                     print("Anonymous Logged In")
                     completion()
                 }
@@ -52,7 +52,7 @@ public class AuthManager {
         let firebaseAuth = Auth.auth()
         do {
             try firebaseAuth.signOut()
-            UserManager.shared.isLoggedIn = false
+            UserManager.shared.isLoggedIn = "out"
             print("Logged Out")
             completion()
         } catch let signOutError as NSError {

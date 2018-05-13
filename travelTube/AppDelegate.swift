@@ -22,9 +22,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
         GIDSignIn.sharedInstance().delegate = self
         IQKeyboardManager.shared.enable = true
 
-        if !UserManager.shared.isLoggedIn {
+        switch UserManager.shared.isLoggedIn {
+        case "out":
             toLoginPage()
+        default:
+            print("LoggedIn with \(UserManager.shared.isLoggedIn)")
         }
+
         return true
     }
 

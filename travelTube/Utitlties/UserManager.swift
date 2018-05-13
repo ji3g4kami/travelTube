@@ -15,9 +15,16 @@ public class UserManager {
 
     let defaults = UserDefaults.standard
 
-    var isLoggedIn: Bool {
+    enum UserLogInStatus: String {
+        case gmail
+        case anonymous
+        case out
+    }
+
+    var isLoggedIn: String {
         get {
-            return defaults.bool(forKey: "LoggedIn")
+            // swiftlint:disable force_cast
+            return defaults.value(forKey: "LoggedIn") as! String
         }
         set {
             defaults.set(newValue, forKey: "LoggedIn")
