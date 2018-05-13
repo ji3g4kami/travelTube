@@ -97,6 +97,9 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="ob5-HC-MFv"/>
                     </view>
+                    <connections>
+                        <outlet property="inviteButton" destination="UFA-jN-zFz" id="b45-02-Z0J"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AHl-hO-F7P" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

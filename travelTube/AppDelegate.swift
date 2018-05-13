@@ -49,8 +49,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
         if GIDSignIn.sharedInstance().handle(url, sourceApplication: sourceApplication, annotation: annotation) {
             return true
         }
-        
-        return Invites.handleUniversalLink(url) { invite, error in
+
+        return Invites.handleUniversalLink(url) { _, error in
             if let err = error {
                 print(err)
             }
