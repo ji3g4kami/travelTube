@@ -21,4 +21,10 @@ class LoginViewController: UIViewController, GIDSignInUIDelegate {
             self.performSegue(withIdentifier: "toMain", sender: nil)
         }
     }
+
+    @IBAction func readOnlyLogin(_ sender: UIButton) {
+        AuthManager.shared.signInAnonymously(from: self) {
+            self.performSegue(withIdentifier: "toMain", sender: nil)
+        }
+    }
 }
