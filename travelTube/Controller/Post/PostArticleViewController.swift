@@ -19,7 +19,7 @@ class PostArticleViewController: UIViewController {
     var storedTags = [String]()
     var annotations: [MKPointAnnotation] = []
 
-    @IBOutlet weak var scrollView: UIScrollView!
+    @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var youtubePlayer: YouTubePlayerView!
     @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var tokenView: KSTokenView!
@@ -33,12 +33,12 @@ class PostArticleViewController: UIViewController {
         if let youtubeId = youtube?.youtubeId {
             youtubePlayer.loadVideoID(youtubeId)
         }
-        queryTags()
-        setupTokenView()
-        annotationTableView.delegate = self
-        annotationTableView.dataSource = self
-        let xib = UINib(nibName: "AnnotationCell", bundle: nil)
-        annotationTableView.register(xib, forCellReuseIdentifier: "AnnotationCell")
+//        queryTags()
+//        setupTokenView()
+//        annotationTableView.delegate = self
+//        annotationTableView.dataSource = self
+//        let xib = UINib(nibName: "AnnotationCell", bundle: nil)
+//        annotationTableView.register(xib, forCellReuseIdentifier: "AnnotationCell")
     }
 
     func queryTags() {
@@ -67,7 +67,7 @@ class PostArticleViewController: UIViewController {
         super.viewWillAppear(animated)
 
         if let navigationController = self.navigationController as? ScrollingNavigationController {
-            navigationController.followScrollView(scrollView, delay: 50.0)
+            navigationController.followScrollView(tableView, delay: 50.0)
         }
     }
 
