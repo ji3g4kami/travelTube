@@ -9,6 +9,7 @@
 import Firebase
 import FirebaseDatabase
 import GoogleSignIn
+import SKActivityIndicatorView
 
 public class AuthManager {
 
@@ -16,6 +17,7 @@ public class AuthManager {
 
     func login(completion: @escaping () -> Void) {
         GIDSignIn.sharedInstance().signIn()
+        SKActivityIndicator.show("Loading...")
         Auth.auth().addStateDidChangeListener { (auth, user) in
             if let uid = user?.uid, let userEmail = user?.email, let userName = user?.displayName {
                 UserManager.shared.uid = uid
@@ -26,6 +28,7 @@ public class AuthManager {
                 print("Logged In with Gmail")
                 completion()
             }
+            SKActivityIndicator.dismiss()
         }
     }
 
