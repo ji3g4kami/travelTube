@@ -50,6 +50,10 @@ class PostArticleViewController: UIViewController {
         }
     }
 
+    @IBAction func backToSearch(_ sender: Any) {
+        navigationController?.popViewController(animated: true)
+    }
+
     @IBAction func addAnnotaion(_ sender: UIButton) {
         let annotation = MKPointAnnotation()
         let centerCoordinate = mapView.centerCoordinate
