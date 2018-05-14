@@ -8,6 +8,7 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -116,10 +117,7 @@
                                             </constraints>
                                         </view>
                                         <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="wMT-2e-nym">
-                                            <rect key="frame" x="0.0" y="281" width="375" height="225"/>
-                                            <constraints>
-                                                <constraint firstAttribute="width" secondItem="wMT-2e-nym" secondAttribute="height" multiplier="15:9" id="GUu-OD-mvq"/>
-                                            </constraints>
+                                            <rect key="frame" x="0.0" y="285" width="375" height="224"/>
                                         </mapView>
                                         <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="xBS-IG-TIN">
                                             <rect key="frame" x="0.0" y="231" width="375" height="56"/>
@@ -129,10 +127,11 @@
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <constraints>
                                         <constraint firstAttribute="trailing" secondItem="eze-Qi-SY9" secondAttribute="trailing" id="2o3-Qv-zBz"/>
+                                        <constraint firstItem="wMT-2e-nym" firstAttribute="height" secondItem="xBS-IG-TIN" secondAttribute="height" multiplier="4" id="AYP-Cl-buo"/>
                                         <constraint firstAttribute="trailing" secondItem="xBS-IG-TIN" secondAttribute="trailing" id="NNJ-2Y-UNp"/>
                                         <constraint firstItem="xBS-IG-TIN" firstAttribute="top" secondItem="eze-Qi-SY9" secondAttribute="bottom" constant="20" id="QPr-tV-Hoc"/>
                                         <constraint firstItem="wMT-2e-nym" firstAttribute="leading" secondItem="f1q-WC-jiU" secondAttribute="leading" id="SPD-WN-pnh"/>
-                                        <constraint firstItem="wMT-2e-nym" firstAttribute="top" secondItem="xBS-IG-TIN" secondAttribute="bottom" constant="-6" id="gbX-TW-3z3"/>
+                                        <constraint firstItem="wMT-2e-nym" firstAttribute="top" secondItem="xBS-IG-TIN" secondAttribute="bottom" constant="-2" id="gbX-TW-3z3"/>
                                         <constraint firstItem="eze-Qi-SY9" firstAttribute="leading" secondItem="f1q-WC-jiU" secondAttribute="leading" id="hzR-Ca-ldb"/>
                                         <constraint firstAttribute="trailing" secondItem="wMT-2e-nym" secondAttribute="trailing" id="mcV-UD-IyQ"/>
                                         <constraint firstItem="eze-Qi-SY9" firstAttribute="top" secondItem="f1q-WC-jiU" secondAttribute="top" id="p4j-8J-w5l"/>
