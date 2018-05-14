@@ -117,15 +117,15 @@
                                             </constraints>
                                         </view>
                                         <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="wMT-2e-nym">
-                                            <rect key="frame" x="0.0" y="265" width="375" height="224"/>
+                                            <rect key="frame" x="0.0" y="266.5" width="375" height="230.5"/>
                                         </mapView>
                                         <searchBar contentMode="redraw" placeholder="Location name" translatesAutoresizingMaskIntoConstraints="NO" id="xBS-IG-TIN">
-                                            <rect key="frame" x="0.0" y="211" width="305" height="56"/>
+                                            <rect key="frame" x="0.0" y="211" width="305" height="57.5"/>
                                             <color key="backgroundColor" red="0.16078431369999999" green="0.16862745100000001" blue="0.80894639759999998" alpha="1" colorSpace="calibratedRGB"/>
                                             <textInputTraits key="textInputTraits"/>
                                         </searchBar>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5Fn-7B-F2a">
-                                            <rect key="frame" x="305" y="211" width="70" height="56"/>
+                                            <rect key="frame" x="305" y="211" width="70" height="57.5"/>
                                             <color key="backgroundColor" red="0.75686274509803919" green="0.76078431372549016" blue="0.80000000000000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="70" id="lQv-BE-Mmr"/>
@@ -140,7 +140,7 @@
                                             </connections>
                                         </button>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yg1-06-ShJ">
-                                            <rect key="frame" x="172.5" y="362" width="30" height="30"/>
+                                            <rect key="frame" x="172.5" y="367" width="30" height="30"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="30" id="05q-Pc-PZO"/>
                                                 <constraint firstAttribute="width" constant="30" id="NyG-Dn-RA7"/>
@@ -161,6 +161,7 @@
                                         <constraint firstItem="xBS-IG-TIN" firstAttribute="top" secondItem="eze-Qi-SY9" secondAttribute="bottom" id="QPr-tV-Hoc"/>
                                         <constraint firstItem="5Fn-7B-F2a" firstAttribute="bottom" secondItem="xBS-IG-TIN" secondAttribute="bottom" id="RcV-02-IS6"/>
                                         <constraint firstItem="wMT-2e-nym" firstAttribute="leading" secondItem="f1q-WC-jiU" secondAttribute="leading" id="SPD-WN-pnh"/>
+                                        <constraint firstAttribute="bottom" secondItem="wMT-2e-nym" secondAttribute="bottom" constant="1" id="Uru-2k-PXn"/>
                                         <constraint firstItem="5Fn-7B-F2a" firstAttribute="top" secondItem="xBS-IG-TIN" secondAttribute="top" id="dda-Kp-osw"/>
                                         <constraint firstItem="wMT-2e-nym" firstAttribute="top" secondItem="xBS-IG-TIN" secondAttribute="bottom" constant="-2" id="gbX-TW-3z3"/>
                                         <constraint firstItem="eze-Qi-SY9" firstAttribute="leading" secondItem="f1q-WC-jiU" secondAttribute="leading" id="hzR-Ca-ldb"/>
@@ -171,7 +172,7 @@
                                     </constraints>
                                 </view>
                                 <view key="tableFooterView" contentMode="scaleToFill" id="BLq-lZ-wuT">
-                                    <rect key="frame" x="0.0" y="644" width="375" height="129"/>
+                                    <rect key="frame" x="0.0" y="578" width="375" height="129"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <subviews>
                                         <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ffX-Dg-OxD">
@@ -183,11 +184,11 @@
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </view>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="118" id="wUQ-vp-mS4">
-                                        <rect key="frame" x="0.0" y="526" width="375" height="118"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="52" id="wUQ-vp-mS4">
+                                        <rect key="frame" x="0.0" y="526" width="375" height="52"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="wUQ-vp-mS4" id="OxQ-H6-iV4">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="117.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="51.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                     </tableViewCell>

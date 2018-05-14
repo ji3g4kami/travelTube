@@ -10,12 +10,17 @@ import UIKit
 
 class AnnotationCell: UITableViewCell {
 
+    @IBOutlet weak var view: UIView!
     @IBOutlet weak var annotationTitleLabel: UILabel!
     @IBOutlet weak var deleteButton: UIButton!
 
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        let image = #imageLiteral(resourceName: "trash").withRenderingMode(.alwaysTemplate)
+        deleteButton.setImage(image, for: .normal)
+        deleteButton.tintColor = UIColor.white
+        view.layer.cornerRadius = 5
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

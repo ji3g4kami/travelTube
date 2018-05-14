@@ -57,6 +57,25 @@ class PostArticleViewController: UIViewController {
         let annotation = MKPointAnnotation()
         let centerCoordinate = mapView.centerCoordinate
         annotation.coordinate = centerCoordinate
+        if (mapSearchBar.text?.trimmingCharacters(in: .whitespaces).isEmpty)! {
+            let alertController = UIAlertController(
+                title: "Invalid input",
+                message: "Cannot insert whitespace or special characters in annotation title",
+                preferredStyle: .alert)
+
+            let okAction = UIAlertAction(
+                title: "OK",
+                style: .default,
+                handler: nil)
+            alertController.addAction(okAction)
+
+            // 顯示提示框
+            self.present(
+                alertController,
+                animated: true,
+                completion: nil)
+            return
+        }
         if let title = mapSearchBar.text {
             annotation.title = title
             mapView.addAnnotation(annotation)

@@ -12,45 +12,52 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="58" id="KGk-i7-Jjw" customClass="AnnotationCell" customModule="travelTube" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="320" height="58"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="59" id="KGk-i7-Jjw" customClass="AnnotationCell" customModule="travelTube" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="59"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="320" height="57.5"/>
+                <rect key="frame" x="0.0" y="0.0" width="320" height="58.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <button opaque="NO" contentMode="scaleToFill" restorationIdentifier="AnnotationCell" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UNd-kB-Cyd">
-                        <rect key="frame" x="153.5" y="13.5" width="166.5" height="30"/>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XEh-zO-eRH">
+                        <rect key="frame" x="2" y="1" width="316" height="56.5"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" restorationIdentifier="AnnotationCell" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UNd-kB-Cyd">
+                                <rect key="frame" x="191" y="13" width="85" height="32"/>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="4" maxX="0.0" maxY="4"/>
+                                <state key="normal" title="Delete" image="trash"/>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="annotationTitle" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4th-bE-CTy">
+                                <rect key="frame" x="40" y="18" width="114" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="0.25882352941176467" green="0.55294117647058827" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstAttribute="height" constant="30" id="ocP-Qd-qN2"/>
-                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="70" id="tH0-gu-D70"/>
+                            <constraint firstItem="UNd-kB-Cyd" firstAttribute="centerY" secondItem="XEh-zO-eRH" secondAttribute="centerY" id="2VA-ia-8ah"/>
+                            <constraint firstItem="4th-bE-CTy" firstAttribute="leading" secondItem="XEh-zO-eRH" secondAttribute="leading" constant="40" id="Fko-ZE-SDT"/>
+                            <constraint firstItem="4th-bE-CTy" firstAttribute="centerY" secondItem="XEh-zO-eRH" secondAttribute="centerY" id="L44-2U-VMG"/>
+                            <constraint firstAttribute="trailing" secondItem="UNd-kB-Cyd" secondAttribute="trailing" constant="40" id="g9f-qF-yOD"/>
+                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="50" id="ukk-zj-2av"/>
                         </constraints>
-                        <inset key="contentEdgeInsets" minX="50" minY="0.0" maxX="0.0" maxY="0.0"/>
-                        <state key="normal" title="Delete" image="trash">
-                            <color key="titleColor" red="0.28627450980392155" green="0.56862745098039214" blue="0.98431372549019602" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        </state>
-                    </button>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="annotationTitle" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4th-bE-CTy">
-                        <rect key="frame" x="20" y="18" width="113.5" height="21"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                        <nil key="textColor"/>
-                        <nil key="highlightedColor"/>
-                    </label>
+                    </view>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="UNd-kB-Cyd" firstAttribute="centerY" secondItem="4th-bE-CTy" secondAttribute="centerY" id="0Zf-Z9-tg6"/>
-                    <constraint firstItem="4th-bE-CTy" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="6ZD-JT-Zso"/>
-                    <constraint firstItem="UNd-kB-Cyd" firstAttribute="leading" secondItem="4th-bE-CTy" secondAttribute="trailing" constant="20" id="dwP-F7-yQ4"/>
-                    <constraint firstItem="4th-bE-CTy" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" id="eiI-YR-Bnj"/>
-                    <constraint firstAttribute="trailing" secondItem="UNd-kB-Cyd" secondAttribute="trailing" id="l5Y-ZQ-4SP"/>
+                    <constraint firstItem="XEh-zO-eRH" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="2" id="1cF-nq-p6M"/>
+                    <constraint firstAttribute="bottom" secondItem="XEh-zO-eRH" secondAttribute="bottom" constant="1" id="Zee-Fc-vuj"/>
+                    <constraint firstItem="XEh-zO-eRH" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="1" id="aZE-81-JSp"/>
+                    <constraint firstAttribute="trailing" secondItem="XEh-zO-eRH" secondAttribute="trailing" constant="2" id="anK-BT-TbM"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
                 <outlet property="annotationTitleLabel" destination="4th-bE-CTy" id="lIM-8u-nns"/>
                 <outlet property="deleteButton" destination="UNd-kB-Cyd" id="4Te-eH-qCs"/>
+                <outlet property="view" destination="XEh-zO-eRH" id="vGj-tj-0jO"/>
             </connections>
-            <point key="canvasLocation" x="119" y="49"/>
+            <point key="canvasLocation" x="119" y="42.5"/>
         </tableViewCell>
     </objects>
     <resources>
