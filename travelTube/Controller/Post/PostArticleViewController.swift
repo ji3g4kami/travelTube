@@ -51,10 +51,6 @@ class PostArticleViewController: UIViewController {
         }
     }
 
-    @IBAction func backToSearch(_ sender: Any) {
-        navigationController?.popViewController(animated: true)
-    }
-
     @IBAction func addAnnotaion(_ sender: UIButton) {
         let annotation = MKPointAnnotation()
         let centerCoordinate = mapView.centerCoordinate
@@ -66,11 +62,6 @@ class PostArticleViewController: UIViewController {
             annotationTableView.reloadData()
         }
     }
-
-//    override func viewWillAppear(_ animated: Bool) {
-//        super.viewWillAppear(false)
-////        self.navigationController?.setNavigationBarHidden(true, animated: false)
-//    }
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)

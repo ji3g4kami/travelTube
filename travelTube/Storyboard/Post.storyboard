@@ -80,7 +80,9 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="3Li-ua-t0U"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Choose Video" id="b7v-6Y-kbH"/>
+                    <navigationItem key="navigationItem" title="Choose Video" id="b7v-6Y-kbH">
+                        <barButtonItem key="backBarButtonItem" title=" " id="HCn-i7-KJf"/>
+                    </navigationItem>
                     <connections>
                         <outlet property="searchBar" destination="3fq-Bg-8cJ" id="EFm-QD-f9a"/>
                         <outlet property="videoTableView" destination="dfP-qB-uDd" id="61r-nb-SFc"/>
@@ -216,17 +218,6 @@
                                                     <action selector="discardArticle:" destination="EOM-ZU-q0j" eventType="touchUpInside" id="siT-ca-JT4"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hsg-pk-Qcq">
-                                                <rect key="frame" x="20" y="20" width="40" height="40"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="40" id="GFO-OH-fOm"/>
-                                                    <constraint firstAttribute="width" constant="40" id="qpL-4K-lXQ"/>
-                                                </constraints>
-                                                <state key="normal" image="back"/>
-                                                <connections>
-                                                    <action selector="backToSearch:" destination="EOM-ZU-q0j" eventType="touchUpInside" id="Uea-n5-bVj"/>
-                                                </connections>
-                                            </button>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
@@ -243,7 +234,6 @@
                                             <constraint firstItem="wVl-p9-Frp" firstAttribute="leading" secondItem="1TS-gb-CqT" secondAttribute="trailing" constant="20" id="h1z-At-rqj"/>
                                             <constraint firstAttribute="trailing" secondItem="yRk-GJ-wAe" secondAttribute="trailing" constant="20" id="jtF-fr-opf"/>
                                             <constraint firstItem="yRk-GJ-wAe" firstAttribute="leading" secondItem="1EP-Ce-0Xu" secondAttribute="leading" constant="20" id="kEG-7e-B6q"/>
-                                            <constraint firstItem="hsg-pk-Qcq" firstAttribute="leading" secondItem="1EP-Ce-0Xu" secondAttribute="leading" constant="20" id="kh2-ha-Fms"/>
                                             <constraint firstItem="JhW-dH-0Oy" firstAttribute="centerX" secondItem="1EP-Ce-0Xu" secondAttribute="centerX" id="kz0-IH-TPd"/>
                                             <constraint firstItem="P0Z-cE-1CS" firstAttribute="top" secondItem="DGu-U9-AXh" secondAttribute="bottom" id="nfz-nE-2rz"/>
                                             <constraint firstAttribute="trailing" secondItem="DGu-U9-AXh" secondAttribute="trailing" constant="20" id="oAu-uL-Znv"/>
@@ -271,7 +261,6 @@
                             <constraint firstItem="Tuf-YX-KkI" firstAttribute="trailing" secondItem="tIc-YF-CNP" secondAttribute="trailing" id="S5e-bo-nRG"/>
                             <constraint firstItem="1EP-Ce-0Xu" firstAttribute="width" secondItem="ShV-xG-dAg" secondAttribute="width" id="U5N-Cb-2a3"/>
                             <constraint firstItem="tIc-YF-CNP" firstAttribute="top" secondItem="ShV-xG-dAg" secondAttribute="top" id="fTh-UT-vuw"/>
-                            <constraint firstItem="hsg-pk-Qcq" firstAttribute="top" secondItem="Tuf-YX-KkI" secondAttribute="top" constant="20" id="lc1-ka-vUZ"/>
                             <constraint firstItem="Tuf-YX-KkI" firstAttribute="bottom" secondItem="tIc-YF-CNP" secondAttribute="bottom" id="xk3-By-E1h"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Tuf-YX-KkI"/>
@@ -310,7 +299,4 @@
             <point key="canvasLocation" x="-210.40000000000001" y="180.35982008995504"/>
         </scene>
     </scenes>
-    <resources>
-        <image name="back" width="128" height="128"/>
-    </resources>
 </document>
