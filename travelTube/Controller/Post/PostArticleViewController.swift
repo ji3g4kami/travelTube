@@ -22,6 +22,7 @@ class PostArticleViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var youtubePlayer: YouTubePlayerView!
     @IBOutlet weak var mapView: MKMapView!
+    @IBOutlet weak var mapSearchBar: UISearchBar!
     @IBOutlet weak var tokenView: KSTokenView!
     @IBOutlet weak var annotationTextField: UITextField!
     @IBOutlet weak var annotationTableView: UITableView!
@@ -33,6 +34,8 @@ class PostArticleViewController: UIViewController {
         if let youtubeId = youtube?.youtubeId {
             youtubePlayer.loadVideoID(youtubeId)
         }
+        mapSearchBar.delegate = self
+        
 //        queryTags()
 //        setupTokenView()
 //        annotationTableView.delegate = self
@@ -67,7 +70,7 @@ class PostArticleViewController: UIViewController {
         super.viewWillAppear(animated)
 
         if let navigationController = self.navigationController as? ScrollingNavigationController {
-            navigationController.followScrollView(tableView, delay: 50.0)
+            navigationController.followScrollView(tableView, delay: 0.0)
         }
     }
 
@@ -134,6 +137,13 @@ class PostArticleViewController: UIViewController {
         }
     }
 
+}
+
+extension PostArticleViewController: UISearchBarDelegate {
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        searchBar.resignFirstResponder()
+        print("Searching......", mapSearchBar.text)
+    }
 }
 
 extension PostArticleViewController: UITableViewDelegate, UITableViewDataSource {

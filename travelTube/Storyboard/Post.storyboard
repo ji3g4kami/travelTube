@@ -98,14 +98,14 @@
             <objects>
                 <viewController title="Share location" id="EOM-ZU-q0j" customClass="PostArticleViewController" customModule="travelTube" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ShV-xG-dAg">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="900"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Uhz-3S-euP">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="900"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <view key="tableHeaderView" contentMode="scaleToFill" id="f1q-WC-jiU">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="452"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="498"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <subviews>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eze-Qi-SY9" customClass="YouTubePlayerView" customModule="YouTubePlayer">
@@ -116,33 +116,47 @@
                                             </constraints>
                                         </view>
                                         <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="wMT-2e-nym">
-                                            <rect key="frame" x="0.0" y="241" width="375" height="211"/>
+                                            <rect key="frame" x="0.0" y="281" width="375" height="225"/>
                                             <constraints>
-                                                <constraint firstAttribute="width" secondItem="wMT-2e-nym" secondAttribute="height" multiplier="16:9" id="GUu-OD-mvq"/>
+                                                <constraint firstAttribute="width" secondItem="wMT-2e-nym" secondAttribute="height" multiplier="15:9" id="GUu-OD-mvq"/>
                                             </constraints>
                                         </mapView>
+                                        <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="xBS-IG-TIN">
+                                            <rect key="frame" x="0.0" y="231" width="375" height="56"/>
+                                            <textInputTraits key="textInputTraits"/>
+                                        </searchBar>
                                     </subviews>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <constraints>
                                         <constraint firstAttribute="trailing" secondItem="eze-Qi-SY9" secondAttribute="trailing" id="2o3-Qv-zBz"/>
-                                        <constraint firstItem="wMT-2e-nym" firstAttribute="top" secondItem="eze-Qi-SY9" secondAttribute="bottom" constant="30" id="FEa-iw-mVJ"/>
+                                        <constraint firstAttribute="trailing" secondItem="xBS-IG-TIN" secondAttribute="trailing" id="NNJ-2Y-UNp"/>
+                                        <constraint firstItem="xBS-IG-TIN" firstAttribute="top" secondItem="eze-Qi-SY9" secondAttribute="bottom" constant="20" id="QPr-tV-Hoc"/>
                                         <constraint firstItem="wMT-2e-nym" firstAttribute="leading" secondItem="f1q-WC-jiU" secondAttribute="leading" id="SPD-WN-pnh"/>
+                                        <constraint firstItem="wMT-2e-nym" firstAttribute="top" secondItem="xBS-IG-TIN" secondAttribute="bottom" constant="-6" id="gbX-TW-3z3"/>
                                         <constraint firstItem="eze-Qi-SY9" firstAttribute="leading" secondItem="f1q-WC-jiU" secondAttribute="leading" id="hzR-Ca-ldb"/>
                                         <constraint firstAttribute="trailing" secondItem="wMT-2e-nym" secondAttribute="trailing" id="mcV-UD-IyQ"/>
                                         <constraint firstItem="eze-Qi-SY9" firstAttribute="top" secondItem="f1q-WC-jiU" secondAttribute="top" id="p4j-8J-w5l"/>
+                                        <constraint firstItem="xBS-IG-TIN" firstAttribute="leading" secondItem="f1q-WC-jiU" secondAttribute="leading" id="yq8-KL-MiS"/>
                                     </constraints>
                                 </view>
                                 <view key="tableFooterView" contentMode="scaleToFill" id="BLq-lZ-wuT">
-                                    <rect key="frame" x="0.0" y="524" width="375" height="44"/>
+                                    <rect key="frame" x="0.0" y="644" width="375" height="129"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <subviews>
+                                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ffX-Dg-OxD">
+                                            <rect key="frame" x="202" y="65" width="31" height="30"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <state key="normal" title="Post"/>
+                                        </button>
+                                    </subviews>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </view>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="wUQ-vp-mS4">
-                                        <rect key="frame" x="0.0" y="480" width="375" height="44"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="118" id="wUQ-vp-mS4">
+                                        <rect key="frame" x="0.0" y="526" width="375" height="118"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="wUQ-vp-mS4" id="OxQ-H6-iV4">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="117.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -158,8 +172,9 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Tuf-YX-KkI"/>
                     </view>
-                    <size key="freeformSize" width="375" height="667"/>
+                    <size key="freeformSize" width="375" height="900"/>
                     <connections>
+                        <outlet property="mapSearchBar" destination="xBS-IG-TIN" id="S7z-OQ-aV7"/>
                         <outlet property="mapView" destination="wMT-2e-nym" id="MSI-CK-v3H"/>
                         <outlet property="tableView" destination="Uhz-3S-euP" id="LYg-m7-oAb"/>
                         <outlet property="youtubePlayer" destination="eze-Qi-SY9" id="Qpl-XM-eqj"/>
@@ -167,7 +182,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KRP-MQ-pz0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1548" y="179.46026986506749"/>
+            <point key="canvasLocation" x="1548" y="179.01049475262371"/>
         </scene>
         <!--Scrolling Navigation Controller-->
         <scene sceneID="F8j-mF-Xl1">
