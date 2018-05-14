@@ -24,7 +24,6 @@ class PostArticleViewController: UIViewController {
     @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var mapSearchBar: UISearchBar!
     @IBOutlet weak var tokenView: KSTokenView!
-    @IBOutlet weak var annotationTextField: UITextField!
     @IBOutlet weak var annotationTableView: UITableView!
 
     override func viewDidLoad() {
@@ -38,10 +37,10 @@ class PostArticleViewController: UIViewController {
 
 //        queryTags()
 //        setupTokenView()
-//        annotationTableView.delegate = self
-//        annotationTableView.dataSource = self
-//        let xib = UINib(nibName: "AnnotationCell", bundle: nil)
-//        annotationTableView.register(xib, forCellReuseIdentifier: "AnnotationCell")
+        annotationTableView.delegate = self
+        annotationTableView.dataSource = self
+        let xib = UINib(nibName: "AnnotationCell", bundle: nil)
+        annotationTableView.register(xib, forCellReuseIdentifier: "AnnotationCell")
     }
 
     func queryTags() {
@@ -58,7 +57,7 @@ class PostArticleViewController: UIViewController {
         let annotation = MKPointAnnotation()
         let centerCoordinate = mapView.centerCoordinate
         annotation.coordinate = centerCoordinate
-        if let title = annotationTextField.text {
+        if let title = mapSearchBar.text {
             annotation.title = title
             mapView.addAnnotation(annotation)
             annotations.append(annotation)
@@ -164,11 +163,6 @@ extension PostArticleViewController: UISearchBarDelegate {
             } else {
                 // Getting Data
                 if let longitutde = response?.boundingRegion.center.longitude, let latitude = response?.boundingRegion.center.latitude {
-                    // Create Annotation
-                    let annotation = MKPointAnnotation()
-                    annotation.title = searchBar.text
-                    annotation.coordinate = CLLocationCoordinate2DMake(latitude, longitutde)
-                    self.mapView.addAnnotation(annotation)
 
                     // Zooming in on annotation
                     let coordinate: CLLocationCoordinate2D = CLLocationCoordinate2DMake(latitude, longitutde)
@@ -191,7 +185,7 @@ extension PostArticleViewController: UITableViewDelegate, UITableViewDataSource 
         guard let cell = annotationTableView.dequeueReusableCell(withIdentifier: "AnnotationCell") as? AnnotationCell else {
             return UITableViewCell()
         }
-        cell.textField.text = annotations[indexPath.row].title
+        cell.annotationTitleLabel.text = annotations[indexPath.row].title
         cell.deleteButton.tag = indexPath.row
         cell.deleteButton.addTarget(self, action: #selector(deleteAnnotation), for: .touchUpInside)
         return cell

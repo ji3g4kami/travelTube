@@ -6,7 +6,6 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -20,38 +19,41 @@
                 <rect key="frame" x="0.0" y="0.0" width="320" height="57.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Bq8-M1-Lea">
-                        <rect key="frame" x="0.0" y="11" width="265" height="30"/>
+                    <button opaque="NO" contentMode="scaleToFill" restorationIdentifier="AnnotationCell" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UNd-kB-Cyd">
+                        <rect key="frame" x="153.5" y="13.5" width="166.5" height="30"/>
                         <constraints>
-                            <constraint firstAttribute="height" constant="30" id="b3Q-P4-1Ro"/>
-                        </constraints>
-                        <nil key="textColor"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                        <textInputTraits key="textInputTraits"/>
-                    </textField>
-                    <button opaque="NO" contentMode="scaleToFill" restorationIdentifier="AnnotationCell" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UNd-kB-Cyd">
-                        <rect key="frame" x="275" y="11" width="45" height="30"/>
-                        <constraints>
-                            <constraint firstAttribute="width" constant="45" id="NCP-kx-RLf"/>
                             <constraint firstAttribute="height" constant="30" id="ocP-Qd-qN2"/>
+                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="70" id="tH0-gu-D70"/>
                         </constraints>
-                        <state key="normal" title="Delete"/>
+                        <inset key="contentEdgeInsets" minX="50" minY="0.0" maxX="0.0" maxY="0.0"/>
+                        <state key="normal" title="Delete" image="trash">
+                            <color key="titleColor" red="0.28627450980392155" green="0.56862745098039214" blue="0.98431372549019602" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        </state>
                     </button>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="annotationTitle" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4th-bE-CTy">
+                        <rect key="frame" x="20" y="18" width="113.5" height="21"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="Bq8-M1-Lea" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" id="CPk-to-MPY"/>
-                    <constraint firstItem="UNd-kB-Cyd" firstAttribute="centerY" secondItem="Bq8-M1-Lea" secondAttribute="centerY" id="IEa-Bk-2j9"/>
-                    <constraint firstItem="UNd-kB-Cyd" firstAttribute="leading" secondItem="Bq8-M1-Lea" secondAttribute="trailing" constant="10" id="TbD-Qn-ZGH"/>
-                    <constraint firstItem="Bq8-M1-Lea" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="dNx-4d-1pE"/>
+                    <constraint firstItem="UNd-kB-Cyd" firstAttribute="centerY" secondItem="4th-bE-CTy" secondAttribute="centerY" id="0Zf-Z9-tg6"/>
+                    <constraint firstItem="4th-bE-CTy" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="6ZD-JT-Zso"/>
+                    <constraint firstItem="UNd-kB-Cyd" firstAttribute="leading" secondItem="4th-bE-CTy" secondAttribute="trailing" constant="20" id="dwP-F7-yQ4"/>
+                    <constraint firstItem="4th-bE-CTy" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" id="eiI-YR-Bnj"/>
                     <constraint firstAttribute="trailing" secondItem="UNd-kB-Cyd" secondAttribute="trailing" id="l5Y-ZQ-4SP"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
+                <outlet property="annotationTitleLabel" destination="4th-bE-CTy" id="lIM-8u-nns"/>
                 <outlet property="deleteButton" destination="UNd-kB-Cyd" id="4Te-eH-qCs"/>
-                <outlet property="textField" destination="Bq8-M1-Lea" id="RIg-wz-cpt"/>
             </connections>
-            <point key="canvasLocation" x="34" y="61"/>
+            <point key="canvasLocation" x="119" y="49"/>
         </tableViewCell>
     </objects>
+    <resources>
+        <image name="trash" width="32" height="32"/>
+    </resources>
 </document>

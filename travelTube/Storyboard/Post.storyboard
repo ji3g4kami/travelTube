@@ -117,33 +117,48 @@
                                             </constraints>
                                         </view>
                                         <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="wMT-2e-nym">
-                                            <rect key="frame" x="0.0" y="285" width="375" height="224"/>
+                                            <rect key="frame" x="0.0" y="265" width="375" height="224"/>
                                         </mapView>
                                         <searchBar contentMode="redraw" placeholder="Location name" translatesAutoresizingMaskIntoConstraints="NO" id="xBS-IG-TIN">
-                                            <rect key="frame" x="0.0" y="231" width="305" height="56"/>
+                                            <rect key="frame" x="0.0" y="211" width="305" height="56"/>
                                             <color key="backgroundColor" red="0.16078431369999999" green="0.16862745100000001" blue="0.80894639759999998" alpha="1" colorSpace="calibratedRGB"/>
                                             <textInputTraits key="textInputTraits"/>
                                         </searchBar>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5Fn-7B-F2a">
-                                            <rect key="frame" x="305" y="231" width="70" height="56"/>
+                                            <rect key="frame" x="305" y="211" width="70" height="56"/>
                                             <color key="backgroundColor" red="0.75686274509803919" green="0.76078431372549016" blue="0.80000000000000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="70" id="lQv-BE-Mmr"/>
                                             </constraints>
-                                            <inset key="contentEdgeInsets" minX="-23" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                            <inset key="contentEdgeInsets" minX="-11" minY="0.0" maxX="0.0" maxY="0.0"/>
                                             <inset key="titleEdgeInsets" minX="5" minY="0.0" maxX="4" maxY="0.0"/>
-                                            <inset key="imageEdgeInsets" minX="5" minY="0.0" maxX="0.0" maxY="0.0"/>
                                             <state key="normal" title="Add" image="pin">
                                                 <color key="titleColor" red="0.28627450980392155" green="0.56862745098039214" blue="0.98431372549019602" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            </state>
+                                            <connections>
+                                                <action selector="addAnnotaion:" destination="EOM-ZU-q0j" eventType="touchUpInside" id="re9-fY-1AU"/>
+                                            </connections>
+                                        </button>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yg1-06-ShJ">
+                                            <rect key="frame" x="172.5" y="362" width="30" height="30"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="30" id="05q-Pc-PZO"/>
+                                                <constraint firstAttribute="width" constant="30" id="NyG-Dn-RA7"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" type="system" pointSize="26"/>
+                                            <state key="normal" title="+">
+                                                <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             </state>
                                         </button>
                                     </subviews>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <constraints>
+                                        <constraint firstItem="yg1-06-ShJ" firstAttribute="centerX" secondItem="wMT-2e-nym" secondAttribute="centerX" id="1u7-h8-CLC"/>
                                         <constraint firstAttribute="trailing" secondItem="eze-Qi-SY9" secondAttribute="trailing" id="2o3-Qv-zBz"/>
+                                        <constraint firstItem="yg1-06-ShJ" firstAttribute="centerY" secondItem="wMT-2e-nym" secondAttribute="centerY" id="4PJ-ja-vm5"/>
                                         <constraint firstAttribute="trailing" secondItem="5Fn-7B-F2a" secondAttribute="trailing" id="AH7-G3-2Gn"/>
                                         <constraint firstItem="wMT-2e-nym" firstAttribute="height" secondItem="xBS-IG-TIN" secondAttribute="height" multiplier="4" id="AYP-Cl-buo"/>
-                                        <constraint firstItem="xBS-IG-TIN" firstAttribute="top" secondItem="eze-Qi-SY9" secondAttribute="bottom" constant="20" id="QPr-tV-Hoc"/>
+                                        <constraint firstItem="xBS-IG-TIN" firstAttribute="top" secondItem="eze-Qi-SY9" secondAttribute="bottom" id="QPr-tV-Hoc"/>
                                         <constraint firstItem="5Fn-7B-F2a" firstAttribute="bottom" secondItem="xBS-IG-TIN" secondAttribute="bottom" id="RcV-02-IS6"/>
                                         <constraint firstItem="wMT-2e-nym" firstAttribute="leading" secondItem="f1q-WC-jiU" secondAttribute="leading" id="SPD-WN-pnh"/>
                                         <constraint firstItem="5Fn-7B-F2a" firstAttribute="top" secondItem="xBS-IG-TIN" secondAttribute="top" id="dda-Kp-osw"/>
@@ -190,6 +205,7 @@
                     </view>
                     <size key="freeformSize" width="375" height="900"/>
                     <connections>
+                        <outlet property="annotationTableView" destination="Uhz-3S-euP" id="PK2-8J-jps"/>
                         <outlet property="mapSearchBar" destination="xBS-IG-TIN" id="S7z-OQ-aV7"/>
                         <outlet property="mapView" destination="wMT-2e-nym" id="MSI-CK-v3H"/>
                         <outlet property="tableView" destination="Uhz-3S-euP" id="LYg-m7-oAb"/>

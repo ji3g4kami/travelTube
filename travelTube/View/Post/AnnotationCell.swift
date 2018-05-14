@@ -10,7 +10,7 @@ import UIKit
 
 class AnnotationCell: UITableViewCell {
 
-    @IBOutlet weak var textField: UITextField!
+    @IBOutlet weak var annotationTitleLabel: UILabel!
     @IBOutlet weak var deleteButton: UIButton!
 
     override func awakeFromNib() {
