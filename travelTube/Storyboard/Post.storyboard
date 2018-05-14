@@ -91,16 +91,16 @@
             </objects>
             <point key="canvasLocation" x="728.79999999999995" y="180.35982008995504"/>
         </scene>
-        <!--Editing...-->
+        <!--Share location-->
         <scene sceneID="pSS-Zu-43y">
             <objects>
-                <viewController title="Editing..." id="EOM-ZU-q0j" customClass="PostArticleViewController" customModule="travelTube" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Share location" id="EOM-ZU-q0j" customClass="PostArticleViewController" customModule="travelTube" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ShV-xG-dAg">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="1000"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tIc-YF-CNP">
-                                <rect key="frame" x="0.0" y="64" width="375" height="936"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="1000"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1EP-Ce-0Xu">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="900"/>
@@ -270,7 +270,7 @@
                             <constraint firstItem="tIc-YF-CNP" firstAttribute="leading" secondItem="Tuf-YX-KkI" secondAttribute="leading" id="21w-oD-g7f"/>
                             <constraint firstItem="Tuf-YX-KkI" firstAttribute="trailing" secondItem="tIc-YF-CNP" secondAttribute="trailing" id="S5e-bo-nRG"/>
                             <constraint firstItem="1EP-Ce-0Xu" firstAttribute="width" secondItem="ShV-xG-dAg" secondAttribute="width" id="U5N-Cb-2a3"/>
-                            <constraint firstItem="tIc-YF-CNP" firstAttribute="top" secondItem="Tuf-YX-KkI" secondAttribute="top" id="fTh-UT-vuw"/>
+                            <constraint firstItem="tIc-YF-CNP" firstAttribute="top" secondItem="ShV-xG-dAg" secondAttribute="top" id="fTh-UT-vuw"/>
                             <constraint firstItem="hsg-pk-Qcq" firstAttribute="top" secondItem="Tuf-YX-KkI" secondAttribute="top" constant="20" id="lc1-ka-vUZ"/>
                             <constraint firstItem="Tuf-YX-KkI" firstAttribute="bottom" secondItem="tIc-YF-CNP" secondAttribute="bottom" id="xk3-By-E1h"/>
                         </constraints>
@@ -291,10 +291,10 @@
             </objects>
             <point key="canvasLocation" x="1544.8" y="176.31184407796104"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--Scrolling Navigation Controller-->
         <scene sceneID="F8j-mF-Xl1">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="VAd-xE-s97" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="VAd-xE-s97" customClass="ScrollingNavigationController" customModule="AMScrollingNavbar" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="dW9-TX-oTI">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>

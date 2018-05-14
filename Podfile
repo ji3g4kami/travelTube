@@ -18,4 +18,5 @@ target 'travelTube' do
   pod 'Firebase/Auth'
   pod 'FirebaseDatabase'
   pod 'GoogleSignIn'
+  pod 'AMScrollingNavbar'
 end

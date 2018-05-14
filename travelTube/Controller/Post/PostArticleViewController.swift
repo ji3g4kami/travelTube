@@ -11,6 +11,7 @@ import YouTubePlayer
 import KSTokenView
 import MapKit
 import FirebaseDatabase
+import AMScrollingNavbar
 
 class PostArticleViewController: UIViewController {
 
@@ -66,9 +67,17 @@ class PostArticleViewController: UIViewController {
         }
     }
 
+//    override func viewWillAppear(_ animated: Bool) {
+//        super.viewWillAppear(false)
+////        self.navigationController?.setNavigationBarHidden(true, animated: false)
+//    }
+
     override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(false)
-        self.navigationController?.setNavigationBarHidden(true, animated: false)
+        super.viewWillAppear(animated)
+
+        if let navigationController = self.navigationController as? ScrollingNavigationController {
+            navigationController.followScrollView(scrollView, delay: 50.0)
+        }
     }
 
     @IBAction func discardArticle(_ sender: Any) {

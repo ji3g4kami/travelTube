@@ -20,7 +20,6 @@ class SearchYoutubeViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
         youtubeManager.delegate = self
 
         videoTableView.delegate = self

@@ -1,5 +1,6 @@
 PODS:
   - Alamofire (4.7.2)
+  - AMScrollingNavbar (5.0.2)
   - Firebase/Auth (4.13.0):
     - Firebase/Core
     - FirebaseAuth (= 4.6.1)
@@ -104,6 +105,7 @@ PODS:
 
 DEPENDENCIES:
   - Alamofire
+  - AMScrollingNavbar
   - Firebase/Auth
   - Firebase/Core
   - Firebase/Invites
@@ -127,6 +129,7 @@ CHECKOUT OPTIONS:
 
 SPEC CHECKSUMS:
   Alamofire: e4fa87002c137ba2d8d634d2c51fabcda0d5c223
+  AMScrollingNavbar: d941641a4b05c329e6050ab19e54105ba3785471
   Firebase: 5ec5e863d269d82d66b4bf56856726f8fb8f0fb3
   FirebaseAnalytics: 7ef69e76a5142f643aeb47c780e1cdce4e23632e
   FirebaseAuth: bf22cacf22c60ab454bf2636f556d8892b10b53f
@@ -153,6 +156,6 @@ SPEC CHECKSUMS:
   YoutubeEngine: a4d3b460c6f1415ddcbfc18afb094a8f113282c7
   YouTubePlayer: b6b44df6bb613dbb6e82f8130ed468f7e04cc1e5
 
-PODFILE CHECKSUM: eea2786051f8c8bfabda4ef7572f6ac729c3ee43
+PODFILE CHECKSUM: 1a97f574390e1b501110b2daab40af12dd472930
 
 COCOAPODS: 1.4.0
