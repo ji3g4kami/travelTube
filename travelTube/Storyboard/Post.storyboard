@@ -119,23 +119,40 @@
                                         <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="wMT-2e-nym">
                                             <rect key="frame" x="0.0" y="285" width="375" height="224"/>
                                         </mapView>
-                                        <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="xBS-IG-TIN">
-                                            <rect key="frame" x="0.0" y="231" width="375" height="56"/>
+                                        <searchBar contentMode="redraw" placeholder="Location name" translatesAutoresizingMaskIntoConstraints="NO" id="xBS-IG-TIN">
+                                            <rect key="frame" x="0.0" y="231" width="305" height="56"/>
+                                            <color key="backgroundColor" red="0.16078431369999999" green="0.16862745100000001" blue="0.80894639759999998" alpha="1" colorSpace="calibratedRGB"/>
                                             <textInputTraits key="textInputTraits"/>
                                         </searchBar>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5Fn-7B-F2a">
+                                            <rect key="frame" x="305" y="231" width="70" height="56"/>
+                                            <color key="backgroundColor" red="0.75686274509803919" green="0.76078431372549016" blue="0.80000000000000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="70" id="lQv-BE-Mmr"/>
+                                            </constraints>
+                                            <inset key="contentEdgeInsets" minX="-23" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                            <inset key="titleEdgeInsets" minX="5" minY="0.0" maxX="4" maxY="0.0"/>
+                                            <inset key="imageEdgeInsets" minX="5" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                            <state key="normal" title="Add" image="pin">
+                                                <color key="titleColor" red="0.28627450980392155" green="0.56862745098039214" blue="0.98431372549019602" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            </state>
+                                        </button>
                                     </subviews>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <constraints>
                                         <constraint firstAttribute="trailing" secondItem="eze-Qi-SY9" secondAttribute="trailing" id="2o3-Qv-zBz"/>
+                                        <constraint firstAttribute="trailing" secondItem="5Fn-7B-F2a" secondAttribute="trailing" id="AH7-G3-2Gn"/>
                                         <constraint firstItem="wMT-2e-nym" firstAttribute="height" secondItem="xBS-IG-TIN" secondAttribute="height" multiplier="4" id="AYP-Cl-buo"/>
-                                        <constraint firstAttribute="trailing" secondItem="xBS-IG-TIN" secondAttribute="trailing" id="NNJ-2Y-UNp"/>
                                         <constraint firstItem="xBS-IG-TIN" firstAttribute="top" secondItem="eze-Qi-SY9" secondAttribute="bottom" constant="20" id="QPr-tV-Hoc"/>
+                                        <constraint firstItem="5Fn-7B-F2a" firstAttribute="bottom" secondItem="xBS-IG-TIN" secondAttribute="bottom" id="RcV-02-IS6"/>
                                         <constraint firstItem="wMT-2e-nym" firstAttribute="leading" secondItem="f1q-WC-jiU" secondAttribute="leading" id="SPD-WN-pnh"/>
+                                        <constraint firstItem="5Fn-7B-F2a" firstAttribute="top" secondItem="xBS-IG-TIN" secondAttribute="top" id="dda-Kp-osw"/>
                                         <constraint firstItem="wMT-2e-nym" firstAttribute="top" secondItem="xBS-IG-TIN" secondAttribute="bottom" constant="-2" id="gbX-TW-3z3"/>
                                         <constraint firstItem="eze-Qi-SY9" firstAttribute="leading" secondItem="f1q-WC-jiU" secondAttribute="leading" id="hzR-Ca-ldb"/>
                                         <constraint firstAttribute="trailing" secondItem="wMT-2e-nym" secondAttribute="trailing" id="mcV-UD-IyQ"/>
                                         <constraint firstItem="eze-Qi-SY9" firstAttribute="top" secondItem="f1q-WC-jiU" secondAttribute="top" id="p4j-8J-w5l"/>
                                         <constraint firstItem="xBS-IG-TIN" firstAttribute="leading" secondItem="f1q-WC-jiU" secondAttribute="leading" id="yq8-KL-MiS"/>
+                                        <constraint firstItem="5Fn-7B-F2a" firstAttribute="leading" secondItem="xBS-IG-TIN" secondAttribute="trailing" id="yyL-kI-Q02"/>
                                     </constraints>
                                 </view>
                                 <view key="tableFooterView" contentMode="scaleToFill" id="BLq-lZ-wuT">
@@ -202,4 +219,7 @@
             <point key="canvasLocation" x="-210.40000000000001" y="180.35982008995504"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="pin" width="32" height="32"/>
+    </resources>
 </document>
