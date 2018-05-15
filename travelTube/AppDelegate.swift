@@ -20,7 +20,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
         FirebaseApp.configure()
         GIDSignIn.sharedInstance().clientID = FirebaseApp.app()?.options.clientID
         GIDSignIn.sharedInstance().delegate = self
-        IQKeyboardManager.shared.enable = false
+        IQKeyboardManager.shared.enable = true
 
         switch UserManager.shared.isLoggedIn {
         case "out":

@@ -29,22 +29,22 @@ class PostArticleViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         tokenView.delegate = self
+        tokenView.layer.cornerRadius = 10
 
         youtubePlayer.playerVars = ["playsinline": "1"] as YouTubePlayerView.YouTubePlayerParameters
         if let youtubeId = youtube?.youtubeId {
             youtubePlayer.loadVideoID(youtubeId)
         }
         mapSearchBar.delegate = self
-        
+
         NotificationCenter.default.addObserver(
             self,
             selector: #selector(keyboardWillShow),
             name: NSNotification.Name.UIKeyboardWillShow,
             object: nil
         )
-
 
         queryTags()
         setupTokenView()
@@ -248,7 +248,7 @@ extension PostArticleViewController: KSTokenViewDelegate {
         tokenView.placeholder = " 3 tags at most"
         tokenView.maxTokenLimit = 3
         tokenView.minimumCharactersToSearch = 0 // Show all results without without typing anything
-        tokenView.style = .rounded
+        tokenView.style = .squared
         tokenView.direction = .vertical
         tokenView.cursorColor = .black
         tokenView.paddingY = 10

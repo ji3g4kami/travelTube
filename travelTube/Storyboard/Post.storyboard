@@ -172,27 +172,54 @@
                                     </constraints>
                                 </view>
                                 <view key="tableFooterView" contentMode="scaleToFill" id="BLq-lZ-wuT">
-                                    <rect key="frame" x="0.0" y="578" width="375" height="129"/>
+                                    <rect key="frame" x="0.0" y="578" width="375" height="210"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <subviews>
-                                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ffX-Dg-OxD">
-                                            <rect key="frame" x="202" y="65" width="31" height="30"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <state key="normal" title="Post"/>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ffX-Dg-OxD" customClass="RoundedButton" customModule="travelTube" customModuleProvider="target">
+                                            <rect key="frame" x="20" y="71" width="335" height="40"/>
+                                            <color key="backgroundColor" red="0.90980392160000001" green="0.35294117650000001" blue="0.4431372549" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="40" id="ghh-AP-vBu"/>
+                                            </constraints>
+                                            <state key="normal" title="Discard">
+                                                <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                            </state>
+                                            <connections>
+                                                <action selector="discardArticle:" destination="EOM-ZU-q0j" eventType="touchUpInside" id="KZQ-ek-Wpd"/>
+                                            </connections>
+                                        </button>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Bhs-fs-DpY" customClass="RoundedButton" customModule="travelTube" customModuleProvider="target">
+                                            <rect key="frame" x="20" y="126" width="335" height="40"/>
+                                            <color key="backgroundColor" red="0.30588235289999999" green="0.63137254899999995" blue="0.82745098039999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="40" id="vyh-ec-aSC"/>
+                                            </constraints>
+                                            <state key="normal" title="Post">
+                                                <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                            </state>
+                                            <connections>
+                                                <action selector="postArticle:" destination="EOM-ZU-q0j" eventType="touchUpInside" id="caj-fd-x4M"/>
+                                            </connections>
                                         </button>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tNg-Mg-4hu" customClass="KSTokenView" customModule="KSTokenView">
-                                            <rect key="frame" x="20" y="0.0" width="335" height="48"/>
+                                            <rect key="frame" x="20" y="10" width="335" height="41.5"/>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <constraints>
-                                                <constraint firstAttribute="height" constant="48" id="kYA-mU-RFg"/>
+                                                <constraint firstAttribute="height" constant="42" id="4qv-nx-CaF"/>
                                             </constraints>
                                         </view>
                                     </subviews>
-                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <color key="backgroundColor" red="0.75686274509803919" green="0.76078431372549016" blue="0.80000000000000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <constraints>
-                                        <constraint firstItem="tNg-Mg-4hu" firstAttribute="top" secondItem="BLq-lZ-wuT" secondAttribute="top" id="0y8-AV-pxl"/>
-                                        <constraint firstAttribute="trailing" secondItem="tNg-Mg-4hu" secondAttribute="trailing" constant="20" id="1eF-45-WCO"/>
-                                        <constraint firstItem="tNg-Mg-4hu" firstAttribute="leading" secondItem="BLq-lZ-wuT" secondAttribute="leading" constant="20" id="RVc-ss-B56"/>
+                                        <constraint firstAttribute="trailing" secondItem="tNg-Mg-4hu" secondAttribute="trailing" constant="20" id="0nd-9P-W4Y"/>
+                                        <constraint firstItem="tNg-Mg-4hu" firstAttribute="leading" secondItem="BLq-lZ-wuT" secondAttribute="leading" constant="20" id="7ER-sC-1mu"/>
+                                        <constraint firstItem="Bhs-fs-DpY" firstAttribute="trailing" secondItem="ffX-Dg-OxD" secondAttribute="trailing" id="EJO-zy-O8g"/>
+                                        <constraint firstItem="Bhs-fs-DpY" firstAttribute="top" secondItem="ffX-Dg-OxD" secondAttribute="bottom" constant="15" id="WXl-sx-GMb"/>
+                                        <constraint firstItem="tNg-Mg-4hu" firstAttribute="top" secondItem="BLq-lZ-wuT" secondAttribute="top" constant="10" id="XnK-tK-Sc9"/>
+                                        <constraint firstItem="ffX-Dg-OxD" firstAttribute="width" secondItem="tNg-Mg-4hu" secondAttribute="width" id="YBO-wA-M3R"/>
+                                        <constraint firstItem="ffX-Dg-OxD" firstAttribute="top" secondItem="tNg-Mg-4hu" secondAttribute="bottom" constant="20" id="kGA-al-5mm"/>
+                                        <constraint firstItem="Bhs-fs-DpY" firstAttribute="leading" secondItem="ffX-Dg-OxD" secondAttribute="leading" id="lrA-KI-mHm"/>
+                                        <constraint firstItem="ffX-Dg-OxD" firstAttribute="trailing" secondItem="tNg-Mg-4hu" secondAttribute="trailing" id="xMN-WQ-Xmq"/>
                                     </constraints>
                                 </view>
                                 <prototypes>
@@ -207,7 +234,6 @@
                                 </prototypes>
                             </tableView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="Tuf-YX-KkI" firstAttribute="trailing" secondItem="Uhz-3S-euP" secondAttribute="trailing" id="Guv-KU-bhy"/>
                             <constraint firstItem="Uhz-3S-euP" firstAttribute="leading" secondItem="Tuf-YX-KkI" secondAttribute="leading" id="LqY-fe-qWp"/>
