@@ -171,6 +171,11 @@ class PostArticleViewController: UIViewController {
                 })
             }
         }
+        guard let controller = UIStoryboard.detailStoryboard().instantiateViewController(
+            withIdentifier: String(describing: DetailViewController.self)
+            ) as? DetailViewController else { return }
+        controller.youtube = self.youtube
+        show(controller, sender: nil)
     }
 
 }

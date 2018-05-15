@@ -21,6 +21,8 @@
 		145D19D32098667D00BE71D0 /* UIStoryboard+David.swift in Sources */ = {isa = PBXBuildFile; fileRef = 145D19D22098667D00BE71D0 /* UIStoryboard+David.swift */; };
 		145D19D52098774C00BE71D0 /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 145D19D42098774C00BE71D0 /* Profile.storyboard */; };
 		148F90FF209AAFF300308179 /* PostArticleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 148F90FE209AAFF300308179 /* PostArticleViewController.swift */; };
+		14AE66B520AAB577007D7851 /* Detail.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 14AE66B420AAB577007D7851 /* Detail.storyboard */; };
+		14AE66BA20AAB5CD007D7851 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14AE66B920AAB5CD007D7851 /* DetailViewController.swift */; };
 		14DA419C20A13F3000A74254 /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 14DA419A20A13F3000A74254 /* SWRevealViewController.m */; };
 		14DA419F20A141D600A74254 /* LogoutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14DA419E20A141D600A74254 /* LogoutViewController.swift */; };
 		14DA41A120A1420200A74254 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14DA41A020A1420200A74254 /* ProfileViewController.swift */; };
@@ -59,6 +61,8 @@
 		145D19D22098667D00BE71D0 /* UIStoryboard+David.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIStoryboard+David.swift"; sourceTree = "<group>"; };
 		145D19D42098774C00BE71D0 /* Profile.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Profile.storyboard; sourceTree = "<group>"; };
 		148F90FE209AAFF300308179 /* PostArticleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostArticleViewController.swift; sourceTree = "<group>"; };
+		14AE66B420AAB577007D7851 /* Detail.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Detail.storyboard; sourceTree = "<group>"; };
+		14AE66B920AAB5CD007D7851 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		14DA419920A13F2F00A74254 /* travelTube-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "travelTube-Bridging-Header.h"; sourceTree = "<group>"; };
 		14DA419A20A13F3000A74254 /* SWRevealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWRevealViewController.m; sourceTree = "<group>"; };
 		14DA419B20A13F3000A74254 /* SWRevealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWRevealViewController.h; sourceTree = "<group>"; };
@@ -110,6 +114,7 @@
 		145D19C2209859A900BE71D0 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				14AE66B620AAB59A007D7851 /* Detail */,
 				14DA419D20A141BB00A74254 /* Profile */,
 				148F90FD209AAEBA00308179 /* Post */,
 				14DF3BF620970F0F00215368 /* FeedViewController.swift */,
@@ -178,6 +183,7 @@
 				145D19CF2098657200BE71D0 /* Feed.storyboard */,
 				145D19D42098774C00BE71D0 /* Profile.storyboard */,
 				14F7BD9020995A5900DE78C9 /* Search.storyboard */,
+				14AE66B420AAB577007D7851 /* Detail.storyboard */,
 			);
 			path = Storyboard;
 			sourceTree = "<group>";
@@ -197,6 +203,14 @@
 				148F90FE209AAFF300308179 /* PostArticleViewController.swift */,
 			);
 			path = Post;
+			sourceTree = "<group>";
+		};
+		14AE66B620AAB59A007D7851 /* Detail */ = {
+			isa = PBXGroup;
+			children = (
+				14AE66B920AAB5CD007D7851 /* DetailViewController.swift */,
+			);
+			path = Detail;
 			sourceTree = "<group>";
 		};
 		14DA419820A13F1600A74254 /* SWReveal */ = {
@@ -354,6 +368,7 @@
 				14DF3BFF20970F1100215368 /* LaunchScreen.storyboard in Resources */,
 				14DF3C0B2097191600215368 /* ArticleCollectionViewCell.xib in Resources */,
 				145D19D02098657200BE71D0 /* Feed.storyboard in Resources */,
+				14AE66B520AAB577007D7851 /* Detail.storyboard in Resources */,
 				14F7BD9120995A5900DE78C9 /* Search.storyboard in Resources */,
 				14F7BD8D2099580300DE78C9 /* Post.storyboard in Resources */,
 				1414065120A023D800BFB170 /* AnnotationCell.xib in Resources */,
@@ -493,6 +508,7 @@
 				14DF3C0A2097191600215368 /* ArticleCollectionViewCell.swift in Sources */,
 				14DF3BF520970F0F00215368 /* AppDelegate.swift in Sources */,
 				1414065320A04F9900BFB170 /* LoginViewController.swift in Sources */,
+				14AE66BA20AAB5CD007D7851 /* DetailViewController.swift in Sources */,
 				14DF3C072097166D00215368 /* CategoryCell.swift in Sources */,
 				145D19CA20985CED00BE71D0 /* Constants.swift in Sources */,
 				1414065020A023D800BFB170 /* AnnotationCell.swift in Sources */,

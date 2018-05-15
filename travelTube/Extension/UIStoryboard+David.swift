@@ -29,4 +29,9 @@ extension UIStoryboard {
 
         return UIStoryboard(name: "Profile", bundle: nil)
     }
+
+    static func detailStoryboard() -> UIStoryboard {
+
+        return UIStoryboard(name: "Detail", bundle: nil)
+    }
 }
