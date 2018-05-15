@@ -150,7 +150,7 @@ class PostArticleViewController: UIViewController {
             "annotations": markers,
             "tag": tags
         ])
-        // Making tags
+         // Making tags
         for tag in tags {
             var tempArticleIdArray = [String]()
             let ref = FirebaseManager.shared.ref.child("tags").child("\(tag)")
@@ -175,7 +175,7 @@ class PostArticleViewController: UIViewController {
             withIdentifier: String(describing: DetailViewController.self)
             ) as? DetailViewController else { return }
         controller.youtube = self.youtube
-        show(controller, sender: nil)
+        self.navigationController?.pushViewController(controller, animated: true)
     }
 
 }
