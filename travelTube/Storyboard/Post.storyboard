@@ -180,8 +180,20 @@
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <state key="normal" title="Post"/>
                                         </button>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tNg-Mg-4hu" customClass="KSTokenView" customModule="KSTokenView">
+                                            <rect key="frame" x="20" y="0.0" width="335" height="48"/>
+                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="48" id="kYA-mU-RFg"/>
+                                            </constraints>
+                                        </view>
                                     </subviews>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <constraints>
+                                        <constraint firstItem="tNg-Mg-4hu" firstAttribute="top" secondItem="BLq-lZ-wuT" secondAttribute="top" id="0y8-AV-pxl"/>
+                                        <constraint firstAttribute="trailing" secondItem="tNg-Mg-4hu" secondAttribute="trailing" constant="20" id="1eF-45-WCO"/>
+                                        <constraint firstItem="tNg-Mg-4hu" firstAttribute="leading" secondItem="BLq-lZ-wuT" secondAttribute="leading" constant="20" id="RVc-ss-B56"/>
+                                    </constraints>
                                 </view>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="52" id="wUQ-vp-mS4">
@@ -210,6 +222,7 @@
                         <outlet property="mapSearchBar" destination="xBS-IG-TIN" id="S7z-OQ-aV7"/>
                         <outlet property="mapView" destination="wMT-2e-nym" id="MSI-CK-v3H"/>
                         <outlet property="tableView" destination="Uhz-3S-euP" id="LYg-m7-oAb"/>
+                        <outlet property="tokenView" destination="tNg-Mg-4hu" id="mPe-gh-cmd"/>
                         <outlet property="youtubePlayer" destination="eze-Qi-SY9" id="Qpl-XM-eqj"/>
                     </connections>
                 </viewController>

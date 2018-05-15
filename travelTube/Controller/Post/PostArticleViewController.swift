@@ -18,6 +18,7 @@ class PostArticleViewController: UIViewController {
     var youtube: Video?
     var storedTags = [String]()
     var annotations: [MKPointAnnotation] = []
+    var keyboardHight = 300
 
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var youtubePlayer: YouTubePlayerView!
@@ -28,19 +29,36 @@ class PostArticleViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        tokenView.delegate = self
 
         youtubePlayer.playerVars = ["playsinline": "1"] as YouTubePlayerView.YouTubePlayerParameters
         if let youtubeId = youtube?.youtubeId {
             youtubePlayer.loadVideoID(youtubeId)
         }
         mapSearchBar.delegate = self
+        
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(keyboardWillShow),
+            name: NSNotification.Name.UIKeyboardWillShow,
+            object: nil
+        )
 
-//        queryTags()
-//        setupTokenView()
+
+        queryTags()
+        setupTokenView()
         annotationTableView.delegate = self
         annotationTableView.dataSource = self
         let xib = UINib(nibName: "AnnotationCell", bundle: nil)
         annotationTableView.register(xib, forCellReuseIdentifier: "AnnotationCell")
+    }
+
+    @objc func keyboardWillShow(_ notification: Notification) {
+        if let keyboardFrame: NSValue = notification.userInfo?[UIKeyboardFrameEndUserInfoKey] as? NSValue {
+            let keyboardRectangle = keyboardFrame.cgRectValue
+            self.keyboardHight = Int(keyboardRectangle.height)
+        }
     }
 
     func queryTags() {
@@ -218,6 +236,11 @@ extension PostArticleViewController: UITableViewDelegate, UITableViewDataSource 
 }
 
 extension PostArticleViewController: KSTokenViewDelegate {
+
+    func tokenViewDidBeginEditing(_ tokenView: KSTokenView) {
+        let offset = CGPoint.init(x: 0, y: self.keyboardHight+120)
+        self.tableView.setContentOffset(offset, animated: true)
+    }
 
     func setupTokenView() {
         tokenView.delegate = self
