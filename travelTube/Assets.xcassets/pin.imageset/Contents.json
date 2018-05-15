@@ -2,12 +2,11 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "pin.png",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
-      "filename" : "pin-1.png",
+      "filename" : "pin.png",
       "scale" : "2x"
     },
     {

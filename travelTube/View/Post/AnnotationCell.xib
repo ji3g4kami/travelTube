@@ -20,21 +20,23 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XEh-zO-eRH">
-                        <rect key="frame" x="2" y="1" width="316" height="56.5"/>
+                        <rect key="frame" x="4" y="1" width="312" height="56.5"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" restorationIdentifier="AnnotationCell" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UNd-kB-Cyd">
-                                <rect key="frame" x="191" y="13" width="85" height="32"/>
+                                <rect key="frame" x="219" y="12" width="53" height="34"/>
                                 <inset key="imageEdgeInsets" minX="0.0" minY="4" maxX="0.0" maxY="4"/>
-                                <state key="normal" title="Delete" image="trash"/>
+                                <state key="normal" title="Delete">
+                                    <color key="titleColor" red="0.30588235294117649" green="0.63137254901960782" blue="0.82745098039215681" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="annotationTitle" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4th-bE-CTy">
                                 <rect key="frame" x="40" y="18" width="114" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="textColor" red="0.30588235289999999" green="0.63137254899999995" blue="0.82745098039999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" red="0.25882352941176467" green="0.55294117647058827" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="0.84705882352941175" green="0.9137254901960784" blue="0.93725490196078431" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="UNd-kB-Cyd" firstAttribute="centerY" secondItem="XEh-zO-eRH" secondAttribute="centerY" id="2VA-ia-8ah"/>
                             <constraint firstItem="4th-bE-CTy" firstAttribute="leading" secondItem="XEh-zO-eRH" secondAttribute="leading" constant="40" id="Fko-ZE-SDT"/>
@@ -45,10 +47,10 @@
                     </view>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="XEh-zO-eRH" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="2" id="1cF-nq-p6M"/>
+                    <constraint firstItem="XEh-zO-eRH" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="4" id="1cF-nq-p6M"/>
                     <constraint firstAttribute="bottom" secondItem="XEh-zO-eRH" secondAttribute="bottom" constant="1" id="Zee-Fc-vuj"/>
                     <constraint firstItem="XEh-zO-eRH" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="1" id="aZE-81-JSp"/>
-                    <constraint firstAttribute="trailing" secondItem="XEh-zO-eRH" secondAttribute="trailing" constant="2" id="anK-BT-TbM"/>
+                    <constraint firstAttribute="trailing" secondItem="XEh-zO-eRH" secondAttribute="trailing" constant="4" id="anK-BT-TbM"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
@@ -60,7 +62,4 @@
             <point key="canvasLocation" x="119" y="42.5"/>
         </tableViewCell>
     </objects>
-    <resources>
-        <image name="trash" width="32" height="32"/>
-    </resources>
 </document>

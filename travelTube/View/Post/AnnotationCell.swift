@@ -18,8 +18,8 @@ class AnnotationCell: UITableViewCell {
         super.awakeFromNib()
         // Initialization code
         let image = #imageLiteral(resourceName: "trash").withRenderingMode(.alwaysTemplate)
+        deleteButton.tintColor = deleteButton.titleLabel?.textColor
         deleteButton.setImage(image, for: .normal)
-        deleteButton.tintColor = UIColor.white
         view.layer.cornerRadius = 5
     }
 

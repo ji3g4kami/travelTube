@@ -133,7 +133,7 @@
                                             <inset key="contentEdgeInsets" minX="-11" minY="0.0" maxX="0.0" maxY="0.0"/>
                                             <inset key="titleEdgeInsets" minX="5" minY="0.0" maxX="4" maxY="0.0"/>
                                             <state key="normal" title="Add" image="pin">
-                                                <color key="titleColor" red="0.28627450980392155" green="0.56862745098039214" blue="0.98431372549019602" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <color key="titleColor" red="0.90980392156862744" green="0.3529411764705882" blue="0.44313725490196076" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             </state>
                                             <connections>
                                                 <action selector="addAnnotaion:" destination="EOM-ZU-q0j" eventType="touchUpInside" id="re9-fY-1AU"/>
@@ -237,6 +237,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="pin" width="32" height="32"/>
+        <image name="pin" width="23" height="32"/>
     </resources>
 </document>
