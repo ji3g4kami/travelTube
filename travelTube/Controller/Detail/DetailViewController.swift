@@ -12,21 +12,27 @@ import YouTubePlayer
 class DetailViewController: UIViewController {
 
     @IBOutlet weak var youtubePlayer: YouTubePlayerView!
-    var youtube: Video?
+    var youtubeId: String?
 
     override func viewDidLoad() {
         super.viewDidLoad()
         youtubePlayer.playerVars = ["playsinline": "1"] as YouTubePlayerView.YouTubePlayerParameters
-        if let youtubeId = youtube?.youtubeId, let youtubeTitle = youtube?.title {
+        if let youtubeId = youtubeId {
             youtubePlayer.loadVideoID(youtubeId)
-            self.navigationItem.title = youtubeTitle
         }
 
         // Do any additional setup after loading the view.
+    }
+
+    override func viewWillAppear(_ animated: Bool) {
+        self.navigationController?.isNavigationBarHidden = true
     }
 
     override var prefersStatusBarHidden: Bool {
         return true
     }
 
+    @IBAction func exitButtonPressed(_ sender: Any) {
+        self.navigationController?.popToRootViewController(animated: true)
+    }
 }

@@ -33,9 +33,30 @@
                                                 <constraint firstAttribute="width" secondItem="aS8-EM-iUg" secondAttribute="height" multiplier="16:9" id="kc0-KA-2Nf"/>
                                             </constraints>
                                         </view>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="P3Y-OD-Q8D">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="50"/>
+                                            <subviews>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Uxc-OW-U5J">
+                                                    <rect key="frame" x="329" y="10" width="30" height="30"/>
+                                                    <state key="normal" title="X"/>
+                                                    <connections>
+                                                        <action selector="exitButtonPressed:" destination="tXp-2y-NYO" eventType="touchUpInside" id="Jld-RB-Zi8"/>
+                                                    </connections>
+                                                </button>
+                                            </subviews>
+                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <constraints>
+                                                <constraint firstAttribute="trailing" secondItem="Uxc-OW-U5J" secondAttribute="trailing" constant="16" id="I3C-es-Dlb"/>
+                                                <constraint firstAttribute="height" constant="50" id="K23-v6-267"/>
+                                                <constraint firstItem="Uxc-OW-U5J" firstAttribute="centerY" secondItem="P3Y-OD-Q8D" secondAttribute="centerY" id="ryx-PM-D4m"/>
+                                            </constraints>
+                                        </view>
                                     </subviews>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <constraints>
+                                        <constraint firstItem="P3Y-OD-Q8D" firstAttribute="top" secondItem="od0-30-u75" secondAttribute="top" id="9c6-uh-QUx"/>
+                                        <constraint firstAttribute="trailing" secondItem="P3Y-OD-Q8D" secondAttribute="trailing" id="NEX-sj-KWr"/>
+                                        <constraint firstItem="P3Y-OD-Q8D" firstAttribute="leading" secondItem="od0-30-u75" secondAttribute="leading" id="dU2-3k-m5q"/>
                                         <constraint firstItem="aS8-EM-iUg" firstAttribute="top" secondItem="od0-30-u75" secondAttribute="top" id="uIR-ZD-X1s"/>
                                         <constraint firstAttribute="trailing" secondItem="aS8-EM-iUg" secondAttribute="trailing" id="uRD-FC-ScD"/>
                                         <constraint firstItem="aS8-EM-iUg" firstAttribute="leading" secondItem="od0-30-u75" secondAttribute="leading" id="yfw-TO-iAz"/>
