@@ -19,6 +19,7 @@ class DetailViewController: UIViewController {
     @IBOutlet weak var mapView: MKMapView!
     var youtubeId: String?
     var articleInfo: Article?
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -48,10 +49,17 @@ class DetailViewController: UIViewController {
 
     func setupMap() {
         guard let annotaions = articleInfo?.annotations else { return }
-        let marker = MKPointAnnotation()
-        marker.title = annotaions[0].title
-        marker.coordinate = CLLocationCoordinate2DMake(annotaions[0].latitude, annotaions[0].logitutde)
-        mapView.addAnnotation(marker)
+        for annotaion in annotaions {
+            let marker = MKPointAnnotation()
+            marker.title = annotaion.title
+            marker.coordinate = CLLocationCoordinate2DMake(annotaion.latitude, annotaion.logitutde)
+            mapView.addAnnotation(marker)
+        }
+        // show the first annotation in center
+        let location = CLLocationCoordinate2D(latitude: annotaions[0].latitude, longitude: annotaions[0].logitutde)
+        let span = MKCoordinateSpan(latitudeDelta: 0.1, longitudeDelta: 0.1)
+        let region = MKCoordinateRegion(center: location, span: span)
+        mapView.setRegion(region, animated: true)
     }
 
     override func viewWillAppear(_ animated: Bool) {
