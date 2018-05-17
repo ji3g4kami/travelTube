@@ -9,11 +9,16 @@
 import UIKit
 import SDWebImage
 
+protocol CategoryCellDelegate: class {
+    func colCategorySelected(youtubeId: String)
+}
+
 class CategoryCell: UITableViewCell, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
 
     @IBOutlet weak var articleCollectionView: UICollectionView!
     var articleIdArray = [String]()
     var articleImageArray = [String]()
+    weak var delegate: CategoryCellDelegate?
 
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -43,8 +48,11 @@ class CategoryCell: UITableViewCell, UICollectionViewDelegate, UICollectionViewD
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
+    }
 
-        // Configure the view for the selected state
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        print(articleIdArray[indexPath.row])
+        delegate?.colCategorySelected(youtubeId: articleIdArray[indexPath.row])
     }
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {

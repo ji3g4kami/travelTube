@@ -9,7 +9,7 @@
 import UIKit
 import FirebaseDatabase
 
-class FeedViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class FeedViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, CategoryCellDelegate {
 
     @IBOutlet weak var catgoryTableView: UITableView!
     var tagsArray = [[String: [String]]]()
@@ -76,7 +76,7 @@ class FeedViewController: UIViewController, UITableViewDelegate, UITableViewData
             let articleIdArray = Array(tagsArray[indexPath.section].values)[0]
             cell.articleIdArray = articleIdArray.reversed()
             cell.requstArticleData()
-//            NotificationCenter.default.post(name: NSNotification.Name(rawValue: "Have AricleIds from FeedVC"), object: nil)
+            cell.delegate = self
             return cell
         }
         return UITableViewCell()
@@ -87,6 +87,15 @@ class FeedViewController: UIViewController, UITableViewDelegate, UITableViewData
             return 200
         }
         return 120
+    }
+
+    func colCategorySelected(youtubeId: String) {
+        guard let controller = UIStoryboard.detailStoryboard().instantiateViewController(
+            withIdentifier: String(describing: DetailViewController.self)
+            ) as? DetailViewController else { return }
+        controller.youtubeId = youtubeId
+        controller.hidesBottomBarWhenPushed = true
+        navigationController?.pushViewController(controller, animated: true)
     }
 
 }

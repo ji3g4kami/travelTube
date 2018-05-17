@@ -31,6 +31,7 @@ class DetailViewController: UIViewController {
         let newBackButton = UIBarButtonItem(title: "Back", style: UIBarButtonItemStyle.plain, target: self, action: #selector(backToSearch))
         self.navigationItem.leftBarButtonItem = newBackButton
         getArticleInfo(of: youtubeId)
+        getComments(of: youtubeId)
     }
 
     func setupTableView() {
@@ -38,6 +39,12 @@ class DetailViewController: UIViewController {
         tableView.dataSource = self
         let xib = UINib(nibName: String(describing: CommentCell.self), bundle: nil)
         tableView.register(xib, forCellReuseIdentifier: String(describing: CommentCell.self))
+    }
+
+    func getComments(of youtubeId: String) {
+        FirebaseManager.shared.ref.child("comments").child(youtubeId).queryOrdered(byChild: "createdTime").observe(.value) { (snapshot) in
+            print(snapshot)
+        }
     }
 
     @objc func backToSearch() {
@@ -83,9 +90,10 @@ class DetailViewController: UIViewController {
         return true
     }
 
-    @IBAction func exitButtonPressed(_ sender: Any) {
-        self.navigationController?.popToRootViewController(animated: true)
-    }
+//    @IBAction func exitButtonPressed(_ sender: Any) {
+//        self.navigationController?.popToRootViewController(animated: true)
+//    }
+
     @IBAction func sendCommentPressed(_ sender: Any) {
         guard let youtubeId = youtubeId else { return }
         guard let comment = commentTextField.text else { return }
