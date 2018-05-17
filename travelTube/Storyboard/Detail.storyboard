@@ -23,7 +23,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="617"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <view key="tableHeaderView" contentMode="scaleToFill" id="od0-30-u75">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="432"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="481"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <subviews>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aS8-EM-iUg" customClass="YouTubePlayerView" customModule="YouTubePlayer">
@@ -39,12 +39,20 @@
                                                 <constraint firstAttribute="width" secondItem="Gnu-dF-3zE" secondAttribute="height" multiplier="16:9" id="qHO-08-LR6"/>
                                             </constraints>
                                         </mapView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Comments" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Bv-4P-Q5w">
+                                            <rect key="frame" x="30" y="442" width="84" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
                                     </subviews>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <constraints>
                                         <constraint firstItem="Gnu-dF-3zE" firstAttribute="leading" secondItem="od0-30-u75" secondAttribute="leading" id="NhK-Oe-1v4"/>
+                                        <constraint firstItem="9Bv-4P-Q5w" firstAttribute="top" secondItem="Gnu-dF-3zE" secondAttribute="bottom" constant="20" id="Ohk-uP-9UY"/>
                                         <constraint firstAttribute="trailing" secondItem="Gnu-dF-3zE" secondAttribute="trailing" id="ffs-Gi-VXx"/>
                                         <constraint firstItem="Gnu-dF-3zE" firstAttribute="top" secondItem="aS8-EM-iUg" secondAttribute="bottom" id="kb2-5B-Jxn"/>
+                                        <constraint firstItem="9Bv-4P-Q5w" firstAttribute="leading" secondItem="od0-30-u75" secondAttribute="leading" constant="30" id="kpb-hv-Zba"/>
                                         <constraint firstItem="aS8-EM-iUg" firstAttribute="top" secondItem="od0-30-u75" secondAttribute="top" id="uIR-ZD-X1s"/>
                                         <constraint firstAttribute="trailing" secondItem="aS8-EM-iUg" secondAttribute="trailing" id="uRD-FC-ScD"/>
                                         <constraint firstItem="aS8-EM-iUg" firstAttribute="leading" secondItem="od0-30-u75" secondAttribute="leading" id="yfw-TO-iAz"/>
@@ -52,7 +60,7 @@
                                 </view>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="58P-oi-1UW">
-                                        <rect key="frame" x="0.0" y="460" width="375" height="44"/>
+                                        <rect key="frame" x="0.0" y="509" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="58P-oi-1UW" id="Tnc-Lq-lAh">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
@@ -119,7 +127,6 @@
         <!--Navigation Controller-->
         <scene sceneID="SPL-AZ-BEJ">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Kvd-IU-Tov" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="kNn-yZ-MhL" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="2Tl-TM-NGj">
@@ -131,6 +138,7 @@
                         <segue destination="tXp-2y-NYO" kind="relationship" relationship="rootViewController" id="MeK-2O-bCU"/>
                     </connections>
                 </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Kvd-IU-Tov" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1159.2" y="80.50974512743629"/>
         </scene>

@@ -19,16 +19,23 @@ class DetailViewController: UIViewController {
     @IBOutlet weak var mapView: MKMapView!
     var youtubeId: String?
     var articleInfo: Article?
-    
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupTableView()
         youtubePlayer.playerVars = ["playsinline": "1"] as YouTubePlayerView.YouTubePlayerParameters
         guard let youtubeId = youtubeId else { return }
         youtubePlayer.loadVideoID(youtubeId)
         let newBackButton = UIBarButtonItem(title: "Back", style: UIBarButtonItemStyle.plain, target: self, action: #selector(backToSearch))
         self.navigationItem.leftBarButtonItem = newBackButton
         getArticleInfo(of: youtubeId)
+    }
+
+    func setupTableView() {
+        tableView.delegate = self
+        tableView.dataSource = self
+        let xib = UINib(nibName: String(describing: CommentCell.self), bundle: nil)
+        tableView.register(xib, forCellReuseIdentifier: String(describing: CommentCell.self))
     }
 
     @objc func backToSearch() {
@@ -76,5 +83,18 @@ class DetailViewController: UIViewController {
 
     @IBAction func exitButtonPressed(_ sender: Any) {
         self.navigationController?.popToRootViewController(animated: true)
+    }
+}
+
+extension DetailViewController: UITableViewDelegate, UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 1
+    }
+
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        if let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: CommentCell.self), for: indexPath) as? CommentCell {
+            return cell
+        }
+        return UITableViewCell()
     }
 }
