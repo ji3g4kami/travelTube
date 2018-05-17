@@ -8,10 +8,12 @@
 
 import UIKit
 import YouTubePlayer
+import AMScrollingNavbar
 
 class DetailViewController: UIViewController {
 
     @IBOutlet weak var youtubePlayer: YouTubePlayerView!
+    @IBOutlet weak var tableView: UITableView!
     var youtubeId: String?
 
     override func viewDidLoad() {
@@ -20,12 +22,22 @@ class DetailViewController: UIViewController {
         if let youtubeId = youtubeId {
             youtubePlayer.loadVideoID(youtubeId)
         }
+        let newBackButton = UIBarButtonItem(title: "Back", style: UIBarButtonItemStyle.plain, target: self, action: #selector(backToSearch))
+        self.navigationItem.leftBarButtonItem = newBackButton
 
         // Do any additional setup after loading the view.
     }
 
+    @objc func backToSearch() {
+        self.navigationController?.popToRootViewController(animated: true)
+    }
+    
     override func viewWillAppear(_ animated: Bool) {
-        self.navigationController?.isNavigationBarHidden = true
+        super.viewWillAppear(animated)
+        
+        if let navigationController = self.navigationController as? ScrollingNavigationController {
+            navigationController.followScrollView(tableView, delay: 0.0)
+        }
     }
 
     override var prefersStatusBarHidden: Bool {

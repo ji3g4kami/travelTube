@@ -87,7 +87,6 @@ class PostArticleViewController: UIViewController {
                 handler: nil)
             alertController.addAction(okAction)
 
-            // 顯示提示框
             self.present(
                 alertController,
                 animated: true,
@@ -175,6 +174,7 @@ class PostArticleViewController: UIViewController {
             withIdentifier: String(describing: DetailViewController.self)
             ) as? DetailViewController else { return }
         controller.youtubeId = self.youtube?.youtubeId
+        controller.hidesBottomBarWhenPushed = true
         self.navigationController?.pushViewController(controller, animated: true)
     }
 
