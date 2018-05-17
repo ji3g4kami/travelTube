@@ -9,6 +9,7 @@
 import Foundation
 import Firebase
 import FirebaseDatabase
+import CodableFirebase
 
 struct FirebaseUserInfo {
     var uid: String
@@ -21,4 +22,21 @@ class FirebaseManager {
     static let shared = FirebaseManager()
     var ref = Database.database().reference()
     var user: FirebaseUserInfo?
+}
+
+struct Article: Codable {
+    var annotations: [Annotation]
+    var tag: [String]
+    let uid: String
+    var updateTime: Date
+    let youtubeId: String
+    let youtubeImage: String
+    let youtubePublishDate: Date
+    let youtubeTitle: String
+}
+
+struct Annotation: Codable {
+    let latitude: Double
+    let logitutde: Double
+    let title: String
 }

@@ -9,6 +9,7 @@
 import UIKit
 import MapKit
 import YouTubePlayer
+import CodableFirebase
 import AMScrollingNavbar
 
 class DetailViewController: UIViewController {
@@ -17,21 +18,40 @@ class DetailViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var mapView: MKMapView!
     var youtubeId: String?
+    var articleInfo: Article?
 
     override func viewDidLoad() {
         super.viewDidLoad()
         youtubePlayer.playerVars = ["playsinline": "1"] as YouTubePlayerView.YouTubePlayerParameters
-        if let youtubeId = youtubeId {
-            youtubePlayer.loadVideoID(youtubeId)
-        }
+        guard let youtubeId = youtubeId else { return }
+        youtubePlayer.loadVideoID(youtubeId)
         let newBackButton = UIBarButtonItem(title: "Back", style: UIBarButtonItemStyle.plain, target: self, action: #selector(backToSearch))
         self.navigationItem.leftBarButtonItem = newBackButton
-
-        // Do any additional setup after loading the view.
+        getArticleInfo(of: youtubeId)
     }
 
     @objc func backToSearch() {
         self.navigationController?.popToRootViewController(animated: true)
+    }
+
+    func getArticleInfo(of youtubeId: String) {
+        FirebaseManager.shared.ref.child("articles").child(youtubeId).observeSingleEvent(of: .value, with: { (snapshot) in
+            guard let value = snapshot.value else { return }
+            do {
+                self.articleInfo = try FirebaseDecoder().decode(Article.self, from: value)
+                self.setupMap()
+            } catch {
+                print(error)
+            }
+        })
+    }
+
+    func setupMap() {
+        guard let annotaions = articleInfo?.annotations else { return }
+        let marker = MKPointAnnotation()
+        marker.title = annotaions[0].title
+        marker.coordinate = CLLocationCoordinate2DMake(annotaions[0].latitude, annotaions[0].logitutde)
+        mapView.addAnnotation(marker)
     }
 
     override func viewWillAppear(_ animated: Bool) {

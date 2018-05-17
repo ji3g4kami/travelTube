@@ -20,4 +20,5 @@ target 'travelTube' do
   pod 'GoogleSignIn'
   pod 'AMScrollingNavbar'
   pod 'SKActivityIndicatorView'
+  pod 'CodableFirebase'
 end
