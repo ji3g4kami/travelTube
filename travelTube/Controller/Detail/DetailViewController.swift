@@ -8,6 +8,7 @@
 
 import UIKit
 import MapKit
+import Firebase
 import YouTubePlayer
 import CodableFirebase
 import AMScrollingNavbar
@@ -17,6 +18,7 @@ class DetailViewController: UIViewController {
     @IBOutlet weak var youtubePlayer: YouTubePlayerView!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var mapView: MKMapView!
+    @IBOutlet weak var commentTextField: UITextField!
     var youtubeId: String?
     var articleInfo: Article?
 
@@ -83,6 +85,15 @@ class DetailViewController: UIViewController {
 
     @IBAction func exitButtonPressed(_ sender: Any) {
         self.navigationController?.popToRootViewController(animated: true)
+    }
+    @IBAction func sendCommentPressed(_ sender: Any) {
+        guard let youtubeId = youtubeId else { return }
+        guard let comment = commentTextField.text else { return }
+        FirebaseManager.shared.ref.child("comments").child(youtubeId).childByAutoId().setValue([
+            "userName": UserManager.shared.userName,
+            "comment": comment,
+            "createdTime": Firebase.ServerValue.timestamp()
+            ])
     }
 }
 

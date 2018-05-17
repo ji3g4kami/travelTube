@@ -16,11 +16,11 @@
             <objects>
                 <viewController storyboardIdentifier="DetailViewController" id="tXp-2y-NYO" customClass="DetailViewController" customModule="travelTube" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="XxK-dy-BUE">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="1000"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="igJ-Hf-zRF">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="617"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="950"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <view key="tableHeaderView" contentMode="scaleToFill" id="od0-30-u75">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="481"/>
@@ -70,7 +70,7 @@
                                 </prototypes>
                             </tableView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oAL-m8-yBa">
-                                <rect key="frame" x="0.0" y="617" width="375" height="50"/>
+                                <rect key="frame" x="0.0" y="950" width="375" height="50"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="sn2-do-AWh">
                                         <rect key="frame" x="20" y="10" width="295" height="30"/>
@@ -85,6 +85,9 @@
                                             <constraint firstAttribute="width" constant="30" id="iug-dh-8Jg"/>
                                         </constraints>
                                         <state key="normal" image="btn_send"/>
+                                        <connections>
+                                            <action selector="sendCommentPressed:" destination="tXp-2y-NYO" eventType="touchUpInside" id="xwo-rX-7Ka"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" red="0.82352941180000006" green="0.82352941180000006" blue="0.82352941180000006" alpha="1" colorSpace="calibratedRGB"/>
@@ -114,7 +117,9 @@
                     <navigationItem key="navigationItem" title="Leave comments" id="mu7-Zl-Hw2">
                         <barButtonItem key="backBarButtonItem" title=" " id="Kmj-2e-Rh6"/>
                     </navigationItem>
+                    <size key="freeformSize" width="375" height="1000"/>
                     <connections>
+                        <outlet property="commentTextField" destination="sn2-do-AWh" id="zn1-8P-gyn"/>
                         <outlet property="mapView" destination="Gnu-dF-3zE" id="Feq-qL-glH"/>
                         <outlet property="tableView" destination="igJ-Hf-zRF" id="z2H-Nm-0eC"/>
                         <outlet property="youtubePlayer" destination="aS8-EM-iUg" id="WZt-2b-2IQ"/>

@@ -40,4 +40,14 @@ public class UserManager {
             defaults.set(newValue, forKey: "uid")
         }
     }
+
+    var userName: String {
+        get {
+            // swiftlint:disable force_cast
+            return defaults.value(forKey: "userName") as! String
+        }
+        set {
+            defaults.set(newValue, forKey: "userName")
+        }
+    }
 }

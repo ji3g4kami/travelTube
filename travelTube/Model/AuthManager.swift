@@ -21,6 +21,7 @@ public class AuthManager {
         Auth.auth().addStateDidChangeListener { (auth, user) in
             if let uid = user?.uid, let userEmail = user?.email, let userName = user?.displayName {
                 UserManager.shared.uid = uid
+                UserManager.shared.userName = userName
                 FirebaseManager.shared.ref.child("users").child(UserManager.shared.uid).setValue(["userName": userName, "userEmail": userEmail])
             }
             if auth.currentUser != nil {
