@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import MapKit
 import YouTubePlayer
 import AMScrollingNavbar
 
@@ -14,6 +15,7 @@ class DetailViewController: UIViewController {
 
     @IBOutlet weak var youtubePlayer: YouTubePlayerView!
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var mapView: MKMapView!
     var youtubeId: String?
 
     override func viewDidLoad() {
@@ -31,10 +33,10 @@ class DetailViewController: UIViewController {
     @objc func backToSearch() {
         self.navigationController?.popToRootViewController(animated: true)
     }
-    
+
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
+
         if let navigationController = self.navigationController as? ScrollingNavigationController {
             navigationController.followScrollView(tableView, delay: 0.0)
         }

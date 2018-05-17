@@ -33,9 +33,18 @@
                                                 <constraint firstAttribute="width" secondItem="aS8-EM-iUg" secondAttribute="height" multiplier="16:9" id="kc0-KA-2Nf"/>
                                             </constraints>
                                         </view>
+                                        <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="Gnu-dF-3zE">
+                                            <rect key="frame" x="0.0" y="211" width="375" height="211"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" secondItem="Gnu-dF-3zE" secondAttribute="height" multiplier="16:9" id="qHO-08-LR6"/>
+                                            </constraints>
+                                        </mapView>
                                     </subviews>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <constraints>
+                                        <constraint firstItem="Gnu-dF-3zE" firstAttribute="leading" secondItem="od0-30-u75" secondAttribute="leading" id="NhK-Oe-1v4"/>
+                                        <constraint firstAttribute="trailing" secondItem="Gnu-dF-3zE" secondAttribute="trailing" id="ffs-Gi-VXx"/>
+                                        <constraint firstItem="Gnu-dF-3zE" firstAttribute="top" secondItem="aS8-EM-iUg" secondAttribute="bottom" id="kb2-5B-Jxn"/>
                                         <constraint firstItem="aS8-EM-iUg" firstAttribute="top" secondItem="od0-30-u75" secondAttribute="top" id="uIR-ZD-X1s"/>
                                         <constraint firstAttribute="trailing" secondItem="aS8-EM-iUg" secondAttribute="trailing" id="uRD-FC-ScD"/>
                                         <constraint firstItem="aS8-EM-iUg" firstAttribute="leading" secondItem="od0-30-u75" secondAttribute="leading" id="yfw-TO-iAz"/>
@@ -98,6 +107,7 @@
                         <barButtonItem key="backBarButtonItem" title=" " id="Kmj-2e-Rh6"/>
                     </navigationItem>
                     <connections>
+                        <outlet property="mapView" destination="Gnu-dF-3zE" id="Feq-qL-glH"/>
                         <outlet property="tableView" destination="igJ-Hf-zRF" id="z2H-Nm-0eC"/>
                         <outlet property="youtubePlayer" destination="aS8-EM-iUg" id="WZt-2b-2IQ"/>
                     </connections>
