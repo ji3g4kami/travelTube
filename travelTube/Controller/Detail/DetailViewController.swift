@@ -21,6 +21,7 @@ class DetailViewController: UIViewController {
     @IBOutlet weak var commentTextField: UITextField!
     var youtubeId: String?
     var articleInfo: Article?
+    var comments = [Comment]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -43,7 +44,16 @@ class DetailViewController: UIViewController {
 
     func getComments(of youtubeId: String) {
         FirebaseManager.shared.ref.child("comments").child(youtubeId).queryOrdered(byChild: "createdTime").observe(.value) { (snapshot) in
-            print(snapshot)
+            if let data = snapshot.value as? [String: [String: Any]] {
+                self.comments.removeAll()
+                for (key, value) in data {
+                    if let comment = value["comment"] as? String, let createdTime = value["createdTime"] as? TimeInterval, let userName = value["userName"] as? String {
+                        let comment = Comment(commentId: key, comment: comment, createdTime: createdTime, userName: userName)
+                        self.comments.append(comment)
+                        self.tableView.reloadData()
+                    }
+                }
+            }
         }
     }
 
@@ -107,13 +117,21 @@ class DetailViewController: UIViewController {
 
 extension DetailViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        return comments.count
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: CommentCell.self), for: indexPath) as? CommentCell {
+            cell.commentLabel.text = comments[indexPath.row].comment
             return cell
         }
         return UITableViewCell()
     }
+}
+
+struct Comment {
+    let commentId: String
+    var comment: String
+    let createdTime: TimeInterval
+    let userName: String
 }
