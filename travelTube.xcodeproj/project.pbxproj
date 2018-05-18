@@ -13,6 +13,7 @@
 		1414065620A0821800BFB170 /* UserManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1414065520A0821800BFB170 /* UserManager.swift */; };
 		1414065920A095AA00BFB170 /* RoundedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1414065820A095AA00BFB170 /* RoundedButton.swift */; };
 		14379C8620AE860700319334 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14379C8520AE860700319334 /* MapViewController.swift */; };
+		14379C8820AEBF4200319334 /* DavidView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14379C8720AEBF4200319334 /* DavidView.swift */; };
 		145CAF1820AD7AA700057DB7 /* CommentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 145CAF1620AD7AA700057DB7 /* CommentCell.swift */; };
 		145CAF1920AD7AA700057DB7 /* CommentCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 145CAF1720AD7AA700057DB7 /* CommentCell.xib */; };
 		145D19B920980C1D00BE71D0 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 145D19B820980C1D00BE71D0 /* GoogleService-Info.plist */; };
@@ -56,6 +57,7 @@
 		1414065520A0821800BFB170 /* UserManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserManager.swift; sourceTree = "<group>"; };
 		1414065820A095AA00BFB170 /* RoundedButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedButton.swift; sourceTree = "<group>"; };
 		14379C8520AE860700319334 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
+		14379C8720AEBF4200319334 /* DavidView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DavidView.swift; sourceTree = "<group>"; };
 		145CAF1620AD7AA700057DB7 /* CommentCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentCell.swift; sourceTree = "<group>"; };
 		145CAF1720AD7AA700057DB7 /* CommentCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CommentCell.xib; sourceTree = "<group>"; };
 		145D19B820980C1D00BE71D0 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -147,6 +149,7 @@
 				1414065720A0955300BFB170 /* Login */,
 				14F7BD952099930C00DE78C9 /* Post */,
 				145D19C4209859DF00BE71D0 /* Main */,
+				14379C8720AEBF4200319334 /* DavidView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -517,6 +520,7 @@
 				14DA419C20A13F3000A74254 /* SWRevealViewController.m in Sources */,
 				14F7BD992099AB7900DE78C9 /* YoutubeManager.swift in Sources */,
 				145D19D32098667D00BE71D0 /* UIStoryboard+David.swift in Sources */,
+				14379C8820AEBF4200319334 /* DavidView.swift in Sources */,
 				14F7BD9320995A7E00DE78C9 /* SearchViewController.swift in Sources */,
 				145CAF1820AD7AA700057DB7 /* CommentCell.swift in Sources */,
 				148F90FF209AAFF300308179 /* PostArticleViewController.swift in Sources */,

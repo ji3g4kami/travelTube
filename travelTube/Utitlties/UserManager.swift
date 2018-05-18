@@ -21,13 +21,23 @@ public class UserManager {
         case out
     }
 
-    var isLoggedIn: String {
+    var isLoggedIn: Bool {
         get {
-            // swiftlint:disable force_cast
-            return defaults.value(forKey: "LoggedIn") as! String
+            guard let isLoggedIn = defaults.value(forKey: "LoggedIn") as? Bool else { return false }
+            return isLoggedIn
         }
         set {
             defaults.set(newValue, forKey: "LoggedIn")
+        }
+    }
+
+    var isAnonymous: Bool {
+        get {
+            // swiftlint:disable force_cast
+            return defaults.value(forKey: "isAnonymous") as! Bool
+        }
+        set {
+            defaults.set(newValue, forKey: "isAnonymous")
         }
     }
 

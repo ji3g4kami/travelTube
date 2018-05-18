@@ -17,19 +17,18 @@ class LoginViewController: UIViewController, GIDSignInUIDelegate {
         GIDSignIn.sharedInstance().uiDelegate = self
     }
 
-    @IBAction func login(_ sender: UIButton) {
-        // Activity Indicator
-        AuthManager.shared.login {
-            self.performSegue(withIdentifier: "toMain", sender: nil)
-        }
+    @IBAction func login(_ sender: Any) {
+        GIDSignIn.sharedInstance().signIn()
     }
 
     @IBAction func readOnlyLogin(_ sender: UIButton) {
         // Activity Indicator
         SKActivityIndicator.show("Loading...")
+        UIApplication.shared.beginIgnoringInteractionEvents()
         AuthManager.shared.signInAnonymously(from: self) {
             self.performSegue(withIdentifier: "toMain", sender: nil)
             SKActivityIndicator.dismiss()
+            UIApplication.shared.endIgnoringInteractionEvents()
         }
     }
 }

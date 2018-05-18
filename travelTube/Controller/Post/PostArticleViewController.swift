@@ -33,7 +33,7 @@ class PostArticleViewController: UIViewController {
         mapSearchBar.delegate = self
 
         setupYoutubePlayer()
-
+        //TODO rename
         getKeyboardHeight()
 
         queryTags()

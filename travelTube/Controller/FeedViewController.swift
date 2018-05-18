@@ -8,6 +8,7 @@
 
 import UIKit
 import FirebaseDatabase
+import SKActivityIndicatorView
 
 class FeedViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, CategoryCellDelegate {
 
@@ -19,6 +20,8 @@ class FeedViewController: UIViewController, UITableViewDelegate, UITableViewData
 
         setupTableView()
         getTagsArray()
+        SKActivityIndicator.dismiss()
+        UIApplication.shared.endIgnoringInteractionEvents()
     }
 
     @IBAction func backToFeed(_ segue: UIStoryboardSegue) {

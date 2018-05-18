@@ -10,6 +10,7 @@ import UIKit
 import Firebase
 import GoogleSignIn
 import IQKeyboardManagerSwift
+import SKActivityIndicatorView
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
@@ -22,14 +23,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
         GIDSignIn.sharedInstance().delegate = self
         IQKeyboardManager.shared.enable = true
 
-        switch UserManager.shared.isLoggedIn {
-        case "out":
-            toLoginPage()
-        default:
+        if UserManager.shared.isLoggedIn {
             print("LoggedIn with \(UserManager.shared.isLoggedIn)")
+        } else {
+            toLoginPage()
         }
-
         return true
+    }
+
+    func toMainPage() {
+        let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
+        let feedVC = storyboard.instantiateViewController(withIdentifier: "TabBarViewController") as? TabBarViewController
+        window?.rootViewController = feedVC
     }
 
     func toLoginPage() {
@@ -65,11 +70,21 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
         guard let authentication = user.authentication else {return}
         let credential = GoogleAuthProvider.credential(withIDToken: authentication.idToken, accessToken: authentication.accessToken)
         Auth.auth().signIn(with: credential) { (user, error) in
+            SKActivityIndicator.show("Loading...")
+            UIApplication.shared.beginIgnoringInteractionEvents()
             if let error = error {
                 print(error)
+                SKActivityIndicator.dismiss()
+                UIApplication.shared.endIgnoringInteractionEvents()
                 return
             }
-            print(user?.displayName, user?.email)
+            if let name = user?.displayName, let email = user?.email {
+                print(name, email)
+                UserManager.shared.userName = name
+                UserManager.shared.isLoggedIn = true
+                UserManager.shared.isAnonymous = false
+                self.toMainPage()
+            }
         }
     }
 

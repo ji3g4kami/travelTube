@@ -40,6 +40,10 @@ class DetailViewController: UIViewController {
         mapViewController?.annotations = self.annotations
     }
 
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        print("tooo")
+    }
     func setupNavigationBar() {
         let newBackButton = UIBarButtonItem(title: "Back", style: UIBarButtonItemStyle.plain, target: self, action: #selector(backToRootView))
         self.navigationItem.leftBarButtonItem = newBackButton
@@ -80,6 +84,7 @@ class DetailViewController: UIViewController {
         self.navigationController?.popToRootViewController(animated: true)
     }
 
+    // TODO: closure or delegate
     func getArticleInfo(of youtubeId: String) {
         FirebaseManager.shared.ref.child("articles").child(youtubeId).observeSingleEvent(of: .value, with: { (snapshot) in
             guard let value = snapshot.value else { return }

@@ -31,7 +31,7 @@ class LogoutViewController: UIViewController, InviteDelegate {
     }
 
     @IBAction func inviteTapped(_ sender: AnyObject) {
-        if UserManager.shared.isLoggedIn == "anonymous" {
+        if UserManager.shared.isAnonymous == true {
 
             let alert = UIAlertController(title: "Please Sign In", message: "You can only invite when signed in with Google", preferredStyle: .alert)
             let cancelAction = UIAlertAction(title: "Cancel", style: .default, handler: nil)

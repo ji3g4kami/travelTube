@@ -82,10 +82,10 @@
             </objects>
             <point key="canvasLocation" x="1064.8" y="156.97151424287858"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--Scrolling Navigation Controller-->
         <scene sceneID="Fua-3J-2Lc">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="VcD-Fp-zZN" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="VcD-Fp-zZN" customClass="ScrollingNavigationController" customModule="AMScrollingNavbar" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="wck-70-am6">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
