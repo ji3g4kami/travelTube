@@ -30,28 +30,40 @@ class PostArticleViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        tokenView.delegate = self
-        tokenView.layer.cornerRadius = 10
+        mapSearchBar.delegate = self
 
+        setupYoutubePlayer()
+
+        getKeyboardHeight()
+
+        queryTags()
+
+        setupTokenView()
+
+        setupAnnotationTableView()
+    }
+
+    func setupYoutubePlayer() {
         youtubePlayer.playerVars = ["playsinline": "1"] as YouTubePlayerView.YouTubePlayerParameters
         if let youtubeId = youtube?.youtubeId {
             youtubePlayer.loadVideoID(youtubeId)
         }
-        mapSearchBar.delegate = self
+    }
 
+    func setupAnnotationTableView() {
+        annotationTableView.delegate = self
+        annotationTableView.dataSource = self
+        let xib = UINib(nibName: "AnnotationCell", bundle: nil)
+        annotationTableView.register(xib, forCellReuseIdentifier: "AnnotationCell")
+    }
+
+    func getKeyboardHeight() {
         NotificationCenter.default.addObserver(
             self,
             selector: #selector(keyboardWillShow),
             name: NSNotification.Name.UIKeyboardWillShow,
             object: nil
         )
-
-        queryTags()
-        setupTokenView()
-        annotationTableView.delegate = self
-        annotationTableView.dataSource = self
-        let xib = UINib(nibName: "AnnotationCell", bundle: nil)
-        annotationTableView.register(xib, forCellReuseIdentifier: "AnnotationCell")
     }
 
     @objc func keyboardWillShow(_ notification: Notification) {
@@ -111,7 +123,6 @@ class PostArticleViewController: UIViewController {
 
     @IBAction func discardArticle(_ sender: Any) {
         navigationController?.popToRootViewController(animated: true)
-//        navigationController?.popViewController(animated: true)
     }
 
     @IBAction func postArticle(_ sender: Any) {
@@ -248,6 +259,7 @@ extension PostArticleViewController: KSTokenViewDelegate {
     }
 
     func setupTokenView() {
+        tokenView.layer.cornerRadius = 10
         tokenView.delegate = self
         tokenView.promptText = " Tags: "
         tokenView.placeholder = " 3 tags at most"

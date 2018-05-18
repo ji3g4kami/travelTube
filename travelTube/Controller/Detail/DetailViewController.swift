@@ -116,14 +116,6 @@ class DetailViewController: UIViewController {
         }
     }
 
-    override var prefersStatusBarHidden: Bool {
-        return true
-    }
-
-//    @IBAction func exitButtonPressed(_ sender: Any) {
-//        self.navigationController?.popToRootViewController(animated: true)
-//    }
-
     @IBAction func sendCommentPressed(_ sender: Any) {
         guard let youtubeId = youtubeId else { return }
         guard let comment = commentTextField.text else { return }
