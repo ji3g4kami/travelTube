@@ -53,7 +53,7 @@
                                             </constraints>
                                             <state key="normal" image="full-screen"/>
                                             <connections>
-                                                <segue destination="h4s-XB-Zkn" kind="show" id="gJQ-fY-2Cn"/>
+                                                <segue destination="h4s-XB-Zkn" kind="show" identifier="toFullScreenMap" id="gJQ-fY-2Cn"/>
                                             </connections>
                                         </button>
                                     </subviews>
@@ -164,6 +164,9 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="xfZ-Gv-qcf"/>
                     </view>
+                    <connections>
+                        <outlet property="mapView" destination="VBH-bd-Tko" id="j6u-zz-oEh"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="58v-ZD-FfW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

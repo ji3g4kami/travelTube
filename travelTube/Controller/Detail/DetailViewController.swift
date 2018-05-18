@@ -22,6 +22,7 @@ class DetailViewController: UIViewController {
     var youtubeId: String?
     var articleInfo: Article?
     var comments = [Comment]()
+    var annotations = [MKPointAnnotation]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,6 +33,11 @@ class DetailViewController: UIViewController {
         setupYoutubePlayer(of: youtubeId)
         getArticleInfo(of: youtubeId)
         getComments(of: youtubeId)
+    }
+
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let mapViewController = segue.destination as? MapViewController
+        mapViewController?.annotations = self.annotations
     }
 
     func setupNavigationBar() {
@@ -92,8 +98,9 @@ class DetailViewController: UIViewController {
             let marker = MKPointAnnotation()
             marker.title = annotaion.title
             marker.coordinate = CLLocationCoordinate2DMake(annotaion.latitude, annotaion.logitutde)
-            mapView.addAnnotation(marker)
+            self.annotations.append(marker)
         }
+        mapView.addAnnotations(self.annotations)
         // show the first annotation in center
         let location = CLLocationCoordinate2D(latitude: annotaions[0].latitude, longitude: annotaions[0].logitutde)
         let span = MKCoordinateSpan(latitudeDelta: 0.1, longitudeDelta: 0.1)
