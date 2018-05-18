@@ -25,14 +25,23 @@ class DetailViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupTableView()
-        youtubePlayer.playerVars = ["playsinline": "1"] as YouTubePlayerView.YouTubePlayerParameters
+
         guard let youtubeId = youtubeId else { return }
-        youtubePlayer.loadVideoID(youtubeId)
-        let newBackButton = UIBarButtonItem(title: "Back", style: UIBarButtonItemStyle.plain, target: self, action: #selector(backToSearch))
-        self.navigationItem.leftBarButtonItem = newBackButton
+        setupTableView()
+        setupNavigationBar()
+        setupYoutubePlayer(of: youtubeId)
         getArticleInfo(of: youtubeId)
         getComments(of: youtubeId)
+    }
+
+    func setupNavigationBar() {
+        let newBackButton = UIBarButtonItem(title: "Back", style: UIBarButtonItemStyle.plain, target: self, action: #selector(backToRootView))
+        self.navigationItem.leftBarButtonItem = newBackButton
+    }
+
+    func setupYoutubePlayer(of youtubeId: String) {
+        youtubePlayer.playerVars = ["playsinline": "1"] as YouTubePlayerView.YouTubePlayerParameters
+        youtubePlayer.loadVideoID(youtubeId)
     }
 
     func setupTableView() {
@@ -61,7 +70,7 @@ class DetailViewController: UIViewController {
         }
     }
 
-    @objc func backToSearch() {
+    @objc func backToRootView() {
         self.navigationController?.popToRootViewController(animated: true)
     }
 

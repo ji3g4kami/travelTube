@@ -16,7 +16,7 @@ class FeedViewController: UIViewController, UITableViewDelegate, UITableViewData
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         setupTableView()
         getTagsArray()
     }
@@ -26,12 +26,12 @@ class FeedViewController: UIViewController, UITableViewDelegate, UITableViewData
         postArticleVC?.navigationController?.popViewController(animated: false)
     }
 
-    func setupTableView(){
+    func setupTableView() {
         catgoryTableView.delegate = self
         catgoryTableView.dataSource = self
         catgoryTableView.estimatedRowHeight = 120
     }
-    
+
     func getTagsArray() {
         FirebaseManager.shared.ref.child("tags").observe(.value) { (snapshot) in
             self.tagsArray.removeAll()
