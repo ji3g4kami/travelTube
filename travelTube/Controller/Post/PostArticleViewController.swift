@@ -15,7 +15,7 @@ import AMScrollingNavbar
 
 class PostArticleViewController: UIViewController {
 
-    var youtube: Video?
+    var video: Video?
     var storedTags = [String]()
     var annotations: [MKPointAnnotation] = []
     var keyboardHight = 300
@@ -33,8 +33,8 @@ class PostArticleViewController: UIViewController {
         mapSearchBar.delegate = self
 
         setupYoutubePlayer()
-        //TODO rename
-        getKeyboardHeight()
+
+        setKeyboardObserver()
 
         queryTags()
 
@@ -45,7 +45,7 @@ class PostArticleViewController: UIViewController {
 
     func setupYoutubePlayer() {
         youtubePlayer.playerVars = ["playsinline": "1"] as YouTubePlayerView.YouTubePlayerParameters
-        if let youtubeId = youtube?.youtubeId {
+        if let youtubeId = video?.youtubeId {
             youtubePlayer.loadVideoID(youtubeId)
         }
     }
@@ -57,16 +57,16 @@ class PostArticleViewController: UIViewController {
         annotationTableView.register(xib, forCellReuseIdentifier: "AnnotationCell")
     }
 
-    func getKeyboardHeight() {
+    func setKeyboardObserver() {
         NotificationCenter.default.addObserver(
             self,
-            selector: #selector(keyboardWillShow),
+            selector: #selector(getKeyboardHeight),
             name: NSNotification.Name.UIKeyboardWillShow,
             object: nil
         )
     }
 
-    @objc func keyboardWillShow(_ notification: Notification) {
+    @objc func getKeyboardHeight(_ notification: Notification) {
         if let keyboardFrame: NSValue = notification.userInfo?[UIKeyboardFrameEndUserInfoKey] as? NSValue {
             let keyboardRectangle = keyboardFrame.cgRectValue
             self.keyboardHight = Int(keyboardRectangle.height)
@@ -126,7 +126,7 @@ class PostArticleViewController: UIViewController {
     }
 
     @IBAction func postArticle(_ sender: Any) {
-        guard let video = youtube else {
+        guard let video = video else {
             print("failed unwrapping youtube")
             return
         }
@@ -184,7 +184,7 @@ class PostArticleViewController: UIViewController {
         guard let controller = UIStoryboard.detailStoryboard().instantiateViewController(
             withIdentifier: String(describing: DetailViewController.self)
             ) as? DetailViewController else { return }
-        controller.youtubeId = self.youtube?.youtubeId
+        controller.youtubeId = self.video?.youtubeId
         controller.hidesBottomBarWhenPushed = true
         self.navigationController?.pushViewController(controller, animated: true)
     }
