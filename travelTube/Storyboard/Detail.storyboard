@@ -7,6 +7,7 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -45,14 +46,27 @@
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LXd-nA-weq">
+                                            <rect key="frame" x="325" y="372" width="42" height="42"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" secondItem="LXd-nA-weq" secondAttribute="height" multiplier="1:1" id="0Dm-ei-Zbb"/>
+                                            </constraints>
+                                            <state key="normal" image="full-screen"/>
+                                            <connections>
+                                                <segue destination="h4s-XB-Zkn" kind="show" id="gJQ-fY-2Cn"/>
+                                            </connections>
+                                        </button>
                                     </subviews>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <constraints>
+                                        <constraint firstItem="LXd-nA-weq" firstAttribute="height" secondItem="Gnu-dF-3zE" secondAttribute="height" multiplier="0.2" id="M2r-z3-U3B"/>
                                         <constraint firstItem="Gnu-dF-3zE" firstAttribute="leading" secondItem="od0-30-u75" secondAttribute="leading" id="NhK-Oe-1v4"/>
                                         <constraint firstItem="9Bv-4P-Q5w" firstAttribute="top" secondItem="Gnu-dF-3zE" secondAttribute="bottom" constant="20" id="Ohk-uP-9UY"/>
                                         <constraint firstAttribute="trailing" secondItem="Gnu-dF-3zE" secondAttribute="trailing" id="ffs-Gi-VXx"/>
+                                        <constraint firstItem="LXd-nA-weq" firstAttribute="bottom" secondItem="Gnu-dF-3zE" secondAttribute="bottom" constant="-8" id="iIQ-b8-CXs"/>
                                         <constraint firstItem="Gnu-dF-3zE" firstAttribute="top" secondItem="aS8-EM-iUg" secondAttribute="bottom" id="kb2-5B-Jxn"/>
                                         <constraint firstItem="9Bv-4P-Q5w" firstAttribute="leading" secondItem="od0-30-u75" secondAttribute="leading" constant="30" id="kpb-hv-Zba"/>
+                                        <constraint firstAttribute="trailing" secondItem="LXd-nA-weq" secondAttribute="trailing" constant="8" id="tmA-xF-kSL"/>
                                         <constraint firstItem="aS8-EM-iUg" firstAttribute="top" secondItem="od0-30-u75" secondAttribute="top" id="uIR-ZD-X1s"/>
                                         <constraint firstAttribute="trailing" secondItem="aS8-EM-iUg" secondAttribute="trailing" id="uRD-FC-ScD"/>
                                         <constraint firstItem="aS8-EM-iUg" firstAttribute="leading" secondItem="od0-30-u75" secondAttribute="leading" id="yfw-TO-iAz"/>
@@ -129,6 +143,32 @@
             </objects>
             <point key="canvasLocation" x="2098.4000000000001" y="80.50974512743629"/>
         </scene>
+        <!--Map View Controller-->
+        <scene sceneID="8Jk-1z-wx7">
+            <objects>
+                <viewController id="h4s-XB-Zkn" customClass="MapViewController" customModule="travelTube" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="xra-bU-RQy">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="VBH-bd-Tko">
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                            </mapView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="xfZ-Gv-qcf" firstAttribute="bottom" secondItem="VBH-bd-Tko" secondAttribute="bottom" id="7bH-fT-6w5"/>
+                            <constraint firstItem="VBH-bd-Tko" firstAttribute="leading" secondItem="xfZ-Gv-qcf" secondAttribute="leading" id="UPP-UZ-6Fu"/>
+                            <constraint firstItem="VBH-bd-Tko" firstAttribute="top" secondItem="xfZ-Gv-qcf" secondAttribute="top" id="xXn-IW-xoQ"/>
+                            <constraint firstItem="xfZ-Gv-qcf" firstAttribute="trailing" secondItem="VBH-bd-Tko" secondAttribute="trailing" id="zQb-lo-Ufb"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="xfZ-Gv-qcf"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="58v-ZD-FfW" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2927" y="-75"/>
+        </scene>
         <!--Navigation Controller-->
         <scene sceneID="SPL-AZ-BEJ">
             <objects>
@@ -150,5 +190,6 @@
     </scenes>
     <resources>
         <image name="btn_send" width="30" height="30"/>
+        <image name="full-screen" width="64" height="64"/>
     </resources>
 </document>

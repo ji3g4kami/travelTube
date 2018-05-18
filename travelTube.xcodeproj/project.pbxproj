@@ -12,6 +12,7 @@
 		1414065320A04F9900BFB170 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1414065220A04F9900BFB170 /* LoginViewController.swift */; };
 		1414065620A0821800BFB170 /* UserManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1414065520A0821800BFB170 /* UserManager.swift */; };
 		1414065920A095AA00BFB170 /* RoundedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1414065820A095AA00BFB170 /* RoundedButton.swift */; };
+		14379C8620AE860700319334 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14379C8520AE860700319334 /* MapViewController.swift */; };
 		145CAF1820AD7AA700057DB7 /* CommentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 145CAF1620AD7AA700057DB7 /* CommentCell.swift */; };
 		145CAF1920AD7AA700057DB7 /* CommentCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 145CAF1720AD7AA700057DB7 /* CommentCell.xib */; };
 		145D19B920980C1D00BE71D0 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 145D19B820980C1D00BE71D0 /* GoogleService-Info.plist */; };
@@ -54,6 +55,7 @@
 		1414065420A054D600BFB170 /* travelTube.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = travelTube.entitlements; sourceTree = "<group>"; };
 		1414065520A0821800BFB170 /* UserManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserManager.swift; sourceTree = "<group>"; };
 		1414065820A095AA00BFB170 /* RoundedButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedButton.swift; sourceTree = "<group>"; };
+		14379C8520AE860700319334 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		145CAF1620AD7AA700057DB7 /* CommentCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentCell.swift; sourceTree = "<group>"; };
 		145CAF1720AD7AA700057DB7 /* CommentCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CommentCell.xib; sourceTree = "<group>"; };
 		145D19B820980C1D00BE71D0 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -223,6 +225,7 @@
 			isa = PBXGroup;
 			children = (
 				14AE66B920AAB5CD007D7851 /* DetailViewController.swift */,
+				14379C8520AE860700319334 /* MapViewController.swift */,
 			);
 			path = Detail;
 			sourceTree = "<group>";
@@ -529,6 +532,7 @@
 				14AE66BA20AAB5CD007D7851 /* DetailViewController.swift in Sources */,
 				14DF3C072097166D00215368 /* CategoryCell.swift in Sources */,
 				145D19CA20985CED00BE71D0 /* Constants.swift in Sources */,
+				14379C8620AE860700319334 /* MapViewController.swift in Sources */,
 				1414065020A023D800BFB170 /* AnnotationCell.swift in Sources */,
 				14DA41A120A1420200A74254 /* ProfileViewController.swift in Sources */,
 				14DA41A420A1522B00A74254 /* AuthManager.swift in Sources */,
