@@ -43,16 +43,20 @@ class DetailViewController: UIViewController {
     }
 
     func getComments(of youtubeId: String) {
-        FirebaseManager.shared.ref.child("comments").child(youtubeId).queryOrdered(byChild: "createdTime").observe(.value) { (snapshot) in
+        FirebaseManager.shared.ref.child("comments").child(youtubeId).queryOrdered(byChild: "createdTime").queryStarting(atValue: 0).observe(.value) { (snapshot) in
+            self.comments.removeAll()
             if let data = snapshot.value as? [String: [String: Any]] {
                 self.comments.removeAll()
                 for (key, value) in data {
                     if let comment = value["comment"] as? String, let createdTime = value["createdTime"] as? TimeInterval, let userName = value["userName"] as? String {
                         let comment = Comment(commentId: key, comment: comment, createdTime: createdTime, userName: userName)
                         self.comments.append(comment)
-                        self.tableView.reloadData()
                     }
                 }
+                self.comments.sort(by: { (comment1, comment2) -> Bool in
+                    comment1.createdTime < comment2.createdTime
+                })
+                self.tableView.reloadData()
             }
         }
     }
