@@ -12,6 +12,7 @@ import CoreLocation
 
 class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDelegate {
 
+    @IBOutlet weak var navigationButton: UIButton!
     @IBOutlet weak var mapView: MKMapView!
     var annotations = [MKPointAnnotation]()
     let locationManager = CLLocationManager()
@@ -22,6 +23,8 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
         super.viewDidLoad()
         showAllAnnotations()
         mapView.delegate = self
+        navigationButton.center.x = view.frame.width - 50
+        navigationButton.center.y = view.frame.height + 50
     }
 
     func showAllAnnotations() {
@@ -46,12 +49,18 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
     }
 
     func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
-        print(view.annotation?.title)
         destination = view.annotation
+        UIView.animate(withDuration: 0.1) {
+            self.navigationButton.center.x = self.view.frame.width - 50
+            self.navigationButton.center.y = self.view.frame.height - 50
+        }
     }
 
     func mapView(_ mapView: MKMapView, didDeselect view: MKAnnotationView) {
-        print(view.annotation?.title)
+        UIView.animate(withDuration: 0.1) {
+            self.navigationButton.center.x = self.view.frame.width - 50
+            self.navigationButton.center.y = self.view.frame.height + 50
+        }
     }
 
     @IBAction func drawRoutePressed(_ sender: Any) {
