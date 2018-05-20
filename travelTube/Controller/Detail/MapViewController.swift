@@ -78,7 +78,10 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
                 return
             }
 
+            self.mapView.removeOverlays(self.mapView.overlays)
             let route = directionResponse.routes[0]
+            print("distance: \(route.distance*0.001) km")
+            print("time: \(route.expectedTravelTime/60) min")
             self.mapView.add(route.polyline, level: .aboveRoads)
 
             let rect = route.polyline.boundingMapRect
