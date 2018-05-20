@@ -15,17 +15,20 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
     @IBOutlet weak var mapView: MKMapView!
     var annotations = [MKPointAnnotation]()
     let locationManager = CLLocationManager()
-    var locationOrder = 0
+    var locationOrder = -1
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupMap()
+        showAllAnnotations()
     }
 
-    func setupMap() {
-
+    func showAllAnnotations() {
         mapView.addAnnotations(self.annotations)
-        // show the first annotation in center
+        mapView.showAnnotations(mapView.annotations, animated: true)
+        navigationItem.title = "All"
+    }
+
+    func showNextAnnotation() {
         let span = MKCoordinateSpan(latitudeDelta: 0.1, longitudeDelta: 0.1)
         let region = MKCoordinateRegion(center: annotations[locationOrder].coordinate, span: span)
         mapView.setRegion(region, animated: true)
@@ -43,6 +46,10 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
     }
     @IBAction func nextLocationPressed(_ sender: Any) {
         locationOrder = (locationOrder+1) % annotations.count
-        setupMap()
+        showNextAnnotation()
+    }
+
+    @IBAction func allLocationPressed(_ sender: Any) {
+        showAllAnnotations()
     }
 }

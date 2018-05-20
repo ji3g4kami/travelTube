@@ -109,11 +109,7 @@ class DetailViewController: UIViewController {
             self.annotations.append(marker)
         }
         mapView.addAnnotations(self.annotations)
-        // show the first annotation in center
-        let location = CLLocationCoordinate2D(latitude: annotaions[0].latitude, longitude: annotaions[0].logitutde)
-        let span = MKCoordinateSpan(latitudeDelta: 0.1, longitudeDelta: 0.1)
-        let region = MKCoordinateRegion(center: location, span: span)
-        mapView.setRegion(region, animated: true)
+        mapView.showAnnotations(mapView.annotations, animated: true)
     }
 
     override func viewWillAppear(_ animated: Bool) {
