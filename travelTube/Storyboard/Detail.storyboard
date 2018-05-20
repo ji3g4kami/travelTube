@@ -154,9 +154,10 @@
             </objects>
             <point key="canvasLocation" x="2098.4000000000001" y="80.059970014992516"/>
         </scene>
-        <!--Map View Controller-->
+        <!--Title-->
         <scene sceneID="8Jk-1z-wx7">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="58v-ZD-FfW" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="h4s-XB-Zkn" customClass="MapViewController" customModule="travelTube" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="xra-bU-RQy">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
@@ -175,11 +176,23 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="xfZ-Gv-qcf"/>
                     </view>
+                    <navigationItem key="navigationItem" title="Title" id="8Db-0j-P1N">
+                        <barButtonItem key="rightBarButtonItem" style="plain" id="QRR-Ed-cPm">
+                            <inset key="largeContentSizeImageInsets" minX="0.0" minY="0.0" maxX="1" maxY="0.0"/>
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="iqz-fa-JPr">
+                                <rect key="frame" x="276" y="7" width="83" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Next"/>
+                                <connections>
+                                    <action selector="nextLocationPressed:" destination="h4s-XB-Zkn" eventType="touchUpInside" id="mC4-gK-dNN"/>
+                                </connections>
+                            </button>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="mapView" destination="VBH-bd-Tko" id="j6u-zz-oEh"/>
                     </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="58v-ZD-FfW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3010" y="81"/>
         </scene>

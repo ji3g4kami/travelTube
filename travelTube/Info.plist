@@ -52,5 +52,7 @@
 	</array>
 	<key>NSContactsUsageDescription</key>
 	<string>travelTube uses your contacts to make it easy to share fun places with your friends.</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>travelTube can show route between you and destination</string>
 </dict>
 </plist>
