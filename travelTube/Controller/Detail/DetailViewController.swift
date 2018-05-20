@@ -40,10 +40,13 @@ class DetailViewController: UIViewController {
         mapViewController?.annotations = self.annotations
     }
 
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        print("tooo")
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        print("Detail")
+        guard let headerView = tableView.tableHeaderView else { return }
+        headerView.frame.size.height = youtubePlayer.frame.size.height + mapView.frame.size.height + 50
     }
+
     func setupNavigationBar() {
         let newBackButton = UIBarButtonItem(title: "Back", style: UIBarButtonItemStyle.plain, target: self, action: #selector(backToRootView))
         self.navigationItem.leftBarButtonItem = newBackButton
