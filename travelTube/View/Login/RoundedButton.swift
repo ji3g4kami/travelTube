@@ -9,9 +9,9 @@
 import UIKit
 
 class RoundedButton: UIButton {
-    
+
     @IBOutlet weak var view: UIView!
-    
+
     override func awakeFromNib() {
         super.awakeFromNib()
         self.setupView()

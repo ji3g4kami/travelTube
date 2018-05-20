@@ -167,11 +167,20 @@
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="VBH-bd-Tko">
                                 <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                             </mapView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Rj5-hg-j0W">
+                                <rect key="frame" x="305" y="597" width="30" height="30"/>
+                                <state key="normal" title="Nav"/>
+                                <connections>
+                                    <action selector="drawRoutePressed:" destination="h4s-XB-Zkn" eventType="touchUpInside" id="KRc-RB-ocb"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="xfZ-Gv-qcf" firstAttribute="bottom" secondItem="VBH-bd-Tko" secondAttribute="bottom" id="7bH-fT-6w5"/>
+                            <constraint firstItem="xfZ-Gv-qcf" firstAttribute="bottom" secondItem="Rj5-hg-j0W" secondAttribute="bottom" constant="40" id="MSs-Bm-sxt"/>
                             <constraint firstItem="VBH-bd-Tko" firstAttribute="leading" secondItem="xfZ-Gv-qcf" secondAttribute="leading" id="UPP-UZ-6Fu"/>
+                            <constraint firstItem="xfZ-Gv-qcf" firstAttribute="trailing" secondItem="Rj5-hg-j0W" secondAttribute="trailing" constant="40" id="chA-Wz-2ib"/>
                             <constraint firstItem="VBH-bd-Tko" firstAttribute="top" secondItem="xfZ-Gv-qcf" secondAttribute="top" id="xXn-IW-xoQ"/>
                             <constraint firstItem="xfZ-Gv-qcf" firstAttribute="trailing" secondItem="VBH-bd-Tko" secondAttribute="trailing" id="zQb-lo-Ufb"/>
                         </constraints>
