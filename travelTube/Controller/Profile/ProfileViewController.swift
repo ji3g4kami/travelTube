@@ -10,8 +10,11 @@ import UIKit
 
 class ProfileViewController: UIViewController {
 
+    @IBOutlet weak var nameLabel: UILabel!
+
     override func viewDidLoad() {
         super.viewDidLoad()
+        nameLabel.text = "David"
         setupNavigationBarItems()
     }
 
