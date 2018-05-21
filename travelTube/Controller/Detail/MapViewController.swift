@@ -93,7 +93,14 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
             print("time: \(route.expectedTravelTime/60) min")
             self.mapView.add(route.polyline, level: .aboveRoads)
 
-            let rect = route.polyline.boundingMapRect
+            // resize rect to make it look better
+            var rect = route.polyline.boundingMapRect
+            let widthPadding = rect.size.width*0.2
+            let heightPadding = rect.size.height*0.2
+            rect.size.width += widthPadding
+            rect.size.height += heightPadding
+            rect.origin.x -= widthPadding/2
+            rect.origin.y -= heightPadding/2
             self.mapView.setRegion(MKCoordinateRegionForMapRect(rect), animated: true)
         }
     }
