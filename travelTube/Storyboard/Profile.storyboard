@@ -45,7 +45,7 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="me8-BB-wKo">
                                 <rect key="frame" x="0.0" y="64" width="375" height="199"/>
                                 <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="qfR-Q0-s4x">
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="profile_placeholder" translatesAutoresizingMaskIntoConstraints="NO" id="qfR-Q0-s4x">
                                         <rect key="frame" x="138" y="49.5" width="99.5" height="100"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="qfR-Q0-s4x" secondAttribute="height" multiplier="1:1" id="Jqb-BX-eaW"/>
@@ -104,6 +104,7 @@
                     <navigationItem key="navigationItem" title="Profile" id="2WD-Tv-siU"/>
                     <connections>
                         <outlet property="nameLabel" destination="5DN-sg-jVL" id="rTZ-bL-amh"/>
+                        <outlet property="userImageView" destination="qfR-Q0-s4x" id="zRd-xc-viu"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0sO-mG-Fey" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -180,5 +181,6 @@
     <resources>
         <image name="btn_logout" width="24" height="24"/>
         <image name="menu" width="25" height="25"/>
+        <image name="profile_placeholder" width="36" height="36"/>
     </resources>
 </document>

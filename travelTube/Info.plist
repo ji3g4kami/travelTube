@@ -54,5 +54,9 @@
 	<string>travelTube uses your contacts to make it easy to share fun places with your friends.</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string>travelTube can show route between you and destination</string>
+	<key>NSPhotoLibraryAddUsageDescription</key>
+	<string>Allow to change your profile image</string>
+	<key>NSCameraUsageDescription</key>
+	<string>Allow to change your profile image</string>
 </dict>
 </plist>
