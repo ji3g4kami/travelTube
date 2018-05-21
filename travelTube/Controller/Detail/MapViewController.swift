@@ -16,6 +16,8 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
     @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var distanceLabel: UILabel!
     @IBOutlet weak var durationLabel: UILabel!
+    @IBOutlet weak var navPanelView: UIView!
+    @IBOutlet weak var navPanelBottom: NSLayoutConstraint!
     var annotations = [MKPointAnnotation]()
     let locationManager = CLLocationManager()
     var destination: MKAnnotation?
@@ -25,11 +27,10 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
         super.viewDidLoad()
         showAllAnnotations()
         mapView.delegate = self
+        hideNavButton()
     }
 
     override func viewDidLayoutSubviews() {
-        navigationButton.center.x = view.frame.width - 50
-        navigationButton.center.y = view.frame.height + 50
     }
 
     func showAllAnnotations() {
@@ -55,16 +56,31 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
 
     func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
         destination = view.annotation
+        showNavPanel()
+    }
+
+    func mapView(_ mapView: MKMapView, didDeselect view: MKAnnotationView) {
+        hideNavButton()
+        hideNavPanel()
+    }
+
+    func showNavPanel() {
         UIView.animate(withDuration: 0.1) {
             self.navigationButton.center.x = self.view.frame.width - 50
             self.navigationButton.center.y = self.view.frame.height - 50
         }
     }
 
-    func mapView(_ mapView: MKMapView, didDeselect view: MKAnnotationView) {
+    func hideNavButton() {
         UIView.animate(withDuration: 0.1) {
             self.navigationButton.center.x = self.view.frame.width - 50
             self.navigationButton.center.y = self.view.frame.height + 50
+        }
+    }
+
+    func hideNavPanel() {
+        UIView.animate(withDuration: 0.1) {
+            self.navPanelView.center.y = self.view.frame.height + self.navPanelView.frame.height/2
         }
     }
 
@@ -95,7 +111,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
             self.mapView.removeOverlays(self.mapView.overlays)
             let route = directionResponse.routes[0]
             self.distanceLabel.text = "\(route.distance*0.001) km"
-            self.durationLabel.text = "\(route.expectedTravelTime/60) min"
+            self.durationLabel.text = route.expectedTravelTime.toHoursAndMinutes()
             self.mapView.add(route.polyline, level: .aboveRoads)
 
             // resize rect to make it look better
@@ -107,13 +123,31 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
             rect.origin.x -= widthPadding/2
             rect.origin.y -= heightPadding/2
             self.mapView.setRegion(MKCoordinateRegionForMapRect(rect), animated: true)
+
+            UIView.animate(withDuration: 0.1) {
+                self.navPanelBottom.constant = 0
+            }
         }
     }
 
+    @IBAction func closePanelPressed(_ sender: Any) {
+        hideNavPanel()
+    }
     func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
         let renderer = MKPolylineRenderer(overlay: overlay)
         renderer.strokeColor = UIColor.blue
         renderer.lineWidth = 4.0
         return renderer
+    }
+}
+
+extension TimeInterval {
+    func toHoursAndMinutes() -> String {
+        let hours = Int(self/3600)
+        let minutes = Int(self/60) % 60
+        if hours > 0 {
+            return "\(hours) hr. \(minutes) min."
+        }
+        return "\(minutes) min."
     }
 }
