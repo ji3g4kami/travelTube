@@ -9,11 +9,15 @@
 import UIKit
 import FirebaseStorage
 import SDWebImage
+import CodableFirebase
 
 class ProfileViewController: UIViewController {
 
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var userImageView: UIImageView!
+    @IBOutlet weak var collectionView: UICollectionView!
+
+    var contributionArray = [Article]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,12 +26,36 @@ class ProfileViewController: UIViewController {
         let touch = UITapGestureRecognizer(target: self, action: #selector(bottomAlert))
         userImageView.addGestureRecognizer(touch)
         setUserProfile()
+        requestUserArticle()
+
+//        setupCollectionView()
     }
 
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(false)
         userImageView.setRounded()
     }
+
+    func requestUserArticle() {
+        FirebaseManager.shared.ref.child("articles").queryOrdered(byChild: "uid").queryEqual(toValue: UserManager.shared.uid).observeSingleEvent(of: .value) { (snapshot) in
+            print(snapshot.value)
+//            for child in snapshot.children {
+//                do {
+//                    let article = try FirebaseDecoder().decode(Article.self, from: child)
+//                    self.contributionArray.append(article)
+//                    print(article)
+//                } catch {
+//                    print(error)
+//                }
+//            }
+        }
+    }
+
+//    private func setupCollectionView() {
+//        collectionView.delegate = self
+//        let xib = UINib(nibName: "ArticleCollectionViewCell", bundle: nil)
+//        collectionView.register(xib, forCellWithReuseIdentifier: "articleCell")
+//    }
 
     private func setupNavigationBarItems() {
         let menuButton = UIButton(type: .system)
@@ -49,6 +77,16 @@ class ProfileViewController: UIViewController {
         nameLabel.text = UserManager.shared.userName
     }
 }
+
+//extension ProfileViewController: UICollectionViewDelegate, UICollectionViewDataSource {
+//    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+//        <#code#>
+//    }
+//
+//    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+//        <#code#>
+//    }
+//}
 
 extension ProfileViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     @objc func bottomAlert() {

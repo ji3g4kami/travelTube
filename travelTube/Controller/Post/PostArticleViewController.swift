@@ -126,6 +126,14 @@ class PostArticleViewController: UIViewController {
     }
 
     @IBAction func postArticle(_ sender: Any) {
+        // Annotations cannot be empty
+        if annotations.count < 1 {
+            let alertController = UIAlertController(title: "Lack of information", message: "Please at least share one location about the clip", preferredStyle: .alert)
+            alertController.addAction(UIAlertAction(title: "OK", style: .default))
+            present(alertController, animated: true)
+            return
+        }
+
         guard let video = video else {
             print("failed unwrapping youtube")
             return
@@ -181,6 +189,7 @@ class PostArticleViewController: UIViewController {
                 })
             }
         }
+
         guard let controller = UIStoryboard.detailStoryboard().instantiateViewController(
             withIdentifier: String(describing: DetailViewController.self)
             ) as? DetailViewController else { return }
