@@ -12,18 +12,10 @@ import FirebaseStorage
 import FirebaseDatabase
 import CodableFirebase
 
-struct FirebaseUserInfo {
-    var uid: String
-    var email: String
-    var name: String
-    var userImage: URL
-}
-
 class FirebaseManager {
     static let shared = FirebaseManager()
     lazy var ref = Database.database().reference()
     lazy var storageRef = Storage.storage().reference()
-    var user: FirebaseUserInfo?
 
     var profileImageRef: StorageReference {
         return storageRef.child("profile")
@@ -46,8 +38,9 @@ class FirebaseManager {
                     if let error = error {
                         print(error.localizedDescription)
                     }
-                    if let url = url {
-                        print(url)
+                    // store imageUrl to users in firebase
+                    if let url = url?.absoluteString {
+                        self.ref.child("users").child(uid).updateChildValues(["image": url ])
                     }
                 })
             }

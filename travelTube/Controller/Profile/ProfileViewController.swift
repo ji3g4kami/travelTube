@@ -8,6 +8,7 @@
 
 import UIKit
 import FirebaseStorage
+import SDWebImage
 
 class ProfileViewController: UIViewController {
 
@@ -16,11 +17,11 @@ class ProfileViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        nameLabel.text = "David"
         setupNavigationBarItems()
         userImageView.isUserInteractionEnabled = true
         let touch = UITapGestureRecognizer(target: self, action: #selector(bottomAlert))
         userImageView.addGestureRecognizer(touch)
+        setUserProfile()
     }
 
     override func viewDidAppear(_ animated: Bool) {
@@ -34,6 +35,18 @@ class ProfileViewController: UIViewController {
         menuButton.frame = CGRect(x: 0, y: 0, width: 34, height: 34)
         navigationItem.rightBarButtonItem = UIBarButtonItem(customView: menuButton)
         menuButton.addTarget(self.revealViewController(), action: #selector(SWRevealViewController.rightRevealToggle(_:)), for: .touchUpInside)
+    }
+
+    private func setUserProfile() {
+        // set profile image
+        let uid = UserManager.shared.uid
+        FirebaseManager.shared.ref.child("users").child(uid).observeSingleEvent(of: .value) { (snapshot) in
+            guard let value = snapshot.value as? NSDictionary, let image = value["image"] as? String else { return }
+            self.userImageView.sd_setImage(with: URL(string: image), placeholderImage: #imageLiteral(resourceName: "profile_placeholder"))
+        }
+
+        // set profile name
+        nameLabel.text = UserManager.shared.userName
     }
 }
 
