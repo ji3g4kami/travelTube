@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import FirebaseStorage
 
 class ProfileViewController: UIViewController {
 
@@ -64,7 +65,7 @@ extension ProfileViewController: UIImagePickerControllerDelegate, UINavigationCo
             UIImageWriteToSavedPhotosAlbum(image!, self, #selector(image(_:didFinishSavingWithError:contextInfo:)), nil)
         }
         userImageView.image = image
-//        firebaseManager.updateProfilePhoto(uploadimage: image)
+        FirebaseManager.shared.updateProfilePhoto(uploadImage: image)
         dismiss(animated: true, completion: nil)
     }
 

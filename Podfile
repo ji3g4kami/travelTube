@@ -21,4 +21,5 @@ target 'travelTube' do
   pod 'AMScrollingNavbar'
   pod 'SKActivityIndicatorView'
   pod 'CodableFirebase'
+  pod 'Firebase/Storage'
 end

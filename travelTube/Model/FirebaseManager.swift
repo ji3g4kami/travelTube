@@ -8,6 +8,7 @@
 
 import Foundation
 import Firebase
+import FirebaseStorage
 import FirebaseDatabase
 import CodableFirebase
 
@@ -20,8 +21,38 @@ struct FirebaseUserInfo {
 
 class FirebaseManager {
     static let shared = FirebaseManager()
-    var ref = Database.database().reference()
+    lazy var ref = Database.database().reference()
+    lazy var storageRef = Storage.storage().reference()
     var user: FirebaseUserInfo?
+
+    var profileImageRef: StorageReference {
+        return storageRef.child("profile")
+    }
+
+    func updateProfilePhoto(uploadImage: UIImage?) {
+        let metadata = StorageMetadata()
+        metadata.contentType = "image/jpeg"
+
+        let uid = UserManager.shared.uid
+        let imageRef = profileImageRef.child("\(uid).jpg")
+
+        guard let image = uploadImage, let data = UIImageJPEGRepresentation(image, 0.1) else { return }
+        imageRef.putData(data, metadata: metadata) { (_, error) in
+            if let error = error {
+                print("Couldn't upload image", error.localizedDescription)
+            } else {
+                print("Successfully uploaded image")
+                imageRef.downloadURL(completion: { (url, error) in
+                    if let error = error {
+                        print(error.localizedDescription)
+                    }
+                    if let url = url {
+                        print(url)
+                    }
+                })
+            }
+        }
+    }
 }
 
 struct Article: Codable {
