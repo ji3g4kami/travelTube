@@ -11,10 +11,17 @@ import UIKit
 class ArticleCollectionViewCell: UICollectionViewCell {
 
     @IBOutlet weak var youtubeImage: UIImageView!
+    @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var titleTopToImageContraint: NSLayoutConstraint!
+    @IBOutlet weak var titleBottomContraint: NSLayoutConstraint!
 
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        titleLabel.font = titleLabel.font.withSize(self.frame.height/20 + 5)
+        titleLabel.sizeToFit()
+        titleTopToImageContraint.constant = self.frame.height/30
+        titleBottomContraint.constant = titleTopToImageContraint.constant
+//        youtubeImage.layer.cornerRadius = youtubeImage.frame.height*0.1
     }
 
 }

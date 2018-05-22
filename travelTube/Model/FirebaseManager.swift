@@ -8,20 +8,44 @@
 
 import Foundation
 import Firebase
+import FirebaseStorage
 import FirebaseDatabase
 import CodableFirebase
 
-struct FirebaseUserInfo {
-    var uid: String
-    var email: String
-    var name: String
-    var userImage: URL
-}
-
 class FirebaseManager {
     static let shared = FirebaseManager()
-    var ref = Database.database().reference()
-    var user: FirebaseUserInfo?
+    lazy var ref = Database.database().reference()
+    lazy var storageRef = Storage.storage().reference()
+
+    var profileImageRef: StorageReference {
+        return storageRef.child("profile")
+    }
+
+    func updateProfilePhoto(uploadImage: UIImage?) {
+        let metadata = StorageMetadata()
+        metadata.contentType = "image/jpeg"
+
+        let uid = UserManager.shared.uid
+        let imageRef = profileImageRef.child("\(uid).jpg")
+
+        guard let image = uploadImage, let data = UIImageJPEGRepresentation(image, 0.1) else { return }
+        imageRef.putData(data, metadata: metadata) { (_, error) in
+            if let error = error {
+                print("Couldn't upload image", error.localizedDescription)
+            } else {
+                print("Successfully uploaded image")
+                imageRef.downloadURL(completion: { (url, error) in
+                    if let error = error {
+                        print(error.localizedDescription)
+                    }
+                    // store imageUrl to users in firebase
+                    if let url = url?.absoluteString {
+                        self.ref.child("users").child(uid).updateChildValues(["image": url ])
+                    }
+                })
+            }
+        }
+    }
 }
 
 struct Article: Codable {

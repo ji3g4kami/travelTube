@@ -78,9 +78,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
                 UIApplication.shared.endIgnoringInteractionEvents()
                 return
             }
-            if let name = user?.displayName, let email = user?.email {
+            if let name = user?.displayName, let email = user?.email, let uid = user?.uid {
                 print(name, email)
                 UserManager.shared.userName = name
+                UserManager.shared.uid = uid
                 UserManager.shared.isLoggedIn = true
                 UserManager.shared.isAnonymous = false
                 self.toMainPage()
