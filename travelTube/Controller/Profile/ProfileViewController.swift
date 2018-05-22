@@ -38,9 +38,9 @@ class ProfileViewController: UIViewController {
     }
 
     func requestUserArticle() {
-        articleArray.removeAll()
         FirebaseManager.shared.ref.child("articles").queryOrdered(byChild: "uid").queryEqual(toValue: "\(UserManager.shared.uid)").observe(.value) { (snapshot) in
             guard let children = snapshot.children.allObjects as? [DataSnapshot] else { return }
+            self.articleArray.removeAll()
             for child in children {
                 guard let value = child.value else { return }
                 do {
@@ -96,6 +96,23 @@ extension ProfileViewController: UICollectionViewDelegate, UICollectionViewDataS
             return cell
         }
         return UICollectionViewCell()
+    }
+}
+
+extension ProfileViewController: UICollectionViewDelegateFlowLayout {
+
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+
+        let width = Double(UIScreen.main.bounds.width)/2 - 5
+
+        let height = width*27/32
+
+        return CGSize(width: width, height: height)
+    }
+
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+
+        return UIEdgeInsets(top: 0, left: 0, bottom: 11.0, right: 0)
     }
 }
 
