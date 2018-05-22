@@ -38,8 +38,8 @@ class FeedViewController: UIViewController, UITableViewDelegate, UITableViewData
     func getTagsArray() {
         FirebaseManager.shared.ref.child("tags").observe(.value) { (snapshot) in
             self.tagsArray.removeAll()
-            // swiftlint:disable force_cast
-            for child in snapshot.children.allObjects as! [DataSnapshot] {
+            guard let children = snapshot.children.allObjects as? [DataSnapshot] else { return }
+            for child in children {
                 if let value = child.value as? [String] {
                     let tagDict = [child.key: value]
                     self.tagsArray.append(tagDict)
@@ -59,7 +59,7 @@ class FeedViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
 
     func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
-        let header = view as! UITableViewHeaderFooterView
+        guard let header = view as? UITableViewHeaderFooterView else { return }
         if section == 0 {
             header.textLabel?.font = UIFont(name: "Futura", size: 40)
         }

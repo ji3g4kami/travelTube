@@ -9,6 +9,7 @@
 import UIKit
 import FirebaseStorage
 import SDWebImage
+import Firebase
 import CodableFirebase
 
 class ProfileViewController: UIViewController {
@@ -17,7 +18,7 @@ class ProfileViewController: UIViewController {
     @IBOutlet weak var userImageView: UIImageView!
     @IBOutlet weak var collectionView: UICollectionView!
 
-    var contributionArray = [Article]()
+    var articleArray = [Article]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,7 +29,7 @@ class ProfileViewController: UIViewController {
         setUserProfile()
         requestUserArticle()
 
-//        setupCollectionView()
+        setupCollectionView()
     }
 
     override func viewDidAppear(_ animated: Bool) {
@@ -37,25 +38,30 @@ class ProfileViewController: UIViewController {
     }
 
     func requestUserArticle() {
-        FirebaseManager.shared.ref.child("articles").queryOrdered(byChild: "uid").queryEqual(toValue: UserManager.shared.uid).observeSingleEvent(of: .value) { (snapshot) in
-            print(snapshot.value)
-//            for child in snapshot.children {
-//                do {
-//                    let article = try FirebaseDecoder().decode(Article.self, from: child)
-//                    self.contributionArray.append(article)
-//                    print(article)
-//                } catch {
-//                    print(error)
-//                }
-//            }
+        articleArray.removeAll()
+        FirebaseManager.shared.ref.child("articles").queryOrdered(byChild: "uid").queryEqual(toValue: "\(UserManager.shared.uid)").observe(.value) { (snapshot) in
+            guard let children = snapshot.children.allObjects as? [DataSnapshot] else { return }
+            for child in children {
+                guard let value = child.value else { return }
+                do {
+                    let article = try FirebaseDecoder().decode(Article.self, from: value)
+                    self.articleArray.append(article)
+                    DispatchQueue.main.async {
+                        self.collectionView.reloadData()
+                    }
+                } catch {
+                    print(error)
+                }
+            }
         }
     }
 
-//    private func setupCollectionView() {
-//        collectionView.delegate = self
-//        let xib = UINib(nibName: "ArticleCollectionViewCell", bundle: nil)
-//        collectionView.register(xib, forCellWithReuseIdentifier: "articleCell")
-//    }
+    private func setupCollectionView() {
+        collectionView.delegate = self
+        collectionView.dataSource = self
+        let xib = UINib(nibName: "ArticleCollectionViewCell", bundle: nil)
+        collectionView.register(xib, forCellWithReuseIdentifier: "articleCell")
+    }
 
     private func setupNavigationBarItems() {
         let menuButton = UIButton(type: .system)
@@ -78,15 +84,20 @@ class ProfileViewController: UIViewController {
     }
 }
 
-//extension ProfileViewController: UICollectionViewDelegate, UICollectionViewDataSource {
-//    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-//        <#code#>
-//    }
-//
-//    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-//        <#code#>
-//    }
-//}
+extension ProfileViewController: UICollectionViewDelegate, UICollectionViewDataSource {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return articleArray.count
+    }
+
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        if let cell: ArticleCollectionViewCell = collectionView.dequeueReusableCell(withReuseIdentifier: "articleCell", for: indexPath) as? ArticleCollectionViewCell {
+            cell.youtubeImage.sd_setImage(with: URL(string: articleArray[indexPath.row].youtubeImage), placeholderImage: #imageLiteral(resourceName: "youtube"))
+            cell.titleLabel.text = articleArray[indexPath.row].youtubeTitle
+            return cell
+        }
+        return UICollectionViewCell()
+    }
+}
 
 extension ProfileViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     @objc func bottomAlert() {
