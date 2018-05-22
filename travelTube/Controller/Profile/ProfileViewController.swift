@@ -9,11 +9,16 @@
 import UIKit
 import FirebaseStorage
 import SDWebImage
+import Firebase
+import CodableFirebase
 
 class ProfileViewController: UIViewController {
 
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var userImageView: UIImageView!
+    @IBOutlet weak var collectionView: UICollectionView!
+
+    var articleArray = [Article]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,11 +27,40 @@ class ProfileViewController: UIViewController {
         let touch = UITapGestureRecognizer(target: self, action: #selector(bottomAlert))
         userImageView.addGestureRecognizer(touch)
         setUserProfile()
+        requestUserArticle()
+
+        setupCollectionView()
     }
 
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(false)
         userImageView.setRounded()
+    }
+
+    func requestUserArticle() {
+        FirebaseManager.shared.ref.child("articles").queryOrdered(byChild: "uid").queryEqual(toValue: "\(UserManager.shared.uid)").observe(.value) { (snapshot) in
+            guard let children = snapshot.children.allObjects as? [DataSnapshot] else { return }
+            self.articleArray.removeAll()
+            for child in children {
+                guard let value = child.value else { return }
+                do {
+                    let article = try FirebaseDecoder().decode(Article.self, from: value)
+                    self.articleArray.append(article)
+                    DispatchQueue.main.async {
+                        self.collectionView.reloadData()
+                    }
+                } catch {
+                    print(error)
+                }
+            }
+        }
+    }
+
+    private func setupCollectionView() {
+        collectionView.delegate = self
+        collectionView.dataSource = self
+        let xib = UINib(nibName: "ArticleCollectionViewCell", bundle: nil)
+        collectionView.register(xib, forCellWithReuseIdentifier: "articleCell")
     }
 
     private func setupNavigationBarItems() {
@@ -47,6 +81,38 @@ class ProfileViewController: UIViewController {
 
         // set profile name
         nameLabel.text = UserManager.shared.userName
+    }
+}
+
+extension ProfileViewController: UICollectionViewDelegate, UICollectionViewDataSource {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return articleArray.count
+    }
+
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        if let cell: ArticleCollectionViewCell = collectionView.dequeueReusableCell(withReuseIdentifier: "articleCell", for: indexPath) as? ArticleCollectionViewCell {
+            cell.youtubeImage.sd_setImage(with: URL(string: articleArray[indexPath.row].youtubeImage), placeholderImage: #imageLiteral(resourceName: "youtube"))
+            cell.titleLabel.text = articleArray[indexPath.row].youtubeTitle
+            return cell
+        }
+        return UICollectionViewCell()
+    }
+}
+
+extension ProfileViewController: UICollectionViewDelegateFlowLayout {
+
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+
+        let width = Double(UIScreen.main.bounds.width)/2 - 5
+
+        let height = width*27/32
+
+        return CGSize(width: width, height: height)
+    }
+
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+
+        return UIEdgeInsets(top: 0, left: 0, bottom: 11.0, right: 0)
     }
 }
 

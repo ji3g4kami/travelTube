@@ -8,6 +8,7 @@
 
 import UIKit
 import SDWebImage
+import CodableFirebase
 
 protocol CategoryCellDelegate: class {
     func colCategorySelected(youtubeId: String)
@@ -17,7 +18,7 @@ class CategoryCell: UITableViewCell, UICollectionViewDelegate, UICollectionViewD
 
     @IBOutlet weak var articleCollectionView: UICollectionView!
     var articleIdArray = [String]()
-    var articleImageArray = [String]()
+    var articleArray = [Article]()
     weak var delegate: CategoryCellDelegate?
 
     override func awakeFromNib() {
@@ -27,20 +28,21 @@ class CategoryCell: UITableViewCell, UICollectionViewDelegate, UICollectionViewD
 
         articleCollectionView.delegate = self
         articleCollectionView.dataSource = self
-
-//        NotificationCenter.default.addObserver(self, selector: #selector(requstArticleData), name: NSNotification.Name(rawValue: "Have AricleIds from FeedVC"), object: nil)
-
     }
 
     func requstArticleData() {
-        articleImageArray.removeAll()
-        for articleId in articleIdArray {
-            FirebaseManager.shared.ref.child("articles").child(articleId).child("youtubeImage").observeSingleEvent(of: .value) { (snapshot) in
-                if let url = snapshot.value as? String {
-                    self.articleImageArray.append(url)
-                }
-                DispatchQueue.main.async {
-                    self.articleCollectionView.reloadData()
+        articleArray.removeAll()
+        for articleId in self.articleIdArray {
+            FirebaseManager.shared.ref.child("articles").child(articleId).observeSingleEvent(of: .value) { (snapshot) in
+                guard let value = snapshot.value else { return }
+                do {
+                    let article = try FirebaseDecoder().decode(Article.self, from: value)
+                    self.articleArray.append(article)
+                    DispatchQueue.main.async {
+                        self.articleCollectionView.reloadData()
+                    }
+                } catch {
+                    print(error)
                 }
             }
         }
@@ -56,13 +58,13 @@ class CategoryCell: UITableViewCell, UICollectionViewDelegate, UICollectionViewD
     }
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return articleImageArray.count
+        return articleArray.count
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if let cell: ArticleCollectionViewCell = collectionView.dequeueReusableCell(withReuseIdentifier: "articleCell", for: indexPath) as? ArticleCollectionViewCell {
-            cell.youtubeImage.sd_setImage(with: URL(string: articleImageArray[indexPath.row]), placeholderImage: #imageLiteral(resourceName: "youtube"))
-            cell.layer.cornerRadius = cell.layer.frame.height*0.1
+            cell.youtubeImage.sd_setImage(with: URL(string: articleArray[indexPath.row].youtubeImage), placeholderImage: #imageLiteral(resourceName: "youtube"))
+            cell.titleLabel.text = articleArray[indexPath.row].youtubeTitle
             return cell
         }
         return UICollectionViewCell()

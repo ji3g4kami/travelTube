@@ -103,6 +103,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="Profile" id="2WD-Tv-siU"/>
                     <connections>
+                        <outlet property="collectionView" destination="ygD-vg-VPP" id="L5W-XQ-aFv"/>
                         <outlet property="nameLabel" destination="5DN-sg-jVL" id="rTZ-bL-amh"/>
                         <outlet property="userImageView" destination="qfR-Q0-s4x" id="zRd-xc-viu"/>
                     </connections>
