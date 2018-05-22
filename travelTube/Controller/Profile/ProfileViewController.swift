@@ -97,6 +97,15 @@ extension ProfileViewController: UICollectionViewDelegate, UICollectionViewDataS
         }
         return UICollectionViewCell()
     }
+
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        guard let controller = UIStoryboard.detailStoryboard().instantiateViewController(
+            withIdentifier: String(describing: DetailViewController.self)
+            ) as? DetailViewController else { return }
+        controller.youtubeId = articleArray[indexPath.row].youtubeId
+        controller.hidesBottomBarWhenPushed = true
+        navigationController?.pushViewController(controller, animated: true)
+    }
 }
 
 extension ProfileViewController: UICollectionViewDelegateFlowLayout {
