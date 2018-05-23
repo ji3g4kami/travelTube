@@ -41,6 +41,9 @@ public class AuthManager: NSObject {
         do {
             try firebaseAuth.signOut()
             UserManager.shared.isLoggedIn = false
+            UserManager.shared.uid = ""
+            UserManager.shared.userImage = nil
+            UserManager.shared.userName = ""
             print("Logged Out")
             completion()
         } catch let signOutError as NSError {
