@@ -161,7 +161,8 @@ extension DetailViewController: UITableViewDelegate, UITableViewDataSource {
             let delete = deleteAction(at: indexPath)
             return UISwipeActionsConfiguration(actions: [edit, delete])
         } else {
-            return UISwipeActionsConfiguration()
+            let report = reportAction(at: indexPath)
+            return UISwipeActionsConfiguration(actions: [report])
         }
     }
 
@@ -186,6 +187,18 @@ extension DetailViewController: UITableViewDelegate, UITableViewDataSource {
             completion(true)
         }
         action.image = #imageLiteral(resourceName: "trash")
+        return action
+    }
+
+    func reportAction(at indexPath: IndexPath) -> UIContextualAction {
+        let action = UIContextualAction(style: .destructive, title: "Report") { (_, _, completion) in
+            let alert = UIAlertController(title: "Dislike report", message: "You've just reported an controvertial content.", preferredStyle: .alert)
+            let action = UIAlertAction(title: "OK", style: .cancel, handler: nil)
+            alert.addAction(action)
+            self.present(alert, animated: true, completion: nil)
+            FirebaseManager.shared.ref.child("reports").child("comments").setValue(self.comments[indexPath.row].commentId)
+        }
+        action.image = #imageLiteral(resourceName: "dislike")
         return action
     }
 }
