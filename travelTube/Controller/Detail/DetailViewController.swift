@@ -144,7 +144,7 @@ extension DetailViewController: UITableViewDelegate, UITableViewDataSource {
         if let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: CommentCell.self), for: indexPath) as? CommentCell {
             cell.commentLabel.text = comments[indexPath.row].comment
             cell.nameLabel.text = comments[indexPath.row].userName
-            cell.userProfileImage.sd_setImage(with: URL(string: comments[indexPath.row].userImage), placeholderImage: #imageLiteral(resourceName: "youtube"))
+            cell.userProfileImage.sd_setImage(with: URL(string: comments[indexPath.row].userImage), placeholderImage: #imageLiteral(resourceName: "profile_placeholder"))
             return cell
         }
         return UITableViewCell()
@@ -161,9 +161,13 @@ extension DetailViewController: UITableViewDelegate, UITableViewDataSource {
     }
 
     func editAction(at indexPath: IndexPath) -> UIContextualAction {
-        let action = UIContextualAction(style: .normal, title: "Edit") { (action, view, _) in
-            print(action)
-            print(view)
+        let action = UIContextualAction(style: .normal, title: "Edit") { (action, view, completion) in
+            let storyboard = UIStoryboard(name: "Detail", bundle: nil)
+            if let controller = storyboard.instantiateViewController(withIdentifier: "CommentViewController") as? CommentViewController {
+                self.present(controller, animated: true, completion: nil)
+            } 
+//            self.commentTextField.text = self.comments[indexPath.row].comment
+            completion(true)
         }
         action.image = #imageLiteral(resourceName: "pencil")
         return action
