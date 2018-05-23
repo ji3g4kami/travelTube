@@ -161,11 +161,13 @@ extension DetailViewController: UITableViewDelegate, UITableViewDataSource {
     }
 
     func editAction(at indexPath: IndexPath) -> UIContextualAction {
-        let action = UIContextualAction(style: .normal, title: "Edit") { (action, view, completion) in
+        let action = UIContextualAction(style: .normal, title: "Edit") { (_, _, completion) in
             let storyboard = UIStoryboard(name: "Detail", bundle: nil)
             if let controller = storyboard.instantiateViewController(withIdentifier: "CommentViewController") as? CommentViewController {
+                controller.comment = self.comments[indexPath.row]
+                controller.articleId = self.youtubeId
                 self.present(controller, animated: true, completion: nil)
-            } 
+            }
 //            self.commentTextField.text = self.comments[indexPath.row].comment
             completion(true)
         }

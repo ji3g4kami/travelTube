@@ -299,10 +299,9 @@
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pFf-8g-f6x" customClass="DesignableView" customModule="travelTube" customModuleProvider="target">
                                     <rect key="frame" x="20" y="233.5" width="335" height="200.5"/>
                                     <subviews>
-                                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="zyc-zU-T0J" customClass="DesignableTextView" customModule="travelTube" customModuleProvider="target">
+                                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Comment" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="zyc-zU-T0J" customClass="DesignableTextView" customModule="travelTube" customModuleProvider="target">
                                             <rect key="frame" x="10" y="39" width="315" height="113.5"/>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                            <mutableString key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</mutableString>
                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                             <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                             <userDefinedRuntimeAttributes>
@@ -326,6 +325,9 @@
                                             <state key="normal" title="Edit">
                                                 <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             </state>
+                                            <connections>
+                                                <action selector="editButtonPressed:" destination="jHI-ax-Qqe" eventType="touchUpInside" id="Xxv-Fd-ppz"/>
+                                            </connections>
                                         </button>
                                     </subviews>
                                     <color key="backgroundColor" red="0.84705882349999995" green="0.91372549020000005" blue="0.93725490199999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -389,6 +391,7 @@
                         <blurEffect style="light"/>
                     </visualEffectView>
                     <connections>
+                        <outlet property="commentTextView" destination="zyc-zU-T0J" id="xu7-cK-K8Y"/>
                         <outlet property="userImage" destination="IDW-fz-F9h" id="LRm-6Q-heL"/>
                     </connections>
                 </viewController>
