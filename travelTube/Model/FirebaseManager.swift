@@ -41,6 +41,7 @@ class FirebaseManager {
                     // store imageUrl to users in firebase
                     if let url = url?.absoluteString {
                         self.ref.child("users").child(uid).updateChildValues(["image": url ])
+                        UserManager.shared.userImage = url
                     }
                 })
             }

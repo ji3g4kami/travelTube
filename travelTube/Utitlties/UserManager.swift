@@ -60,4 +60,13 @@ public class UserManager {
             defaults.set(newValue, forKey: "userName")
         }
     }
+
+    var userImage: String? {
+        get {
+            return defaults.value(forKey: "userImage") as? String
+        }
+        set {
+            defaults.set(newValue, forKey: "userImage")
+        }
+    }
 }

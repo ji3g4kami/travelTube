@@ -62,6 +62,8 @@ class DetailViewController: UIViewController {
         tableView.dataSource = self
         let xib = UINib(nibName: String(describing: CommentCell.self), bundle: nil)
         tableView.register(xib, forCellReuseIdentifier: String(describing: CommentCell.self))
+        tableView.estimatedRowHeight = 60
+        tableView.rowHeight = UITableViewAutomaticDimension
     }
 
     func getComments(of youtubeId: String) {
@@ -70,8 +72,8 @@ class DetailViewController: UIViewController {
             if let data = snapshot.value as? [String: [String: Any]] {
                 self.comments.removeAll()
                 for (key, value) in data {
-                    if let comment = value["comment"] as? String, let createdTime = value["createdTime"] as? TimeInterval, let userName = value["userName"] as? String {
-                        let comment = Comment(commentId: key, comment: comment, createdTime: createdTime, userName: userName)
+                    if let comment = value["comment"] as? String, let createdTime = value["createdTime"] as? TimeInterval, let userName = value["userName"] as? String, let userImage = value["userImage"] as? String {
+                        let comment = Comment(commentId: key, comment: comment, createdTime: createdTime, userName: userName, userImage: userImage)
                         self.comments.append(comment)
                     }
                 }
@@ -123,8 +125,10 @@ class DetailViewController: UIViewController {
     @IBAction func sendCommentPressed(_ sender: Any) {
         guard let youtubeId = youtubeId else { return }
         guard let comment = commentTextField.text else { return }
+        commentTextField.text = nil
         FirebaseManager.shared.ref.child("comments").child(youtubeId).childByAutoId().setValue([
             "userName": UserManager.shared.userName,
+            "userImage": UserManager.shared.userImage,
             "comment": comment,
             "createdTime": Firebase.ServerValue.timestamp()
             ])
@@ -139,9 +143,15 @@ extension DetailViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: CommentCell.self), for: indexPath) as? CommentCell {
             cell.commentLabel.text = comments[indexPath.row].comment
+            cell.nameLabel.text = comments[indexPath.row].userName
+            cell.userProfileImage.sd_setImage(with: URL(string: comments[indexPath.row].userImage), placeholderImage: #imageLiteral(resourceName: "youtube"))
             return cell
         }
         return UITableViewCell()
+    }
+
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return UITableViewAutomaticDimension
     }
 }
 
@@ -150,4 +160,5 @@ struct Comment {
     var comment: String
     let createdTime: TimeInterval
     let userName: String
+    let userImage: String
 }
