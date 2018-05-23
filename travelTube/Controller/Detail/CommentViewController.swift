@@ -32,7 +32,7 @@ class CommentViewController: UIViewController {
     @IBAction func editButtonPressed(_ sender: Any) {
         guard let commentId = comment?.commentId else { return }
         guard let articleId = articleId else { return }
-                FirebaseManager.shared.ref.child("comments/\(articleId)").child(commentId).updateChildValues(["comment": commentTextView.text])
+        FirebaseManager.shared.ref.child("comments/\(articleId)").child(commentId).updateChildValues(["comment": commentTextView.text])
         dismiss(animated: true, completion: nil)
     }
 }
