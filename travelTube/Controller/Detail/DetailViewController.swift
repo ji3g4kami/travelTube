@@ -19,6 +19,9 @@ class DetailViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var commentTextField: UITextField!
+    @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var infoView: UIView!
+    
     var youtubeId: String?
     var articleInfo: Article?
     var comments = [Comment]()
@@ -43,8 +46,6 @@ class DetailViewController: UIViewController {
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         print("Detail")
-        guard let headerView = tableView.tableHeaderView else { return }
-        headerView.frame.size.height = youtubePlayer.frame.size.height + mapView.frame.size.height + 50
     }
 
     func setupNavigationBar() {
@@ -96,10 +97,21 @@ class DetailViewController: UIViewController {
             do {
                 self.articleInfo = try FirebaseDecoder().decode(Article.self, from: value)
                 self.setupMap()
+                self.setupInfo()
             } catch {
                 print(error)
             }
         })
+    }
+
+    func setupInfo() {
+        guard let article = articleInfo else { return }
+        titleLabel.text = article.youtubeTitle
+        DispatchQueue.main.async {
+            guard let headerView = self.tableView.tableHeaderView else { return }
+            headerView.frame.size.height = self.youtubePlayer.frame.size.height + self.mapView.frame.size.height + self.infoView.frame.height
+            self.tableView.reloadData()
+        }
     }
 
     func setupMap() {
