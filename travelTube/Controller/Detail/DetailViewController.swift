@@ -153,6 +153,21 @@ extension DetailViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return UITableViewAutomaticDimension
     }
+
+    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        let edit = editAction(at: indexPath)
+//        let delete = deleteAction(at: indexPath)
+        return UISwipeActionsConfiguration(actions: [edit/*, delete*/])
+    }
+
+    func editAction(at indexPath: IndexPath) -> UIContextualAction {
+        let action = UIContextualAction(style: .normal, title: "Edit") { (action, view, _) in
+            print(action)
+            print(view)
+        }
+        action.image = #imageLiteral(resourceName: "pencil")
+        return action
+    }
 }
 
 struct Comment {
