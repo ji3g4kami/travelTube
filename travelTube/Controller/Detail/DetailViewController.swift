@@ -72,8 +72,8 @@ class DetailViewController: UIViewController {
             if let data = snapshot.value as? [String: [String: Any]] {
                 self.comments.removeAll()
                 for (key, value) in data {
-                    if let comment = value["comment"] as? String, let createdTime = value["createdTime"] as? TimeInterval, let userName = value["userName"] as? String, let userImage = value["userImage"] as? String {
-                        let comment = Comment(commentId: key, comment: comment, createdTime: createdTime, userName: userName, userImage: userImage)
+                    if let comment = value["comment"] as? String, let createdTime = value["createdTime"] as? TimeInterval, let userName = value["userName"] as? String, let userImage = value["userImage"] as? String, let userId = value["userId"] as? String {
+                        let comment = Comment(commentId: key, comment: comment, createdTime: createdTime, userId: userId, userName: userName, userImage: userImage)
                         self.comments.append(comment)
                     }
                 }
@@ -127,8 +127,9 @@ class DetailViewController: UIViewController {
         guard let comment = commentTextField.text else { return }
         commentTextField.text = nil
         FirebaseManager.shared.ref.child("comments").child(youtubeId).childByAutoId().setValue([
+            "userId": UserManager.shared.uid,
             "userName": UserManager.shared.userName,
-            "userImage": UserManager.shared.userImage,
+            "userImage": UserManager.shared.userImage ?? "https://image.flaticon.com/icons/svg/17/17004.svg",
             "comment": comment,
             "createdTime": Firebase.ServerValue.timestamp()
             ])
@@ -155,9 +156,13 @@ extension DetailViewController: UITableViewDelegate, UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
-        let edit = editAction(at: indexPath)
-        let delete = deleteAction(at: indexPath)
-        return UISwipeActionsConfiguration(actions: [edit, delete])
+        if comments[indexPath.row].userId == UserManager.shared.uid {
+            let edit = editAction(at: indexPath)
+            let delete = deleteAction(at: indexPath)
+            return UISwipeActionsConfiguration(actions: [edit, delete])
+        } else {
+            return UISwipeActionsConfiguration()
+        }
     }
 
     func editAction(at indexPath: IndexPath) -> UIContextualAction {
@@ -189,6 +194,7 @@ struct Comment {
     let commentId: String
     var comment: String
     let createdTime: TimeInterval
+    let userId: String
     let userName: String
     let userImage: String
 }
