@@ -33,28 +33,28 @@ public class UserManager {
 
     var isAnonymous: Bool {
         get {
-            // swiftlint:disable force_cast
-            return defaults.value(forKey: "isAnonymous") as! Bool
+            guard let isAnonymous = defaults.value(forKey: "isAnonymous") as? Bool else { return false }
+            return isAnonymous
         }
         set {
             defaults.set(newValue, forKey: "isAnonymous")
         }
     }
 
-    var uid: String {
+    var uid: String? {
         get {
-            // swiftlint:disable force_cast
-            return defaults.value(forKey: "uid") as! String
+            guard let uid = defaults.value(forKey: "uid") as? String else { return nil }
+            return uid
         }
         set {
             defaults.set(newValue, forKey: "uid")
         }
     }
 
-    var userName: String {
+    var userName: String? {
         get {
-            // swiftlint:disable force_cast
-            return defaults.value(forKey: "userName") as! String
+            guard let userName = defaults.value(forKey: "userName") as? String else { return nil }
+            return userName
         }
         set {
             defaults.set(newValue, forKey: "userName")

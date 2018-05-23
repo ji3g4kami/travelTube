@@ -38,7 +38,8 @@ class ProfileViewController: UIViewController {
     }
 
     func requestUserArticle() {
-        FirebaseManager.shared.ref.child("articles").queryOrdered(byChild: "uid").queryEqual(toValue: "\(UserManager.shared.uid)").observe(.value) { (snapshot) in
+        guard let uid = UserManager.shared.uid else { return }
+        FirebaseManager.shared.ref.child("articles").queryOrdered(byChild: "uid").queryEqual(toValue: uid).observe(.value) { (snapshot) in
             guard let children = snapshot.children.allObjects as? [DataSnapshot] else { return }
             self.articleArray.removeAll()
             for child in children {
@@ -73,7 +74,7 @@ class ProfileViewController: UIViewController {
 
     private func setUserProfile() {
         // set profile image
-        let uid = UserManager.shared.uid
+        guard let uid = UserManager.shared.uid else { return }
         FirebaseManager.shared.ref.child("users").child(uid).observeSingleEvent(of: .value) { (snapshot) in
             guard let value = snapshot.value as? NSDictionary, let image = value["image"] as? String else { return }
             self.userImageView.sd_setImage(with: URL(string: image), placeholderImage: #imageLiteral(resourceName: "profile_placeholder"))

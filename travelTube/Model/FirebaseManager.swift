@@ -39,7 +39,7 @@ class FirebaseManager {
                         print(error.localizedDescription)
                     }
                     // store imageUrl to users in firebase
-                    if let url = url?.absoluteString {
+                    if let url = url?.absoluteString, let uid = uid {
                         self.ref.child("users").child(uid).updateChildValues(["image": url ])
                         UserManager.shared.userImage = url
                     }

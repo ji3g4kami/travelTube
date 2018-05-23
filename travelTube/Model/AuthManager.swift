@@ -28,6 +28,9 @@ public class AuthManager: NSObject {
                 if user.isAnonymous {
                     UserManager.shared.isLoggedIn = true
                     UserManager.shared.isAnonymous = true
+                    UserManager.shared.uid = user.uid
+                    UserManager.shared.userName = "Anonymous"
+                    UserManager.shared.userImage = "https://image.flaticon.com/icons/svg/17/17004.svg"
                     print("Anonymous Logged In")
                     completion()
                 }
@@ -41,9 +44,6 @@ public class AuthManager: NSObject {
         do {
             try firebaseAuth.signOut()
             UserManager.shared.isLoggedIn = false
-            UserManager.shared.uid = ""
-            UserManager.shared.userImage = nil
-            UserManager.shared.userName = ""
             print("Logged Out")
             completion()
         } catch let signOutError as NSError {
