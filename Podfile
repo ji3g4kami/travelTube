@@ -22,4 +22,5 @@ target 'travelTube' do
   pod 'SKActivityIndicatorView'
   pod 'CodableFirebase'
   pod 'Firebase/Storage'
+  pod 'TagListView'
 end

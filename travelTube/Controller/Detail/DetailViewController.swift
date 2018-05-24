@@ -12,6 +12,7 @@ import Firebase
 import YouTubePlayer
 import CodableFirebase
 import AMScrollingNavbar
+import TagListView
 
 class DetailViewController: UIViewController {
 
@@ -21,7 +22,8 @@ class DetailViewController: UIViewController {
     @IBOutlet weak var commentTextField: UITextField!
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var infoView: UIView!
-    
+    @IBOutlet weak var tagsView: TagListView!
+
     var youtubeId: String?
     var articleInfo: Article?
     var comments = [Comment]()
@@ -98,10 +100,19 @@ class DetailViewController: UIViewController {
                 self.articleInfo = try FirebaseDecoder().decode(Article.self, from: value)
                 self.setupMap()
                 self.setupInfo()
+                self.setupTags()
             } catch {
                 print(error)
             }
         })
+    }
+
+    func setupTags() {
+        guard var articleTags = articleInfo?.tag else { return }
+        articleTags = articleTags.filter { $0 != "New" }
+        self.tagsView.addTags(articleTags)
+        tagsView.textFont = UIFont.systemFont(ofSize: 18)
+        tagsView.alignment = .left
     }
 
     func setupInfo() {
