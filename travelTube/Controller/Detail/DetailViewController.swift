@@ -210,7 +210,7 @@ extension DetailViewController: UITableViewDelegate, UITableViewDataSource {
             self.present(alert, animated: true, completion: nil)
             FirebaseManager.shared.ref.child("reports").child("comments").setValue(self.comments[indexPath.row].commentId)
         }
-        action.image = #imageLiteral(resourceName: "dislike")
+        action.image = #imageLiteral(resourceName: "ban")
         return action
     }
 }
