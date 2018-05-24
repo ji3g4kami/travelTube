@@ -156,7 +156,7 @@
 				145CAF1120AD7A1000057DB7 /* Detail */,
 				1414065720A0955300BFB170 /* Login */,
 				14F7BD952099930C00DE78C9 /* Post */,
-				145D19C4209859DF00BE71D0 /* Main */,
+				145D19C4209859DF00BE71D0 /* Feed */,
 				143F3EF220B5513500784EB9 /* DesignableView.swift */,
 				143F3EF420B55DF200784EB9 /* DesignableTextView.swift */,
 				144F808520B68B08002D19CD /* DesignableButton.swift */,
@@ -164,14 +164,14 @@
 			path = View;
 			sourceTree = "<group>";
 		};
-		145D19C4209859DF00BE71D0 /* Main */ = {
+		145D19C4209859DF00BE71D0 /* Feed */ = {
 			isa = PBXGroup;
 			children = (
 				14DF3C082097191600215368 /* ArticleCollectionViewCell.swift */,
 				14DF3C092097191600215368 /* ArticleCollectionViewCell.xib */,
 				14DF3C062097166D00215368 /* CategoryCell.swift */,
 			);
-			path = Main;
+			path = Feed;
 			sourceTree = "<group>";
 		};
 		145D19C520985A6B00BE71D0 /* Model */ = {
