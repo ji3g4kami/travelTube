@@ -41,12 +41,19 @@
                                                 <constraint firstAttribute="width" secondItem="Gnu-dF-3zE" secondAttribute="height" multiplier="16:9" id="qHO-08-LR6"/>
                                             </constraints>
                                         </mapView>
-                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LXd-nA-weq">
-                                            <rect key="frame" x="325" y="372" width="42" height="42"/>
+                                        <button opaque="NO" alpha="0.59999999999999998" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LXd-nA-weq" customClass="DesignableButton" customModule="travelTube" customModuleProvider="target">
+                                            <rect key="frame" x="329" y="376" width="38" height="38"/>
+                                            <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" secondItem="LXd-nA-weq" secondAttribute="height" multiplier="1:1" id="0Dm-ei-Zbb"/>
                                             </constraints>
+                                            <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="0.0" maxY="-1"/>
                                             <state key="normal" image="full-screen"/>
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                    <real key="value" value="8"/>
+                                                </userDefinedRuntimeAttribute>
+                                            </userDefinedRuntimeAttributes>
                                             <connections>
                                                 <segue destination="h4s-XB-Zkn" kind="show" identifier="toFullScreenMap" id="gJQ-fY-2Cn"/>
                                             </connections>
@@ -118,7 +125,7 @@
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <constraints>
                                         <constraint firstAttribute="trailing" secondItem="jeQ-aW-GOb" secondAttribute="trailing" id="3Ow-vo-3Fq"/>
-                                        <constraint firstItem="LXd-nA-weq" firstAttribute="height" secondItem="Gnu-dF-3zE" secondAttribute="height" multiplier="0.2" id="M2r-z3-U3B"/>
+                                        <constraint firstItem="LXd-nA-weq" firstAttribute="height" secondItem="Gnu-dF-3zE" secondAttribute="height" multiplier="0.18" id="M2r-z3-U3B"/>
                                         <constraint firstItem="Gnu-dF-3zE" firstAttribute="leading" secondItem="od0-30-u75" secondAttribute="leading" id="NhK-Oe-1v4"/>
                                         <constraint firstAttribute="trailing" secondItem="Gnu-dF-3zE" secondAttribute="trailing" id="ffs-Gi-VXx"/>
                                         <constraint firstItem="jeQ-aW-GOb" firstAttribute="top" secondItem="Gnu-dF-3zE" secondAttribute="bottom" id="gsv-DQ-BQw"/>
@@ -193,6 +200,7 @@
                     <size key="freeformSize" width="375" height="1000"/>
                     <connections>
                         <outlet property="commentTextField" destination="sn2-do-AWh" id="zn1-8P-gyn"/>
+                        <outlet property="fullScreenButton" destination="LXd-nA-weq" id="v8u-6X-4lk"/>
                         <outlet property="infoView" destination="jeQ-aW-GOb" id="1Z3-kU-q7v"/>
                         <outlet property="mapView" destination="Gnu-dF-3zE" id="Feq-qL-glH"/>
                         <outlet property="tableView" destination="igJ-Hf-zRF" id="z2H-Nm-0eC"/>
@@ -471,7 +479,7 @@
     <resources>
         <image name="btn_send" width="30" height="30"/>
         <image name="down-arrow" width="128" height="128"/>
-        <image name="full-screen" width="64" height="64"/>
+        <image name="full-screen" width="25" height="25"/>
         <image name="navigation" width="128" height="128"/>
     </resources>
 </document>

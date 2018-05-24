@@ -23,6 +23,7 @@ class DetailViewController: UIViewController {
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var infoView: UIView!
     @IBOutlet weak var tagsView: TagListView!
+    @IBOutlet weak var fullScreenButton: DesignableButton!
 
     var youtubeId: String?
     var articleInfo: Article?
