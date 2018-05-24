@@ -71,7 +71,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="poW-Fw-cC6" customClass="TagListView" customModule="TagListView">
-                                                    <rect key="frame" x="15" y="47" width="345" height="36"/>
+                                                    <rect key="frame" x="15" y="47" width="320" height="36"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="36" id="8wz-O7-xOE"/>
@@ -109,15 +109,35 @@
                                                         </userDefinedRuntimeAttribute>
                                                     </userDefinedRuntimeAttributes>
                                                 </view>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pm8-Ut-dDQ">
+                                                    <rect key="frame" x="335" y="52.5" width="25" height="25"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="25" id="d9B-D6-nl1"/>
+                                                        <constraint firstAttribute="width" constant="25" id="nig-p6-w8X"/>
+                                                    </constraints>
+                                                    <state key="normal" image="ban">
+                                                        <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    </state>
+                                                </button>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Report" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7bW-Io-GdY">
+                                                    <rect key="frame" x="337" y="78" width="21" height="8"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="6"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <constraints>
+                                                <constraint firstAttribute="trailing" secondItem="pm8-Ut-dDQ" secondAttribute="trailing" constant="15" id="2D9-LG-mNu"/>
                                                 <constraint firstItem="poW-Fw-cC6" firstAttribute="leading" secondItem="jeQ-aW-GOb" secondAttribute="leading" constant="15" id="C7b-RB-gUR"/>
                                                 <constraint firstItem="poW-Fw-cC6" firstAttribute="top" secondItem="9Bv-4P-Q5w" secondAttribute="bottom" constant="7" id="CXK-Y1-X6T"/>
-                                                <constraint firstAttribute="trailing" secondItem="poW-Fw-cC6" secondAttribute="trailing" constant="15" id="E0c-mN-GGg"/>
                                                 <constraint firstAttribute="trailing" secondItem="9Bv-4P-Q5w" secondAttribute="trailing" constant="15" id="JdF-s5-qUg"/>
                                                 <constraint firstAttribute="bottom" secondItem="poW-Fw-cC6" secondAttribute="bottom" constant="8" id="TSS-VQ-ft3"/>
                                                 <constraint firstItem="9Bv-4P-Q5w" firstAttribute="leading" secondItem="jeQ-aW-GOb" secondAttribute="leading" constant="15" id="TnP-hd-Srg"/>
+                                                <constraint firstItem="7bW-Io-GdY" firstAttribute="top" secondItem="pm8-Ut-dDQ" secondAttribute="bottom" constant="0.5" id="eYn-BF-fOs"/>
+                                                <constraint firstItem="pm8-Ut-dDQ" firstAttribute="centerY" secondItem="poW-Fw-cC6" secondAttribute="centerY" id="h3R-aU-jBM"/>
+                                                <constraint firstItem="7bW-Io-GdY" firstAttribute="centerX" secondItem="pm8-Ut-dDQ" secondAttribute="centerX" id="kha-nK-Ygb"/>
+                                                <constraint firstItem="pm8-Ut-dDQ" firstAttribute="leading" secondItem="poW-Fw-cC6" secondAttribute="trailing" id="ome-80-M4Q"/>
                                                 <constraint firstItem="9Bv-4P-Q5w" firstAttribute="top" secondItem="jeQ-aW-GOb" secondAttribute="top" constant="10" id="tf6-Pz-hAy"/>
                                             </constraints>
                                         </view>
@@ -477,6 +497,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="ban" width="25" height="25"/>
         <image name="btn_send" width="30" height="30"/>
         <image name="down-arrow" width="128" height="128"/>
         <image name="full-screen" width="25" height="25"/>
