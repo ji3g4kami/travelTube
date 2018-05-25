@@ -211,7 +211,6 @@
                             <constraint firstItem="oAL-m8-yBa" firstAttribute="top" secondItem="igJ-Hf-zRF" secondAttribute="bottom" id="XF9-Di-umf"/>
                             <constraint firstItem="oAL-m8-yBa" firstAttribute="trailing" secondItem="MiG-4b-Q1a" secondAttribute="trailing" id="gHK-zB-ayF"/>
                             <constraint firstItem="oAL-m8-yBa" firstAttribute="leading" secondItem="MiG-4b-Q1a" secondAttribute="leading" id="iDR-xr-A6g"/>
-                            <constraint firstItem="MiG-4b-Q1a" firstAttribute="bottom" secondItem="igJ-Hf-zRF" secondAttribute="bottom" constant="50" id="szN-6N-5KW"/>
                             <constraint firstItem="igJ-Hf-zRF" firstAttribute="top" secondItem="XxK-dy-BUE" secondAttribute="top" id="ugy-BW-R7f"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="MiG-4b-Q1a"/>
@@ -222,6 +221,7 @@
                     <size key="freeformSize" width="375" height="1000"/>
                     <connections>
                         <outlet property="commentTextField" destination="sn2-do-AWh" id="zn1-8P-gyn"/>
+                        <outlet property="commentView" destination="oAL-m8-yBa" id="VOg-yB-ZQc"/>
                         <outlet property="fullScreenButton" destination="LXd-nA-weq" id="v8u-6X-4lk"/>
                         <outlet property="infoView" destination="jeQ-aW-GOb" id="1Z3-kU-q7v"/>
                         <outlet property="mapView" destination="Gnu-dF-3zE" id="Feq-qL-glH"/>

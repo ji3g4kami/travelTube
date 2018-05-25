@@ -24,6 +24,7 @@ class DetailViewController: UIViewController {
     @IBOutlet weak var infoView: UIView!
     @IBOutlet weak var tagsView: TagListView!
     @IBOutlet weak var fullScreenButton: DesignableButton!
+    @IBOutlet weak var commentView: UIView!
 
     var youtubeId: String?
     var articleInfo: Article?
@@ -48,6 +49,12 @@ class DetailViewController: UIViewController {
 
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
+        if UserManager.shared.isAnonymous {
+            commentView.isHidden = true
+            tableView.frame = CGRect(x: 0, y: 0, width: tableView.frame.width, height: tableView.frame.height+50)
+        } else {
+            commentView.isHidden = false
+        }
         print("Detail")
     }
 
