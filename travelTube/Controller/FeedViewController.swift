@@ -8,50 +8,20 @@
 
 import UIKit
 import FirebaseDatabase
-import CodableFirebase
 import SKActivityIndicatorView
 
-class FeedViewController: UIViewController {
+class FeedViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, CategoryCellDelegate {
 
-    var articlesOfTags = [ArticlesOfTag]()
     @IBOutlet weak var catgoryTableView: UITableView!
+    var tagsArray = [[String: [String]]]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         setupTableView()
-        requestTagsAndThenArticle()
+        getTagsArray()
         SKActivityIndicator.dismiss()
         UIApplication.shared.endIgnoringInteractionEvents()
-    }
-
-    func requestTagsAndThenArticle() {
-        self.articlesOfTags.removeAll()
-        getTagsArray { (tagName, articleIds) in
-            print("=========\(tagName)========")
-            let dispatchGroup = DispatchGroup()
-            for articleId in articleIds {
-                dispatchGroup.enter()
-                self.requestArticle(of: articleId, in: dispatchGroup)
-            }
-            dispatchGroup.notify(queue: .main) {
-                print("All Complete")
-            }
-        }
-
-    }
-
-    func requestArticle(of articleId: String, in myGroup: DispatchGroup) {
-        FirebaseManager.shared.ref.child("articles").child(articleId).observe(.value) { (snapshot) in
-            guard let value = snapshot.value else { return }
-            do {
-                let article = try FirebaseDecoder().decode(Article.self, from: value)
-                print(article)
-                myGroup.leave()
-            } catch {
-                print(error)
-            }
-        }
     }
 
     @IBAction func backToFeed(_ segue: UIStoryboardSegue) {
@@ -65,18 +35,22 @@ class FeedViewController: UIViewController {
         catgoryTableView.estimatedRowHeight = 120
     }
 
-    func getTagsArray(completion: @escaping (String, [String]) -> Void) {
+    func getTagsArray() {
         FirebaseManager.shared.ref.child("tags").observe(.value) { (snapshot) in
+            self.tagsArray.removeAll()
             guard let children = snapshot.children.allObjects as? [DataSnapshot] else { return }
             for child in children {
                 if let value = child.value as? [String] {
-                    completion(child.key, value)
+                    let tagDict = [child.key: value]
+                    self.tagsArray.append(tagDict)
                 }
+            }
+            DispatchQueue.main.async {
+                self.catgoryTableView.reloadData()
             }
         }
     }
-}
-extension FeedViewController: UITableViewDelegate, UITableViewDataSource, CategoryCellDelegate {
+
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         if section == 0 {
             return 50.0
@@ -92,11 +66,12 @@ extension FeedViewController: UITableViewDelegate, UITableViewDataSource, Catego
     }
 
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return articlesOfTags[section].tag
+        let tagName = Array(tagsArray[section].keys)
+        return tagName[0]
     }
 
     func numberOfSections(in tableView: UITableView) -> Int {
-        return articlesOfTags.count
+        return tagsArray.count
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -104,8 +79,10 @@ extension FeedViewController: UITableViewDelegate, UITableViewDataSource, Catego
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if let cell = catgoryTableView.dequeueReusableCell(withIdentifier: "categoryCell") as? CategoryCell {
-            cell.articlesOfTag = articlesOfTags[indexPath.section]
+        if let cell = catgoryTableView.dequeueReusableCell(withIdentifier: "categoryCell", for: indexPath) as? CategoryCell {
+            let articleIdArray = Array(tagsArray[indexPath.section].values)[0]
+            cell.articleIdArray = articleIdArray.reversed()
+            cell.requstArticleData()
             cell.delegate = self
             return cell
         }
@@ -128,9 +105,4 @@ extension FeedViewController: UITableViewDelegate, UITableViewDataSource, Catego
         navigationController?.pushViewController(controller, animated: true)
     }
 
-}
-
-struct ArticlesOfTag {
-    var tag: String
-    var articles: [Article]
 }

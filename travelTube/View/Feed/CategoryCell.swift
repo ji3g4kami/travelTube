@@ -17,7 +17,8 @@ protocol CategoryCellDelegate: class {
 class CategoryCell: UITableViewCell, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
 
     @IBOutlet weak var articleCollectionView: UICollectionView!
-    var articlesOfTag: ArticlesOfTag?
+    var articleIdArray = [String]()
+    var articleArray = [Article]()
     weak var delegate: CategoryCellDelegate?
 
     override func awakeFromNib() {
@@ -29,26 +30,41 @@ class CategoryCell: UITableViewCell, UICollectionViewDelegate, UICollectionViewD
         articleCollectionView.dataSource = self
     }
 
+    func requstArticleData() {
+        articleArray.removeAll()
+        for articleId in self.articleIdArray {
+            FirebaseManager.shared.ref.child("articles").child(articleId).observeSingleEvent(of: .value) { (snapshot) in
+                guard let value = snapshot.value else { return }
+                do {
+                    let article = try FirebaseDecoder().decode(Article.self, from: value)
+                    self.articleArray.append(article)
+                    DispatchQueue.main.async {
+                        self.articleCollectionView.reloadData()
+                    }
+                } catch {
+                    print(error)
+                }
+            }
+        }
+    }
+
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
     }
 
-//    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-//        print(articleIdArray[indexPath.row])
-//        delegate?.colCategorySelected(youtubeId: articlesOfTag[indexPath.row])
-//    }
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        print(articleIdArray[indexPath.row])
+        delegate?.colCategorySelected(youtubeId: articleIdArray[indexPath.row])
+    }
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        guard let numbersOfArticle = articlesOfTag?.articles.count else { return 1}
-        return numbersOfArticle
+        return articleArray.count
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if let cell: ArticleCollectionViewCell = collectionView.dequeueReusableCell(withReuseIdentifier: "articleCell", for: indexPath) as? ArticleCollectionViewCell {
-            guard let youtubeImage = articlesOfTag?.articles[indexPath.row].youtubeImage else { return cell }
-            guard let youtubeTitle = articlesOfTag?.articles[indexPath.row].youtubeTitle else { return cell }
-            cell.youtubeImage.sd_setImage(with: URL(string: youtubeImage), placeholderImage: #imageLiteral(resourceName: "youtube"))
-            cell.titleLabel.text = youtubeTitle
+            cell.youtubeImage.sd_setImage(with: URL(string: articleArray[indexPath.row].youtubeImage), placeholderImage: #imageLiteral(resourceName: "youtube"))
+            cell.titleLabel.text = articleArray[indexPath.row].youtubeTitle
             return cell
         }
         return UICollectionViewCell()
