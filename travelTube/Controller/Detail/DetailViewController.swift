@@ -264,6 +264,7 @@ extension DetailViewController: UITableViewDelegate, UITableViewDataSource {
             alert.addAction(action)
             self.present(alert, animated: true, completion: nil)
             FirebaseManager.shared.ref.child("reports").child("comments").setValue(self.comments[indexPath.row].commentId)
+            completion(true)
         }
         action.image = #imageLiteral(resourceName: "ban")
         return action
