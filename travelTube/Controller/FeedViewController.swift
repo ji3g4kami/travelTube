@@ -20,34 +20,36 @@ class FeedViewController: UIViewController {
         super.viewDidLoad()
 
         setupTableView()
-        requestTagsArray()
+        requestTagsAndThenArticle()
         SKActivityIndicator.dismiss()
         UIApplication.shared.endIgnoringInteractionEvents()
     }
 
-    func requestTagsArray() {
+    func requestTagsAndThenArticle() {
         self.articlesOfTags.removeAll()
         getTagsArray { (tagName, articleIds) in
-            var articles = [Article]()
+            print("=========\(tagName)========")
+            let dispatchGroup = DispatchGroup()
             for articleId in articleIds {
-                FirebaseManager.shared.ref.child("articles").child(articleId).observeSingleEvent(of: .value, with: { (snapshot) in
-                    guard let value = snapshot.value else { return }
-                    do {
-                        let article = try FirebaseDecoder().decode(Article.self, from: value)
-                        articles.append(article)
-                        if articles.count == articleIds.count {
-                            print("==========\(tagName)===========")
-                            let articlesOfTag = ArticlesOfTag(tag: tagName, articles: articles)
-                            print(articlesOfTag)
-                            self.articlesOfTags.append(articlesOfTag)
-                            DispatchQueue.main.async {
-                                self.catgoryTableView.reloadData()
-                            }
-                        }
-                    } catch {
-                        print(error)
-                    }
-                })
+                dispatchGroup.enter()
+                self.requestArticle(of: articleId, in: dispatchGroup)
+            }
+            dispatchGroup.notify(queue: .main) {
+                print("All Complete")
+            }
+        }
+
+    }
+
+    func requestArticle(of articleId: String, in myGroup: DispatchGroup) {
+        FirebaseManager.shared.ref.child("articles").child(articleId).observe(.value) { (snapshot) in
+            guard let value = snapshot.value else { return }
+            do {
+                let article = try FirebaseDecoder().decode(Article.self, from: value)
+                print(article)
+                myGroup.leave()
+            } catch {
+                print(error)
             }
         }
     }

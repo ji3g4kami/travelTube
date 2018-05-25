@@ -158,6 +158,38 @@ class DetailViewController: UIViewController {
             "createdTime": Firebase.ServerValue.timestamp()
             ])
     }
+
+    @IBAction func reportButtonPressed(_ sender: Any) {
+        let alertController = UIAlertController(
+            title: "Report",
+            message: "Tell us why is this content inappropriate",
+            preferredStyle: .alert)
+        alertController.addTextField(configurationHandler: nil)
+
+        let cancelAction = UIAlertAction(
+            title: "Cancel",
+            style: .cancel,
+            handler: nil)
+        alertController.addAction(cancelAction)
+
+        let okAction = UIAlertAction(
+            title: "Submit",
+            style: UIAlertActionStyle.default) { (action: UIAlertAction!) -> Void in
+                let acc = (alertController.textFields?.first)! as UITextField
+                let alert = UIAlertController(title: "Report Sent", message: "We will see whether this content is inappropriate", preferredStyle: .alert)
+                let action = UIAlertAction(title: "OK", style: .cancel, handler: nil)
+                alert.addAction(action)
+                self.present(alert, animated: true, completion: nil)
+                print("\(acc.text)")
+        }
+        alertController.addAction(okAction)
+
+        // 顯示提示框
+        self.present(
+            alertController,
+            animated: true,
+            completion: nil)
+    }
 }
 
 extension DetailViewController: UITableViewDelegate, UITableViewDataSource {
