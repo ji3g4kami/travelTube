@@ -12,6 +12,7 @@
 		1414065320A04F9900BFB170 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1414065220A04F9900BFB170 /* LoginViewController.swift */; };
 		1414065620A0821800BFB170 /* UserManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1414065520A0821800BFB170 /* UserManager.swift */; };
 		1414065920A095AA00BFB170 /* RoundedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1414065820A095AA00BFB170 /* RoundedButton.swift */; };
+		1417FEB420B961E900CFB50A /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1417FEB320B961E900CFB50A /* CardView.swift */; };
 		14379C8620AE860700319334 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14379C8520AE860700319334 /* MapViewController.swift */; };
 		143F3ECD20B2B14900784EB9 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 143F3ECC20B2B14900784EB9 /* Extensions.swift */; };
 		143F3EEF20B405E600784EB9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 143F3EEE20B405E600784EB9 /* Assets.xcassets */; };
@@ -59,6 +60,7 @@
 		1414065420A054D600BFB170 /* travelTube.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = travelTube.entitlements; sourceTree = "<group>"; };
 		1414065520A0821800BFB170 /* UserManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserManager.swift; sourceTree = "<group>"; };
 		1414065820A095AA00BFB170 /* RoundedButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedButton.swift; sourceTree = "<group>"; };
+		1417FEB320B961E900CFB50A /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
 		14379C8520AE860700319334 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		143F3ECC20B2B14900784EB9 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		143F3EEE20B405E600784EB9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -158,6 +160,7 @@
 				143F3EF220B5513500784EB9 /* DesignableView.swift */,
 				143F3EF420B55DF200784EB9 /* DesignableTextView.swift */,
 				144F808520B68B08002D19CD /* DesignableButton.swift */,
+				1417FEB320B961E900CFB50A /* CardView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -534,6 +537,7 @@
 				145D19D32098667D00BE71D0 /* UIStoryboard+David.swift in Sources */,
 				14F7BD9320995A7E00DE78C9 /* SearchViewController.swift in Sources */,
 				145CAF1820AD7AA700057DB7 /* CommentCell.swift in Sources */,
+				1417FEB420B961E900CFB50A /* CardView.swift in Sources */,
 				148F90FF209AAFF300308179 /* PostArticleViewController.swift in Sources */,
 				145D19CD2098647400BE71D0 /* TabBarViewController.swift in Sources */,
 				145D19C12098545900BE71D0 /* Keys.swift in Sources */,
