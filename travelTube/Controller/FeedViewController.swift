@@ -10,99 +10,12 @@ import UIKit
 import FirebaseDatabase
 import SKActivityIndicatorView
 
-class FeedViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, CategoryCellDelegate {
-
-    @IBOutlet weak var catgoryTableView: UITableView!
-    var tagsArray = [[String: [String]]]()
+class FeedViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        setupTableView()
-        getTagsArray()
         SKActivityIndicator.dismiss()
         UIApplication.shared.endIgnoringInteractionEvents()
     }
-
-    @IBAction func backToFeed(_ segue: UIStoryboardSegue) {
-        let postArticleVC = segue.source as? PostArticleViewController
-        postArticleVC?.navigationController?.popViewController(animated: false)
-    }
-
-    func setupTableView() {
-        catgoryTableView.delegate = self
-        catgoryTableView.dataSource = self
-        catgoryTableView.estimatedRowHeight = 120
-    }
-
-    func getTagsArray() {
-        FirebaseManager.shared.ref.child("tags").observe(.value) { (snapshot) in
-            self.tagsArray.removeAll()
-            guard let children = snapshot.children.allObjects as? [DataSnapshot] else { return }
-            for child in children {
-                if let value = child.value as? [String] {
-                    let tagDict = [child.key: value]
-                    self.tagsArray.append(tagDict)
-                }
-            }
-            DispatchQueue.main.async {
-                self.catgoryTableView.reloadData()
-            }
-        }
-    }
-
-    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        if section == 0 {
-            return 50.0
-        }
-        return 30.0
-    }
-
-    func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
-        guard let header = view as? UITableViewHeaderFooterView else { return }
-        if section == 0 {
-            header.textLabel?.font = UIFont(name: "Futura", size: 40)
-        }
-    }
-
-    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        let tagName = Array(tagsArray[section].keys)
-        return tagName[0]
-    }
-
-    func numberOfSections(in tableView: UITableView) -> Int {
-        return tagsArray.count
-    }
-
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
-    }
-
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if let cell = catgoryTableView.dequeueReusableCell(withIdentifier: "categoryCell", for: indexPath) as? CategoryCell {
-            let articleIdArray = Array(tagsArray[indexPath.section].values)[0]
-            cell.articleIdArray = articleIdArray.reversed()
-            cell.requstArticleData()
-            cell.delegate = self
-            return cell
-        }
-        return UITableViewCell()
-    }
-
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        if indexPath.section == 0 {
-            return 200
-        }
-        return 120
-    }
-
-    func colCategorySelected(youtubeId: String) {
-        guard let controller = UIStoryboard.detailStoryboard().instantiateViewController(
-            withIdentifier: String(describing: DetailViewController.self)
-            ) as? DetailViewController else { return }
-        controller.youtubeId = youtubeId
-        controller.hidesBottomBarWhenPushed = true
-        navigationController?.pushViewController(controller, animated: true)
-    }
-
 }

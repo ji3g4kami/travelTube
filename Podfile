@@ -11,7 +11,6 @@ target 'travelTube' do
   pod 'SwiftLint'
   pod 'Firebase/Core'
   pod 'Firebase/Invites'
-  pod 'Alamofire'
   pod 'SDWebImage'
   pod 'KSTokenView'
   pod 'IQKeyboardManagerSwift'
