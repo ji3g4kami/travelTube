@@ -27,6 +27,7 @@ class FeedViewController: UIViewController {
     }
 
     func setupTableView() {
+        tableView.backgroundView = UIImageView(image: #imageLiteral(resourceName: "blur-lake"))
         tableView.delegate = self
         tableView.dataSource = self
         let xib = UINib(nibName: String(describing: FeedCell.self), bundle: nil)
@@ -63,6 +64,7 @@ extension FeedViewController: UITableViewDelegate, UITableViewDataSource {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: FeedCell.self), for: indexPath) as? FeedCell else { return UITableViewCell() }
         cell.videoImage.sd_setImage(with: URL(string: articleArray[indexPath.row].youtubeImage), placeholderImage: #imageLiteral(resourceName: "lantern"))
         cell.titleLabel.text = articleArray[indexPath.row].youtubeTitle
+        cell.backgroundColor = UIColor.clear
         cell.tagsView.removeAllTags()
         cell.tagsView.addTags(articleArray[indexPath.row].tag)
         return cell
