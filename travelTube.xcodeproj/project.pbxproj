@@ -13,6 +13,8 @@
 		1414065620A0821800BFB170 /* UserManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1414065520A0821800BFB170 /* UserManager.swift */; };
 		1414065920A095AA00BFB170 /* RoundedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1414065820A095AA00BFB170 /* RoundedButton.swift */; };
 		1417FEB420B961E900CFB50A /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1417FEB320B961E900CFB50A /* CardView.swift */; };
+		1417FEB720B9682600CFB50A /* FeedCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1417FEB520B9682600CFB50A /* FeedCell.swift */; };
+		1417FEB820B9682600CFB50A /* FeedCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1417FEB620B9682600CFB50A /* FeedCell.xib */; };
 		14379C8620AE860700319334 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14379C8520AE860700319334 /* MapViewController.swift */; };
 		143F3ECD20B2B14900784EB9 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 143F3ECC20B2B14900784EB9 /* Extensions.swift */; };
 		143F3EEF20B405E600784EB9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 143F3EEE20B405E600784EB9 /* Assets.xcassets */; };
@@ -61,6 +63,8 @@
 		1414065520A0821800BFB170 /* UserManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserManager.swift; sourceTree = "<group>"; };
 		1414065820A095AA00BFB170 /* RoundedButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedButton.swift; sourceTree = "<group>"; };
 		1417FEB320B961E900CFB50A /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
+		1417FEB520B9682600CFB50A /* FeedCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedCell.swift; sourceTree = "<group>"; };
+		1417FEB620B9682600CFB50A /* FeedCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FeedCell.xib; sourceTree = "<group>"; };
 		14379C8520AE860700319334 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		143F3ECC20B2B14900784EB9 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		143F3EEE20B405E600784EB9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -171,6 +175,8 @@
 				14DF3C082097191600215368 /* ArticleCollectionViewCell.swift */,
 				14DF3C092097191600215368 /* ArticleCollectionViewCell.xib */,
 				14DF3C062097166D00215368 /* CategoryCell.swift */,
+				1417FEB520B9682600CFB50A /* FeedCell.swift */,
+				1417FEB620B9682600CFB50A /* FeedCell.xib */,
 			);
 			path = Feed;
 			sourceTree = "<group>";
@@ -403,6 +409,7 @@
 				145D19D02098657200BE71D0 /* Feed.storyboard in Resources */,
 				14AE66B520AAB577007D7851 /* Detail.storyboard in Resources */,
 				14F7BD9120995A5900DE78C9 /* Search.storyboard in Resources */,
+				1417FEB820B9682600CFB50A /* FeedCell.xib in Resources */,
 				14F7BD8D2099580300DE78C9 /* Post.storyboard in Resources */,
 				1414065120A023D800BFB170 /* AnnotationCell.xib in Resources */,
 				145D19B920980C1D00BE71D0 /* GoogleService-Info.plist in Resources */,
@@ -531,6 +538,7 @@
 				143F3EF120B5465500784EB9 /* CommentViewController.swift in Sources */,
 				1414065920A095AA00BFB170 /* RoundedButton.swift in Sources */,
 				143F3ECD20B2B14900784EB9 /* Extensions.swift in Sources */,
+				1417FEB720B9682600CFB50A /* FeedCell.swift in Sources */,
 				14DA419C20A13F3000A74254 /* SWRevealViewController.m in Sources */,
 				143F3EF320B5513500784EB9 /* DesignableView.swift in Sources */,
 				14F7BD992099AB7900DE78C9 /* YoutubeManager.swift in Sources */,
