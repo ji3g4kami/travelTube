@@ -7,20 +7,27 @@
 //
 
 import UIKit
+import TagListView
 
 class FeedCell: UITableViewCell {
 
     @IBOutlet weak var videoImage: UIImageView!
     @IBOutlet weak var feedView: CardView!
     @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var tagsView: TagListView!
 
     override func awakeFromNib() {
         super.awakeFromNib()
-
-        setImage()
+        setupTag()
+        setupImage()
     }
 
-    func setImage() {
+    func setupTag() {
+        tagsView.textFont = UIFont.systemFont(ofSize: 18)
+        tagsView.alignment = .left
+    }
+
+    func setupImage() {
         videoImage.clipsToBounds = true
         videoImage.layer.cornerRadius = feedView.cornerRadius
         videoImage.layer.maskedCorners = [.layerMaxXMinYCorner, .layerMinXMinYCorner]
