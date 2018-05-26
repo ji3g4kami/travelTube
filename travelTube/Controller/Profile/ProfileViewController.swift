@@ -105,7 +105,7 @@ extension ProfileViewController: UICollectionViewDelegate, UICollectionViewDataS
             ) as? DetailViewController else { return }
         controller.youtubeId = articleArray[indexPath.row].youtubeId
         controller.hidesBottomBarWhenPushed = true
-        navigationController?.pushViewController(controller, animated: true)
+        self.present(controller, animated: true, completion: nil)
     }
 }
 

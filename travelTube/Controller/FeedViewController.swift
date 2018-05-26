@@ -71,4 +71,13 @@ extension FeedViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return UITableViewAutomaticDimension
     }
+
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        guard let controller = UIStoryboard.detailStoryboard().instantiateViewController(
+            withIdentifier: String(describing: DetailViewController.self)
+            ) as? DetailViewController else { return }
+        controller.youtubeId = articleArray[indexPath.row].youtubeId
+        controller.hidesBottomBarWhenPushed = true
+        self.present(controller, animated: true, completion: nil)
+    }
 }
