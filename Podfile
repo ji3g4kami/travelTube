@@ -20,5 +20,5 @@ target 'travelTube' do
   pod 'CodableFirebase'
   pod 'Firebase/Storage'
   pod 'TagListView'
-  pod 'PARTagPicker'
+  pod 'KSTokenView'
 end

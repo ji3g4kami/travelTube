@@ -10,21 +10,24 @@ import UIKit
 import YouTubePlayer
 import MapKit
 import FirebaseDatabase
+import KSTokenView
 
 class PostArticleViewController: UIViewController {
 
     var video: Video?
     var storedTags = [String]()
     var annotations: [MKPointAnnotation] = []
-    var keyboardHight = 300
     var destination: MKAnnotation?
+    var keyboardHight = 300
 
     @IBOutlet weak var youtubePlayer: YouTubePlayerView!
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var mapSearchBar: UISearchBar!
     @IBOutlet weak var removeButton: DesignableButton!
-
+    @IBOutlet weak var tokenView: KSTokenView!
+    @IBOutlet weak var scrollView: UIScrollView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.tabBarController?.tabBar.isHidden = true
@@ -32,12 +35,29 @@ class PostArticleViewController: UIViewController {
         mapSearchBar.delegate = self
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
         view.addGestureRecognizer(tap)
+
+        setKeyboardObserver()
+        setupTokenView()
 //
 //        setupYoutubePlayer()
 //
-//        setKeyboardObserver()
-//
 //        queryTags()
+    }
+
+    func setKeyboardObserver() {
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(getKeyboardHeight),
+            name: NSNotification.Name.UIKeyboardWillShow,
+            object: nil
+        )
+    }
+
+    @objc func getKeyboardHeight(_ notification: Notification) {
+        if let keyboardFrame: NSValue = notification.userInfo?[UIKeyboardFrameEndUserInfoKey] as? NSValue {
+            let keyboardRectangle = keyboardFrame.cgRectValue
+            self.keyboardHight = Int(keyboardRectangle.height)
+        }
     }
 
     @IBAction func searchButtonPressed(_ sender: Any) {
@@ -70,6 +90,7 @@ class PostArticleViewController: UIViewController {
         guard let destination = destination else { return }
         mapView.removeAnnotation(destination)
     }
+
     //    func setupYoutubePlayer() {
 //        youtubePlayer.playerVars = ["playsinline": "1"] as YouTubePlayerView.YouTubePlayerParameters
 //        if let youtubeId = video?.youtubeId {
@@ -77,22 +98,6 @@ class PostArticleViewController: UIViewController {
 //        }
 //    }
 
-//    func setKeyboardObserver() {
-//        NotificationCenter.default.addObserver(
-//            self,
-//            selector: #selector(getKeyboardHeight),
-//            name: NSNotification.Name.UIKeyboardWillShow,
-//            object: nil
-//        )
-//    }
-//
-//    @objc func getKeyboardHeight(_ notification: Notification) {
-//        if let keyboardFrame: NSValue = notification.userInfo?[UIKeyboardFrameEndUserInfoKey] as? NSValue {
-//            let keyboardRectangle = keyboardFrame.cgRectValue
-//            self.keyboardHight = Int(keyboardRectangle.height)
-//        }
-//    }
-//
 //    func queryTags() {
 //        FirebaseManager.shared.ref.child("tags").observeSingleEvent(of: .value) { (snapshot) in
 //            if let tagsDict = snapshot.value as? [String: AnyObject] {
@@ -262,5 +267,52 @@ extension PostArticleViewController: UISearchBarDelegate {
             }
         }
 
+    }
+}
+
+extension PostArticleViewController: KSTokenViewDelegate {
+
+    func tokenViewDidBeginEditing(_ tokenView: KSTokenView) {
+        let offset = CGPoint.init(x: 0, y: self.keyboardHight+120)
+        self.scrollView.setContentOffset(offset, animated: true)
+    }
+
+    func setupTokenView() {
+        tokenView.layer.cornerRadius = 10
+        tokenView.delegate = self
+        tokenView.promptText = " Tags: "
+        tokenView.placeholder = " 3 tags at most"
+        tokenView.maxTokenLimit = 3
+        tokenView.minimumCharactersToSearch = 0 // Show all results without without typing anything
+        tokenView.style = .squared
+        tokenView.direction = .vertical
+        tokenView.cursorColor = .gray
+        tokenView.paddingY = 5
+        tokenView.marginY = 10
+        tokenView.font = UIFont.systemFont(ofSize: 18)
+        tokenView.searchResultHeight = 120
+    }
+
+    func tokenView(_ tokenView: KSTokenView, performSearchWithString string: String, completion: ((_ results: [AnyObject]) -> Void)?) {
+
+        if string.isEmpty {
+            completion!(storedTags.filter({ $0 != "New" }) as [AnyObject])
+            return
+        }
+
+        var data: [String] = []
+        for value: String in storedTags.filter({ $0 != "New" }) {
+            if value.lowercased().range(of: string.lowercased()) != nil {
+                data.append(value)
+            }
+        }
+        completion!(data as [AnyObject])
+    }
+
+    func tokenView(_ tokenView: KSTokenView, displayTitleForObject object: AnyObject) -> String {
+        guard let obj = object as? String else {
+            return ""
+        }
+        return obj
     }
 }

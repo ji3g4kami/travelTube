@@ -101,109 +101,147 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="yWA-0n-jtx">
-                                <rect key="frame" x="0.0" y="118" width="375" height="375"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" secondItem="yWA-0n-jtx" secondAttribute="height" multiplier="1:1" id="EBV-pm-HXk"/>
-                                </constraints>
-                            </mapView>
-                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="agi-ZG-4iQ">
-                                <rect key="frame" x="0.0" y="64" width="245" height="56"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="56" id="ue6-OD-fW7"/>
-                                </constraints>
-                                <textInputTraits key="textInputTraits"/>
-                            </searchBar>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7Du-GY-PES">
-                                <rect key="frame" x="245" y="64" width="130" height="56"/>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pSg-FC-rs9">
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PxG-cl-rzt" customClass="DesignableButton" customModule="travelTube" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="14" width="58" height="28"/>
-                                        <color key="backgroundColor" red="0.082352941176470587" green="0.49411764705882355" blue="0.98431372549019602" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yKO-mq-4sY">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
+                                        <subviews>
+                                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="yWA-0n-jtx">
+                                                <rect key="frame" x="0.0" y="54" width="375" height="375"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" secondItem="yWA-0n-jtx" secondAttribute="height" multiplier="1:1" id="EBV-pm-HXk"/>
+                                                </constraints>
+                                            </mapView>
+                                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="agi-ZG-4iQ">
+                                                <rect key="frame" x="0.0" y="0.0" width="245" height="56"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="56" id="ue6-OD-fW7"/>
+                                                </constraints>
+                                                <textInputTraits key="textInputTraits"/>
+                                            </searchBar>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BDx-gI-4S4" customClass="KSTokenView" customModule="KSTokenView">
+                                                <rect key="frame" x="0.0" y="429" width="375" height="40"/>
+                                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="40" id="f30-iS-x7c"/>
+                                                </constraints>
+                                            </view>
+                                            <button opaque="NO" alpha="0.0" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uQf-yp-UN5" customClass="DesignableButton" customModule="travelTube" customModuleProvider="target">
+                                                <rect key="frame" x="309" y="69" width="58" height="28"/>
+                                                <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="58" id="6wa-So-vti"/>
+                                                    <constraint firstAttribute="height" constant="28" id="Reg-Ce-9Eh"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                                <state key="normal" title="Remove"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                        <real key="value" value="10"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="deleteAnnotationPressed:" destination="EOM-ZU-q0j" eventType="touchUpInside" id="gKC-u6-cc3"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="28" id="3ze-pR-1HJ"/>
-                                            <constraint firstAttribute="width" constant="58" id="Rr7-oF-Tvs"/>
+                                            <constraint firstAttribute="trailing" secondItem="BDx-gI-4S4" secondAttribute="trailing" id="1rw-kH-xJI"/>
+                                            <constraint firstAttribute="trailing" secondItem="yWA-0n-jtx" secondAttribute="trailing" id="3PE-8w-maq"/>
+                                            <constraint firstItem="uQf-yp-UN5" firstAttribute="top" secondItem="yWA-0n-jtx" secondAttribute="top" constant="15" id="6kU-iw-HLA"/>
+                                            <constraint firstItem="yWA-0n-jtx" firstAttribute="leading" secondItem="yKO-mq-4sY" secondAttribute="leading" id="92O-5H-zhd"/>
+                                            <constraint firstItem="agi-ZG-4iQ" firstAttribute="top" secondItem="yKO-mq-4sY" secondAttribute="top" id="OKi-8B-23w"/>
+                                            <constraint firstItem="BDx-gI-4S4" firstAttribute="leading" secondItem="yKO-mq-4sY" secondAttribute="leading" id="Ohe-Qq-FIz"/>
+                                            <constraint firstItem="agi-ZG-4iQ" firstAttribute="leading" secondItem="yKO-mq-4sY" secondAttribute="leading" id="QtA-t2-gCZ"/>
+                                            <constraint firstAttribute="trailing" secondItem="uQf-yp-UN5" secondAttribute="trailing" constant="8" id="XFe-G8-OIc"/>
+                                            <constraint firstItem="agi-ZG-4iQ" firstAttribute="leading" secondItem="yKO-mq-4sY" secondAttribute="leading" id="Xfl-az-QOJ"/>
+                                            <constraint firstItem="yWA-0n-jtx" firstAttribute="top" secondItem="agi-ZG-4iQ" secondAttribute="bottom" constant="-2" id="f0o-Hv-eff"/>
+                                            <constraint firstItem="BDx-gI-4S4" firstAttribute="top" secondItem="yWA-0n-jtx" secondAttribute="bottom" id="jO6-eW-a8k"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                                        <state key="normal" title="Search"/>
-                                        <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                <real key="value" value="10"/>
-                                            </userDefinedRuntimeAttribute>
-                                        </userDefinedRuntimeAttributes>
-                                        <connections>
-                                            <action selector="searchButtonPressed:" destination="EOM-ZU-q0j" eventType="touchUpInside" id="9cP-Rc-hHh"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ath-oU-azt" customClass="DesignableButton" customModule="travelTube" customModuleProvider="target">
-                                        <rect key="frame" x="64" y="14" width="58" height="28"/>
-                                        <color key="backgroundColor" red="0.90980392160000001" green="0.35294117650000001" blue="0.4431372549" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7Du-GY-PES">
+                                        <rect key="frame" x="245" y="0.0" width="130" height="56"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PxG-cl-rzt" customClass="DesignableButton" customModule="travelTube" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="14" width="58" height="28"/>
+                                                <color key="backgroundColor" red="0.082352941176470587" green="0.49411764705882355" blue="0.98431372549019602" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="28" id="3ze-pR-1HJ"/>
+                                                    <constraint firstAttribute="width" constant="58" id="Rr7-oF-Tvs"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                                <state key="normal" title="Search"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                        <real key="value" value="10"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="searchButtonPressed:" destination="EOM-ZU-q0j" eventType="touchUpInside" id="9cP-Rc-hHh"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ath-oU-azt" customClass="DesignableButton" customModule="travelTube" customModuleProvider="target">
+                                                <rect key="frame" x="64" y="14" width="58" height="28"/>
+                                                <color key="backgroundColor" red="0.90980392160000001" green="0.35294117650000001" blue="0.4431372549" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="58" id="9eZ-zf-G0i"/>
+                                                    <constraint firstAttribute="height" constant="28" id="tly-is-b6R"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                                <state key="normal" title="Add"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                        <real key="value" value="10"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="addAnnotaion:" destination="EOM-ZU-q0j" eventType="touchUpInside" id="gmK-dA-qLS"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <color key="backgroundColor" red="0.78823529411764703" green="0.78823529411764703" blue="0.80784313725490198" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="58" id="9eZ-zf-G0i"/>
-                                            <constraint firstAttribute="height" constant="28" id="tly-is-b6R"/>
+                                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="56" id="1TJ-Pb-y9U"/>
+                                            <constraint firstAttribute="height" constant="56" id="77i-Sj-G5l"/>
+                                            <constraint firstAttribute="trailing" secondItem="ath-oU-azt" secondAttribute="trailing" constant="8" id="9tJ-o8-ag1"/>
+                                            <constraint firstAttribute="width" constant="130" id="Jpx-Io-pHG"/>
+                                            <constraint firstItem="ath-oU-azt" firstAttribute="centerY" secondItem="7Du-GY-PES" secondAttribute="centerY" id="SPH-kQ-cXZ"/>
+                                            <constraint firstItem="PxG-cl-rzt" firstAttribute="leading" secondItem="7Du-GY-PES" secondAttribute="leading" id="bjo-56-F7q"/>
+                                            <constraint firstItem="PxG-cl-rzt" firstAttribute="centerY" secondItem="7Du-GY-PES" secondAttribute="centerY" id="fbf-j9-usx"/>
+                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="130" id="oNc-1W-lCH"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                                        <state key="normal" title="Add"/>
-                                        <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                <real key="value" value="10"/>
-                                            </userDefinedRuntimeAttribute>
-                                        </userDefinedRuntimeAttributes>
-                                        <connections>
-                                            <action selector="addAnnotaion:" destination="EOM-ZU-q0j" eventType="touchUpInside" id="gmK-dA-qLS"/>
-                                        </connections>
+                                    </view>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QxG-HB-5sy">
+                                        <rect key="frame" x="172" y="214" width="30" height="55"/>
+                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="36"/>
+                                        <state key="normal" title="+">
+                                            <color key="titleColor" red="0.14117647059999999" green="0.14117647059999999" blue="0.14117647059999999" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
                                     </button>
                                 </subviews>
-                                <color key="backgroundColor" red="0.78823529411764703" green="0.78823529411764703" blue="0.80784313725490198" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="56" id="77i-Sj-G5l"/>
-                                    <constraint firstAttribute="trailing" secondItem="ath-oU-azt" secondAttribute="trailing" constant="8" id="9tJ-o8-ag1"/>
-                                    <constraint firstAttribute="width" constant="130" id="Jpx-Io-pHG"/>
-                                    <constraint firstItem="ath-oU-azt" firstAttribute="centerY" secondItem="7Du-GY-PES" secondAttribute="centerY" id="SPH-kQ-cXZ"/>
-                                    <constraint firstItem="PxG-cl-rzt" firstAttribute="leading" secondItem="7Du-GY-PES" secondAttribute="leading" id="bjo-56-F7q"/>
-                                    <constraint firstItem="PxG-cl-rzt" firstAttribute="centerY" secondItem="7Du-GY-PES" secondAttribute="centerY" id="fbf-j9-usx"/>
+                                    <constraint firstItem="QxG-HB-5sy" firstAttribute="centerX" secondItem="pSg-FC-rs9" secondAttribute="centerX" id="0cF-mI-gBk"/>
+                                    <constraint firstItem="7Du-GY-PES" firstAttribute="top" secondItem="pSg-FC-rs9" secondAttribute="top" id="8IM-y2-5pw"/>
+                                    <constraint firstItem="yKO-mq-4sY" firstAttribute="centerX" secondItem="pSg-FC-rs9" secondAttribute="centerX" id="Aqe-V6-hOM"/>
+                                    <constraint firstItem="7Du-GY-PES" firstAttribute="leading" secondItem="agi-ZG-4iQ" secondAttribute="trailing" id="ClR-mU-aD0"/>
+                                    <constraint firstAttribute="bottom" secondItem="yKO-mq-4sY" secondAttribute="bottom" id="Ggv-bX-8O3"/>
+                                    <constraint firstItem="yKO-mq-4sY" firstAttribute="centerY" secondItem="pSg-FC-rs9" secondAttribute="centerY" id="Roj-un-BmK"/>
+                                    <constraint firstItem="yKO-mq-4sY" firstAttribute="top" secondItem="pSg-FC-rs9" secondAttribute="top" id="Tha-a7-etw"/>
+                                    <constraint firstItem="yKO-mq-4sY" firstAttribute="leading" secondItem="pSg-FC-rs9" secondAttribute="leading" id="ZH8-mc-Ykq"/>
+                                    <constraint firstAttribute="trailing" secondItem="7Du-GY-PES" secondAttribute="trailing" id="f5J-f4-2so"/>
+                                    <constraint firstItem="QxG-HB-5sy" firstAttribute="centerY" secondItem="yWA-0n-jtx" secondAttribute="centerY" id="sbI-So-Wxm"/>
+                                    <constraint firstAttribute="trailing" secondItem="yKO-mq-4sY" secondAttribute="trailing" id="uhu-vp-0RT"/>
                                 </constraints>
-                            </view>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QxG-HB-5sy">
-                                <rect key="frame" x="173" y="278" width="30" height="55"/>
-                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="36"/>
-                                <state key="normal" title="+">
-                                    <color key="titleColor" red="0.14117647059999999" green="0.14117647059999999" blue="0.14117647059999999" alpha="1" colorSpace="calibratedRGB"/>
-                                </state>
-                            </button>
-                            <button opaque="NO" alpha="0.0" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uQf-yp-UN5" customClass="DesignableButton" customModule="travelTube" customModuleProvider="target">
-                                <rect key="frame" x="309" y="133" width="58" height="28"/>
-                                <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="58" id="6wa-So-vti"/>
-                                    <constraint firstAttribute="height" constant="28" id="Reg-Ce-9Eh"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                                <state key="normal" title="Remove"/>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                        <real key="value" value="10"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                                <connections>
-                                    <action selector="deleteAnnotationPressed:" destination="EOM-ZU-q0j" eventType="touchUpInside" id="gKC-u6-cc3"/>
-                                </connections>
-                            </button>
+                            </scrollView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="7Du-GY-PES" firstAttribute="top" secondItem="Tuf-YX-KkI" secondAttribute="top" id="4Yd-mj-69D"/>
-                            <constraint firstItem="agi-ZG-4iQ" firstAttribute="top" secondItem="Tuf-YX-KkI" secondAttribute="top" id="4gD-sY-gM9"/>
-                            <constraint firstItem="7Du-GY-PES" firstAttribute="trailing" secondItem="Tuf-YX-KkI" secondAttribute="trailing" id="6tj-c9-x41"/>
-                            <constraint firstItem="yWA-0n-jtx" firstAttribute="top" secondItem="agi-ZG-4iQ" secondAttribute="bottom" constant="-2" id="EjM-Ny-vK0"/>
-                            <constraint firstItem="yWA-0n-jtx" firstAttribute="leading" secondItem="Tuf-YX-KkI" secondAttribute="leading" id="I5H-9n-tEe"/>
-                            <constraint firstItem="Tuf-YX-KkI" firstAttribute="trailing" secondItem="uQf-yp-UN5" secondAttribute="trailing" constant="8" id="Mw8-Kv-jOa"/>
-                            <constraint firstItem="agi-ZG-4iQ" firstAttribute="leading" secondItem="Tuf-YX-KkI" secondAttribute="leading" id="cau-t8-Z4f"/>
-                            <constraint firstItem="QxG-HB-5sy" firstAttribute="centerX" secondItem="ShV-xG-dAg" secondAttribute="centerX" id="dqi-Hz-x3T"/>
-                            <constraint firstItem="Tuf-YX-KkI" firstAttribute="trailing" secondItem="yWA-0n-jtx" secondAttribute="trailing" id="moW-Ne-CrM"/>
-                            <constraint firstItem="uQf-yp-UN5" firstAttribute="top" secondItem="yWA-0n-jtx" secondAttribute="top" constant="15" id="q5M-am-CsB"/>
-                            <constraint firstItem="7Du-GY-PES" firstAttribute="leading" secondItem="agi-ZG-4iQ" secondAttribute="trailing" id="wYV-Hd-TQM"/>
-                            <constraint firstItem="QxG-HB-5sy" firstAttribute="centerY" secondItem="yWA-0n-jtx" secondAttribute="centerY" id="xnB-3g-it3"/>
+                            <constraint firstItem="pSg-FC-rs9" firstAttribute="leading" secondItem="Tuf-YX-KkI" secondAttribute="leading" id="DHz-Mx-Dag"/>
+                            <constraint firstItem="pSg-FC-rs9" firstAttribute="bottom" secondItem="Tuf-YX-KkI" secondAttribute="bottom" id="GWh-1o-g6x"/>
+                            <constraint firstItem="pSg-FC-rs9" firstAttribute="trailing" secondItem="Tuf-YX-KkI" secondAttribute="trailing" id="SLC-MM-ZVB"/>
+                            <constraint firstItem="pSg-FC-rs9" firstAttribute="top" secondItem="Tuf-YX-KkI" secondAttribute="top" id="fZn-D6-OAT"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Tuf-YX-KkI"/>
                     </view>
@@ -213,7 +251,9 @@
                         <outlet property="mapSearchBar" destination="agi-ZG-4iQ" id="OLK-U4-k8F"/>
                         <outlet property="mapView" destination="yWA-0n-jtx" id="gWr-pU-E10"/>
                         <outlet property="removeButton" destination="uQf-yp-UN5" id="GeY-Hk-jeW"/>
+                        <outlet property="scrollView" destination="pSg-FC-rs9" id="fa4-Ck-wjM"/>
                         <outlet property="searchBar" destination="agi-ZG-4iQ" id="lY7-wL-DFo"/>
+                        <outlet property="tokenView" destination="BDx-gI-4S4" id="O6k-pm-eXy"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KRP-MQ-pz0" userLabel="First Responder" sceneMemberID="firstResponder"/>
