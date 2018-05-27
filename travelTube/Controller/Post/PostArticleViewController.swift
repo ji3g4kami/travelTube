@@ -181,7 +181,7 @@ class PostArticleViewController: UIViewController {
             ) as? DetailViewController else { return }
         controller.youtubeId = self.video?.youtubeId
         controller.hidesBottomBarWhenPushed = true
-        self.navigationController?.pushViewController(controller, animated: true)
+        self.present(controller, animated: true, completion: nil)
     }
 
 }

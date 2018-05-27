@@ -20,7 +20,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="1000"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="igJ-Hf-zRF">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="igJ-Hf-zRF">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="950"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <view key="tableHeaderView" contentMode="scaleToFill" id="od0-30-u75">
@@ -30,6 +30,30 @@
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kcE-aH-3eu">
                                             <rect key="frame" x="0.0" y="90" width="375" height="306"/>
                                             <subviews>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sRk-Gd-XMo">
+                                                    <rect key="frame" x="0.0" y="0.0" width="375" height="316.5"/>
+                                                    <subviews>
+                                                        <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="8Pb-7M-Mis">
+                                                            <rect key="frame" x="0.0" y="0.0" width="375" height="266.5"/>
+                                                        </mapView>
+                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="w3n-D6-LgR">
+                                                            <rect key="frame" x="143.5" y="276.5" width="87" height="30"/>
+                                                            <state key="normal" title="Open in Map"/>
+                                                            <connections>
+                                                                <action selector="openMapPressed:" destination="tXp-2y-NYO" eventType="touchUpInside" id="9mM-8F-01X"/>
+                                                            </connections>
+                                                        </button>
+                                                    </subviews>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <constraints>
+                                                        <constraint firstItem="8Pb-7M-Mis" firstAttribute="top" secondItem="sRk-Gd-XMo" secondAttribute="top" id="2IV-ap-6dO"/>
+                                                        <constraint firstItem="8Pb-7M-Mis" firstAttribute="leading" secondItem="sRk-Gd-XMo" secondAttribute="leading" id="DPx-3r-0FT"/>
+                                                        <constraint firstItem="w3n-D6-LgR" firstAttribute="top" secondItem="8Pb-7M-Mis" secondAttribute="bottom" constant="10" id="Esw-1K-MB3"/>
+                                                        <constraint firstItem="w3n-D6-LgR" firstAttribute="centerX" secondItem="sRk-Gd-XMo" secondAttribute="centerX" id="fhy-Hz-PFa"/>
+                                                        <constraint firstAttribute="bottom" secondItem="8Pb-7M-Mis" secondAttribute="bottom" constant="50" id="lZq-Bg-3uT"/>
+                                                        <constraint firstAttribute="trailing" secondItem="8Pb-7M-Mis" secondAttribute="trailing" id="mef-vw-OtF"/>
+                                                    </constraints>
+                                                </view>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aS8-EM-iUg" customClass="YouTubePlayerView" customModule="YouTubePlayer">
                                                     <rect key="frame" x="0.0" y="0.0" width="375" height="211"/>
                                                     <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -131,30 +155,6 @@
                                                         <constraint firstItem="poW-Fw-cC6" firstAttribute="top" secondItem="9Bv-4P-Q5w" secondAttribute="bottom" constant="10" id="ciH-an-n7x"/>
                                                     </constraints>
                                                 </view>
-                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sRk-Gd-XMo">
-                                                    <rect key="frame" x="0.0" y="0.0" width="375" height="316.5"/>
-                                                    <subviews>
-                                                        <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="8Pb-7M-Mis">
-                                                            <rect key="frame" x="0.0" y="0.0" width="375" height="266.5"/>
-                                                        </mapView>
-                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="w3n-D6-LgR">
-                                                            <rect key="frame" x="143.5" y="276.5" width="87" height="30"/>
-                                                            <state key="normal" title="Open in Map"/>
-                                                            <connections>
-                                                                <action selector="openMapPressed:" destination="tXp-2y-NYO" eventType="touchUpInside" id="9mM-8F-01X"/>
-                                                            </connections>
-                                                        </button>
-                                                    </subviews>
-                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                    <constraints>
-                                                        <constraint firstItem="8Pb-7M-Mis" firstAttribute="top" secondItem="sRk-Gd-XMo" secondAttribute="top" id="2IV-ap-6dO"/>
-                                                        <constraint firstItem="8Pb-7M-Mis" firstAttribute="leading" secondItem="sRk-Gd-XMo" secondAttribute="leading" id="DPx-3r-0FT"/>
-                                                        <constraint firstItem="w3n-D6-LgR" firstAttribute="top" secondItem="8Pb-7M-Mis" secondAttribute="bottom" constant="10" id="Esw-1K-MB3"/>
-                                                        <constraint firstItem="w3n-D6-LgR" firstAttribute="centerX" secondItem="sRk-Gd-XMo" secondAttribute="centerX" id="fhy-Hz-PFa"/>
-                                                        <constraint firstAttribute="bottom" secondItem="8Pb-7M-Mis" secondAttribute="bottom" constant="50" id="lZq-Bg-3uT"/>
-                                                        <constraint firstAttribute="trailing" secondItem="8Pb-7M-Mis" secondAttribute="trailing" id="mef-vw-OtF"/>
-                                                    </constraints>
-                                                </view>
                                             </subviews>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <constraints>
@@ -236,7 +236,7 @@
                                         <rect key="frame" x="0.0" y="498" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="58P-oi-1UW" id="Tnc-Lq-lAh">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -297,6 +297,7 @@
                         <outlet property="infoView" destination="jeQ-aW-GOb" id="1Z3-kU-q7v"/>
                         <outlet property="mapView" destination="8Pb-7M-Mis" id="Cpx-La-SZd"/>
                         <outlet property="mapViewContainer" destination="sRk-Gd-XMo" id="eOa-mg-vdd"/>
+                        <outlet property="openInMapButton" destination="w3n-D6-LgR" id="5ZJ-g7-kwB"/>
                         <outlet property="segmentControl" destination="f7A-ob-Mor" id="bP5-fC-Lmx"/>
                         <outlet property="tableView" destination="igJ-Hf-zRF" id="z2H-Nm-0eC"/>
                         <outlet property="tagsView" destination="poW-Fw-cC6" id="wao-Mn-l2e"/>

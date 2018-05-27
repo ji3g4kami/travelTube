@@ -26,11 +26,13 @@ class DetailViewController: UIViewController {
     @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var segmentControl: UISegmentedControl!
     @IBOutlet weak var mapViewContainer: UIView!
+    @IBOutlet weak var openInMapButton: UIButton!
 
     var youtubeId: String?
     var articleInfo: Article?
     var comments = [Comment]()
     var annotations = [MKPointAnnotation]()
+    var destination: MKAnnotation?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -41,6 +43,7 @@ class DetailViewController: UIViewController {
         setupYoutubePlayer(of: youtubeId)
         getArticleInfo(of: youtubeId)
         getComments(of: youtubeId)
+        mapView.delegate = self
     }
 
     @IBAction func toggleSegment(_ sender: AnyObject) {
@@ -150,6 +153,15 @@ class DetailViewController: UIViewController {
             }
             mapView.addAnnotations(self.annotations)
             mapView.showAnnotations(mapView.annotations, animated: true)
+
+            // resize rect to make it look better MKMapRect
+            let resizedSpan = MKCoordinateSpan(latitudeDelta: mapView.region.span.latitudeDelta*1.1, longitudeDelta: mapView.region.span.longitudeDelta*1.1)
+            let resizedRegion = MKCoordinateRegion(center: mapView.region.center, span: resizedSpan)
+            mapView.setRegion(resizedRegion, animated: true)
+
+            destination = self.annotations[0]
+            guard let titleOptional = destination?.title, let title = titleOptional else { return }
+            openInMapButton.setTitle("Open \(title) in Map", for: .normal)
         }
 
     @IBAction func sendCommentPressed(_ sender: Any) {
@@ -201,11 +213,9 @@ class DetailViewController: UIViewController {
     }
 
     @IBAction func openMapPressed(_ sender: Any) {
-        let latitude: CLLocationDegrees = 37.2
-        let longitude: CLLocationDegrees = 22.9
-        
-        let regionDistance:CLLocationDistance = 10000
-        let coordinates = CLLocationCoordinate2DMake(latitude, longitude)
+        let regionDistance: CLLocationDistance = 10000
+        guard let coordinates = self.destination?.coordinate else { return }
+        guard let title = self.destination?.title else { return }
         let regionSpan = MKCoordinateRegionMakeWithDistance(coordinates, regionDistance, regionDistance)
         let options = [
             MKLaunchOptionsMapCenterKey: NSValue(mkCoordinate: regionSpan.center),
@@ -213,9 +223,21 @@ class DetailViewController: UIViewController {
         ]
         let placemark = MKPlacemark(coordinate: coordinates, addressDictionary: nil)
         let mapItem = MKMapItem(placemark: placemark)
-        mapItem.name = "Place Name"
+        mapItem.name = title
         mapItem.openInMaps(launchOptions: options)
     }
+}
+
+extension DetailViewController: CLLocationManagerDelegate, MKMapViewDelegate {
+    func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
+        self.destination = view.annotation
+        guard let destination = view.annotation?.title, let title = destination else { return }
+        openInMapButton.setTitle("Open \(title) in Map", for: .normal)
+    }
+
+    func mapView(_ mapView: MKMapView, didDeselect view: MKAnnotationView) {
+    }
+
 }
 
 extension DetailViewController: UITableViewDelegate, UITableViewDataSource {
