@@ -30,9 +30,6 @@
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kcE-aH-3eu">
                                             <rect key="frame" x="0.0" y="90" width="375" height="306"/>
                                             <subviews>
-                                                <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="8Pb-7M-Mis">
-                                                    <rect key="frame" x="0.0" y="0.0" width="375" height="211"/>
-                                                </mapView>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aS8-EM-iUg" customClass="YouTubePlayerView" customModule="YouTubePlayer">
                                                     <rect key="frame" x="0.0" y="0.0" width="375" height="211"/>
                                                     <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -40,6 +37,9 @@
                                                         <constraint firstAttribute="width" secondItem="aS8-EM-iUg" secondAttribute="height" multiplier="16:9" id="Ukh-tj-XeA"/>
                                                     </constraints>
                                                 </view>
+                                                <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="8Pb-7M-Mis">
+                                                    <rect key="frame" x="0.0" y="0.0" width="375" height="211"/>
+                                                </mapView>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jeQ-aW-GOb">
                                                     <rect key="frame" x="0.0" y="211" width="375" height="95"/>
                                                     <subviews>
@@ -160,8 +160,8 @@
                                                         <constraint firstAttribute="width" constant="130" id="Oiz-O0-bB7"/>
                                                     </constraints>
                                                     <segments>
-                                                        <segment title="Video"/>
                                                         <segment title="Map"/>
+                                                        <segment title="Video"/>
                                                     </segments>
                                                     <connections>
                                                         <action selector="toggleSegment:" destination="tXp-2y-NYO" eventType="valueChanged" id="qrn-1c-i8F"/>

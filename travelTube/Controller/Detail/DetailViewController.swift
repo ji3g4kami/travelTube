@@ -45,11 +45,11 @@ class DetailViewController: UIViewController {
     @IBAction func toggleSegment(_ sender: AnyObject) {
         switch segmentControl.selectedSegmentIndex {
         case 1:
-            mapView.alpha = 1
-            youtubePlayer.alpha = 0
-        default:
             mapView.alpha = 0
             youtubePlayer.alpha = 1
+        default:
+            mapView.alpha = 1
+            youtubePlayer.alpha = 0
         }
     }
 
@@ -112,7 +112,7 @@ class DetailViewController: UIViewController {
             guard let value = snapshot.value else { return }
             do {
                 self.articleInfo = try FirebaseDecoder().decode(Article.self, from: value)
-//                self.setupMap()
+                self.setupMap()
                 self.setupInfo()
                 self.setupTags()
             } catch {
@@ -136,17 +136,17 @@ class DetailViewController: UIViewController {
         }
     }
 
-//        func setupMap() {
-//            guard let annotaions = articleInfo?.annotations else { return }
-//            for annotaion in annotaions {
-//                let marker = MKPointAnnotation()
-//                marker.title = annotaion.title
-//                marker.coordinate = CLLocationCoordinate2DMake(annotaion.latitude, annotaion.logitutde)
-//                self.annotations.append(marker)
-//            }
-//            mapView.addAnnotations(self.annotations)
-//            mapView.showAnnotations(mapView.annotations, animated: true)
-//        }
+        func setupMap() {
+            guard let annotaions = articleInfo?.annotations else { return }
+            for annotaion in annotaions {
+                let marker = MKPointAnnotation()
+                marker.title = annotaion.title
+                marker.coordinate = CLLocationCoordinate2DMake(annotaion.latitude, annotaion.logitutde)
+                self.annotations.append(marker)
+            }
+            mapView.addAnnotations(self.annotations)
+            mapView.showAnnotations(mapView.annotations, animated: true)
+        }
 
     @IBAction func sendCommentPressed(_ sender: Any) {
         guard let youtubeId = youtubeId else { return }
