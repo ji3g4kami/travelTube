@@ -47,17 +47,6 @@ class DetailViewController: UIViewController {
         mapViewController?.annotations = self.annotations
     }
 
-    override func viewDidLayoutSubviews() {
-        super.viewDidLayoutSubviews()
-        if UserManager.shared.isAnonymous {
-            commentView.isHidden = true
-            tableView.frame = CGRect(x: 0, y: 0, width: tableView.frame.width, height: tableView.frame.height+50)
-        } else {
-            commentView.isHidden = false
-        }
-        print("Detail")
-    }
-
     func setupNavigationBar() {
         let newBackButton = UIBarButtonItem(title: "Back", style: UIBarButtonItemStyle.plain, target: self, action: #selector(backToRootView))
         self.navigationItem.leftBarButtonItem = newBackButton

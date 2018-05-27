@@ -68,28 +68,12 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageSizeForAccessibilityContentSizeCategory="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3ep-tR-k5i" customClass="RoundedButton" customModule="travelTube" customModuleProvider="target">
-                                <rect key="frame" x="36" y="537" width="303" height="40"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="40" id="SmL-BZ-tNa"/>
-                                </constraints>
-                                <inset key="titleEdgeInsets" minX="0.0" minY="0.0" maxX="-10" maxY="0.0"/>
-                                <inset key="imageEdgeInsets" minX="-3" minY="10" maxX="10" maxY="10"/>
-                                <state key="normal" title="Read Only" image="glasses">
-                                    <color key="titleColor" red="0.1215686275" green="0.12941176469999999" blue="0.14117647059999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                </state>
-                                <connections>
-                                    <action selector="readOnlyLogin:" destination="KX3-cp-gMa" eventType="touchUpInside" id="fqO-Rd-OhO"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="hWt-08-ysh" firstAttribute="top" secondItem="QHO-J5-Ra4" secondAttribute="top" constant="120" id="BzA-e6-szY"/>
                             <constraint firstItem="hWt-08-ysh" firstAttribute="centerX" secondItem="0Tf-2W-Njr" secondAttribute="centerX" constant="-46" id="DH9-sl-oU7"/>
                             <constraint firstItem="QHO-J5-Ra4" firstAttribute="bottom" secondItem="TU1-Af-QCy" secondAttribute="bottom" id="E4C-Ul-Z6N"/>
-                            <constraint firstItem="3ep-tR-k5i" firstAttribute="top" secondItem="NvU-nd-41i" secondAttribute="bottom" constant="10" id="FHv-bv-0Ku"/>
                             <constraint firstItem="QHO-J5-Ra4" firstAttribute="trailing" secondItem="cSq-Et-F6z" secondAttribute="trailing" constant="36" id="G4a-Sz-iLs"/>
                             <constraint firstItem="TU1-Af-QCy" firstAttribute="top" secondItem="0Tf-2W-Njr" secondAttribute="top" id="IUc-E5-HxK"/>
                             <constraint firstItem="NvU-nd-41i" firstAttribute="centerX" secondItem="0Tf-2W-Njr" secondAttribute="centerX" id="J2w-uE-fMk"/>
@@ -97,8 +81,6 @@
                             <constraint firstItem="TU1-Af-QCy" firstAttribute="leading" secondItem="QHO-J5-Ra4" secondAttribute="leading" id="QTS-MU-X5h"/>
                             <constraint firstItem="cSq-Et-F6z" firstAttribute="leading" secondItem="QHO-J5-Ra4" secondAttribute="leading" constant="36" id="RlL-q5-ww8"/>
                             <constraint firstItem="QHO-J5-Ra4" firstAttribute="trailing" secondItem="TU1-Af-QCy" secondAttribute="trailing" id="V1t-2W-RUZ"/>
-                            <constraint firstItem="3ep-tR-k5i" firstAttribute="leading" secondItem="NvU-nd-41i" secondAttribute="leading" id="VWt-Tz-4Sl"/>
-                            <constraint firstItem="3ep-tR-k5i" firstAttribute="trailing" secondItem="NvU-nd-41i" secondAttribute="trailing" id="XN0-yX-Xhk"/>
                             <constraint firstItem="wUg-zU-pDO" firstAttribute="centerY" secondItem="hWt-08-ysh" secondAttribute="centerY" id="YIt-eH-P5l"/>
                             <constraint firstItem="QHO-J5-Ra4" firstAttribute="trailing" secondItem="NvU-nd-41i" secondAttribute="trailing" constant="36" id="cQF-fZ-4UH"/>
                             <constraint firstItem="wUg-zU-pDO" firstAttribute="leading" secondItem="hWt-08-ysh" secondAttribute="trailing" id="ih3-mH-AuA"/>
@@ -116,7 +98,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="glasses" width="25" height="25"/>
         <image name="google" width="18" height="18"/>
         <image name="travel" width="249" height="408"/>
     </resources>

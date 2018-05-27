@@ -90,11 +90,7 @@ class TabBarViewController: UITabBarController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        if UserManager.shared.isAnonymous {
-            tabs = [.feed, .profile]
-        } else {
-            tabs = [.feed, .post, .profile]
-        }
+        tabs = [.feed, .post, .profile]
         setupTab()
     }
 

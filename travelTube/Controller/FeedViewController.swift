@@ -22,8 +22,6 @@ class FeedViewController: UIViewController {
         super.viewDidLoad()
         setupTableView()
         getFeeds()
-        SKActivityIndicator.dismiss()
-        UIApplication.shared.endIgnoringInteractionEvents()
     }
 
     func setupTableView() {
@@ -57,6 +55,9 @@ class FeedViewController: UIViewController {
 
 extension FeedViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if articleArray.count > 0 {
+            SKActivityIndicator.dismiss()
+        }
         return articleArray.count
     }
 

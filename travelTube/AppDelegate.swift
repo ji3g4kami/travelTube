@@ -71,7 +71,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
         let credential = GoogleAuthProvider.credential(withIDToken: authentication.idToken, accessToken: authentication.accessToken)
         Auth.auth().signIn(with: credential) { (user, error) in
             SKActivityIndicator.show("Loading...")
-            UIApplication.shared.beginIgnoringInteractionEvents()
             if let error = error {
                 print(error)
                 SKActivityIndicator.dismiss()
@@ -83,7 +82,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
                 UserManager.shared.userName = name
                 UserManager.shared.uid = uid
                 UserManager.shared.isLoggedIn = true
-                UserManager.shared.isAnonymous = false
+//                UserManager.shared.isAnonymous = false
                 FirebaseManager.shared.ref.child("users").child(uid).child("image").observeSingleEvent(of: .value, with: { (snapshot) in
                     if let userImage = snapshot.value as? String {
                         UserManager.shared.userImage = userImage
