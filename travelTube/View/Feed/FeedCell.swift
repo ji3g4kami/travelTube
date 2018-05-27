@@ -18,6 +18,10 @@ class FeedCell: UITableViewCell {
 
     override func awakeFromNib() {
         super.awakeFromNib()
+        self.selectedBackgroundView = { view in
+            view.backgroundColor = UIColor.clear
+            return view
+        }(UIView())
         setupTag()
         setupImage()
     }

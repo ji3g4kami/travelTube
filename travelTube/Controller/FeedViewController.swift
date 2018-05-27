@@ -20,6 +20,7 @@ class FeedViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        SKActivityIndicator.show("Loading...")
         setupTableView()
         getFeeds()
     }
