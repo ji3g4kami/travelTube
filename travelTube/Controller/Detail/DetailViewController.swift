@@ -11,7 +11,6 @@ import MapKit
 import Firebase
 import YouTubePlayer
 import CodableFirebase
-import AMScrollingNavbar
 import TagListView
 
 class DetailViewController: UIViewController {
@@ -132,14 +131,6 @@ class DetailViewController: UIViewController {
         }
         mapView.addAnnotations(self.annotations)
         mapView.showAnnotations(mapView.annotations, animated: true)
-    }
-
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-
-        if let navigationController = self.navigationController as? ScrollingNavigationController {
-            navigationController.followScrollView(tableView, delay: 0.0)
-        }
     }
 
     @IBAction func sendCommentPressed(_ sender: Any) {

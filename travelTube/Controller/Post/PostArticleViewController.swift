@@ -10,7 +10,6 @@ import UIKit
 import YouTubePlayer
 import MapKit
 import FirebaseDatabase
-import AMScrollingNavbar
 
 class PostArticleViewController: UIViewController {
 
@@ -106,14 +105,6 @@ class PostArticleViewController: UIViewController {
             mapView.addAnnotation(annotation)
             annotations.append(annotation)
             annotationTableView.reloadData()
-        }
-    }
-
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-
-        if let navigationController = self.navigationController as? ScrollingNavigationController {
-            navigationController.followScrollView(tableView, delay: 0.0)
         }
     }
 

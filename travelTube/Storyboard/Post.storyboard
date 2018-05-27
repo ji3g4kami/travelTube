@@ -255,10 +255,11 @@
             </objects>
             <point key="canvasLocation" x="1548" y="179.01049475262371"/>
         </scene>
-        <!--Scrolling Navigation Controller-->
+        <!--Navigation Controller-->
         <scene sceneID="F8j-mF-Xl1">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="VAd-xE-s97" customClass="ScrollingNavigationController" customModule="AMScrollingNavbar" sceneMemberID="viewController">
+                <placeholder placeholderIdentifier="IBFirstResponder" id="gMY-tB-F5K" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="VAd-xE-s97" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="dW9-TX-oTI">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
@@ -269,7 +270,6 @@
                         <segue destination="rzZ-KJ-cRM" kind="relationship" relationship="rootViewController" id="chz-kf-JJF"/>
                     </connections>
                 </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="gMY-tB-F5K" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-210.40000000000001" y="180.35982008995504"/>
         </scene>

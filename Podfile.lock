@@ -1,5 +1,4 @@
 PODS:
-  - AMScrollingNavbar (5.0.2)
   - CodableFirebase (0.0.7)
   - Firebase/Auth (4.13.0):
     - Firebase/Core
@@ -113,7 +112,6 @@ PODS:
   - YouTubePlayer (0.4.0)
 
 DEPENDENCIES:
-  - AMScrollingNavbar
   - CodableFirebase
   - Firebase/Auth
   - Firebase/Core
@@ -140,7 +138,6 @@ CHECKOUT OPTIONS:
     :git: https://github.com/boompieman/Swift-YouTube-Player.git
 
 SPEC CHECKSUMS:
-  AMScrollingNavbar: d941641a4b05c329e6050ab19e54105ba3785471
   CodableFirebase: 090c5b4c9ad67c9f4fddc3b00d168ec38cad3b14
   Firebase: 5ec5e863d269d82d66b4bf56856726f8fb8f0fb3
   FirebaseAnalytics: 7ef69e76a5142f643aeb47c780e1cdce4e23632e
@@ -171,6 +168,6 @@ SPEC CHECKSUMS:
   YoutubeEngine: a4d3b460c6f1415ddcbfc18afb094a8f113282c7
   YouTubePlayer: b6b44df6bb613dbb6e82f8130ed468f7e04cc1e5
 
-PODFILE CHECKSUM: 2f8a479fc65274e1729541af198b447cdfcae98a
+PODFILE CHECKSUM: 48b829ced6d54795cfead2aaa9a1f6abf5caafdb
 
 COCOAPODS: 1.4.0
