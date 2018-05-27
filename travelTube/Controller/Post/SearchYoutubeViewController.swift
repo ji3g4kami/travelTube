@@ -27,6 +27,11 @@ class SearchYoutubeViewController: UIViewController {
 
         searchBar.delegate = self
     }
+
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(false)
+        self.tabBarController?.tabBar.isHidden = false
+    }
 }
 
 extension SearchYoutubeViewController: YoutubeManagerDelegate {

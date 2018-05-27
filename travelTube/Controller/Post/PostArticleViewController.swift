@@ -27,7 +27,7 @@ class PostArticleViewController: UIViewController {
     @IBOutlet weak var removeButton: DesignableButton!
     @IBOutlet weak var tokenView: KSTokenView!
     @IBOutlet weak var scrollView: UIScrollView!
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         self.tabBarController?.tabBar.isHidden = true
@@ -38,10 +38,8 @@ class PostArticleViewController: UIViewController {
 
         setKeyboardObserver()
         setupTokenView()
-//
+        queryTags()
 //        setupYoutubePlayer()
-//
-//        queryTags()
     }
 
     func setKeyboardObserver() {
@@ -98,16 +96,16 @@ class PostArticleViewController: UIViewController {
 //        }
 //    }
 
-//    func queryTags() {
-//        FirebaseManager.shared.ref.child("tags").observeSingleEvent(of: .value) { (snapshot) in
-//            if let tagsDict = snapshot.value as? [String: AnyObject] {
-//                for tag in tagsDict.keys {
-//                    self.storedTags.append(tag)
-//                }
-//            }
-//        }
-//    }
-//
+    func queryTags() {
+        FirebaseManager.shared.ref.child("tags").observeSingleEvent(of: .value) { (snapshot) in
+            if let tagsDict = snapshot.value as? [String: AnyObject] {
+                for tag in tagsDict.keys {
+                    self.storedTags.append(tag)
+                }
+            }
+        }
+    }
+
     @IBAction func addAnnotaion(_ sender: UIButton) {
         let annotation = MKPointAnnotation()
         let centerCoordinate = mapView.centerCoordinate
@@ -137,77 +135,72 @@ class PostArticleViewController: UIViewController {
         }
     }
 
-//    @IBAction func postArticle(_ sender: Any) {
-//        // Annotations cannot be empty
-//        if annotations.count < 1 {
-//            let alertController = UIAlertController(title: "Lack of information", message: "Please at least share one location about the clip", preferredStyle: .alert)
-//            alertController.addAction(UIAlertAction(title: "OK", style: .default))
-//            present(alertController, animated: true)
-//            return
-//        }
-//
-//        guard let video = video else {
-//            print("failed unwrapping youtube")
-//            return
-//        }
-//        var markers = [Any]()
-//        for annotation in annotations {
-//            let marker = [
-//                "title": annotation.title!,
-//                "logitutde": annotation.coordinate.longitude,
-//                "latitude": annotation.coordinate.latitude
-//                ] as [String: Any]
-//            markers.append(marker)
-//        }
+    @IBAction func postArticle(_ sender: Any) {
+        // Annotations cannot be empty
+        if annotations.count < 1 {
+            let alertController = UIAlertController(title: "Lack of information", message: "Please at least share one location about the clip", preferredStyle: .alert)
+            alertController.addAction(UIAlertAction(title: "OK", style: .default))
+            present(alertController, animated: true)
+            return
+        }
 
-//        var tags: [String] = tokenView.text.components(separatedBy: ", ")
-//        if tags[0].count < 2 {
-//            tags.removeAll()
-//        } else {
-//            var tag0 = Array(tags[0])
-//            tag0.remove(at: 0)
-//            tags[0] = String(tag0)
-//        }
+        guard let video = video else {
+            print("failed unwrapping youtube")
+            return
+        }
+        var markers = [Any]()
+        for annotation in annotations {
+            let marker = [
+                "title": annotation.title!,
+                "logitutde": annotation.coordinate.longitude,
+                "latitude": annotation.coordinate.latitude
+                ] as [String: Any]
+            markers.append(marker)
+        }
 
-//        FirebaseManager.shared.ref.child("articles").child(video.youtubeId).setValue([
-//            "youtubeId": video.youtubeId,
-//            "youtubeTitle": video.title,
-//            "youtubeImage": video.image,
-//            "youtubePublishDate": video.publishDate,
-//            "updateTime": Date().timeIntervalSince1970,
-//            "uid": UserManager.shared.uid,
-//            "annotations": markers
-////            "tag": tags
-//        ])
-         // Making tags
-//        for tag in tags {
-//            var tempArticleIdArray = [String]()
-//            let ref = FirebaseManager.shared.ref.child("tags").child("\(tag)")
-//            // new tag
-//            if !storedTags.contains(tag) {
-//                tempArticleIdArray.append(video.youtubeId)
-//                ref.setValue(tempArticleIdArray)
-//            } else {
-//                ref.observeSingleEvent(of: .value, with: { (snapshot) in
-//                    if let value = snapshot.value as? NSArray {
-//                        for articleId in value {
-//                            
-//                            tempArticleIdArray.append(articleId as! String)
-//                        }
-//                        tempArticleIdArray.append(video.youtubeId)
-//                        ref.setValue(tempArticleIdArray)
-//                    }
-//                })
-//            }
-//        }
+        var tags: [String] = tokenView.text.components(separatedBy: ", ")
+        if tags[0].count < 2 {
+            tags.removeAll()
+        } else {
+            var tag0 = Array(tags[0])
+            tag0.remove(at: 0)
+            tags[0] = String(tag0)
+        }
 
-//        guard let controller = UIStoryboard.detailStoryboard().instantiateViewController(
-//            withIdentifier: String(describing: DetailViewController.self)
-//            ) as? DetailViewController else { return }
-//        controller.youtubeId = self.video?.youtubeId
-//        controller.hidesBottomBarWhenPushed = true
-//        self.present(controller, animated: true, completion: nil)
-//    }
+        FirebaseManager.shared.ref.child("articles").child(video.youtubeId).setValue([
+            "youtubeId": video.youtubeId,
+            "youtubeTitle": video.title,
+            "youtubeImage": video.image,
+            "youtubePublishDate": video.publishDate,
+            "updateTime": Date().timeIntervalSince1970,
+            "uid": UserManager.shared.uid,
+            "annotations": markers,
+            "tag": tags
+        ])
+//          Making tags
+        for tag in tags {
+            var tempArticleIdArray = [String]()
+            let ref = FirebaseManager.shared.ref.child("tags").child("\(tag)")
+            // new tag
+            if !storedTags.contains(tag) {
+                tempArticleIdArray.append(video.youtubeId)
+                ref.setValue(tempArticleIdArray)
+            } else {
+                ref.observeSingleEvent(of: .value, with: { (snapshot) in
+                    if let value = snapshot.value as? NSArray {
+                        for articleId in value {
+                            guard let articleID = articleId as? String else { return }
+                            tempArticleIdArray.append(articleID)
+                        }
+                        tempArticleIdArray.append(video.youtubeId)
+                        ref.setValue(tempArticleIdArray)
+                    }
+                })
+            }
+        }
+
+        navigationController?.popToRootViewController(animated: true)
+    }
 
 }
 
@@ -296,12 +289,12 @@ extension PostArticleViewController: KSTokenViewDelegate {
     func tokenView(_ tokenView: KSTokenView, performSearchWithString string: String, completion: ((_ results: [AnyObject]) -> Void)?) {
 
         if string.isEmpty {
-            completion!(storedTags.filter({ $0 != "New" }) as [AnyObject])
+            completion!(storedTags as [AnyObject])
             return
         }
 
         var data: [String] = []
-        for value: String in storedTags.filter({ $0 != "New" }) {
+        for value: String in storedTags {
             if value.lowercased().range(of: string.lowercased()) != nil {
                 data.append(value)
             }
