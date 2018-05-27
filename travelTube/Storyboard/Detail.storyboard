@@ -40,6 +40,19 @@
                                                 <constraint firstAttribute="width" secondItem="Gnu-dF-3zE" secondAttribute="height" multiplier="16:9" id="qHO-08-LR6"/>
                                             </constraints>
                                         </mapView>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HOw-CO-CFm">
+                                            <rect key="frame" x="10" y="10" width="30" height="30"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="30" id="4Le-cf-uao"/>
+                                                <constraint firstAttribute="width" constant="30" id="CPd-U6-IWc"/>
+                                                <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="30" id="cKc-Hn-y3p"/>
+                                                <constraint firstAttribute="height" constant="30" id="znC-7C-tdA"/>
+                                            </constraints>
+                                            <state key="normal" image="back"/>
+                                            <connections>
+                                                <action selector="leaveButtonPressed:" destination="tXp-2y-NYO" eventType="touchUpInside" id="FQf-zR-G5S"/>
+                                            </connections>
+                                        </button>
                                         <button opaque="NO" alpha="0.59999999999999998" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LXd-nA-weq" customClass="DesignableButton" customModule="travelTube" customModuleProvider="target">
                                             <rect key="frame" x="329" y="376" width="38" height="38"/>
                                             <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -147,12 +160,14 @@
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <constraints>
                                         <constraint firstAttribute="trailing" secondItem="jeQ-aW-GOb" secondAttribute="trailing" id="3Ow-vo-3Fq"/>
+                                        <constraint firstItem="HOw-CO-CFm" firstAttribute="top" secondItem="od0-30-u75" secondAttribute="top" constant="10" id="BUR-8y-QSL"/>
                                         <constraint firstItem="LXd-nA-weq" firstAttribute="height" secondItem="Gnu-dF-3zE" secondAttribute="height" multiplier="0.18" id="M2r-z3-U3B"/>
                                         <constraint firstItem="Gnu-dF-3zE" firstAttribute="leading" secondItem="od0-30-u75" secondAttribute="leading" id="NhK-Oe-1v4"/>
                                         <constraint firstAttribute="trailing" secondItem="Gnu-dF-3zE" secondAttribute="trailing" id="ffs-Gi-VXx"/>
                                         <constraint firstItem="jeQ-aW-GOb" firstAttribute="top" secondItem="Gnu-dF-3zE" secondAttribute="bottom" id="gsv-DQ-BQw"/>
                                         <constraint firstItem="LXd-nA-weq" firstAttribute="bottom" secondItem="Gnu-dF-3zE" secondAttribute="bottom" constant="-8" id="iIQ-b8-CXs"/>
                                         <constraint firstItem="Gnu-dF-3zE" firstAttribute="top" secondItem="aS8-EM-iUg" secondAttribute="bottom" id="kb2-5B-Jxn"/>
+                                        <constraint firstItem="HOw-CO-CFm" firstAttribute="leading" secondItem="od0-30-u75" secondAttribute="leading" constant="10" id="raW-Ie-fbf"/>
                                         <constraint firstAttribute="trailing" secondItem="LXd-nA-weq" secondAttribute="trailing" constant="8" id="tmA-xF-kSL"/>
                                         <constraint firstItem="aS8-EM-iUg" firstAttribute="top" secondItem="od0-30-u75" secondAttribute="top" id="uIR-ZD-X1s"/>
                                         <constraint firstAttribute="trailing" secondItem="aS8-EM-iUg" secondAttribute="trailing" id="uRD-FC-ScD"/>
@@ -499,6 +514,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="back" width="128" height="128"/>
         <image name="ban" width="25" height="25"/>
         <image name="btn_send" width="30" height="30"/>
         <image name="down-arrow" width="128" height="128"/>

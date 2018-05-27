@@ -177,6 +177,9 @@ class DetailViewController: UIViewController {
             animated: true,
             completion: nil)
     }
+    @IBAction func leaveButtonPressed(_ sender: Any) {
+        dismiss(animated: true, completion: nil)
+    }
 }
 
 extension DetailViewController: UITableViewDelegate, UITableViewDataSource {
