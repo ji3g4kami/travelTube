@@ -84,7 +84,6 @@ extension SearchYoutubeViewController: UITableViewDelegate, UITableViewDataSourc
             destination.video = youtubeArray[indexPath]
         }
     }
-
 }
 
 class Video {

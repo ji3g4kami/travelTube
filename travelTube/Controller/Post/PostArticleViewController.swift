@@ -33,8 +33,6 @@ class PostArticleViewController: UIViewController {
         self.tabBarController?.tabBar.isHidden = true
         mapView.delegate = self
         mapSearchBar.delegate = self
-        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
-        view.addGestureRecognizer(tap)
 
         setKeyboardObserver()
         setupTokenView()
