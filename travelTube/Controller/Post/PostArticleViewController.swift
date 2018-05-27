@@ -8,7 +8,6 @@
 
 import UIKit
 import YouTubePlayer
-import KSTokenView
 import MapKit
 import FirebaseDatabase
 import AMScrollingNavbar
@@ -24,7 +23,6 @@ class PostArticleViewController: UIViewController {
     @IBOutlet weak var youtubePlayer: YouTubePlayerView!
     @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var mapSearchBar: UISearchBar!
-    @IBOutlet weak var tokenView: KSTokenView!
     @IBOutlet weak var annotationTableView: UITableView!
 
     override func viewDidLoad() {
@@ -37,8 +35,6 @@ class PostArticleViewController: UIViewController {
         setKeyboardObserver()
 
         queryTags()
-
-        setupTokenView()
 
         setupAnnotationTableView()
     }
@@ -148,15 +144,14 @@ class PostArticleViewController: UIViewController {
             markers.append(marker)
         }
 
-        var tags: [String] = tokenView.text.components(separatedBy: ", ")
-        if tags[0].count < 2 {
-            tags.removeAll()
-        } else {
-            var tag0 = Array(tags[0])
-            tag0.remove(at: 0)
-            tags[0] = String(tag0)
-        }
-        tags.append("New")
+//        var tags: [String] = tokenView.text.components(separatedBy: ", ")
+//        if tags[0].count < 2 {
+//            tags.removeAll()
+//        } else {
+//            var tag0 = Array(tags[0])
+//            tag0.remove(at: 0)
+//            tags[0] = String(tag0)
+//        }
 
         FirebaseManager.shared.ref.child("articles").child(video.youtubeId).setValue([
             "youtubeId": video.youtubeId,
@@ -165,30 +160,30 @@ class PostArticleViewController: UIViewController {
             "youtubePublishDate": video.publishDate,
             "updateTime": Date().timeIntervalSince1970,
             "uid": UserManager.shared.uid,
-            "annotations": markers,
-            "tag": tags
+            "annotations": markers
+//            "tag": tags
         ])
          // Making tags
-        for tag in tags {
-            var tempArticleIdArray = [String]()
-            let ref = FirebaseManager.shared.ref.child("tags").child("\(tag)")
-            // new tag
-            if !storedTags.contains(tag) {
-                tempArticleIdArray.append(video.youtubeId)
-                ref.setValue(tempArticleIdArray)
-            } else {
-                ref.observeSingleEvent(of: .value, with: { (snapshot) in
-                    if let value = snapshot.value as? NSArray {
-                        for articleId in value {
-                            // swiftlint:disable force_cast
-                            tempArticleIdArray.append(articleId as! String)
-                        }
-                        tempArticleIdArray.append(video.youtubeId)
-                        ref.setValue(tempArticleIdArray)
-                    }
-                })
-            }
-        }
+//        for tag in tags {
+//            var tempArticleIdArray = [String]()
+//            let ref = FirebaseManager.shared.ref.child("tags").child("\(tag)")
+//            // new tag
+//            if !storedTags.contains(tag) {
+//                tempArticleIdArray.append(video.youtubeId)
+//                ref.setValue(tempArticleIdArray)
+//            } else {
+//                ref.observeSingleEvent(of: .value, with: { (snapshot) in
+//                    if let value = snapshot.value as? NSArray {
+//                        for articleId in value {
+//                            
+//                            tempArticleIdArray.append(articleId as! String)
+//                        }
+//                        tempArticleIdArray.append(video.youtubeId)
+//                        ref.setValue(tempArticleIdArray)
+//                    }
+//                })
+//            }
+//        }
 
         guard let controller = UIStoryboard.detailStoryboard().instantiateViewController(
             withIdentifier: String(describing: DetailViewController.self)
@@ -257,51 +252,5 @@ extension PostArticleViewController: UITableViewDelegate, UITableViewDataSource 
         mapView.removeAnnotation(annotations[sender.tag])
         annotations.remove(at: sender.tag)
         annotationTableView.reloadData()
-    }
-}
-
-extension PostArticleViewController: KSTokenViewDelegate {
-
-    func tokenViewDidBeginEditing(_ tokenView: KSTokenView) {
-        let offset = CGPoint.init(x: 0, y: self.keyboardHight+120)
-        self.tableView.setContentOffset(offset, animated: true)
-    }
-
-    func setupTokenView() {
-        tokenView.layer.cornerRadius = 10
-        tokenView.delegate = self
-        tokenView.promptText = " Tags: "
-        tokenView.placeholder = " 3 tags at most"
-        tokenView.maxTokenLimit = 3
-        tokenView.minimumCharactersToSearch = 0 // Show all results without without typing anything
-        tokenView.style = .squared
-        tokenView.direction = .vertical
-        tokenView.cursorColor = .black
-        tokenView.paddingY = 10
-        tokenView.marginY = tokenView.paddingY
-        tokenView.searchResultHeight = 120
-    }
-
-    func tokenView(_ tokenView: KSTokenView, performSearchWithString string: String, completion: ((_ results: [AnyObject]) -> Void)?) {
-
-        if string.isEmpty {
-            completion!(storedTags.filter({ $0 != "New" }) as [AnyObject])
-            return
-        }
-
-        var data: [String] = []
-        for value: String in storedTags.filter({ $0 != "New" }) {
-            if value.lowercased().range(of: string.lowercased()) != nil {
-                data.append(value)
-            }
-        }
-        completion!(data as [AnyObject])
-    }
-
-    func tokenView(_ tokenView: KSTokenView, displayTitleForObject object: AnyObject) -> String {
-        guard let obj = object as? String else {
-            return ""
-        }
-        return obj
     }
 }

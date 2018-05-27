@@ -201,7 +201,7 @@
                                                 <action selector="postArticle:" destination="EOM-ZU-q0j" eventType="touchUpInside" id="caj-fd-x4M"/>
                                             </connections>
                                         </button>
-                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tNg-Mg-4hu" customClass="KSTokenView" customModule="KSTokenView">
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tNg-Mg-4hu">
                                             <rect key="frame" x="20" y="10" width="335" height="41.5"/>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <constraints>
@@ -248,7 +248,6 @@
                         <outlet property="mapSearchBar" destination="xBS-IG-TIN" id="S7z-OQ-aV7"/>
                         <outlet property="mapView" destination="wMT-2e-nym" id="MSI-CK-v3H"/>
                         <outlet property="tableView" destination="Uhz-3S-euP" id="LYg-m7-oAb"/>
-                        <outlet property="tokenView" destination="tNg-Mg-4hu" id="mPe-gh-cmd"/>
                         <outlet property="youtubePlayer" destination="eze-Qi-SY9" id="Qpl-XM-eqj"/>
                     </connections>
                 </viewController>

@@ -12,7 +12,6 @@ target 'travelTube' do
   pod 'Firebase/Core'
   pod 'Firebase/Invites'
   pod 'SDWebImage'
-  pod 'KSTokenView'
   pod 'IQKeyboardManagerSwift'
   pod 'Firebase/Auth'
   pod 'FirebaseDatabase'
@@ -22,4 +21,5 @@ target 'travelTube' do
   pod 'CodableFirebase'
   pod 'Firebase/Storage'
   pod 'TagListView'
+  pod 'PARTagPicker'
 end

@@ -51,7 +51,7 @@ class FirebaseManager {
 
 struct Article: Codable {
     var annotations: [Annotation]
-    var tag: [String]
+    var tag: [String]?
     let uid: String
     var updateTime: Date
     let youtubeId: String

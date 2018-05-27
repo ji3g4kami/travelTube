@@ -89,13 +89,13 @@ PODS:
   - GTMSessionFetcher/Full (1.1.15):
     - GTMSessionFetcher/Core (= 1.1.15)
   - IQKeyboardManagerSwift (6.0.2)
-  - KSTokenView (4.0.1)
   - leveldb-library (1.20)
   - nanopb (0.3.8):
     - nanopb/decode (= 0.3.8)
     - nanopb/encode (= 0.3.8)
   - nanopb/decode (0.3.8)
   - nanopb/encode (0.3.8)
+  - PARTagPicker (1.4.0)
   - Protobuf (3.5.0)
   - ReactiveSwift (2.0.1):
     - Result (~> 3.2)
@@ -122,7 +122,7 @@ DEPENDENCIES:
   - FirebaseDatabase
   - GoogleSignIn
   - IQKeyboardManagerSwift
-  - KSTokenView
+  - PARTagPicker
   - SDWebImage
   - SKActivityIndicatorView
   - SwiftLint
@@ -157,9 +157,9 @@ SPEC CHECKSUMS:
   GTMOAuth2: c77fe325e4acd453837e72d91e3b5f13116857b2
   GTMSessionFetcher: 5fa5b80fd20e439ef5f545fb2cb3ca6c6714caa2
   IQKeyboardManagerSwift: 59d4b0e140bc546c3c76ae5bb35b3dafd10b8172
-  KSTokenView: 73bd70340b9f64b8324a55e5be5e9bd94a4d139e
   leveldb-library: 08cba283675b7ed2d99629a4bc5fd052cd2bb6a5
   nanopb: 5601e6bca2dbf1ed831b519092ec110f66982ca3
+  PARTagPicker: d2e1153e2278f66bf392fc1e02b5f53decbf58df
   Protobuf: 8a9838fba8dae3389230e1b7f8c104aa32389c03
   ReactiveSwift: 60a29ff35988a964fd2bb759755cb6594de523fc
   Result: d2d07204ce72856f1fd9130bbe42c35a7b0fea10
@@ -171,6 +171,6 @@ SPEC CHECKSUMS:
   YoutubeEngine: a4d3b460c6f1415ddcbfc18afb094a8f113282c7
   YouTubePlayer: b6b44df6bb613dbb6e82f8130ed468f7e04cc1e5
 
-PODFILE CHECKSUM: 75bfb70c143c43b747c9a8c71de525ff7ffdd4ac
+PODFILE CHECKSUM: 2f8a479fc65274e1729541af198b447cdfcae98a
 
 COCOAPODS: 1.4.0

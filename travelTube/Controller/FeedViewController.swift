@@ -67,7 +67,9 @@ extension FeedViewController: UITableViewDelegate, UITableViewDataSource {
         cell.titleLabel.text = articleArray[indexPath.row].youtubeTitle
         cell.backgroundColor = UIColor.clear
         cell.tagsView.removeAllTags()
-        cell.tagsView.addTags(articleArray[indexPath.row].tag)
+        if let tags = articleArray[indexPath.row].tag {
+            cell.tagsView.addTags(tags)
+        }
         return cell
     }
 
