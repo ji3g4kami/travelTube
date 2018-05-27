@@ -17,16 +17,18 @@ class PostArticleViewController: UIViewController {
     var storedTags = [String]()
     var annotations: [MKPointAnnotation] = []
     var keyboardHight = 300
+    var destination: MKAnnotation?
 
     @IBOutlet weak var youtubePlayer: YouTubePlayerView!
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var mapSearchBar: UISearchBar!
+    @IBOutlet weak var removeButton: DesignableButton!
 
     override func viewDidLoad() {
         super.viewDidLoad()
         self.tabBarController?.tabBar.isHidden = true
-
+        mapView.delegate = self
         mapSearchBar.delegate = self
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
         view.addGestureRecognizer(tap)
@@ -62,6 +64,11 @@ class PostArticleViewController: UIViewController {
                 }
             }
         }
+    }
+
+    @IBAction func deleteAnnotationPressed(_ sender: Any) {
+        guard let destination = destination else { return }
+        mapView.removeAnnotation(destination)
     }
     //    func setupYoutubePlayer() {
 //        youtubePlayer.playerVars = ["playsinline": "1"] as YouTubePlayerView.YouTubePlayerParameters
@@ -124,11 +131,7 @@ class PostArticleViewController: UIViewController {
             annotations.append(annotation)
         }
     }
-//
-//    @IBAction func discardArticle(_ sender: Any) {
-//        navigationController?.popToRootViewController(animated: true)
-//    }
-//
+
 //    @IBAction func postArticle(_ sender: Any) {
 //        // Annotations cannot be empty
 //        if annotations.count < 1 {
@@ -203,22 +206,24 @@ class PostArticleViewController: UIViewController {
 
 }
 
-extension PostArticleViewController: CLLocationManagerDelegate, MKMapViewDelegate,   UIPopoverPresentationControllerDelegate {
+extension PostArticleViewController: CLLocationManagerDelegate, MKMapViewDelegate {
     func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
-//        destination = view.annotation
-        let pop = PopViewController()
-        pop.modalPresentationStyle = .popover
-        pop.popoverPresentationController?.delegate = self
-        pop.popoverPresentationController?.sourceView = view
-        pop.popoverPresentationController?.sourceRect = .zero
-        self.present(pop, animated: true, completion: nil)
+        destination = view.annotation
+        UIView.animate(withDuration: 0.5, animations: {
+            self.removeButton.alpha =
+                CGFloat(1)
+        }, completion: { _ in
+            print("Animation Alpha Complete")
+        })
     }
 
     func mapView(_ mapView: MKMapView, didDeselect view: MKAnnotationView) {
-    }
-
-    func adaptivePresentationStyleForPresentationController(controller: UIPresentationController) -> UIModalPresentationStyle {
-        return .none
+        UIView.animate(withDuration: 0.5, animations: {
+            self.removeButton.alpha =
+                CGFloat(0)
+        }, completion: { _ in
+            print("Animation Alpha Complete")
+        })
     }
 }
 

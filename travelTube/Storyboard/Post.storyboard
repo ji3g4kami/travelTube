@@ -171,6 +171,24 @@
                                     <color key="titleColor" red="0.14117647059999999" green="0.14117647059999999" blue="0.14117647059999999" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                             </button>
+                            <button opaque="NO" alpha="0.0" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uQf-yp-UN5" customClass="DesignableButton" customModule="travelTube" customModuleProvider="target">
+                                <rect key="frame" x="309" y="133" width="58" height="28"/>
+                                <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="58" id="6wa-So-vti"/>
+                                    <constraint firstAttribute="height" constant="28" id="Reg-Ce-9Eh"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                <state key="normal" title="Remove"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="deleteAnnotationPressed:" destination="EOM-ZU-q0j" eventType="touchUpInside" id="gKC-u6-cc3"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -179,9 +197,11 @@
                             <constraint firstItem="7Du-GY-PES" firstAttribute="trailing" secondItem="Tuf-YX-KkI" secondAttribute="trailing" id="6tj-c9-x41"/>
                             <constraint firstItem="yWA-0n-jtx" firstAttribute="top" secondItem="agi-ZG-4iQ" secondAttribute="bottom" constant="-2" id="EjM-Ny-vK0"/>
                             <constraint firstItem="yWA-0n-jtx" firstAttribute="leading" secondItem="Tuf-YX-KkI" secondAttribute="leading" id="I5H-9n-tEe"/>
+                            <constraint firstItem="Tuf-YX-KkI" firstAttribute="trailing" secondItem="uQf-yp-UN5" secondAttribute="trailing" constant="8" id="Mw8-Kv-jOa"/>
                             <constraint firstItem="agi-ZG-4iQ" firstAttribute="leading" secondItem="Tuf-YX-KkI" secondAttribute="leading" id="cau-t8-Z4f"/>
                             <constraint firstItem="QxG-HB-5sy" firstAttribute="centerX" secondItem="ShV-xG-dAg" secondAttribute="centerX" id="dqi-Hz-x3T"/>
                             <constraint firstItem="Tuf-YX-KkI" firstAttribute="trailing" secondItem="yWA-0n-jtx" secondAttribute="trailing" id="moW-Ne-CrM"/>
+                            <constraint firstItem="uQf-yp-UN5" firstAttribute="top" secondItem="yWA-0n-jtx" secondAttribute="top" constant="15" id="q5M-am-CsB"/>
                             <constraint firstItem="7Du-GY-PES" firstAttribute="leading" secondItem="agi-ZG-4iQ" secondAttribute="trailing" id="wYV-Hd-TQM"/>
                             <constraint firstItem="QxG-HB-5sy" firstAttribute="centerY" secondItem="yWA-0n-jtx" secondAttribute="centerY" id="xnB-3g-it3"/>
                         </constraints>
@@ -192,6 +212,7 @@
                     <connections>
                         <outlet property="mapSearchBar" destination="agi-ZG-4iQ" id="OLK-U4-k8F"/>
                         <outlet property="mapView" destination="yWA-0n-jtx" id="gWr-pU-E10"/>
+                        <outlet property="removeButton" destination="uQf-yp-UN5" id="GeY-Hk-jeW"/>
                         <outlet property="searchBar" destination="agi-ZG-4iQ" id="lY7-wL-DFo"/>
                     </connections>
                 </viewController>
