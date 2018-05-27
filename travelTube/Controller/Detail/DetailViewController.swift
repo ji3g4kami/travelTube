@@ -17,14 +17,13 @@ class DetailViewController: UIViewController {
 
     @IBOutlet weak var youtubePlayer: YouTubePlayerView!
     @IBOutlet weak var tableView: UITableView!
-    @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var commentTextField: UITextField!
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var infoView: UIView!
     @IBOutlet weak var tagsView: TagListView!
-    @IBOutlet weak var fullScreenButton: DesignableButton!
     @IBOutlet weak var commentView: UIView!
-
+    @IBOutlet weak var bannerView: UIView!
+    
     var youtubeId: String?
     var articleInfo: Article?
     var comments = [Comment]()
@@ -39,6 +38,12 @@ class DetailViewController: UIViewController {
         setupYoutubePlayer(of: youtubeId)
         getArticleInfo(of: youtubeId)
         getComments(of: youtubeId)
+    }
+
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        guard let headerView = self.tableView.tableHeaderView else { return }
+        headerView.frame.size.height = youtubePlayer.frame.size.height + infoView.frame.height + bannerView.frame.size.height
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -94,7 +99,7 @@ class DetailViewController: UIViewController {
             guard let value = snapshot.value else { return }
             do {
                 self.articleInfo = try FirebaseDecoder().decode(Article.self, from: value)
-                self.setupMap()
+//                self.setupMap()
                 self.setupInfo()
                 self.setupTags()
             } catch {
@@ -104,8 +109,7 @@ class DetailViewController: UIViewController {
     }
 
     func setupTags() {
-        guard var articleTags = articleInfo?.tag else { return }
-        articleTags = articleTags.filter { $0 != "New" }
+        guard let articleTags = articleInfo?.tag else { return }
         self.tagsView.addTags(articleTags)
         tagsView.textFont = UIFont.systemFont(ofSize: 18)
         tagsView.alignment = .left
@@ -115,23 +119,21 @@ class DetailViewController: UIViewController {
         guard let article = articleInfo else { return }
         titleLabel.text = article.youtubeTitle
         DispatchQueue.main.async {
-            guard let headerView = self.tableView.tableHeaderView else { return }
-            headerView.frame.size.height = self.youtubePlayer.frame.size.height + self.mapView.frame.size.height + self.infoView.frame.height
             self.tableView.reloadData()
         }
     }
 
-    func setupMap() {
-        guard let annotaions = articleInfo?.annotations else { return }
-        for annotaion in annotaions {
-            let marker = MKPointAnnotation()
-            marker.title = annotaion.title
-            marker.coordinate = CLLocationCoordinate2DMake(annotaion.latitude, annotaion.logitutde)
-            self.annotations.append(marker)
-        }
-        mapView.addAnnotations(self.annotations)
-        mapView.showAnnotations(mapView.annotations, animated: true)
-    }
+//        func setupMap() {
+//            guard let annotaions = articleInfo?.annotations else { return }
+//            for annotaion in annotaions {
+//                let marker = MKPointAnnotation()
+//                marker.title = annotaion.title
+//                marker.coordinate = CLLocationCoordinate2DMake(annotaion.latitude, annotaion.logitutde)
+//                self.annotations.append(marker)
+//            }
+//            mapView.addAnnotations(self.annotations)
+//            mapView.showAnnotations(mapView.annotations, animated: true)
+//        }
 
     @IBAction func sendCommentPressed(_ sender: Any) {
         guard let youtubeId = youtubeId else { return }

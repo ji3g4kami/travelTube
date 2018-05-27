@@ -24,9 +24,9 @@
                     <view contentMode="scaleToFill" restorationIdentifier="FeedCell" translatesAutoresizingMaskIntoConstraints="NO" id="GqO-gl-GDJ" customClass="CardView" customModule="travelTube" customModuleProvider="target">
                         <rect key="frame" x="25" y="16" width="446" height="389"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="主題" textAlignment="natural" lineBreakMode="characterWrap" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="15" translatesAutoresizingMaskIntoConstraints="NO" id="TAS-bu-7ec">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="主題" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="15" adjustsLetterSpacingToFitWidth="YES" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="TAS-bu-7ec">
                                 <rect key="frame" x="15" y="266" width="416" height="63"/>
-                                <fontDescription key="fontDescription" name="PingFangTC-Regular" family="PingFang TC" pointSize="20"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="20"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="lantern" translatesAutoresizingMaskIntoConstraints="NO" id="Y5S-M5-Q7p">
