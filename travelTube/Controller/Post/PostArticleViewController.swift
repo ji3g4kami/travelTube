@@ -18,26 +18,24 @@ class PostArticleViewController: UIViewController {
     var annotations: [MKPointAnnotation] = []
     var keyboardHight = 300
 
-    @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var youtubePlayer: YouTubePlayerView!
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var mapSearchBar: UISearchBar!
-    @IBOutlet weak var annotationTableView: UITableView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
         self.tabBarController?.tabBar.isHidden = true
 
         mapSearchBar.delegate = self
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
+        view.addGestureRecognizer(tap)
 //
 //        setupYoutubePlayer()
 //
 //        setKeyboardObserver()
 //
 //        queryTags()
-//
-//        setupAnnotationTableView()
     }
 
     @IBAction func searchButtonPressed(_ sender: Any) {
@@ -46,16 +44,16 @@ class PostArticleViewController: UIViewController {
         // Create Search Request
         let searchRequest = MKLocalSearchRequest()
         searchRequest.naturalLanguageQuery = searchBar.text
-        
+
         let activeSearch = MKLocalSearch(request: searchRequest)
-        
+
         activeSearch.start { (response, _) in
             if response == nil {
                 print("error")
             } else {
                 // Getting Data
                 if let longitutde = response?.boundingRegion.center.longitude, let latitude = response?.boundingRegion.center.latitude {
-                    
+
                     // Zooming in on annotation
                     let coordinate: CLLocationCoordinate2D = CLLocationCoordinate2DMake(latitude, longitutde)
                     let span = MKCoordinateSpanMake(0.01, 0.01)
@@ -72,13 +70,6 @@ class PostArticleViewController: UIViewController {
 //        }
 //    }
 
-//    func setupAnnotationTableView() {
-//        annotationTableView.delegate = self
-//        annotationTableView.dataSource = self
-//        let xib = UINib(nibName: "AnnotationCell", bundle: nil)
-//        annotationTableView.register(xib, forCellReuseIdentifier: "AnnotationCell")
-//    }
-//
 //    func setKeyboardObserver() {
 //        NotificationCenter.default.addObserver(
 //            self,
@@ -131,7 +122,6 @@ class PostArticleViewController: UIViewController {
             annotation.title = title
             mapView.addAnnotation(annotation)
             annotations.append(annotation)
-//            annotationTableView.reloadData()
         }
     }
 //
@@ -213,6 +203,25 @@ class PostArticleViewController: UIViewController {
 
 }
 
+extension PostArticleViewController: CLLocationManagerDelegate, MKMapViewDelegate,   UIPopoverPresentationControllerDelegate {
+    func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
+//        destination = view.annotation
+        let pop = PopViewController()
+        pop.modalPresentationStyle = .popover
+        pop.popoverPresentationController?.delegate = self
+        pop.popoverPresentationController?.sourceView = view
+        pop.popoverPresentationController?.sourceRect = .zero
+        self.present(pop, animated: true, completion: nil)
+    }
+
+    func mapView(_ mapView: MKMapView, didDeselect view: MKAnnotationView) {
+    }
+
+    func adaptivePresentationStyleForPresentationController(controller: UIPresentationController) -> UIModalPresentationStyle {
+        return .none
+    }
+}
+
 extension PostArticleViewController: UISearchBarDelegate {
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         searchBar.resignFirstResponder()
@@ -250,25 +259,3 @@ extension PostArticleViewController: UISearchBarDelegate {
 
     }
 }
-
-//extension PostArticleViewController: UITableViewDelegate, UITableViewDataSource {
-//    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-//        return annotations.count
-//    }
-//
-//    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-//        guard let cell = annotationTableView.dequeueReusableCell(withIdentifier: "AnnotationCell") as? AnnotationCell else {
-//            return UITableViewCell()
-//        }
-//        cell.annotationTitleLabel.text = annotations[indexPath.row].title
-//        cell.deleteButton.tag = indexPath.row
-//        cell.deleteButton.addTarget(self, action: #selector(deleteAnnotation), for: .touchUpInside)
-//        return cell
-//    }
-//
-//    @objc func deleteAnnotation(_ sender: UIButton) {
-//        mapView.removeAnnotation(annotations[sender.tag])
-//        annotations.remove(at: sender.tag)
-//        annotationTableView.reloadData()
-//    }
-//}

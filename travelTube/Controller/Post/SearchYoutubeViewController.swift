@@ -26,6 +26,8 @@ class SearchYoutubeViewController: UIViewController {
         videoTableView.dataSource = self
 
         searchBar.delegate = self
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
+        view.addGestureRecognizer(tap)
 
     }
 }

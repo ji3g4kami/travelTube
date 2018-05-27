@@ -15,6 +15,8 @@
 		1417FEB420B961E900CFB50A /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1417FEB320B961E900CFB50A /* CardView.swift */; };
 		1417FEB720B9682600CFB50A /* FeedCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1417FEB520B9682600CFB50A /* FeedCell.swift */; };
 		1417FEB820B9682600CFB50A /* FeedCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1417FEB620B9682600CFB50A /* FeedCell.xib */; };
+		1417FEBB20BB057500CFB50A /* AnnotationPopover.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1417FEB920BB057500CFB50A /* AnnotationPopover.swift */; };
+		1417FEBC20BB057500CFB50A /* AnnotationPopover.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1417FEBA20BB057500CFB50A /* AnnotationPopover.xib */; };
 		14379C8620AE860700319334 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14379C8520AE860700319334 /* MapViewController.swift */; };
 		143F3ECD20B2B14900784EB9 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 143F3ECC20B2B14900784EB9 /* Extensions.swift */; };
 		143F3EEF20B405E600784EB9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 143F3EEE20B405E600784EB9 /* Assets.xcassets */; };
@@ -65,6 +67,8 @@
 		1417FEB320B961E900CFB50A /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
 		1417FEB520B9682600CFB50A /* FeedCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedCell.swift; sourceTree = "<group>"; };
 		1417FEB620B9682600CFB50A /* FeedCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FeedCell.xib; sourceTree = "<group>"; };
+		1417FEB920BB057500CFB50A /* AnnotationPopover.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnnotationPopover.swift; sourceTree = "<group>"; };
+		1417FEBA20BB057500CFB50A /* AnnotationPopover.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AnnotationPopover.xib; sourceTree = "<group>"; };
 		14379C8520AE860700319334 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		143F3ECC20B2B14900784EB9 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		143F3EEE20B405E600784EB9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -165,6 +169,8 @@
 				143F3EF420B55DF200784EB9 /* DesignableTextView.swift */,
 				144F808520B68B08002D19CD /* DesignableButton.swift */,
 				1417FEB320B961E900CFB50A /* CardView.swift */,
+				1417FEB920BB057500CFB50A /* AnnotationPopover.swift */,
+				1417FEBA20BB057500CFB50A /* AnnotationPopover.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -408,6 +414,7 @@
 				145CAF1920AD7AA700057DB7 /* CommentCell.xib in Resources */,
 				145D19D02098657200BE71D0 /* Feed.storyboard in Resources */,
 				14AE66B520AAB577007D7851 /* Detail.storyboard in Resources */,
+				1417FEBC20BB057500CFB50A /* AnnotationPopover.xib in Resources */,
 				14F7BD9120995A5900DE78C9 /* Search.storyboard in Resources */,
 				1417FEB820B9682600CFB50A /* FeedCell.xib in Resources */,
 				14F7BD8D2099580300DE78C9 /* Post.storyboard in Resources */,
@@ -546,6 +553,7 @@
 				1417FEB420B961E900CFB50A /* CardView.swift in Sources */,
 				148F90FF209AAFF300308179 /* PostArticleViewController.swift in Sources */,
 				145D19CD2098647400BE71D0 /* TabBarViewController.swift in Sources */,
+				1417FEBB20BB057500CFB50A /* AnnotationPopover.swift in Sources */,
 				145D19C12098545900BE71D0 /* Keys.swift in Sources */,
 				14F7BD972099935500DE78C9 /* SearchYoutubeResultCell.swift in Sources */,
 				14F7BD8F2099597C00DE78C9 /* SearchYoutubeViewController.swift in Sources */,
@@ -715,7 +723,10 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = ND2LGZT6B5;
 				INFOPLIST_FILE = travelTube/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.davidwu.travelTube;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "travelTube/Utitlties/SWReveal/travelTube-Bridging-Header.h";
@@ -735,7 +746,10 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = ND2LGZT6B5;
 				INFOPLIST_FILE = travelTube/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.davidwu.travelTube;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "travelTube/Utitlties/SWReveal/travelTube-Bridging-Header.h";
