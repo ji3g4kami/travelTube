@@ -25,6 +25,7 @@ class DetailViewController: UIViewController {
     @IBOutlet weak var bannerView: UIView!
     @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var segmentControl: UISegmentedControl!
+    @IBOutlet weak var mapViewContainer: UIView!
 
     var youtubeId: String?
     var articleInfo: Article?
@@ -45,11 +46,13 @@ class DetailViewController: UIViewController {
     @IBAction func toggleSegment(_ sender: AnyObject) {
         switch segmentControl.selectedSegmentIndex {
         case 1:
-            mapView.alpha = 0
-            youtubePlayer.alpha = 1
-        default:
-            mapView.alpha = 1
+            mapViewContainer.alpha = 1
             youtubePlayer.alpha = 0
+            infoView.alpha = 0
+        default:
+            mapViewContainer.alpha = 0
+            youtubePlayer.alpha = 1
+            infoView.alpha = 1
         }
     }
 
@@ -57,6 +60,7 @@ class DetailViewController: UIViewController {
         super.viewDidLayoutSubviews()
         guard let headerView = self.tableView.tableHeaderView else { return }
         headerView.frame.size.height = youtubePlayer.frame.size.height + infoView.frame.height + bannerView.frame.size.height
+        mapViewContainer.frame.size.height = youtubePlayer.frame.size.height + infoView.frame.height
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -194,6 +198,23 @@ class DetailViewController: UIViewController {
     }
     @IBAction func leaveButtonPressed(_ sender: Any) {
         dismiss(animated: true, completion: nil)
+    }
+
+    @IBAction func openMapPressed(_ sender: Any) {
+        let latitude: CLLocationDegrees = 37.2
+        let longitude: CLLocationDegrees = 22.9
+        
+        let regionDistance:CLLocationDistance = 10000
+        let coordinates = CLLocationCoordinate2DMake(latitude, longitude)
+        let regionSpan = MKCoordinateRegionMakeWithDistance(coordinates, regionDistance, regionDistance)
+        let options = [
+            MKLaunchOptionsMapCenterKey: NSValue(mkCoordinate: regionSpan.center),
+            MKLaunchOptionsMapSpanKey: NSValue(mkCoordinateSpan: regionSpan.span)
+        ]
+        let placemark = MKPlacemark(coordinate: coordinates, addressDictionary: nil)
+        let mapItem = MKMapItem(placemark: placemark)
+        mapItem.name = "Place Name"
+        mapItem.openInMaps(launchOptions: options)
     }
 }
 
