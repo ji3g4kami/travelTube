@@ -23,7 +23,9 @@ class DetailViewController: UIViewController {
     @IBOutlet weak var tagsView: TagListView!
     @IBOutlet weak var commentView: UIView!
     @IBOutlet weak var bannerView: UIView!
-    
+    @IBOutlet weak var mapView: MKMapView!
+    @IBOutlet weak var segmentControl: UISegmentedControl!
+
     var youtubeId: String?
     var articleInfo: Article?
     var comments = [Comment]()
@@ -38,6 +40,17 @@ class DetailViewController: UIViewController {
         setupYoutubePlayer(of: youtubeId)
         getArticleInfo(of: youtubeId)
         getComments(of: youtubeId)
+    }
+
+    @IBAction func toggleSegment(_ sender: AnyObject) {
+        switch segmentControl.selectedSegmentIndex {
+        case 1:
+            mapView.alpha = 1
+            youtubePlayer.alpha = 0
+        default:
+            mapView.alpha = 0
+            youtubePlayer.alpha = 1
+        }
     }
 
     override func viewDidLayoutSubviews() {

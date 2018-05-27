@@ -30,6 +30,9 @@
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kcE-aH-3eu">
                                             <rect key="frame" x="0.0" y="90" width="375" height="306"/>
                                             <subviews>
+                                                <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="8Pb-7M-Mis">
+                                                    <rect key="frame" x="0.0" y="0.0" width="375" height="211"/>
+                                                </mapView>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aS8-EM-iUg" customClass="YouTubePlayerView" customModule="YouTubePlayer">
                                                     <rect key="frame" x="0.0" y="0.0" width="375" height="211"/>
                                                     <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -136,12 +139,16 @@
                                             <constraints>
                                                 <constraint firstItem="jeQ-aW-GOb" firstAttribute="leading" secondItem="kcE-aH-3eu" secondAttribute="leading" id="JNx-Uh-fqv"/>
                                                 <constraint firstItem="aS8-EM-iUg" firstAttribute="top" secondItem="kcE-aH-3eu" secondAttribute="top" id="JPj-qJ-DqC"/>
+                                                <constraint firstItem="8Pb-7M-Mis" firstAttribute="top" secondItem="kcE-aH-3eu" secondAttribute="top" id="MGE-c1-oCi"/>
                                                 <constraint firstAttribute="bottom" secondItem="jeQ-aW-GOb" secondAttribute="bottom" id="Nog-Nq-i9T"/>
+                                                <constraint firstItem="8Pb-7M-Mis" firstAttribute="height" secondItem="aS8-EM-iUg" secondAttribute="height" id="SPU-Em-A1h"/>
                                                 <constraint firstAttribute="trailing" secondItem="jeQ-aW-GOb" secondAttribute="trailing" id="YEP-Mi-1Xz"/>
+                                                <constraint firstAttribute="trailing" secondItem="8Pb-7M-Mis" secondAttribute="trailing" id="b4e-00-tLo"/>
                                                 <constraint firstItem="aS8-EM-iUg" firstAttribute="leading" secondItem="kcE-aH-3eu" secondAttribute="leading" id="fVZ-3z-ZOI"/>
                                                 <constraint firstAttribute="bottom" secondItem="jeQ-aW-GOb" secondAttribute="bottom" id="gWm-yx-mNT"/>
                                                 <constraint firstItem="jeQ-aW-GOb" firstAttribute="top" secondItem="aS8-EM-iUg" secondAttribute="bottom" id="oho-g7-7UN"/>
                                                 <constraint firstAttribute="trailing" secondItem="aS8-EM-iUg" secondAttribute="trailing" id="pQA-OG-UlW"/>
+                                                <constraint firstItem="8Pb-7M-Mis" firstAttribute="leading" secondItem="kcE-aH-3eu" secondAttribute="leading" id="wue-tf-whI"/>
                                             </constraints>
                                         </view>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="W8l-dA-MNL">
@@ -156,6 +163,9 @@
                                                         <segment title="Video"/>
                                                         <segment title="Map"/>
                                                     </segments>
+                                                    <connections>
+                                                        <action selector="toggleSegment:" destination="tXp-2y-NYO" eventType="valueChanged" id="qrn-1c-i8F"/>
+                                                    </connections>
                                                 </segmentedControl>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Discover" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="djB-Nd-Se9">
                                                     <rect key="frame" x="127.5" y="10" width="120" height="28"/>
@@ -264,10 +274,12 @@
                         <outlet property="commentTextField" destination="sn2-do-AWh" id="zn1-8P-gyn"/>
                         <outlet property="commentView" destination="oAL-m8-yBa" id="VOg-yB-ZQc"/>
                         <outlet property="infoView" destination="jeQ-aW-GOb" id="1Z3-kU-q7v"/>
+                        <outlet property="mapView" destination="8Pb-7M-Mis" id="Cpx-La-SZd"/>
+                        <outlet property="segmentControl" destination="f7A-ob-Mor" id="bP5-fC-Lmx"/>
                         <outlet property="tableView" destination="igJ-Hf-zRF" id="z2H-Nm-0eC"/>
                         <outlet property="tagsView" destination="poW-Fw-cC6" id="wao-Mn-l2e"/>
                         <outlet property="titleLabel" destination="9Bv-4P-Q5w" id="Hx9-gi-vne"/>
-                        <outlet property="youtubePlayer" destination="aS8-EM-iUg" id="WZt-2b-2IQ"/>
+                        <outlet property="youtubePlayer" destination="aS8-EM-iUg" id="rFt-rO-lcl"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5Dr-9C-4V9" userLabel="First Responder" sceneMemberID="firstResponder"/>
