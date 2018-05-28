@@ -274,7 +274,16 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Tuf-YX-KkI"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Share Location" id="Koa-qR-bri"/>
+                    <navigationItem key="navigationItem" title="Share Location" id="Koa-qR-bri">
+                        <barButtonItem key="rightBarButtonItem" title="Item" image="youtube" id="zHg-CX-Rp8">
+                            <color key="tintColor" red="0.84705882349999995" green="0.22352941179999999" blue="0.1215686275" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <connections>
+                                <segue destination="0rL-Lg-4Ei" kind="popoverPresentation" identifier="videoPopOver" popoverAnchorBarButtonItem="zHg-CX-Rp8" id="dO3-iY-Yp1">
+                                    <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
+                                </segue>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <size key="freeformSize" width="375" height="667"/>
                     <connections>
                         <outlet property="mapSearchBar" destination="agi-ZG-4iQ" id="OLK-U4-k8F"/>
@@ -344,7 +353,35 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gnj-Rx-bes" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2268.8000000000002" y="177.21139430284859"/>
+            <point key="canvasLocation" x="2269" y="198"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="pII-nR-4PH">
+            <objects>
+                <viewController id="0rL-Lg-4Ei" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="6GP-Bp-Ufa">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="180"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bZX-Ae-Kfn" customClass="YouTubePlayerView" customModule="YouTubePlayer">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="180"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="bZX-Ae-Kfn" firstAttribute="top" secondItem="3J8-xC-hWz" secondAttribute="top" id="9W8-yX-HL3"/>
+                            <constraint firstItem="3J8-xC-hWz" firstAttribute="trailing" secondItem="bZX-Ae-Kfn" secondAttribute="trailing" id="GVt-yn-aEd"/>
+                            <constraint firstItem="3J8-xC-hWz" firstAttribute="bottom" secondItem="bZX-Ae-Kfn" secondAttribute="bottom" id="pkr-PH-1SK"/>
+                            <constraint firstItem="bZX-Ae-Kfn" firstAttribute="leading" secondItem="3J8-xC-hWz" secondAttribute="leading" id="uyU-P5-Ou5"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="3J8-xC-hWz"/>
+                    </view>
+                    <size key="freeformSize" width="320" height="180"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Iaj-qy-9F2" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2301" y="-39"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="F8j-mF-Xl1">
@@ -365,4 +402,7 @@
             <point key="canvasLocation" x="-210.40000000000001" y="180.35982008995504"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="youtube" width="25" height="25"/>
+    </resources>
 </document>

@@ -43,6 +43,11 @@ class PostArticleViewController: UIViewController, UIPopoverPresentationControll
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "showMapHint" {
             let popOverViewController = segue.destination
+            guard let rect = sender as? UIView else { return }
+            segue.destination.popoverPresentationController?.sourceRect = rect.bounds
+            popOverViewController.popoverPresentationController?.delegate = self
+        } else if segue.identifier == "videoPopOver" {
+            let popOverViewController = segue.destination
             popOverViewController.popoverPresentationController?.delegate = self
         }
     }
