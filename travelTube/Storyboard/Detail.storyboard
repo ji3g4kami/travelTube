@@ -4,7 +4,6 @@
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
@@ -36,9 +35,21 @@
                                                         <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="8Pb-7M-Mis">
                                                             <rect key="frame" x="0.0" y="0.0" width="375" height="266.5"/>
                                                         </mapView>
-                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="w3n-D6-LgR">
-                                                            <rect key="frame" x="143.5" y="276.5" width="87" height="30"/>
+                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="w3n-D6-LgR" customClass="DesignableButton" customModule="travelTube" customModuleProvider="target">
+                                                            <rect key="frame" x="56" y="276.5" width="262.5" height="30"/>
+                                                            <inset key="titleEdgeInsets" minX="1" minY="0.0" maxX="0.0" maxY="0.0"/>
                                                             <state key="normal" title="Open in Map"/>
+                                                            <userDefinedRuntimeAttributes>
+                                                                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                                    <real key="value" value="5"/>
+                                                                </userDefinedRuntimeAttribute>
+                                                                <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                                                    <color key="value" red="0.08235294118" green="0.4941176471" blue="0.98431372549999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                </userDefinedRuntimeAttribute>
+                                                                <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                                    <real key="value" value="1"/>
+                                                                </userDefinedRuntimeAttribute>
+                                                            </userDefinedRuntimeAttributes>
                                                             <connections>
                                                                 <action selector="openMapPressed:" destination="tXp-2y-NYO" eventType="touchUpInside" id="9mM-8F-01X"/>
                                                             </connections>
@@ -47,6 +58,7 @@
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <constraints>
                                                         <constraint firstItem="8Pb-7M-Mis" firstAttribute="top" secondItem="sRk-Gd-XMo" secondAttribute="top" id="2IV-ap-6dO"/>
+                                                        <constraint firstItem="w3n-D6-LgR" firstAttribute="width" secondItem="sRk-Gd-XMo" secondAttribute="width" multiplier="0.7" id="6Dt-YK-tMD"/>
                                                         <constraint firstItem="8Pb-7M-Mis" firstAttribute="leading" secondItem="sRk-Gd-XMo" secondAttribute="leading" id="DPx-3r-0FT"/>
                                                         <constraint firstItem="w3n-D6-LgR" firstAttribute="top" secondItem="8Pb-7M-Mis" secondAttribute="bottom" constant="10" id="Esw-1K-MB3"/>
                                                         <constraint firstAttribute="bottom" secondItem="w3n-D6-LgR" secondAttribute="bottom" constant="10" id="GOD-Gh-bLl"/>
