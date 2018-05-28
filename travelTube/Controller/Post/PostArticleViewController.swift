@@ -86,7 +86,10 @@ class PostArticleViewController: UIViewController, UIPopoverPresentationControll
 
         activeSearch.start { (response, _) in
             if response == nil {
-                print("error")
+                let alertController = UIAlertController(title: "找不到地點", message: "請嘗試其他地名", preferredStyle: .alert)
+                alertController.addAction(UIAlertAction(title: "OK", style: .default))
+                self.present(alertController, animated: true)
+                return
             } else {
                 // Getting Data
                 if let longitutde = response?.boundingRegion.center.longitude, let latitude = response?.boundingRegion.center.latitude {
@@ -129,8 +132,8 @@ class PostArticleViewController: UIViewController, UIPopoverPresentationControll
         annotation.coordinate = centerCoordinate
         if (mapSearchBar.text?.trimmingCharacters(in: .whitespaces).isEmpty)! {
             let alertController = UIAlertController(
-                title: "Invalid input",
-                message: "Cannot insert whitespace or special characters in annotation title",
+                title: "地理標籤命名問題",
+                message: "不能輸入空白或是特殊字元",
                 preferredStyle: .alert)
 
             let okAction = UIAlertAction(
