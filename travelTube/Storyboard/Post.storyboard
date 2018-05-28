@@ -355,10 +355,10 @@
             </objects>
             <point key="canvasLocation" x="2269" y="198"/>
         </scene>
-        <!--View Controller-->
+        <!--Video Popup View Controller-->
         <scene sceneID="pII-nR-4PH">
             <objects>
-                <viewController id="0rL-Lg-4Ei" sceneMemberID="viewController">
+                <viewController id="0rL-Lg-4Ei" customClass="VideoPopupViewController" customModule="travelTube" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="6GP-Bp-Ufa">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="180"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -378,6 +378,9 @@
                         <viewLayoutGuide key="safeArea" id="3J8-xC-hWz"/>
                     </view>
                     <size key="freeformSize" width="320" height="180"/>
+                    <connections>
+                        <outlet property="youtubePlayer" destination="bZX-Ae-Kfn" id="cZh-wo-Z6f"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Iaj-qy-9F2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

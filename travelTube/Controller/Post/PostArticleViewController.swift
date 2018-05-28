@@ -47,8 +47,11 @@ class PostArticleViewController: UIViewController, UIPopoverPresentationControll
             segue.destination.popoverPresentationController?.sourceRect = rect.bounds
             popOverViewController.popoverPresentationController?.delegate = self
         } else if segue.identifier == "videoPopOver" {
-            let popOverViewController = segue.destination
-            popOverViewController.popoverPresentationController?.delegate = self
+            let popOverViewController = segue.destination as? VideoPopupViewController
+            guard let youtubeId = video?.youtubeId else { return }
+            popOverViewController?.youtubeId = youtubeId
+            popOverViewController?.preferredContentSize = CGSize(width: 320, height: 180)
+            popOverViewController?.popoverPresentationController?.delegate = self
         }
     }
 

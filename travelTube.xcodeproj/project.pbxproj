@@ -16,6 +16,7 @@
 		1417FEB720B9682600CFB50A /* FeedCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1417FEB520B9682600CFB50A /* FeedCell.swift */; };
 		1417FEB820B9682600CFB50A /* FeedCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1417FEB620B9682600CFB50A /* FeedCell.xib */; };
 		14379C8620AE860700319334 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14379C8520AE860700319334 /* MapViewController.swift */; };
+		1439892920BBB62200E8DF9F /* VideoPopupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1439892820BBB62200E8DF9F /* VideoPopupViewController.swift */; };
 		143F3ECD20B2B14900784EB9 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 143F3ECC20B2B14900784EB9 /* Extensions.swift */; };
 		143F3EEF20B405E600784EB9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 143F3EEE20B405E600784EB9 /* Assets.xcassets */; };
 		143F3EF120B5465500784EB9 /* CommentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 143F3EF020B5465500784EB9 /* CommentViewController.swift */; };
@@ -66,6 +67,7 @@
 		1417FEB520B9682600CFB50A /* FeedCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedCell.swift; sourceTree = "<group>"; };
 		1417FEB620B9682600CFB50A /* FeedCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FeedCell.xib; sourceTree = "<group>"; };
 		14379C8520AE860700319334 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
+		1439892820BBB62200E8DF9F /* VideoPopupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoPopupViewController.swift; sourceTree = "<group>"; };
 		143F3ECC20B2B14900784EB9 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		143F3EEE20B405E600784EB9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		143F3EF020B5465500784EB9 /* CommentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentViewController.swift; sourceTree = "<group>"; };
@@ -313,6 +315,7 @@
 				14F7BD962099935500DE78C9 /* SearchYoutubeResultCell.swift */,
 				1414064E20A023D800BFB170 /* AnnotationCell.swift */,
 				1414064F20A023D800BFB170 /* AnnotationCell.xib */,
+				1439892820BBB62200E8DF9F /* VideoPopupViewController.swift */,
 			);
 			path = Post;
 			sourceTree = "<group>";
@@ -559,6 +562,7 @@
 				14379C8620AE860700319334 /* MapViewController.swift in Sources */,
 				1414065020A023D800BFB170 /* AnnotationCell.swift in Sources */,
 				14DA41A120A1420200A74254 /* ProfileViewController.swift in Sources */,
+				1439892920BBB62200E8DF9F /* VideoPopupViewController.swift in Sources */,
 				14DA41A420A1522B00A74254 /* AuthManager.swift in Sources */,
 				14DA41A620A162C600A74254 /* FirebaseManager.swift in Sources */,
 				144F808620B68B08002D19CD /* DesignableButton.swift in Sources */,
@@ -715,7 +719,10 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = ND2LGZT6B5;
 				INFOPLIST_FILE = travelTube/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.davidwu.travelTube;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "travelTube/Utitlties/SWReveal/travelTube-Bridging-Header.h";
@@ -735,7 +742,10 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = ND2LGZT6B5;
 				INFOPLIST_FILE = travelTube/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.davidwu.travelTube;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "travelTube/Utitlties/SWReveal/travelTube-Bridging-Header.h";
