@@ -22,6 +22,13 @@ class ArticleCollectionViewCell: UICollectionViewCell {
         titleTopToImageContraint.constant = self.frame.height/30
         titleBottomContraint.constant = titleTopToImageContraint.constant
 //        youtubeImage.layer.cornerRadius = youtubeImage.frame.height*0.1
+        setupImage()
+    }
+
+    func setupImage() {
+        youtubeImage.clipsToBounds = true
+        youtubeImage.layer.cornerRadius = 8
+        youtubeImage.layer.maskedCorners = [.layerMaxXMinYCorner, .layerMinXMinYCorner]
     }
 
 }

@@ -20,7 +20,7 @@
                 <rect key="frame" x="0.0" y="0.0" width="244" height="206"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
-                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SBl-cY-0LC">
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SBl-cY-0LC" customClass="DesignableView" customModule="travelTube" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="0.0" width="244" height="206"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="gBb-Ye-jrd">
@@ -48,6 +48,11 @@
                             <constraint firstItem="gBb-Ye-jrd" firstAttribute="leading" secondItem="SBl-cY-0LC" secondAttribute="leading" id="qUG-KW-WXX"/>
                             <constraint firstItem="rm5-M3-evl" firstAttribute="top" secondItem="gBb-Ye-jrd" secondAttribute="bottom" constant="8" id="yDc-nD-uS7"/>
                         </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                <real key="value" value="8"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
                     </view>
                 </subviews>
             </view>
