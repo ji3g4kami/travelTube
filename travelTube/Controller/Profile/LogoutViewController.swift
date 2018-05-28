@@ -13,8 +13,6 @@ import SKActivityIndicatorView
 
 class LogoutViewController: UIViewController, InviteDelegate {
 
-    @IBOutlet weak var inviteButton: UIButton!
-
     override func viewDidLoad() {
         super.viewDidLoad()
 

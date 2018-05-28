@@ -4,7 +4,6 @@
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
@@ -138,24 +137,8 @@
                                     <action selector="logoutPressed:" destination="Aqn-cw-0B4" eventType="touchUpInside" id="bgH-o8-23s"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UFA-jN-zFz" customClass="DesignableButton" customModule="travelTube" customModuleProvider="target">
-                                <rect key="frame" x="223" y="193" width="120" height="34"/>
-                                <color key="backgroundColor" red="0.30588235289999999" green="0.63137254899999995" blue="0.82745098039999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="120" id="Ktp-bX-vNY"/>
-                                </constraints>
-                                <state key="normal" title="邀請朋友"/>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                        <real key="value" value="8"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                                <connections>
-                                    <action selector="inviteTapped:" destination="Aqn-cw-0B4" eventType="touchUpInside" id="vws-HZ-YSJ"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hE7-y4-hFk" customClass="DesignableButton" customModule="travelTube" customModuleProvider="target">
-                                <rect key="frame" x="223" y="277" width="120" height="34"/>
+                                <rect key="frame" x="223" y="193" width="120" height="34"/>
                                 <color key="backgroundColor" red="0.30588235289999999" green="0.63137254899999995" blue="0.82745098039999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="120" id="T8J-Nk-4LL"/>
@@ -170,21 +153,35 @@
                                     <segue destination="rFx-NS-KqX" kind="presentation" id="buL-Bl-cQe"/>
                                 </connections>
                             </button>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UFA-jN-zFz" customClass="DesignableButton" customModule="travelTube" customModuleProvider="target">
+                                <rect key="frame" x="223" y="277" width="120" height="34"/>
+                                <color key="backgroundColor" red="0.30588235289999999" green="0.63137254899999995" blue="0.82745098039999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="34" id="GN4-g0-Nie"/>
+                                    <constraint firstAttribute="width" constant="120" id="JEO-b0-ujI"/>
+                                </constraints>
+                                <state key="normal" title="邀請朋友"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="8"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="inviteTapped:" destination="Aqn-cw-0B4" eventType="touchUpInside" id="vws-HZ-YSJ"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="hE7-y4-hFk" firstAttribute="top" secondItem="UFA-jN-zFz" secondAttribute="bottom" constant="50" id="6Gv-m0-1TB"/>
                             <constraint firstItem="ob5-HC-MFv" firstAttribute="trailing" secondItem="hE7-y4-hFk" secondAttribute="trailing" constant="32" id="8NL-gY-hUR"/>
+                            <constraint firstItem="hE7-y4-hFk" firstAttribute="top" secondItem="ah5-Jy-jYL" secondAttribute="bottom" constant="50" id="AMo-U8-EG4"/>
+                            <constraint firstItem="UFA-jN-zFz" firstAttribute="top" secondItem="hE7-y4-hFk" secondAttribute="bottom" constant="50" id="BcV-0m-5d8"/>
                             <constraint firstItem="ob5-HC-MFv" firstAttribute="trailing" secondItem="ah5-Jy-jYL" secondAttribute="trailing" constant="32" id="OvJ-4I-uyA"/>
+                            <constraint firstItem="ob5-HC-MFv" firstAttribute="trailing" secondItem="UFA-jN-zFz" secondAttribute="trailing" constant="32" id="T0V-5Q-olo"/>
                             <constraint firstItem="ah5-Jy-jYL" firstAttribute="top" secondItem="ob5-HC-MFv" secondAttribute="top" constant="89" id="ief-gu-Fyr"/>
-                            <constraint firstItem="UFA-jN-zFz" firstAttribute="top" secondItem="ah5-Jy-jYL" secondAttribute="bottom" constant="50" id="j6m-yL-0SW"/>
-                            <constraint firstItem="ob5-HC-MFv" firstAttribute="trailing" secondItem="UFA-jN-zFz" secondAttribute="trailing" constant="32" id="jBx-GU-CL8"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="ob5-HC-MFv"/>
                     </view>
-                    <connections>
-                        <outlet property="inviteButton" destination="UFA-jN-zFz" id="b45-02-Z0J"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AHl-hO-F7P" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -207,7 +204,7 @@
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="justified" translatesAutoresizingMaskIntoConstraints="NO" id="flE-3x-e61">
                                 <rect key="frame" x="30" y="85" width="315" height="552"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <mutableString key="text">非常歡迎您光臨「travelTube」（以下簡稱本App），為了讓您能夠安心的使用本App的各項服務與資訊，特此向您說本App的隱私權保護政策，以保障您的權益，請您詳閱下列內容：
+                                <string key="text">非常歡迎您光臨「travelTube」（以下簡稱本App），為了讓您能夠安心的使用本App的各項服務與資訊，特此向您說本App的隱私權保護政策，以保障您的權益，請您詳閱下列內容：
 
 一、隱私權保護政策的適用範圍
 隱私權保護政策內容，包本App如何處理在您使用網站服務時收集到的個人識別資料。隱私權保護政策不適用本App以外的相關連結網站，也不適用於本App所委託或參與管理的人員。
@@ -233,7 +230,7 @@
 六、Cookie之使用
 為了提供您最佳的服務本App會在您的電腦中放置並取用我們的Cookie，若您不願接受Cookie的寫入，您可在您使用的瀏覽器功能項中設定隱私權等級為高，即可拒絕Cookie的寫入，但可能會導至網站某些功能無法正常執行 。
 
-七、隱私權保護政策之修正本App隱私權保護政策將因應需求隨時進行修正，修正後的條款將刊登於網站上。</mutableString>
+七、隱私權保護政策之修正本App隱私權保護政策將因應需求隨時進行修正，修正後的條款將刊登於網站上。</string>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
