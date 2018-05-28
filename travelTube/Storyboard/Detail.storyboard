@@ -49,6 +49,7 @@
                                                         <constraint firstItem="8Pb-7M-Mis" firstAttribute="top" secondItem="sRk-Gd-XMo" secondAttribute="top" id="2IV-ap-6dO"/>
                                                         <constraint firstItem="8Pb-7M-Mis" firstAttribute="leading" secondItem="sRk-Gd-XMo" secondAttribute="leading" id="DPx-3r-0FT"/>
                                                         <constraint firstItem="w3n-D6-LgR" firstAttribute="top" secondItem="8Pb-7M-Mis" secondAttribute="bottom" constant="10" id="Esw-1K-MB3"/>
+                                                        <constraint firstAttribute="bottom" secondItem="w3n-D6-LgR" secondAttribute="bottom" constant="10" id="GOD-Gh-bLl"/>
                                                         <constraint firstItem="w3n-D6-LgR" firstAttribute="centerX" secondItem="sRk-Gd-XMo" secondAttribute="centerX" id="fhy-Hz-PFa"/>
                                                         <constraint firstAttribute="bottom" secondItem="8Pb-7M-Mis" secondAttribute="bottom" constant="50" id="lZq-Bg-3uT"/>
                                                         <constraint firstAttribute="trailing" secondItem="8Pb-7M-Mis" secondAttribute="trailing" id="mef-vw-OtF"/>
@@ -103,10 +104,10 @@
                                                                 </userDefinedRuntimeAttribute>
                                                             </userDefinedRuntimeAttributes>
                                                         </view>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" lineBreakMode="characterWrap" minimumFontSize="13" translatesAutoresizingMaskIntoConstraints="NO" id="9Bv-4P-Q5w">
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" lineBreakMode="characterWrap" numberOfLines="0" minimumFontSize="13" translatesAutoresizingMaskIntoConstraints="NO" id="9Bv-4P-Q5w">
                                                             <rect key="frame" x="15" y="10" width="345" height="30"/>
                                                             <constraints>
-                                                                <constraint firstAttribute="height" constant="30" id="jUM-Ac-oMX"/>
+                                                                <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="30" id="jUM-Ac-oMX"/>
                                                             </constraints>
                                                             <fontDescription key="fontDescription" type="system" pointSize="23"/>
                                                             <nil key="textColor"/>

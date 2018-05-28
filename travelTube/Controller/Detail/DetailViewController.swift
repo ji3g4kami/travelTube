@@ -64,6 +64,8 @@ class DetailViewController: UIViewController {
         guard let headerView = self.tableView.tableHeaderView else { return }
         headerView.frame.size.height = youtubePlayer.frame.size.height + infoView.frame.height + bannerView.frame.size.height
         mapViewContainer.frame.size.height = youtubePlayer.frame.size.height + infoView.frame.height
+        mapView.frame.size.height = mapViewContainer.frame.size.height - 40
+        openInMapButton.frame.origin.y = mapView.frame.origin.y + mapView.frame.size.height + 7
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
