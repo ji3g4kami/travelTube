@@ -154,9 +154,27 @@
                                     <action selector="inviteTapped:" destination="Aqn-cw-0B4" eventType="touchUpInside" id="vws-HZ-YSJ"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hE7-y4-hFk" customClass="DesignableButton" customModule="travelTube" customModuleProvider="target">
+                                <rect key="frame" x="223" y="277" width="120" height="34"/>
+                                <color key="backgroundColor" red="0.30588235289999999" green="0.63137254899999995" blue="0.82745098039999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="120" id="T8J-Nk-4LL"/>
+                                </constraints>
+                                <state key="normal" title="隱私政策"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="8"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <segue destination="rFx-NS-KqX" kind="presentation" id="buL-Bl-cQe"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="hE7-y4-hFk" firstAttribute="top" secondItem="UFA-jN-zFz" secondAttribute="bottom" constant="50" id="6Gv-m0-1TB"/>
+                            <constraint firstItem="ob5-HC-MFv" firstAttribute="trailing" secondItem="hE7-y4-hFk" secondAttribute="trailing" constant="32" id="8NL-gY-hUR"/>
                             <constraint firstItem="ob5-HC-MFv" firstAttribute="trailing" secondItem="ah5-Jy-jYL" secondAttribute="trailing" constant="32" id="OvJ-4I-uyA"/>
                             <constraint firstItem="ah5-Jy-jYL" firstAttribute="top" secondItem="ob5-HC-MFv" secondAttribute="top" constant="89" id="ief-gu-Fyr"/>
                             <constraint firstItem="UFA-jN-zFz" firstAttribute="top" secondItem="ah5-Jy-jYL" secondAttribute="bottom" constant="50" id="j6m-yL-0SW"/>
@@ -171,6 +189,87 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AHl-hO-F7P" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2191" y="-262"/>
+        </scene>
+        <!--Privacy View Controller-->
+        <scene sceneID="EfU-6y-WWm">
+            <objects>
+                <viewController id="rFx-NS-KqX" customClass="PrivacyViewController" customModule="travelTube" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="JgM-CI-XOK">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="隱私權條款" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BrW-gB-JZ4">
+                                <rect key="frame" x="126.5" y="40" width="122" height="29"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="justified" translatesAutoresizingMaskIntoConstraints="NO" id="flE-3x-e61">
+                                <rect key="frame" x="30" y="85" width="315" height="552"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <mutableString key="text">非常歡迎您光臨「travelTube」（以下簡稱本App），為了讓您能夠安心的使用本App的各項服務與資訊，特此向您說本App的隱私權保護政策，以保障您的權益，請您詳閱下列內容：
+
+一、隱私權保護政策的適用範圍
+隱私權保護政策內容，包本App如何處理在您使用網站服務時收集到的個人識別資料。隱私權保護政策不適用本App以外的相關連結網站，也不適用於本App所委託或參與管理的人員。
+
+二、個人資料的蒐集、處理及利用方式
+當您造本App或使本App所提供之功能服務時，我們將視該服務功能性質，請您提供必要的個人資料，並在該特定目的範圍內處理及利用您的個人資料；非經您書面同意本App不會將個人資料用於其他用途。本App在您使用服務信箱、問卷調查等互動性功能時，會保留您所提供的姓名、電子郵件地址、聯絡方式及使用時間等。
+於一般瀏覽時，伺服器會自行記錄相關行徑，包括您使用連線設備的IP位址、使用時間、使用的瀏覽器、瀏覽及點選資料記錄等，做為我們增進網站服務的參考依據，此記錄為內部應用，決不對外公佈。
+為提供精確的服務，我們會將收集的問卷調查內容進行統計與分析，分析結果之統計數據或說明文字呈現，除供內部研究外，我們會視需要公佈統計數據及說明文字，但不涉及特定個人之資料。
+三、資料之保護本App主機均設有防火牆、防毒系統等相關的各項資訊安全設備及必要的安全防護措施，加以保護網站及您的個人資料採用嚴格的保護措施，只由經過授權的人員才能接觸您的個人資料，相關處理人員皆簽有保密合約，如有違反保密義務者，將會受到相關的法律處分。
+如因業務需要有必要委託其他單位提供服務時本App亦會嚴格要求其遵守保密義務，並且採取必要檢查程序以確定其將確實遵守。
+四、網站對外的相關連結本App的網頁提供其他網站的網路連結，您也可經本App所提供的連結，點選進入其他網站。但該連結網站不適本App的隱私權保護政策，您必須參考該連結網站中的隱私權保護政策。
+
+五、與第三人共用個人資料之政策本App絕不會提供、交換、出租或出售任何您的個人資料給其他個人、團體、私人企業或公務機關，但有法律依據或合約義務者，不在此限。
+
+前項但書之情形包括不限於：
+
+經由您書面同意。
+法律明文規定。
+為免除您生命、身體、自由或財產上之危險。
+與公務機關或學術研究機構合作，基於公共利益為統計或學術研究而有必要，且資料經過提供者處理或蒐集者依其揭露方式無從識別特定之當事人。
+當您在網站的行為，違反服務條款或可能損害或妨礙網站與其他使用者權益或導致任何人遭受損害時，經網站管理單位研析揭露您的個人資料是為了辨識、聯絡或採取法律行動所必要者。
+有利於您的權益。本App委託廠商協助蒐集、處理或利用您的個人資料時，將對委外廠商或個人善盡監督管理之責。
+六、Cookie之使用
+為了提供您最佳的服務本App會在您的電腦中放置並取用我們的Cookie，若您不願接受Cookie的寫入，您可在您使用的瀏覽器功能項中設定隱私權等級為高，即可拒絕Cookie的寫入，但可能會導至網站某些功能無法正常執行 。
+
+七、隱私權保護政策之修正本App隱私權保護政策將因應需求隨時進行修正，修正後的條款將刊登於網站上。</mutableString>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dY1-5z-0cb">
+                                <rect key="frame" x="20" y="20" width="30" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="30" id="OBj-wL-amx"/>
+                                    <constraint firstAttribute="height" constant="30" id="uEe-Hc-y3a"/>
+                                </constraints>
+                                <state key="normal" image="error"/>
+                                <connections>
+                                    <action selector="exitPressed:" destination="rFx-NS-KqX" eventType="touchUpInside" id="3Lf-l8-MsZ"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="TyN-CO-avL" firstAttribute="trailing" secondItem="flE-3x-e61" secondAttribute="trailing" constant="30" id="0yJ-qy-z0g"/>
+                            <constraint firstItem="flE-3x-e61" firstAttribute="centerX" secondItem="JgM-CI-XOK" secondAttribute="centerX" id="76T-DA-Ude"/>
+                            <constraint firstItem="dY1-5z-0cb" firstAttribute="leading" secondItem="TyN-CO-avL" secondAttribute="leading" constant="20" id="Esv-BB-tVK"/>
+                            <constraint firstItem="TyN-CO-avL" firstAttribute="bottom" secondItem="flE-3x-e61" secondAttribute="bottom" constant="30" id="GLa-E8-lfM"/>
+                            <constraint firstItem="flE-3x-e61" firstAttribute="leading" secondItem="TyN-CO-avL" secondAttribute="leading" constant="30" id="QF4-dy-7HU"/>
+                            <constraint firstItem="BrW-gB-JZ4" firstAttribute="centerX" secondItem="JgM-CI-XOK" secondAttribute="centerX" id="cC5-MO-P0Q"/>
+                            <constraint firstItem="BrW-gB-JZ4" firstAttribute="top" secondItem="TyN-CO-avL" secondAttribute="top" constant="20" id="ekO-L9-vJS"/>
+                            <constraint firstItem="flE-3x-e61" firstAttribute="top" secondItem="BrW-gB-JZ4" secondAttribute="bottom" constant="16" id="f5O-1z-uyk"/>
+                            <constraint firstItem="dY1-5z-0cb" firstAttribute="top" secondItem="JgM-CI-XOK" secondAttribute="top" constant="20" id="fxX-x7-hJM"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="TyN-CO-avL"/>
+                    </view>
+                    <connections>
+                        <outlet property="textView" destination="flE-3x-e61" id="1MA-nA-3Sk"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="mUN-e0-hBt" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2927.1999999999998" y="-269.41529235382313"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="U4c-66-VAl">
@@ -192,6 +291,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="error" width="64" height="64"/>
         <image name="menu" width="25" height="25"/>
         <image name="profile_placeholder" width="36" height="36"/>
     </resources>
