@@ -13,7 +13,7 @@ struct TTConstants {
 }
 
 enum TTColor: String {
-    case tabBarTintColor = "ff0000"
+    case tabBarTintColor = "428DFF"
     case lightGray = "E7E7E7" // 231, 231, 231
     case darkGray = "CDCDCD"  // 205, 205, 205
 

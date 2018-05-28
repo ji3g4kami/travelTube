@@ -68,7 +68,7 @@
                                 </constraints>
                             </view>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="ygD-vg-VPP">
-                                <rect key="frame" x="0.0" y="263" width="375" height="404"/>
+                                <rect key="frame" x="0.0" y="283" width="375" height="384"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Ekg-5C-t3W">
                                     <size key="itemSize" width="50" height="50"/>
@@ -92,10 +92,10 @@
                         <constraints>
                             <constraint firstItem="cpR-wc-LKt" firstAttribute="trailing" secondItem="me8-BB-wKo" secondAttribute="trailing" id="49k-78-ej4"/>
                             <constraint firstItem="cpR-wc-LKt" firstAttribute="bottom" secondItem="ygD-vg-VPP" secondAttribute="bottom" id="CpF-Vu-kOt"/>
-                            <constraint firstItem="ygD-vg-VPP" firstAttribute="height" secondItem="cpR-wc-LKt" secondAttribute="height" multiplier="0.67" id="apd-fP-YuF"/>
+                            <constraint firstItem="ygD-vg-VPP" firstAttribute="height" secondItem="cpR-wc-LKt" secondAttribute="height" multiplier="0.67" constant="-20" id="apd-fP-YuF"/>
                             <constraint firstItem="me8-BB-wKo" firstAttribute="top" secondItem="cpR-wc-LKt" secondAttribute="top" id="e24-jW-19P"/>
                             <constraint firstItem="me8-BB-wKo" firstAttribute="leading" secondItem="cpR-wc-LKt" secondAttribute="leading" id="hu6-6f-Ylk"/>
-                            <constraint firstItem="ygD-vg-VPP" firstAttribute="top" secondItem="me8-BB-wKo" secondAttribute="bottom" id="jg4-iA-O6G"/>
+                            <constraint firstItem="ygD-vg-VPP" firstAttribute="top" secondItem="me8-BB-wKo" secondAttribute="bottom" constant="20" id="jg4-iA-O6G"/>
                             <constraint firstItem="ygD-vg-VPP" firstAttribute="leading" secondItem="cpR-wc-LKt" secondAttribute="leading" id="oth-7K-U2P"/>
                             <constraint firstItem="cpR-wc-LKt" firstAttribute="trailing" secondItem="ygD-vg-VPP" secondAttribute="trailing" id="y4s-av-4Yg"/>
                         </constraints>
@@ -120,24 +120,35 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ah5-Jy-jYL" customClass="RoundedButton" customModule="travelTube" customModuleProvider="target">
-                                <rect key="frame" x="252" y="109" width="91" height="36"/>
-                                <inset key="contentEdgeInsets" minX="10" minY="6" maxX="0.0" maxY="6"/>
-                                <inset key="imageEdgeInsets" minX="-8" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                <state key="normal" title="Logout" image="btn_logout">
-                                    <color key="titleColor" red="0.1215686275" green="0.12941176469999999" blue="0.14117647059999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                </state>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ah5-Jy-jYL" customClass="DesignableButton" customModule="travelTube" customModuleProvider="target">
+                                <rect key="frame" x="263" y="109" width="80" height="34"/>
+                                <color key="backgroundColor" red="0.30588235289999999" green="0.63137254899999995" blue="0.82745098039999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="80" id="0XN-LR-nl9"/>
+                                </constraints>
+                                <inset key="contentEdgeInsets" minX="0.0" minY="6" maxX="0.0" maxY="6"/>
+                                <state key="normal" title="Logout"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="8"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                                 <connections>
                                     <action selector="logoutPressed:" destination="Aqn-cw-0B4" eventType="touchUpInside" id="bgH-o8-23s"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UFA-jN-zFz" customClass="RoundedButton" customModule="travelTube" customModuleProvider="target">
-                                <rect key="frame" x="283" y="195" width="54" height="34"/>
-                                <inset key="contentEdgeInsets" minX="10" minY="6" maxX="0.0" maxY="6"/>
-                                <inset key="imageEdgeInsets" minX="-8" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                <state key="normal" title="Invite">
-                                    <color key="titleColor" red="0.1215686275" green="0.12941176469999999" blue="0.14117647059999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                </state>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UFA-jN-zFz" customClass="DesignableButton" customModule="travelTube" customModuleProvider="target">
+                                <rect key="frame" x="263" y="193" width="80" height="34"/>
+                                <color key="backgroundColor" red="0.30588235289999999" green="0.63137254899999995" blue="0.82745098039999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="80" id="Ktp-bX-vNY"/>
+                                </constraints>
+                                <state key="normal" title="Invite"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="8"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                                 <connections>
                                     <action selector="inviteTapped:" destination="Aqn-cw-0B4" eventType="touchUpInside" id="vws-HZ-YSJ"/>
                                 </connections>
@@ -148,7 +159,7 @@
                             <constraint firstItem="ob5-HC-MFv" firstAttribute="trailing" secondItem="ah5-Jy-jYL" secondAttribute="trailing" constant="32" id="OvJ-4I-uyA"/>
                             <constraint firstItem="ah5-Jy-jYL" firstAttribute="top" secondItem="ob5-HC-MFv" secondAttribute="top" constant="89" id="ief-gu-Fyr"/>
                             <constraint firstItem="UFA-jN-zFz" firstAttribute="top" secondItem="ah5-Jy-jYL" secondAttribute="bottom" constant="50" id="j6m-yL-0SW"/>
-                            <constraint firstItem="ob5-HC-MFv" firstAttribute="trailing" secondItem="UFA-jN-zFz" secondAttribute="trailing" constant="38" id="jBx-GU-CL8"/>
+                            <constraint firstItem="ob5-HC-MFv" firstAttribute="trailing" secondItem="UFA-jN-zFz" secondAttribute="trailing" constant="32" id="jBx-GU-CL8"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="ob5-HC-MFv"/>
                     </view>
@@ -180,7 +191,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="btn_logout" width="24" height="24"/>
         <image name="menu" width="25" height="25"/>
         <image name="profile_placeholder" width="36" height="36"/>
     </resources>
