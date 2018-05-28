@@ -155,7 +155,7 @@ class PostArticleViewController: UIViewController, UIPopoverPresentationControll
     @IBAction func postArticle(_ sender: Any) {
         // Annotations cannot be empty
         if annotations.count < 1 {
-            let alertController = UIAlertController(title: "Lack of information", message: "Please at least share one location about the clip", preferredStyle: .alert)
+            let alertController = UIAlertController(title: "缺少地標資訊", message: "請用Add在地圖上新增標籤", preferredStyle: .alert)
             alertController.addAction(UIAlertAction(title: "OK", style: .default))
             present(alertController, animated: true)
             return
@@ -177,7 +177,10 @@ class PostArticleViewController: UIViewController, UIPopoverPresentationControll
 
         var tags: [String] = tokenView.text.components(separatedBy: ", ")
         if tags[0].count < 2 {
-            tags.removeAll()
+            let alertController = UIAlertController(title: "請新增tag", message: "請在post按鈕的上方選擇tag標籤", preferredStyle: .alert)
+            alertController.addAction(UIAlertAction(title: "OK", style: .default))
+            present(alertController, animated: true)
+            return
         } else {
             var tag0 = Array(tags[0])
             tag0.remove(at: 0)
