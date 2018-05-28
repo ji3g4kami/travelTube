@@ -343,6 +343,7 @@
 				14DF3BEF20970F0F00215368 /* Resources */,
 				0B12AF0586828E91AC9A0740 /* [CP] Embed Pods Frameworks */,
 				00A744263521987E7B8977BD /* [CP] Copy Pods Resources */,
+				1439892E20BC272600E8DF9F /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -489,6 +490,19 @@
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-travelTube/Pods-travelTube-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
+		};
+		1439892E20BC272600E8DF9F /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Fabric/run\" c33eaede0fe36c5c76ceb82cf620bc4b3da56aa2 749981620e626325b0a2485b2bb6717b077a2fe27553b88630a8288aebcba01b\n";
 		};
 		14F7BD9420996A2400DE78C9 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;

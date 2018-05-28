@@ -21,4 +21,6 @@ target 'travelTube' do
   pod 'Firebase/Storage'
   pod 'TagListView'
   pod 'KSTokenView'
+  pod 'Fabric'
+  pod 'Crashlytics'
 end

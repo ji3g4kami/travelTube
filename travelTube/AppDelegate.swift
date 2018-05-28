@@ -11,6 +11,8 @@ import Firebase
 import GoogleSignIn
 import IQKeyboardManagerSwift
 import SKActivityIndicatorView
+import Fabric
+import Crashlytics
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
@@ -28,6 +30,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
         } else {
             toLoginPage()
         }
+        Fabric.with([Crashlytics.self])
         return true
     }
 
