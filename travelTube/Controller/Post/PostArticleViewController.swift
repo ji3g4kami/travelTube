@@ -20,13 +20,13 @@ class PostArticleViewController: UIViewController, UIPopoverPresentationControll
     var destination: MKAnnotation?
     var keyboardHight = 300
 
-    @IBOutlet weak var youtubePlayer: YouTubePlayerView!
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var mapSearchBar: UISearchBar!
     @IBOutlet weak var removeButton: DesignableButton!
     @IBOutlet weak var tokenView: KSTokenView!
     @IBOutlet weak var scrollView: UIScrollView!
+    @IBOutlet weak var hintView: DesignableView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,7 +37,6 @@ class PostArticleViewController: UIViewController, UIPopoverPresentationControll
         setKeyboardObserver()
         setupTokenView()
         queryTags()
-//        setupYoutubePlayer()
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -75,6 +74,13 @@ class PostArticleViewController: UIViewController, UIPopoverPresentationControll
         }
     }
 
+    @IBAction func dismissHintPressed(_ sender: Any) {
+        UIView.animate(withDuration: 0.5, animations: {
+            self.hintView.alpha =
+                CGFloat(0)
+        }, completion: nil
+    )}
+    
     @IBAction func searchButtonPressed(_ sender: Any) {
         searchBar.resignFirstResponder()
 
@@ -108,13 +114,6 @@ class PostArticleViewController: UIViewController, UIPopoverPresentationControll
         guard let destination = destination else { return }
         mapView.removeAnnotation(destination)
     }
-
-    //    func setupYoutubePlayer() {
-//        youtubePlayer.playerVars = ["playsinline": "1"] as YouTubePlayerView.YouTubePlayerParameters
-//        if let youtubeId = video?.youtubeId {
-//            youtubePlayer.loadVideoID(youtubeId)
-//        }
-//    }
 
     func queryTags() {
         FirebaseManager.shared.ref.child("tags").observeSingleEvent(of: .value) { (snapshot) in

@@ -132,7 +132,7 @@
                                                     <action selector="deleteAnnotationPressed:" destination="EOM-ZU-q0j" eventType="touchUpInside" id="gKC-u6-cc3"/>
                                                 </connections>
                                             </button>
-                                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="agi-ZG-4iQ">
+                                            <searchBar contentMode="redraw" placeholder="搜尋地點" translatesAutoresizingMaskIntoConstraints="NO" id="agi-ZG-4iQ">
                                                 <rect key="frame" x="0.0" y="0.0" width="245" height="56"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="56" id="ue6-OD-fW7"/>
@@ -249,6 +249,98 @@
                                             </segue>
                                         </connections>
                                     </button>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yzf-Zg-0Ye" customClass="DesignableView" customModule="travelTube" customModuleProvider="target">
+                                        <rect key="frame" x="62" y="76" width="250" height="200"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="輸入地名後按" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iXk-6c-Nlb">
+                                                <rect key="frame" x="73" y="20" width="104" height="21"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="21" id="m8e-7j-GdQ"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8DO-mc-Kzb" customClass="DesignableButton" customModule="travelTube" customModuleProvider="target">
+                                                <rect key="frame" x="96" y="48" width="58" height="28"/>
+                                                <color key="backgroundColor" red="0.08235294118" green="0.4941176471" blue="0.98431372549999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="58" id="odk-3c-Huf"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                                <state key="normal" title="Search"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                        <real key="value" value="10"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="searchButtonPressed:" destination="EOM-ZU-q0j" eventType="touchUpInside" id="DOo-DT-FRf"/>
+                                                </connections>
+                                            </button>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="確認地標無誤後按" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ctR-NK-ZOL">
+                                                <rect key="frame" x="55.5" y="94" width="139" height="21"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="以新增地標" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KZf-IS-KHl">
+                                                <rect key="frame" x="81.5" y="157" width="87" height="20.5"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="70D-jb-2do" customClass="DesignableButton" customModule="travelTube" customModuleProvider="target">
+                                                <rect key="frame" x="96" y="122" width="58" height="28"/>
+                                                <color key="backgroundColor" red="0.90980392160000001" green="0.35294117650000001" blue="0.4431372549" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="58" id="Ma0-7c-GdX"/>
+                                                    <constraint firstAttribute="height" constant="28" id="sqI-ZO-gwa"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                                <state key="normal" title="Add"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                        <real key="value" value="10"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9T2-t1-bT6">
+                                                <rect key="frame" x="10" y="10" width="30" height="30"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="30" id="8kg-lG-FsO"/>
+                                                    <constraint firstAttribute="width" constant="30" id="b9j-aP-nNk"/>
+                                                </constraints>
+                                                <state key="normal" image="error"/>
+                                                <connections>
+                                                    <action selector="dismissHintPressed:" destination="EOM-ZU-q0j" eventType="touchUpInside" id="XuN-cK-nGd"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstItem="ctR-NK-ZOL" firstAttribute="centerX" secondItem="yzf-Zg-0Ye" secondAttribute="centerX" id="11G-Q5-jKX"/>
+                                            <constraint firstItem="8DO-mc-Kzb" firstAttribute="centerX" secondItem="yzf-Zg-0Ye" secondAttribute="centerX" id="HY7-Mf-c8n"/>
+                                            <constraint firstItem="70D-jb-2do" firstAttribute="top" secondItem="ctR-NK-ZOL" secondAttribute="bottom" constant="7" id="Qxf-Kz-Ifb"/>
+                                            <constraint firstItem="70D-jb-2do" firstAttribute="centerX" secondItem="yzf-Zg-0Ye" secondAttribute="centerX" id="T4G-sI-cuw"/>
+                                            <constraint firstAttribute="height" constant="200" id="YPH-b6-dRU"/>
+                                            <constraint firstItem="iXk-6c-Nlb" firstAttribute="top" secondItem="c3n-wC-Myo" secondAttribute="top" constant="20" id="cIg-2h-BRa"/>
+                                            <constraint firstItem="8DO-mc-Kzb" firstAttribute="top" secondItem="iXk-6c-Nlb" secondAttribute="bottom" constant="7" id="cuu-1C-o3L"/>
+                                            <constraint firstItem="9T2-t1-bT6" firstAttribute="top" secondItem="c3n-wC-Myo" secondAttribute="top" constant="10" id="gqS-4P-qdc"/>
+                                            <constraint firstItem="KZf-IS-KHl" firstAttribute="centerX" secondItem="yzf-Zg-0Ye" secondAttribute="centerX" id="hXR-BX-eGe"/>
+                                            <constraint firstItem="ctR-NK-ZOL" firstAttribute="top" secondItem="8DO-mc-Kzb" secondAttribute="bottom" constant="18" id="iQL-uh-K5P"/>
+                                            <constraint firstItem="iXk-6c-Nlb" firstAttribute="centerX" secondItem="yzf-Zg-0Ye" secondAttribute="centerX" id="kJR-I0-ot0"/>
+                                            <constraint firstItem="KZf-IS-KHl" firstAttribute="top" secondItem="70D-jb-2do" secondAttribute="bottom" constant="7" id="oAd-aU-2P1"/>
+                                            <constraint firstItem="9T2-t1-bT6" firstAttribute="leading" secondItem="c3n-wC-Myo" secondAttribute="leading" constant="10" id="oVQ-av-4aJ"/>
+                                            <constraint firstAttribute="width" constant="250" id="pzA-eQ-Fb8"/>
+                                        </constraints>
+                                        <viewLayoutGuide key="safeArea" id="c3n-wC-Myo"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <real key="value" value="15"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </view>
                                 </subviews>
                                 <constraints>
                                     <constraint firstItem="QxG-HB-5sy" firstAttribute="centerX" secondItem="pSg-FC-rs9" secondAttribute="centerX" id="0cF-mI-gBk"/>
@@ -256,9 +348,11 @@
                                     <constraint firstItem="yKO-mq-4sY" firstAttribute="centerX" secondItem="pSg-FC-rs9" secondAttribute="centerX" id="Aqe-V6-hOM"/>
                                     <constraint firstItem="7Du-GY-PES" firstAttribute="leading" secondItem="agi-ZG-4iQ" secondAttribute="trailing" id="ClR-mU-aD0"/>
                                     <constraint firstAttribute="bottom" secondItem="yKO-mq-4sY" secondAttribute="bottom" id="Ggv-bX-8O3"/>
+                                    <constraint firstItem="yzf-Zg-0Ye" firstAttribute="centerX" secondItem="pSg-FC-rs9" secondAttribute="centerX" id="N4q-wG-oLb"/>
                                     <constraint firstItem="yKO-mq-4sY" firstAttribute="centerY" secondItem="pSg-FC-rs9" secondAttribute="centerY" id="Roj-un-BmK"/>
                                     <constraint firstItem="yKO-mq-4sY" firstAttribute="top" secondItem="pSg-FC-rs9" secondAttribute="top" id="Tha-a7-etw"/>
                                     <constraint firstItem="yKO-mq-4sY" firstAttribute="leading" secondItem="pSg-FC-rs9" secondAttribute="leading" id="ZH8-mc-Ykq"/>
+                                    <constraint firstItem="yzf-Zg-0Ye" firstAttribute="top" secondItem="agi-ZG-4iQ" secondAttribute="bottom" constant="20" id="b8m-Ho-6Az"/>
                                     <constraint firstAttribute="trailing" secondItem="7Du-GY-PES" secondAttribute="trailing" id="f5J-f4-2so"/>
                                     <constraint firstItem="QxG-HB-5sy" firstAttribute="centerY" secondItem="yWA-0n-jtx" secondAttribute="centerY" id="sbI-So-Wxm"/>
                                     <constraint firstAttribute="trailing" secondItem="yKO-mq-4sY" secondAttribute="trailing" id="uhu-vp-0RT"/>
@@ -286,6 +380,7 @@
                     </navigationItem>
                     <size key="freeformSize" width="375" height="667"/>
                     <connections>
+                        <outlet property="hintView" destination="yzf-Zg-0Ye" id="ldp-6L-KJQ"/>
                         <outlet property="mapSearchBar" destination="agi-ZG-4iQ" id="OLK-U4-k8F"/>
                         <outlet property="mapView" destination="yWA-0n-jtx" id="gWr-pU-E10"/>
                         <outlet property="removeButton" destination="uQf-yp-UN5" id="GeY-Hk-jeW"/>
@@ -326,9 +421,6 @@
                                         <real key="value" value="10"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
-                                <connections>
-                                    <action selector="addAnnotaion:" destination="EOM-ZU-q0j" eventType="touchUpInside" id="NKe-p0-Rsw"/>
-                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="以新增地標" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="j6p-Qz-57F">
                                 <rect key="frame" x="31.5" y="69" width="87" height="20.5"/>
@@ -354,6 +446,16 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gnj-Rx-bes" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2269" y="198"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="m8T-d0-lFE">
+            <objects>
+                <viewController id="eTx-IO-eXW" sceneMemberID="viewController">
+                    <size key="freeformSize" width="250" height="200"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="mNI-8a-sj6" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2301" y="416"/>
         </scene>
         <!--Video Popup View Controller-->
         <scene sceneID="pII-nR-4PH">
@@ -406,6 +508,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="error" width="64" height="64"/>
         <image name="youtube" width="25" height="25"/>
     </resources>
 </document>
