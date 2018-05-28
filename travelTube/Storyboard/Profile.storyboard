@@ -34,7 +34,7 @@
             </objects>
             <point key="canvasLocation" x="1436" y="-11.244377811094454"/>
         </scene>
-        <!--Profile-->
+        <!--個人-->
         <scene sceneID="yQt-tc-kfb">
             <objects>
                 <viewController id="HGT-Le-yuN" customClass="ProfileViewController" customModule="travelTube" customModuleProvider="target" sceneMemberID="viewController">
@@ -102,7 +102,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="cpR-wc-LKt"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Profile" id="2WD-Tv-siU"/>
+                    <navigationItem key="navigationItem" title="個人" id="2WD-Tv-siU"/>
                     <connections>
                         <outlet property="collectionView" destination="ygD-vg-VPP" id="L5W-XQ-aFv"/>
                         <outlet property="nameLabel" destination="5DN-sg-jVL" id="rTZ-bL-amh"/>
@@ -122,13 +122,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ah5-Jy-jYL" customClass="DesignableButton" customModule="travelTube" customModuleProvider="target">
-                                <rect key="frame" x="263" y="109" width="80" height="34"/>
+                                <rect key="frame" x="223" y="109" width="120" height="34"/>
                                 <color key="backgroundColor" red="0.30588235289999999" green="0.63137254899999995" blue="0.82745098039999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="80" id="0XN-LR-nl9"/>
+                                    <constraint firstAttribute="width" constant="120" id="0XN-LR-nl9"/>
                                 </constraints>
                                 <inset key="contentEdgeInsets" minX="0.0" minY="6" maxX="0.0" maxY="6"/>
-                                <state key="normal" title="Logout"/>
+                                <state key="normal" title="登出"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                                         <real key="value" value="8"/>
@@ -139,12 +139,12 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UFA-jN-zFz" customClass="DesignableButton" customModule="travelTube" customModuleProvider="target">
-                                <rect key="frame" x="263" y="193" width="80" height="34"/>
+                                <rect key="frame" x="223" y="193" width="120" height="34"/>
                                 <color key="backgroundColor" red="0.30588235289999999" green="0.63137254899999995" blue="0.82745098039999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="80" id="Ktp-bX-vNY"/>
+                                    <constraint firstAttribute="width" constant="120" id="Ktp-bX-vNY"/>
                                 </constraints>
-                                <state key="normal" title="Invite"/>
+                                <state key="normal" title="邀請朋友"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                                         <real key="value" value="8"/>

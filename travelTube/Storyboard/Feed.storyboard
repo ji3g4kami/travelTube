@@ -10,7 +10,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Feed-->
+        <!--動態時報-->
         <scene sceneID="5Ze-7g-pu6">
             <objects>
                 <viewController id="jeR-ZA-1qN" customClass="FeedViewController" customModule="travelTube" customModuleProvider="target" sceneMemberID="viewController">
@@ -42,7 +42,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="QJA-vK-vhf"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Feed" id="w0i-t1-Wbv"/>
+                    <navigationItem key="navigationItem" title="動態時報" id="w0i-t1-Wbv"/>
                     <connections>
                         <outlet property="tableView" destination="RfD-P1-M5K" id="jeW-bE-8Dy"/>
                     </connections>
@@ -54,7 +54,6 @@
         <!--Navigation Controller-->
         <scene sceneID="Fua-3J-2Lc">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="nJa-g0-DNb" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="VcD-Fp-zZN" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="wck-70-am6">
@@ -66,6 +65,7 @@
                         <segue destination="jeR-ZA-1qN" kind="relationship" relationship="rootViewController" id="COB-az-pqD"/>
                     </connections>
                 </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="nJa-g0-DNb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="286" y="157"/>
         </scene>

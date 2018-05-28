@@ -248,7 +248,7 @@ extension DetailViewController: CLLocationManagerDelegate, MKMapViewDelegate {
 
 extension DetailViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return "Comments (\(comments.count))"
+        return "留言"
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

@@ -13,7 +13,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Choose Video-->
+        <!--選擇影片-->
         <scene sceneID="5Su-Kf-4qx">
             <objects>
                 <viewController id="rzZ-KJ-cRM" customClass="SearchYoutubeViewController" customModule="travelTube" customModuleProvider="target" sceneMemberID="viewController">
@@ -81,7 +81,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="3Li-ua-t0U"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Choose Video" id="b7v-6Y-kbH">
+                    <navigationItem key="navigationItem" title="選擇影片" id="b7v-6Y-kbH">
                         <barButtonItem key="backBarButtonItem" title=" " id="HCn-i7-KJf"/>
                     </navigationItem>
                     <connections>
@@ -146,7 +146,7 @@
                                                     <constraint firstAttribute="height" constant="34" id="YZH-NJ-RGR"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                                <state key="normal" title="Post"/>
+                                                <state key="normal" title="Po文"/>
                                                 <userDefinedRuntimeAttributes>
                                                     <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                                                         <real key="value" value="15"/>
@@ -368,7 +368,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Tuf-YX-KkI"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Share Location" id="Koa-qR-bri">
+                    <navigationItem key="navigationItem" title="分享影片地點" id="Koa-qR-bri">
                         <barButtonItem key="rightBarButtonItem" title="Item" image="youtube" id="zHg-CX-Rp8">
                             <color key="tintColor" red="0.84705882349999995" green="0.22352941179999999" blue="0.1215686275" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <connections>
