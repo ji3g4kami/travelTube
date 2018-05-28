@@ -79,7 +79,7 @@ class DetailViewController: UIViewController {
     }
 
     func setupYoutubePlayer(of youtubeId: String) {
-        youtubePlayer.playerVars = ["playsinline": "1"] as YouTubePlayerView.YouTubePlayerParameters
+        youtubePlayer.playerVars = ["playsinline": "1", "showinfo": "0", "modestbranding": "1"] as YouTubePlayerView.YouTubePlayerParameters
         youtubePlayer.loadVideoID(youtubeId)
     }
 
