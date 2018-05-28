@@ -31,9 +31,9 @@ class PostArticleViewController: UIViewController, UIPopoverPresentationControll
     override func viewDidLoad() {
         super.viewDidLoad()
         self.tabBarController?.tabBar.isHidden = true
+        self.hideKeyboardWhenTappedAround()
         mapView.delegate = self
         mapSearchBar.delegate = self
-
         setKeyboardObserver()
         setupTokenView()
         queryTags()
