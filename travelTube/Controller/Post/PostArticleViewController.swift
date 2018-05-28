@@ -12,7 +12,7 @@ import MapKit
 import FirebaseDatabase
 import KSTokenView
 
-class PostArticleViewController: UIViewController {
+class PostArticleViewController: UIViewController, UIPopoverPresentationControllerDelegate {
 
     var video: Video?
     var storedTags = [String]()
@@ -38,6 +38,17 @@ class PostArticleViewController: UIViewController {
         setupTokenView()
         queryTags()
 //        setupYoutubePlayer()
+    }
+
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "showMapHint" {
+            let popOverViewController = segue.destination
+            popOverViewController.popoverPresentationController?.delegate = self
+        }
+    }
+
+    func adaptivePresentationStyle(for controller: UIPresentationController) -> UIModalPresentationStyle {
+        return UIModalPresentationStyle.none
     }
 
     func setKeyboardObserver() {

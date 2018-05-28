@@ -24,8 +24,6 @@ class ProfileViewController: UIViewController {
         super.viewDidLoad()
         setupNavigationBarItems()
         userImageView.isUserInteractionEnabled = true
-        let touch = UITapGestureRecognizer(target: self, action: #selector(bottomAlert))
-        userImageView.addGestureRecognizer(touch)
         setUserProfile()
         requestUserArticle()
 

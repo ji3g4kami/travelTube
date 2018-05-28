@@ -89,6 +89,7 @@
                             </collectionView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="cpR-wc-LKt" firstAttribute="trailing" secondItem="me8-BB-wKo" secondAttribute="trailing" id="49k-78-ej4"/>
                             <constraint firstItem="cpR-wc-LKt" firstAttribute="bottom" secondItem="ygD-vg-VPP" secondAttribute="bottom" id="CpF-Vu-kOt"/>

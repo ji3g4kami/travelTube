@@ -73,6 +73,10 @@ class DetailViewController: UIViewController {
         mapViewController?.annotations = self.annotations
     }
 
+    override var prefersStatusBarHidden: Bool {
+        return true
+    }
+
     func setupNavigationBar() {
         let newBackButton = UIBarButtonItem(title: "Back", style: UIBarButtonItemStyle.plain, target: self, action: #selector(backToRootView))
         self.navigationItem.leftBarButtonItem = newBackButton
