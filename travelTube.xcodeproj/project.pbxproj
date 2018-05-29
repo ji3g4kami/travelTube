@@ -14,6 +14,7 @@
 		1417FEB420B961E900CFB50A /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1417FEB320B961E900CFB50A /* CardView.swift */; };
 		1417FEB720B9682600CFB50A /* FeedCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1417FEB520B9682600CFB50A /* FeedCell.swift */; };
 		1417FEB820B9682600CFB50A /* FeedCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1417FEB620B9682600CFB50A /* FeedCell.xib */; };
+		14259D4A20BCF8E400AB8FF5 /* DesignableLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14259D4920BCF8E400AB8FF5 /* DesignableLabel.swift */; };
 		14379C8620AE860700319334 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14379C8520AE860700319334 /* MapViewController.swift */; };
 		1439892920BBB62200E8DF9F /* VideoPopupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1439892820BBB62200E8DF9F /* VideoPopupViewController.swift */; };
 		1439892B20BBD35C00E8DF9F /* PrivacyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1439892A20BBD35C00E8DF9F /* PrivacyViewController.swift */; };
@@ -65,6 +66,7 @@
 		1417FEB320B961E900CFB50A /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
 		1417FEB520B9682600CFB50A /* FeedCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedCell.swift; sourceTree = "<group>"; };
 		1417FEB620B9682600CFB50A /* FeedCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FeedCell.xib; sourceTree = "<group>"; };
+		14259D4920BCF8E400AB8FF5 /* DesignableLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesignableLabel.swift; sourceTree = "<group>"; };
 		14379C8520AE860700319334 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		1439892820BBB62200E8DF9F /* VideoPopupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoPopupViewController.swift; sourceTree = "<group>"; };
 		1439892A20BBD35C00E8DF9F /* PrivacyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivacyViewController.swift; sourceTree = "<group>"; };
@@ -157,6 +159,7 @@
 				143F3EF220B5513500784EB9 /* DesignableView.swift */,
 				143F3EF420B55DF200784EB9 /* DesignableTextView.swift */,
 				144F808520B68B08002D19CD /* DesignableButton.swift */,
+				14259D4920BCF8E400AB8FF5 /* DesignableLabel.swift */,
 				1417FEB320B961E900CFB50A /* CardView.swift */,
 			);
 			path = View;
@@ -572,6 +575,7 @@
 				14DA41A620A162C600A74254 /* FirebaseManager.swift in Sources */,
 				144F808620B68B08002D19CD /* DesignableButton.swift in Sources */,
 				143F3EF520B55DF200784EB9 /* DesignableTextView.swift in Sources */,
+				14259D4A20BCF8E400AB8FF5 /* DesignableLabel.swift in Sources */,
 				1439892B20BBD35C00E8DF9F /* PrivacyViewController.swift in Sources */,
 				14DA419F20A141D600A74254 /* LogoutViewController.swift in Sources */,
 				1414065620A0821800BFB170 /* UserManager.swift in Sources */,
