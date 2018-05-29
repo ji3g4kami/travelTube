@@ -31,15 +31,15 @@ public class UserManager {
         }
     }
 
-//    var isAnonymous: Bool {
-//        get {
-//            guard let isAnonymous = defaults.value(forKey: "isAnonymous") as? Bool else { return false }
-//            return isAnonymous
-//        }
-//        set {
-//            defaults.set(newValue, forKey: "isAnonymous")
-//        }
-//    }
+    var isAnonymous: Bool {
+        get {
+            guard let isAnonymous = defaults.value(forKey: "isAnonymous") as? Bool else { return false }
+            return isAnonymous
+        }
+        set {
+            defaults.set(newValue, forKey: "isAnonymous")
+        }
+    }
 
     var uid: String? {
         get {

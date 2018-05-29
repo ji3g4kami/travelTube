@@ -50,8 +50,8 @@
 		14DF3C0B2097191600215368 /* ArticleCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 14DF3C092097191600215368 /* ArticleCollectionViewCell.xib */; };
 		14F7BD8D2099580300DE78C9 /* Post.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 14F7BD8C2099580300DE78C9 /* Post.storyboard */; };
 		14F7BD8F2099597C00DE78C9 /* SearchYoutubeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14F7BD8E2099597C00DE78C9 /* SearchYoutubeViewController.swift */; };
-		14F7BD9120995A5900DE78C9 /* Search.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 14F7BD9020995A5900DE78C9 /* Search.storyboard */; };
-		14F7BD9320995A7E00DE78C9 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14F7BD9220995A7E00DE78C9 /* SearchViewController.swift */; };
+		14F7BD9120995A5900DE78C9 /* AnonymousProfile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 14F7BD9020995A5900DE78C9 /* AnonymousProfile.storyboard */; };
+		14F7BD9320995A7E00DE78C9 /* AnonymousProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14F7BD9220995A7E00DE78C9 /* AnonymousProfileViewController.swift */; };
 		14F7BD972099935500DE78C9 /* SearchYoutubeResultCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14F7BD962099935500DE78C9 /* SearchYoutubeResultCell.swift */; };
 		14F7BD992099AB7900DE78C9 /* YoutubeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14F7BD982099AB7900DE78C9 /* YoutubeManager.swift */; };
 		66CB6BA513F17CA49AB73D4E /* Pods_travelTube.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4EFCDCD4BA195A779FA564F4 /* Pods_travelTube.framework */; };
@@ -106,8 +106,8 @@
 		14DF3C092097191600215368 /* ArticleCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ArticleCollectionViewCell.xib; sourceTree = "<group>"; };
 		14F7BD8C2099580300DE78C9 /* Post.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Post.storyboard; sourceTree = "<group>"; };
 		14F7BD8E2099597C00DE78C9 /* SearchYoutubeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchYoutubeViewController.swift; sourceTree = "<group>"; };
-		14F7BD9020995A5900DE78C9 /* Search.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Search.storyboard; sourceTree = "<group>"; };
-		14F7BD9220995A7E00DE78C9 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
+		14F7BD9020995A5900DE78C9 /* AnonymousProfile.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AnonymousProfile.storyboard; sourceTree = "<group>"; };
+		14F7BD9220995A7E00DE78C9 /* AnonymousProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnonymousProfileViewController.swift; sourceTree = "<group>"; };
 		14F7BD962099935500DE78C9 /* SearchYoutubeResultCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchYoutubeResultCell.swift; sourceTree = "<group>"; };
 		14F7BD982099AB7900DE78C9 /* YoutubeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YoutubeManager.swift; sourceTree = "<group>"; };
 		4EFCDCD4BA195A779FA564F4 /* Pods_travelTube.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_travelTube.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -144,7 +144,6 @@
 				148F90FD209AAEBA00308179 /* Post */,
 				14DF3BF620970F0F00215368 /* FeedViewController.swift */,
 				145D19CC2098647400BE71D0 /* TabBarViewController.swift */,
-				14F7BD9220995A7E00DE78C9 /* SearchViewController.swift */,
 				1414065220A04F9900BFB170 /* LoginViewController.swift */,
 			);
 			path = Controller;
@@ -213,8 +212,8 @@
 				14F7BD8C2099580300DE78C9 /* Post.storyboard */,
 				145D19CF2098657200BE71D0 /* Feed.storyboard */,
 				145D19D42098774C00BE71D0 /* Profile.storyboard */,
-				14F7BD9020995A5900DE78C9 /* Search.storyboard */,
 				14AE66B420AAB577007D7851 /* Detail.storyboard */,
+				14F7BD9020995A5900DE78C9 /* AnonymousProfile.storyboard */,
 			);
 			path = Storyboard;
 			sourceTree = "<group>";
@@ -263,6 +262,7 @@
 				14DA419E20A141D600A74254 /* LogoutViewController.swift */,
 				14DA41A020A1420200A74254 /* ProfileViewController.swift */,
 				1439892A20BBD35C00E8DF9F /* PrivacyViewController.swift */,
+				14F7BD9220995A7E00DE78C9 /* AnonymousProfileViewController.swift */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -410,7 +410,7 @@
 				145CAF1920AD7AA700057DB7 /* CommentCell.xib in Resources */,
 				145D19D02098657200BE71D0 /* Feed.storyboard in Resources */,
 				14AE66B520AAB577007D7851 /* Detail.storyboard in Resources */,
-				14F7BD9120995A5900DE78C9 /* Search.storyboard in Resources */,
+				14F7BD9120995A5900DE78C9 /* AnonymousProfile.storyboard in Resources */,
 				1417FEB820B9682600CFB50A /* FeedCell.xib in Resources */,
 				14F7BD8D2099580300DE78C9 /* Post.storyboard in Resources */,
 				1414065120A023D800BFB170 /* AnnotationCell.xib in Resources */,
@@ -555,7 +555,7 @@
 				143F3EF320B5513500784EB9 /* DesignableView.swift in Sources */,
 				14F7BD992099AB7900DE78C9 /* YoutubeManager.swift in Sources */,
 				145D19D32098667D00BE71D0 /* UIStoryboard+David.swift in Sources */,
-				14F7BD9320995A7E00DE78C9 /* SearchViewController.swift in Sources */,
+				14F7BD9320995A7E00DE78C9 /* AnonymousProfileViewController.swift in Sources */,
 				145CAF1820AD7AA700057DB7 /* CommentCell.swift in Sources */,
 				1417FEB420B961E900CFB50A /* CardView.swift in Sources */,
 				148F90FF209AAFF300308179 /* PostArticleViewController.swift in Sources */,

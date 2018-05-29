@@ -14,7 +14,7 @@ enum TabBar {
 
     case post
 
-    case search
+    case anonymousProfile
 
     case profile
 
@@ -25,8 +25,8 @@ enum TabBar {
         case .feed:
             return UIStoryboard.feedStoryboard().instantiateInitialViewController()!
 
-        case .search:
-            return UIStoryboard.searchStoryboard().instantiateInitialViewController()!
+        case .anonymousProfile:
+            return UIStoryboard.anonymousProfileStoryboard().instantiateInitialViewController()!
 
         case .post:
             return UIStoryboard.postStoryboard().instantiateInitialViewController()!
@@ -44,8 +44,8 @@ enum TabBar {
             return #imageLiteral(resourceName: "youtube")
         case .post:
             return #imageLiteral(resourceName: "news")
-        case .search:
-            return #imageLiteral(resourceName: "search")
+        case .anonymousProfile:
+            return #imageLiteral(resourceName: "anonymous-logo")
         case .profile:
             return #imageLiteral(resourceName: "user")
         }
@@ -56,8 +56,8 @@ enum TabBar {
 
         case .feed:
             return "feed"
-        case .search:
-            return  "search"
+        case .anonymousProfile:
+            return  "anonymous"
         case .post:
             return "post"
         case .profile:
@@ -75,8 +75,8 @@ enum TabBar {
         case .post:
             return #imageLiteral(resourceName: "news").withRenderingMode(.alwaysTemplate)
 
-        case .search:
-            return #imageLiteral(resourceName: "search").withRenderingMode(.alwaysTemplate)
+        case .anonymousProfile:
+            return #imageLiteral(resourceName: "anonymous-logo").withRenderingMode(.alwaysTemplate)
 
         case .profile:
             return #imageLiteral(resourceName: "user").withRenderingMode(.alwaysTemplate)
@@ -86,11 +86,15 @@ enum TabBar {
 
 class TabBarViewController: UITabBarController {
 
-    var tabs: [TabBar] = [.feed, .post, .search, .profile]
+    var tabs: [TabBar] = [.feed, .post, .profile, .anonymousProfile]
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        tabs = [.feed, .post, .profile]
+        if UserManager.shared.isAnonymous {
+            tabs = [.feed, .anonymousProfile]
+        } else {
+            tabs = [.feed, .post, .profile]
+        }
         setupTab()
     }
 

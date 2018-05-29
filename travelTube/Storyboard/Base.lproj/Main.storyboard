@@ -60,50 +60,65 @@
                                     <action selector="login:" destination="KX3-cp-gMa" eventType="touchUpInside" id="PnH-ru-0qh"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Watch youtube and travel" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="cSq-Et-F6z">
-                                <rect key="frame" x="104" y="193" width="210" height="25"/>
-                                <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="18"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="travel" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="4qB-3w-w9E">
-                                <rect key="frame" x="114" y="140" width="107" height="55.5"/>
+                                <rect key="frame" x="114.5" y="140" width="106" height="49.5"/>
                                 <fontDescription key="fontDescription" name="Roboto-Bold" family="Roboto" pointSize="42"/>
                                 <color key="textColor" red="0.25882352939999997" green="0.55294117649999996" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tube" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="Rb0-Lh-cqm">
-                                <rect key="frame" x="221" y="139" width="93" height="56"/>
+                                <rect key="frame" x="220.5" y="139.5" width="94.5" height="49.5"/>
                                 <fontDescription key="fontDescription" name="Roboto-Bold" family="Roboto" pointSize="42"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon" translatesAutoresizingMaskIntoConstraints="NO" id="rb5-Ta-inC">
-                                <rect key="frame" x="62" y="147" width="44" height="63"/>
+                                <rect key="frame" x="62.5" y="133.5" width="44" height="63"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="44" id="34f-A4-4Vi"/>
                                     <constraint firstAttribute="height" constant="63" id="ZJX-KM-wat"/>
                                     <constraint firstAttribute="width" secondItem="rb5-Ta-inC" secondAttribute="height" multiplier="44:63" id="fk0-g1-CcA"/>
                                 </constraints>
                             </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kBI-X2-HbD" customClass="DesignableButton" customModule="travelTube" customModuleProvider="target">
+                                <rect key="frame" x="36" y="537" width="303" height="40"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="6N3-ob-eYq"/>
+                                </constraints>
+                                <inset key="titleEdgeInsets" minX="0.0" minY="0.0" maxX="-10" maxY="0.0"/>
+                                <inset key="imageEdgeInsets" minX="-7" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                <state key="normal" title="匿名登入" image="anonymous-logo">
+                                    <color key="titleColor" red="0.1215686275" green="0.12941176469999999" blue="0.14117647059999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="6"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="readOnlyLogin:" destination="KX3-cp-gMa" eventType="touchUpInside" id="ZCi-aT-Z0u"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="rb5-Ta-inC" firstAttribute="bottom" secondItem="cSq-Et-F6z" secondAttribute="bottom" constant="-8" id="98Y-el-CUt"/>
                             <constraint firstItem="Rb0-Lh-cqm" firstAttribute="leading" secondItem="4qB-3w-w9E" secondAttribute="trailing" id="9iM-qu-uHC"/>
                             <constraint firstItem="Rb0-Lh-cqm" firstAttribute="centerY" secondItem="4qB-3w-w9E" secondAttribute="centerY" id="DoS-we-6If"/>
                             <constraint firstItem="QHO-J5-Ra4" firstAttribute="bottom" secondItem="TU1-Af-QCy" secondAttribute="bottom" id="E4C-Ul-Z6N"/>
                             <constraint firstItem="TU1-Af-QCy" firstAttribute="top" secondItem="0Tf-2W-Njr" secondAttribute="top" id="IUc-E5-HxK"/>
                             <constraint firstItem="NvU-nd-41i" firstAttribute="centerX" secondItem="0Tf-2W-Njr" secondAttribute="centerX" id="J2w-uE-fMk"/>
-                            <constraint firstItem="cSq-Et-F6z" firstAttribute="top" secondItem="Rb0-Lh-cqm" secondAttribute="bottom" constant="-2" id="PxD-Jd-cnf"/>
+                            <constraint firstItem="QHO-J5-Ra4" firstAttribute="trailing" secondItem="kBI-X2-HbD" secondAttribute="trailing" constant="36" id="Mkd-Dj-bhS"/>
                             <constraint firstItem="TU1-Af-QCy" firstAttribute="leading" secondItem="QHO-J5-Ra4" secondAttribute="leading" id="QTS-MU-X5h"/>
                             <constraint firstItem="4qB-3w-w9E" firstAttribute="leading" secondItem="rb5-Ta-inC" secondAttribute="trailing" constant="8" id="U2D-qh-3fR"/>
                             <constraint firstItem="4qB-3w-w9E" firstAttribute="centerX" secondItem="0Tf-2W-Njr" secondAttribute="centerX" constant="-20" id="UMl-pl-2Yd"/>
                             <constraint firstItem="QHO-J5-Ra4" firstAttribute="trailing" secondItem="TU1-Af-QCy" secondAttribute="trailing" id="V1t-2W-RUZ"/>
                             <constraint firstItem="QHO-J5-Ra4" firstAttribute="trailing" secondItem="NvU-nd-41i" secondAttribute="trailing" constant="36" id="cQF-fZ-4UH"/>
+                            <constraint firstItem="kBI-X2-HbD" firstAttribute="leading" secondItem="QHO-J5-Ra4" secondAttribute="leading" constant="36" id="fJy-bn-Y5t"/>
                             <constraint firstItem="4qB-3w-w9E" firstAttribute="top" secondItem="QHO-J5-Ra4" secondAttribute="top" constant="120" id="hmU-ZZ-4Lc"/>
                             <constraint firstItem="QHO-J5-Ra4" firstAttribute="bottom" secondItem="NvU-nd-41i" secondAttribute="bottom" constant="140" id="rEd-ZN-gIe"/>
-                            <constraint firstItem="cSq-Et-F6z" firstAttribute="trailing" secondItem="Rb0-Lh-cqm" secondAttribute="trailing" id="rKy-s0-5Cp"/>
+                            <constraint firstItem="kBI-X2-HbD" firstAttribute="top" secondItem="NvU-nd-41i" secondAttribute="bottom" constant="10" id="rQe-zR-RbE"/>
+                            <constraint firstItem="rb5-Ta-inC" firstAttribute="centerY" secondItem="4qB-3w-w9E" secondAttribute="centerY" id="vah-cj-wqs"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="QHO-J5-Ra4"/>
                     </view>
@@ -117,6 +132,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="anonymous-logo" width="25" height="25"/>
         <image name="google" width="18" height="18"/>
         <image name="icon" width="298" height="426"/>
         <image name="lake" width="1080" height="1920"/>
