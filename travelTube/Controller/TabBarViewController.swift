@@ -114,7 +114,8 @@ class TabBarViewController: UITabBarController {
                 selectedImage: tab.selectedImage()
             )
 
-            item.imageInsets = UIEdgeInsets(top: 0, left: 0, bottom: -6, right: 0)
+            item.imageInsets = UIEdgeInsets(top: -4, left: 0, bottom: 0, right: 0)
+            item.titlePositionAdjustment = UIOffset(horizontal: 0, vertical: -4)
 
             controller.tabBarItem = item
 
