@@ -156,7 +156,7 @@ class PostArticleViewController: UIViewController, UIPopoverPresentationControll
 
     @IBAction func postArticle(_ sender: Any) {
         // Annotations cannot be empty
-        if annotations.count < 1 {
+        if mapView.annotations.count < 1 {
             let alertController = UIAlertController(title: "缺少地標資訊", message: "請用Add在地圖上新增標籤", preferredStyle: .alert)
             alertController.addAction(UIAlertAction(title: "OK", style: .default))
             present(alertController, animated: true)

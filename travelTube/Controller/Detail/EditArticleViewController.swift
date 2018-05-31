@@ -98,6 +98,69 @@ class EditArticleViewController: UIViewController {
             annotations.append(annotation)
         }
     }
+
+    @IBAction func postArticle(_ sender: Any) {
+        // Annotations cannot be empty
+        if mapView.annotations.count < 1 {
+            let alertController = UIAlertController(title: "缺少地標資訊", message: "請用Add在地圖上新增標籤", preferredStyle: .alert)
+            alertController.addAction(UIAlertAction(title: "OK", style: .default))
+            present(alertController, animated: true)
+            return
+        }
+
+        guard let articleInfo = articleInfo else {
+            print("failed unwrapping youtube")
+            return
+        }
+        var markers = [Any]()
+        for annotation in mapView.annotations {
+            guard let title2 = annotation.title, let title = title2 else { return }
+            let marker = [
+                "title": title,
+                "logitutde": annotation.coordinate.longitude,
+                "latitude": annotation.coordinate.latitude
+                ] as [String: Any]
+            markers.append(marker)
+        }
+
+        var tags: [String] = tokenView.text.components(separatedBy: ", ")
+        if tags[0].count < 2 {
+            let alertController = UIAlertController(title: "請新增tag", message: "請在post按鈕的上方選擇tag標籤", preferredStyle: .alert)
+            alertController.addAction(UIAlertAction(title: "OK", style: .default))
+            present(alertController, animated: true)
+            return
+        } else {
+            var tag0 = Array(tags[0])
+            tag0.remove(at: 0)
+            tags[0] = String(tag0)
+        }
+
+        let childUpdates = ["annotations": markers, "tag": tags]
+        FirebaseManager.shared.ref.child("articles").child(articleInfo.youtubeId).updateChildValues(childUpdates)
+        //          Making tags
+        for tag in tags {
+            var tempArticleIdArray = [String]()
+            let ref = FirebaseManager.shared.ref.child("tags").child("\(tag)")
+            // new tag
+            if !storedTags.contains(tag) {
+                tempArticleIdArray.append(articleInfo.youtubeId)
+                ref.setValue(tempArticleIdArray)
+            } else {
+                ref.observeSingleEvent(of: .value, with: { (snapshot) in
+                    if let value = snapshot.value as? NSArray {
+                        for articleId in value {
+                            guard let articleID = articleId as? String else { return }
+                            tempArticleIdArray.append(articleID)
+                        }
+                        tempArticleIdArray.append(articleInfo.youtubeId)
+                        ref.setValue(tempArticleIdArray)
+                    }
+                })
+            }
+        }
+
+        dismiss(animated: true, completion: nil)
+    }
 }
 
 extension EditArticleViewController: UISearchBarDelegate {
