@@ -20,12 +20,15 @@ class SearchYoutubeViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+
         youtubeManager.delegate = self
 
         videoTableView.delegate = self
         videoTableView.dataSource = self
 
         searchBar.delegate = self
+        searchBar.becomeFirstResponder()
+        hideKeyboardWhenTappedAround()
     }
 
     override func viewWillAppear(_ animated: Bool) {
