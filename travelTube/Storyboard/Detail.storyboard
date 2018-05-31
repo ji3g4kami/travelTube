@@ -537,6 +537,9 @@
                         </barButtonItem>
                     </navigationItem>
                     <size key="freeformSize" width="375" height="800"/>
+                    <connections>
+                        <outlet property="mapView" destination="MqV-y8-Y7n" id="W6s-xb-YI9"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="m73-jC-HVe" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
