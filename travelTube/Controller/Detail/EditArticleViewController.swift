@@ -52,6 +52,11 @@ class EditArticleViewController: UIViewController {
     @IBAction func cancelButtonPressed(_ sender: Any) {
         dismiss(animated: true, completion: nil)
     }
+
+    @IBAction func deleteAnnotationPressed(_ sender: Any) {
+        guard let destination = destination else { return }
+        mapView.removeAnnotation(destination)
+    }
 }
 
 extension EditArticleViewController: CLLocationManagerDelegate, MKMapViewDelegate {

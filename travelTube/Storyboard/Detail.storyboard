@@ -377,6 +377,9 @@
                                                                 <real key="value" value="10"/>
                                                             </userDefinedRuntimeAttribute>
                                                         </userDefinedRuntimeAttributes>
+                                                        <connections>
+                                                            <action selector="deleteAnnotationPressed:" destination="2Zv-LQ-pwQ" eventType="touchUpInside" id="Uc6-2J-obu"/>
+                                                        </connections>
                                                     </button>
                                                     <searchBar contentMode="redraw" placeholder="搜尋地點" translatesAutoresizingMaskIntoConstraints="NO" id="OJU-BG-eWW">
                                                         <rect key="frame" x="0.0" y="0.0" width="245" height="56"/>
