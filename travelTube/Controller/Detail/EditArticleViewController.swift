@@ -56,6 +56,35 @@ class EditArticleViewController: UIViewController {
         guard let destination = destination else { return }
         mapView.removeAnnotation(destination)
     }
+
+    @IBAction func addAnnotaion(_ sender: UIButton) {
+        let annotation = MKPointAnnotation()
+        let centerCoordinate = mapView.centerCoordinate
+        annotation.coordinate = centerCoordinate
+        if (mapSearchBar.text?.trimmingCharacters(in: .whitespaces).isEmpty)! {
+            let alertController = UIAlertController(
+                title: "地理標籤命名問題",
+                message: "不能輸入空白或是特殊字元",
+                preferredStyle: .alert)
+
+            let okAction = UIAlertAction(
+                title: "OK",
+                style: .default,
+                handler: nil)
+            alertController.addAction(okAction)
+
+            self.present(
+                alertController,
+                animated: true,
+                completion: nil)
+            return
+        }
+        if let title = mapSearchBar.text {
+            annotation.title = title
+            mapView.addAnnotation(annotation)
+            annotations.append(annotation)
+        }
+    }
 }
 
 extension EditArticleViewController: UISearchBarDelegate {
