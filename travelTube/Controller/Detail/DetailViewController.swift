@@ -17,7 +17,7 @@ class DetailViewController: UIViewController {
 
     @IBOutlet weak var youtubePlayer: YouTubePlayerView!
     @IBOutlet weak var tableView: UITableView!
-    @IBOutlet weak var commentTextField: UITextField!
+    @IBOutlet weak var commentTextView: GrowingTextView!
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var infoView: UIView!
     @IBOutlet weak var tagsView: TagListView!
@@ -193,8 +193,8 @@ class DetailViewController: UIViewController {
 
     @IBAction func sendCommentPressed(_ sender: Any) {
         guard let youtubeId = youtubeId else { return }
-        guard let comment = commentTextField.text else { return }
-        commentTextField.text = nil
+        guard let comment = commentTextView.text else { return }
+        commentTextView.text = nil
         FirebaseManager.shared.ref.child("comments").child(youtubeId).childByAutoId().setValue([
             "userId": UserManager.shared.uid,
             "userName": UserManager.shared.userName,

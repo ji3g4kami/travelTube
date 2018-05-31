@@ -24,6 +24,7 @@
 		143F3EF320B5513500784EB9 /* DesignableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 143F3EF220B5513500784EB9 /* DesignableView.swift */; };
 		143F3EF520B55DF200784EB9 /* DesignableTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 143F3EF420B55DF200784EB9 /* DesignableTextView.swift */; };
 		1445521620BFA55B0005B126 /* EditArticleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1445521520BFA55B0005B126 /* EditArticleViewController.swift */; };
+		1445521820C04DD60005B126 /* GrowingTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1445521720C04DD50005B126 /* GrowingTextView.swift */; };
 		144F808620B68B08002D19CD /* DesignableButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 144F808520B68B08002D19CD /* DesignableButton.swift */; };
 		145CAF1820AD7AA700057DB7 /* CommentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 145CAF1620AD7AA700057DB7 /* CommentCell.swift */; };
 		145CAF1920AD7AA700057DB7 /* CommentCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 145CAF1720AD7AA700057DB7 /* CommentCell.xib */; };
@@ -77,6 +78,7 @@
 		143F3EF220B5513500784EB9 /* DesignableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesignableView.swift; sourceTree = "<group>"; };
 		143F3EF420B55DF200784EB9 /* DesignableTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesignableTextView.swift; sourceTree = "<group>"; };
 		1445521520BFA55B0005B126 /* EditArticleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditArticleViewController.swift; sourceTree = "<group>"; };
+		1445521720C04DD50005B126 /* GrowingTextView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GrowingTextView.swift; sourceTree = "<group>"; };
 		144F808520B68B08002D19CD /* DesignableButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesignableButton.swift; sourceTree = "<group>"; };
 		145CAF1620AD7AA700057DB7 /* CommentCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentCell.swift; sourceTree = "<group>"; };
 		145CAF1720AD7AA700057DB7 /* CommentCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CommentCell.xib; sourceTree = "<group>"; };
@@ -162,6 +164,7 @@
 				144F808520B68B08002D19CD /* DesignableButton.swift */,
 				14259D4920BCF8E400AB8FF5 /* DesignableLabel.swift */,
 				1417FEB320B961E900CFB50A /* CardView.swift */,
+				1445521720C04DD50005B126 /* GrowingTextView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -584,6 +587,7 @@
 				143F3EF520B55DF200784EB9 /* DesignableTextView.swift in Sources */,
 				14259D4A20BCF8E400AB8FF5 /* DesignableLabel.swift in Sources */,
 				1439892B20BBD35C00E8DF9F /* PrivacyViewController.swift in Sources */,
+				1445521820C04DD60005B126 /* GrowingTextView.swift in Sources */,
 				14DA419F20A141D600A74254 /* LogoutViewController.swift in Sources */,
 				1414065620A0821800BFB170 /* UserManager.swift in Sources */,
 			);
