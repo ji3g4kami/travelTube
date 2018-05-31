@@ -8,17 +8,28 @@
 
 import UIKit
 import MapKit
+import KSTokenView
 
 class EditArticleViewController: UIViewController {
 
     var articleInfo: Article?
-    var annotations = [MKPointAnnotation]()
+    var storedTags = [String]()
+    var annotations: [MKPointAnnotation] = []
+    var destination: MKAnnotation?
+    var keyboardHight = 300
+
 
     @IBOutlet weak var mapView: MKMapView!
+    @IBOutlet weak var tokenView: KSTokenView!
+    @IBOutlet weak var removeButton: DesignableButton!
+    @IBOutlet weak var scrollView: UIScrollView!
+    @IBOutlet weak var mapSearchBar: UISearchBar!
 
     override func viewDidLoad() {
         super.viewDidLoad()
         setupMap()
+        mapView.delegate = self
+//        mapSearchBar.delegate = self
     }
 
     private func setupMap() {
@@ -40,5 +51,26 @@ class EditArticleViewController: UIViewController {
 
     @IBAction func cancelButtonPressed(_ sender: Any) {
         dismiss(animated: true, completion: nil)
+    }
+}
+
+extension EditArticleViewController: CLLocationManagerDelegate, MKMapViewDelegate {
+    func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
+        destination = view.annotation
+        UIView.animate(withDuration: 0.5, animations: {
+            self.removeButton.alpha =
+                CGFloat(1)
+        }, completion: { _ in
+            print("Animation Alpha Complete")
+        })
+    }
+
+    func mapView(_ mapView: MKMapView, didDeselect view: MKAnnotationView) {
+        UIView.animate(withDuration: 0.5, animations: {
+            self.removeButton.alpha =
+                CGFloat(0)
+        }, completion: { _ in
+            print("Animation Alpha Complete")
+        })
     }
 }

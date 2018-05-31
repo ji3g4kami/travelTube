@@ -538,7 +538,11 @@
                     </navigationItem>
                     <size key="freeformSize" width="375" height="800"/>
                     <connections>
+                        <outlet property="mapSearchBar" destination="OJU-BG-eWW" id="UGX-49-AgI"/>
                         <outlet property="mapView" destination="MqV-y8-Y7n" id="W6s-xb-YI9"/>
+                        <outlet property="removeButton" destination="eks-D2-a0B" id="tYr-JT-bjt"/>
+                        <outlet property="scrollView" destination="DWb-2e-TaT" id="h9o-Mp-kUO"/>
+                        <outlet property="tokenView" destination="3V4-l9-GlE" id="FH6-zs-YCS"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="m73-jC-HVe" userLabel="First Responder" sceneMemberID="firstResponder"/>
