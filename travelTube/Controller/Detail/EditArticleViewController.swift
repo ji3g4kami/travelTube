@@ -32,6 +32,7 @@ class EditArticleViewController: UIViewController {
         queryTags()
         mapView.delegate = self
         mapSearchBar.delegate = self
+        
     }
 
     private func setupMap() {
@@ -158,7 +159,7 @@ class EditArticleViewController: UIViewController {
                 })
             }
         }
-
+        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "updateMap"), object: nil, userInfo: ["annotations": mapView.annotations])
         dismiss(animated: true, completion: nil)
     }
 }
