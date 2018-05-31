@@ -44,16 +44,21 @@ class DetailViewController: UIViewController {
         getArticleInfo(of: youtubeId)
         getComments(of: youtubeId)
         mapView.delegate = self
-        NotificationCenter.default.addObserver(self, selector: #selector(self.updateMap(_:)), name: NSNotification.Name(rawValue: "updateMap"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(self.updateFromEdit(_:)), name: NSNotification.Name(rawValue: "updateFromEdit"), object: nil)
 
 //        navigationController?.setNavigationBarHidden(true, animated: false)
     }
 
-    @objc func updateMap(_ notification: NSNotification) {
+    @objc func updateFromEdit(_ notification: NSNotification) {
         let allAnnotations = self.mapView.annotations
         mapView.removeAnnotations(allAnnotations)
         if let annotations = notification.userInfo?["annotations"] as? [MKAnnotation] {
             mapView.addAnnotations(annotations)
+        }
+        if let tags = notification.userInfo?["tags"] as? [String] {
+            tagsView.removeAllTags()
+            articleInfo?.tag = tags
+            setupTags()
         }
     }
 
