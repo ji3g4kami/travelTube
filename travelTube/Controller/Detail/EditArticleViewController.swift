@@ -26,7 +26,10 @@ class EditArticleViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        hideKeyboardWhenTappedAround()
         setupMap()
+        setupTokenView()
+        queryTags()
         mapView.delegate = self
         mapSearchBar.delegate = self
     }
@@ -46,6 +49,16 @@ class EditArticleViewController: UIViewController {
         let resizedSpan = MKCoordinateSpan(latitudeDelta: mapView.region.span.latitudeDelta*1.1, longitudeDelta: mapView.region.span.longitudeDelta*1.1)
         let resizedRegion = MKCoordinateRegion(center: mapView.region.center, span: resizedSpan)
         mapView.setRegion(resizedRegion, animated: true)
+    }
+
+    func queryTags() {
+        FirebaseManager.shared.ref.child("tags").observeSingleEvent(of: .value) { (snapshot) in
+            if let tagsDict = snapshot.value as? [String: AnyObject] {
+                for tag in tagsDict.keys {
+                    self.storedTags.append(tag)
+                }
+            }
+        }
     }
 
     @IBAction func cancelButtonPressed(_ sender: Any) {
@@ -143,5 +156,52 @@ extension EditArticleViewController: CLLocationManagerDelegate, MKMapViewDelegat
         }, completion: { _ in
             print("Animation Alpha Complete")
         })
+    }
+}
+
+extension EditArticleViewController: KSTokenViewDelegate {
+
+    func tokenViewDidBeginEditing(_ tokenView: KSTokenView) {
+        let offset = CGPoint.init(x: 0, y: self.keyboardHight+120)
+        self.scrollView.setContentOffset(offset, animated: true)
+    }
+
+    func setupTokenView() {
+        tokenView.layer.cornerRadius = 10
+        tokenView.delegate = self
+        tokenView.promptText = " Tags: "
+        tokenView.placeholder = " 3 tags at most"
+        tokenView.maxTokenLimit = 3
+        tokenView.minimumCharactersToSearch = 0 // Show all results without without typing anything
+        tokenView.style = .squared
+        tokenView.direction = .vertical
+        tokenView.cursorColor = .gray
+        tokenView.paddingY = 5
+        tokenView.marginY = 10
+        tokenView.font = UIFont.systemFont(ofSize: 18)
+        tokenView.searchResultHeight = 120
+    }
+
+    func tokenView(_ tokenView: KSTokenView, performSearchWithString string: String, completion: ((_ results: [AnyObject]) -> Void)?) {
+
+        if string.isEmpty {
+            completion!(storedTags as [AnyObject])
+            return
+        }
+
+        var data: [String] = []
+        for value: String in storedTags {
+            if value.lowercased().range(of: string.lowercased()) != nil {
+                data.append(value)
+            }
+        }
+        completion!(data as [AnyObject])
+    }
+
+    func tokenView(_ tokenView: KSTokenView, displayTitleForObject object: AnyObject) -> String {
+        guard let obj = object as? String else {
+            return ""
+        }
+        return obj
     }
 }
