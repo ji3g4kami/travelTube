@@ -167,6 +167,10 @@ extension EditArticleViewController: KSTokenViewDelegate {
     }
 
     func setupTokenView() {
+        guard let tokens = articleInfo?.tag else { return }
+        for token in tokens {
+            tokenView.addToken(KSToken(title: token))
+        }
         tokenView.layer.cornerRadius = 10
         tokenView.delegate = self
         tokenView.promptText = " Tags: "
