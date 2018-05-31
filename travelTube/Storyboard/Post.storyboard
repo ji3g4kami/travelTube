@@ -97,7 +97,7 @@
         <!--Share location-->
         <scene sceneID="pSS-Zu-43y">
             <objects>
-                <viewController title="Share location" id="EOM-ZU-q0j" customClass="PostArticleViewController" customModule="travelTube" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="PostArticleViewController" title="Share location" id="EOM-ZU-q0j" customClass="PostArticleViewController" customModule="travelTube" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ShV-xG-dAg">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="800"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -402,7 +402,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KRP-MQ-pz0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1548" y="178.56071964017991"/>
+            <point key="canvasLocation" x="1538" y="180"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="oWZ-eU-u87">

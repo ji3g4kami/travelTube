@@ -23,6 +23,7 @@
 		143F3EF120B5465500784EB9 /* CommentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 143F3EF020B5465500784EB9 /* CommentViewController.swift */; };
 		143F3EF320B5513500784EB9 /* DesignableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 143F3EF220B5513500784EB9 /* DesignableView.swift */; };
 		143F3EF520B55DF200784EB9 /* DesignableTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 143F3EF420B55DF200784EB9 /* DesignableTextView.swift */; };
+		1445521620BFA55B0005B126 /* EditArticleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1445521520BFA55B0005B126 /* EditArticleViewController.swift */; };
 		144F808620B68B08002D19CD /* DesignableButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 144F808520B68B08002D19CD /* DesignableButton.swift */; };
 		145CAF1820AD7AA700057DB7 /* CommentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 145CAF1620AD7AA700057DB7 /* CommentCell.swift */; };
 		145CAF1920AD7AA700057DB7 /* CommentCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 145CAF1720AD7AA700057DB7 /* CommentCell.xib */; };
@@ -75,6 +76,7 @@
 		143F3EF020B5465500784EB9 /* CommentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentViewController.swift; sourceTree = "<group>"; };
 		143F3EF220B5513500784EB9 /* DesignableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesignableView.swift; sourceTree = "<group>"; };
 		143F3EF420B55DF200784EB9 /* DesignableTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesignableTextView.swift; sourceTree = "<group>"; };
+		1445521520BFA55B0005B126 /* EditArticleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditArticleViewController.swift; sourceTree = "<group>"; };
 		144F808520B68B08002D19CD /* DesignableButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesignableButton.swift; sourceTree = "<group>"; };
 		145CAF1620AD7AA700057DB7 /* CommentCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentCell.swift; sourceTree = "<group>"; };
 		145CAF1720AD7AA700057DB7 /* CommentCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CommentCell.xib; sourceTree = "<group>"; };
@@ -242,6 +244,7 @@
 				14AE66B920AAB5CD007D7851 /* DetailViewController.swift */,
 				14379C8520AE860700319334 /* MapViewController.swift */,
 				143F3EF020B5465500784EB9 /* CommentViewController.swift */,
+				1445521520BFA55B0005B126 /* EditArticleViewController.swift */,
 			);
 			path = Detail;
 			sourceTree = "<group>";
@@ -557,6 +560,7 @@
 				145D19D32098667D00BE71D0 /* UIStoryboard+David.swift in Sources */,
 				14F7BD9320995A7E00DE78C9 /* AnonymousProfileViewController.swift in Sources */,
 				145CAF1820AD7AA700057DB7 /* CommentCell.swift in Sources */,
+				1445521620BFA55B0005B126 /* EditArticleViewController.swift in Sources */,
 				1417FEB420B961E900CFB50A /* CardView.swift in Sources */,
 				148F90FF209AAFF300308179 /* PostArticleViewController.swift in Sources */,
 				145D19CD2098647400BE71D0 /* TabBarViewController.swift in Sources */,

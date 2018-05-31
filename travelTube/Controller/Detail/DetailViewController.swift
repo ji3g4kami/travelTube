@@ -44,6 +44,7 @@ class DetailViewController: UIViewController {
         getArticleInfo(of: youtubeId)
         getComments(of: youtubeId)
         mapView.delegate = self
+//        navigationController?.setNavigationBarHidden(true, animated: false)
     }
 
     @IBAction func toggleSegment(_ sender: AnyObject) {
@@ -69,8 +70,10 @@ class DetailViewController: UIViewController {
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let mapViewController = segue.destination as? MapViewController
-        mapViewController?.annotations = self.annotations
+        if segue.identifier == "toEdit" {
+            guard let controller = segue.destination as? EditArticleViewController else { return }
+            controller.articleInfo = self.articleInfo
+        }
     }
 
     override var prefersStatusBarHidden: Bool {
