@@ -18,7 +18,6 @@ class EditArticleViewController: UIViewController {
     var destination: MKAnnotation?
     var keyboardHight = 300
 
-
     @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var tokenView: KSTokenView!
     @IBOutlet weak var removeButton: DesignableButton!
@@ -29,7 +28,7 @@ class EditArticleViewController: UIViewController {
         super.viewDidLoad()
         setupMap()
         mapView.delegate = self
-//        mapSearchBar.delegate = self
+        mapSearchBar.delegate = self
     }
 
     private func setupMap() {
@@ -56,6 +55,44 @@ class EditArticleViewController: UIViewController {
     @IBAction func deleteAnnotationPressed(_ sender: Any) {
         guard let destination = destination else { return }
         mapView.removeAnnotation(destination)
+    }
+}
+
+extension EditArticleViewController: UISearchBarDelegate {
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        searchBar.resignFirstResponder()
+
+        // Activity Indicator
+        let activityIndicator = UIActivityIndicatorView()
+        activityIndicator.activityIndicatorViewStyle = UIActivityIndicatorViewStyle.gray
+        activityIndicator.center = self.view.center
+        activityIndicator.hidesWhenStopped = true
+        activityIndicator.startAnimating()
+        self.mapView.addSubview(activityIndicator)
+
+        // Create Search Request
+        let searchRequest = MKLocalSearchRequest()
+        searchRequest.naturalLanguageQuery = searchBar.text
+
+        let activeSearch = MKLocalSearch(request: searchRequest)
+
+        activeSearch.start { (response, _) in
+            activityIndicator.stopAnimating()
+            if response == nil {
+                print("error")
+            } else {
+                // Getting Data
+                if let longitutde = response?.boundingRegion.center.longitude, let latitude = response?.boundingRegion.center.latitude {
+
+                    // Zooming in on annotation
+                    let coordinate: CLLocationCoordinate2D = CLLocationCoordinate2DMake(latitude, longitutde)
+                    let span = MKCoordinateSpanMake(0.01, 0.01)
+                    let region = MKCoordinateRegionMake(coordinate, span)
+                    self.mapView.setRegion(region, animated: true)
+                }
+            }
+        }
+
     }
 }
 
