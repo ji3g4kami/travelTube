@@ -325,6 +325,7 @@
                         <outlet property="bannerView" destination="W8l-dA-MNL" id="srb-Ff-GTw"/>
                         <outlet property="commentTextField" destination="sn2-do-AWh" id="zn1-8P-gyn"/>
                         <outlet property="commentView" destination="oAL-m8-yBa" id="VOg-yB-ZQc"/>
+                        <outlet property="editButton" destination="vay-nE-KEc" id="LDj-6w-IpL"/>
                         <outlet property="infoView" destination="jeQ-aW-GOb" id="1Z3-kU-q7v"/>
                         <outlet property="mapView" destination="8Pb-7M-Mis" id="Cpx-La-SZd"/>
                         <outlet property="mapViewContainer" destination="sRk-Gd-XMo" id="eOa-mg-vdd"/>

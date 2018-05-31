@@ -27,6 +27,7 @@ class DetailViewController: UIViewController {
     @IBOutlet weak var segmentControl: UISegmentedControl!
     @IBOutlet weak var mapViewContainer: UIView!
     @IBOutlet weak var openInMapButton: UIButton!
+    @IBOutlet weak var editButton: UIButton!
 
     var youtubeId: String?
     var articleInfo: Article?
@@ -45,8 +46,6 @@ class DetailViewController: UIViewController {
         getComments(of: youtubeId)
         mapView.delegate = self
         NotificationCenter.default.addObserver(self, selector: #selector(self.updateFromEdit(_:)), name: NSNotification.Name(rawValue: "updateFromEdit"), object: nil)
-
-//        navigationController?.setNavigationBarHidden(true, animated: false)
     }
 
     @objc func updateFromEdit(_ notification: NSNotification) {
@@ -146,6 +145,10 @@ class DetailViewController: UIViewController {
                 self.setupMap()
                 self.setupInfo()
                 self.setupTags()
+                if self.articleInfo?.uid != UserManager.shared.uid {
+                    self.editButton.isUserInteractionEnabled = false
+                    self.editButton.alpha = 0.3
+                }
             } catch {
                 print(error)
             }
