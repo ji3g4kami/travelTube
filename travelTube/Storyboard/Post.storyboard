@@ -144,7 +144,7 @@
                                                     </searchBar>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rUm-AH-4Ge" customClass="DesignableButton" customModule="travelTube" customModuleProvider="target">
                                                         <rect key="frame" x="125" y="497" width="124" height="34"/>
-                                                        <color key="backgroundColor" red="0.08235294118" green="0.4941176471" blue="0.98431372549999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <color key="backgroundColor" red="0.25882352939999997" green="0.55294117649999996" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="34" id="YZH-NJ-RGR"/>
                                                         </constraints>
@@ -195,7 +195,7 @@
                                                             </label>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8DO-mc-Kzb" customClass="DesignableButton" customModule="travelTube" customModuleProvider="target">
                                                                 <rect key="frame" x="96" y="48" width="58" height="28"/>
-                                                                <color key="backgroundColor" red="0.08235294118" green="0.4941176471" blue="0.98431372549999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                <color key="backgroundColor" red="0.25882352939999997" green="0.55294117649999996" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="width" constant="58" id="odk-3c-Huf"/>
                                                                 </constraints>
@@ -278,7 +278,7 @@
                                                         <subviews>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PxG-cl-rzt" customClass="DesignableButton" customModule="travelTube" customModuleProvider="target">
                                                                 <rect key="frame" x="0.0" y="14" width="58" height="28"/>
-                                                                <color key="backgroundColor" red="0.082352941176470587" green="0.49411764705882355" blue="0.98431372549019602" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                <color key="backgroundColor" red="0.25882352941176467" green="0.55294117647058827" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="28" id="3ze-pR-1HJ"/>
                                                                     <constraint firstAttribute="width" constant="58" id="Rr7-oF-Tvs"/>
