@@ -64,7 +64,7 @@ extension SearchYoutubeViewController: UITableViewDelegate, UITableViewDataSourc
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = videoTableView.dequeueReusableCell(withIdentifier: "SearchYoutubeResultCell") as? SearchYoutubeResultCell else { return UITableViewCell() }
         cell.titleLabel.text = youtubeArray[indexPath.row].title
-        cell.videoCoverImage.sd_setImage(with: URL(string: youtubeArray[indexPath.row].image), placeholderImage: #imageLiteral(resourceName: "youtube"))
+        cell.videoCoverImage.sd_setImage(with: URL(string: youtubeArray[indexPath.row].image), placeholderImage: #imageLiteral(resourceName: "lantern"))
         return cell
     }
 
