@@ -227,6 +227,11 @@ extension EditArticleViewController: KSTokenViewDelegate {
     func tokenViewDidBeginEditing(_ tokenView: KSTokenView) {
         let offset = CGPoint.init(x: 0, y: self.keyboardHight+120)
         self.scrollView.setContentOffset(offset, animated: true)
+        removeAllGestures()
+    }
+
+    func tokenViewDidEndEditing(_ tokenView: KSTokenView) {
+        hideKeyboardWhenTappedAround()
     }
 
     func setupTokenView() {

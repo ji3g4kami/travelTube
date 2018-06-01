@@ -32,4 +32,11 @@ extension UIViewController {
     @objc func dismissKeyboard() {
         view.endEditing(true)
     }
+
+    func removeAllGestures() {
+        guard let gestureRecognizers = view.gestureRecognizers else { return }
+        for recognizer in gestureRecognizers {
+            view.removeGestureRecognizer(recognizer)
+        }
+    }
 }
