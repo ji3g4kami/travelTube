@@ -28,13 +28,19 @@ class ProfileViewController: UIViewController {
         userImageView.addGestureRecognizer(touch)
         setUserProfile()
         requestUserArticle()
-
+        swipeRightToLogout()
         setupCollectionView()
     }
 
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(false)
         userImageView.setRounded()
+    }
+
+    func swipeRightToLogout() {
+        let leftSwipe = UISwipeGestureRecognizer(target: self.revealViewController(), action: #selector(SWRevealViewController.rightRevealToggle(_:)))
+        leftSwipe.direction = .left
+        self.view.addGestureRecognizer(leftSwipe)
     }
 
     func requestUserArticle() {

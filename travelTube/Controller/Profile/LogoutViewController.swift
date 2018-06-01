@@ -16,8 +16,13 @@ class LogoutViewController: UIViewController, InviteDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        swipeRightToProfile()
+    }
 
-        // Do any additional setup after loading the view.
+    func swipeRightToProfile() {
+        let rightSwipe = UISwipeGestureRecognizer(target: self.revealViewController(), action: #selector(SWRevealViewController.rightRevealToggle(_:)))
+        rightSwipe.direction = .right
+        self.view.addGestureRecognizer(rightSwipe)
     }
 
     @IBAction func logoutPressed(_ sender: UIButton) {
