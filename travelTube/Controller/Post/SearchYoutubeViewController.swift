@@ -8,6 +8,7 @@
 
 import UIKit
 import SDWebImage
+import SKActivityIndicatorView
 
 class SearchYoutubeViewController: UIViewController {
 
@@ -20,7 +21,7 @@ class SearchYoutubeViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        SKActivityIndicator.dismiss()
         youtubeManager.delegate = self
 
         videoTableView.delegate = self

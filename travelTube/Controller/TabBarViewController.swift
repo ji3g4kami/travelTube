@@ -41,9 +41,9 @@ enum TabBar {
         switch self {
 
         case .feed:
-            return #imageLiteral(resourceName: "youtube")
-        case .post:
             return #imageLiteral(resourceName: "news")
+        case .post:
+            return #imageLiteral(resourceName: "youtube")
         case .anonymousProfile:
             return #imageLiteral(resourceName: "anonymous-logo")
         case .profile:
@@ -70,10 +70,10 @@ enum TabBar {
         switch self {
 
         case .feed:
-            return #imageLiteral(resourceName: "youtube").withRenderingMode(.alwaysTemplate)
+            return #imageLiteral(resourceName: "news").withRenderingMode(.alwaysTemplate)
 
         case .post:
-            return #imageLiteral(resourceName: "news").withRenderingMode(.alwaysTemplate)
+            return #imageLiteral(resourceName: "youtube").withRenderingMode(.alwaysTemplate)
 
         case .anonymousProfile:
             return #imageLiteral(resourceName: "anonymous-logo").withRenderingMode(.alwaysTemplate)
@@ -93,7 +93,7 @@ class TabBarViewController: UITabBarController {
         if UserManager.shared.isAnonymous {
             tabs = [.feed, .anonymousProfile]
         } else {
-            tabs = [.feed, .post, .profile]
+            tabs = [.post, .feed, .profile]
         }
         setupTab()
     }
