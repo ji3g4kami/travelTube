@@ -56,7 +56,7 @@
 		14F7BD9320995A7E00DE78C9 /* AnonymousProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14F7BD9220995A7E00DE78C9 /* AnonymousProfileViewController.swift */; };
 		14F7BD972099935500DE78C9 /* SearchYoutubeResultCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14F7BD962099935500DE78C9 /* SearchYoutubeResultCell.swift */; };
 		14F7BD992099AB7900DE78C9 /* YoutubeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14F7BD982099AB7900DE78C9 /* YoutubeManager.swift */; };
-		66CB6BA513F17CA49AB73D4E /* Pods_travelTube.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4EFCDCD4BA195A779FA564F4 /* Pods_travelTube.framework */; };
+		3E15DB99CF42332B27E8708D /* Pods_travelTube.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9EF6FD6775363B416D24F975 /* Pods_travelTube.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -114,9 +114,9 @@
 		14F7BD9220995A7E00DE78C9 /* AnonymousProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnonymousProfileViewController.swift; sourceTree = "<group>"; };
 		14F7BD962099935500DE78C9 /* SearchYoutubeResultCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchYoutubeResultCell.swift; sourceTree = "<group>"; };
 		14F7BD982099AB7900DE78C9 /* YoutubeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YoutubeManager.swift; sourceTree = "<group>"; };
-		4EFCDCD4BA195A779FA564F4 /* Pods_travelTube.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_travelTube.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		57712F2A9CB788610E57F0B0 /* Pods-travelTube.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-travelTube.debug.xcconfig"; path = "Pods/Target Support Files/Pods-travelTube/Pods-travelTube.debug.xcconfig"; sourceTree = "<group>"; };
-		E5DD83A0E9365B8302E2BF40 /* Pods-travelTube.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-travelTube.release.xcconfig"; path = "Pods/Target Support Files/Pods-travelTube/Pods-travelTube.release.xcconfig"; sourceTree = "<group>"; };
+		15D59881016A19A150B9C552 /* Pods-travelTube.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-travelTube.release.xcconfig"; path = "Pods/Target Support Files/Pods-travelTube/Pods-travelTube.release.xcconfig"; sourceTree = "<group>"; };
+		9EF6FD6775363B416D24F975 /* Pods_travelTube.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_travelTube.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9FAB0768B9171738B4DBFC13 /* Pods-travelTube.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-travelTube.debug.xcconfig"; path = "Pods/Target Support Files/Pods-travelTube/Pods-travelTube.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -124,7 +124,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				66CB6BA513F17CA49AB73D4E /* Pods_travelTube.framework in Frameworks */,
+				3E15DB99CF42332B27E8708D /* Pods_travelTube.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -278,8 +278,8 @@
 			children = (
 				14DF3BF320970F0F00215368 /* travelTube */,
 				14DF3BF220970F0F00215368 /* Products */,
-				F541A7ACC61395CEE5DF4EFA /* Pods */,
-				43E1F952F19D4DB6EF041A96 /* Frameworks */,
+				5DBA1ACDF6B48D756D38F1C0 /* Pods */,
+				334061F52D564A6E593203E8 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -321,19 +321,19 @@
 			path = Post;
 			sourceTree = "<group>";
 		};
-		43E1F952F19D4DB6EF041A96 /* Frameworks */ = {
+		334061F52D564A6E593203E8 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				4EFCDCD4BA195A779FA564F4 /* Pods_travelTube.framework */,
+				9EF6FD6775363B416D24F975 /* Pods_travelTube.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		F541A7ACC61395CEE5DF4EFA /* Pods */ = {
+		5DBA1ACDF6B48D756D38F1C0 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				57712F2A9CB788610E57F0B0 /* Pods-travelTube.debug.xcconfig */,
-				E5DD83A0E9365B8302E2BF40 /* Pods-travelTube.release.xcconfig */,
+				9FAB0768B9171738B4DBFC13 /* Pods-travelTube.debug.xcconfig */,
+				15D59881016A19A150B9C552 /* Pods-travelTube.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -345,14 +345,14 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 14DF3C0320970F1100215368 /* Build configuration list for PBXNativeTarget "travelTube" */;
 			buildPhases = (
-				C613243D812A5C5602D00146 /* [CP] Check Pods Manifest.lock */,
+				63C62637A9A0677AB6AB0E52 /* [CP] Check Pods Manifest.lock */,
 				14F7BD9420996A2400DE78C9 /* ShellScript */,
 				14DF3BED20970F0F00215368 /* Sources */,
 				14DF3BEE20970F0F00215368 /* Frameworks */,
 				14DF3BEF20970F0F00215368 /* Resources */,
-				0B12AF0586828E91AC9A0740 /* [CP] Embed Pods Frameworks */,
-				00A744263521987E7B8977BD /* [CP] Copy Pods Resources */,
 				1439892E20BC272600E8DF9F /* ShellScript */,
+				46DBF131AD7E72443AA993D8 /* [CP] Embed Pods Frameworks */,
+				0D66639D191AA014E9D18480 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -429,7 +429,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		00A744263521987E7B8977BD /* [CP] Copy Pods Resources */ = {
+		0D66639D191AA014E9D18480 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -451,7 +451,33 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-travelTube/Pods-travelTube-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		0B12AF0586828E91AC9A0740 /* [CP] Embed Pods Frameworks */ = {
+		1439892E20BC272600E8DF9F /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Fabric/run\" c33eaede0fe36c5c76ceb82cf620bc4b3da56aa2 749981620e626325b0a2485b2bb6717b077a2fe27553b88630a8288aebcba01b\n";
+		};
+		14F7BD9420996A2400DE78C9 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/SwiftLint/swiftlint\"";
+		};
+		46DBF131AD7E72443AA993D8 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -503,33 +529,7 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-travelTube/Pods-travelTube-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		1439892E20BC272600E8DF9F /* ShellScript */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Fabric/run\" c33eaede0fe36c5c76ceb82cf620bc4b3da56aa2 749981620e626325b0a2485b2bb6717b077a2fe27553b88630a8288aebcba01b\n";
-		};
-		14F7BD9420996A2400DE78C9 /* ShellScript */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/SwiftLint/swiftlint\"";
-		};
-		C613243D812A5C5602D00146 /* [CP] Check Pods Manifest.lock */ = {
+		63C62637A9A0677AB6AB0E52 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -732,7 +732,7 @@
 		};
 		14DF3C0420970F1100215368 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 57712F2A9CB788610E57F0B0 /* Pods-travelTube.debug.xcconfig */;
+			baseConfigurationReference = 9FAB0768B9171738B4DBFC13 /* Pods-travelTube.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
@@ -741,10 +741,7 @@
 				DEVELOPMENT_TEAM = ND2LGZT6B5;
 				INFOPLIST_FILE = travelTube/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.davidwu.travelTube;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "travelTube/Utitlties/SWReveal/travelTube-Bridging-Header.h";
@@ -756,7 +753,7 @@
 		};
 		14DF3C0520970F1100215368 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = E5DD83A0E9365B8302E2BF40 /* Pods-travelTube.release.xcconfig */;
+			baseConfigurationReference = 15D59881016A19A150B9C552 /* Pods-travelTube.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
@@ -765,10 +762,7 @@
 				DEVELOPMENT_TEAM = ND2LGZT6B5;
 				INFOPLIST_FILE = travelTube/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.davidwu.travelTube;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "travelTube/Utitlties/SWReveal/travelTube-Bridging-Header.h";

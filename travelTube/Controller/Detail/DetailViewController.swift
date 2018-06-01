@@ -253,7 +253,13 @@ class DetailViewController: UIViewController {
 
     @IBAction func deleteArticlePressed(_ sender: Any) {
         let alert = UIAlertController(title: "刪除貼文", message: nil, preferredStyle: .alert)
-        let deleteAction = UIAlertAction(title: "刪除", style: .destructive, handler: nil)
+        let deleteAction = UIAlertAction(title: "刪除", style: .destructive, handler: { _ in
+            guard let article  = self.articleInfo else { return }
+            guard let articleId = self.articleInfo?.youtubeId else { return }
+            FirebaseManager.shared.ref.child("articles").child(articleId).removeValue()
+            NotificationCenter.default.post(name: NSNotification.Name(rawValue: "deleteArticle"), object: nil, userInfo: ["article": article])
+            self.dismiss(animated: true, completion: nil)
+        })
         let cancelAction = UIAlertAction(title: "取消", style: .cancel, handler: nil)
         alert.addAction(deleteAction)
         alert.addAction(cancelAction)

@@ -40,3 +40,9 @@ extension UIViewController {
         }
     }
 }
+
+extension Article: Equatable {
+    static func == (lhs: Article, rhs: Article) -> Bool {
+        return lhs.updateTime != rhs.updateTime
+    }
+}

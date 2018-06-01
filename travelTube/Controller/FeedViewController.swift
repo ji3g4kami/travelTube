@@ -23,6 +23,14 @@ class FeedViewController: UIViewController {
         SKActivityIndicator.show("Loading...")
         setupTableView()
         getFeeds()
+        NotificationCenter.default.addObserver(self, selector: #selector(self.updateFromDelete(_:)), name: NSNotification.Name(rawValue: "deleteArticle"), object: nil)
+    }
+
+    @objc func updateFromDelete(_ notification: NSNotification) {
+        if let article = notification.userInfo?["article"] as? Article{
+            articleArray = articleArray.filter{ $0 == article }
+            tableView.reloadData()
+        }
     }
 
     func setupTableView() {
