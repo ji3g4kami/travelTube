@@ -43,7 +43,7 @@ class DetailViewController: UIViewController {
         setupNavigationBar()
         setupYoutubePlayer(of: youtubeId)
         getArticleInfo(of: youtubeId)
-        getComments(of: youtubeId)
+        getComments(of: youtubeId, goToBottom: false)
         mapView.delegate = self
         NotificationCenter.default.addObserver(self, selector: #selector(self.updateFromEdit(_:)), name: NSNotification.Name(rawValue: "updateFromEdit"), object: nil)
     }
@@ -113,7 +113,7 @@ class DetailViewController: UIViewController {
         tableView.rowHeight = UITableViewAutomaticDimension
     }
 
-    func getComments(of youtubeId: String) {
+    func getComments(of youtubeId: String, goToBottom: Bool) {
         FirebaseManager.shared.ref.child("comments").child(youtubeId).queryOrdered(byChild: "createdTime").queryStarting(atValue: 0).observe(.value) { (snapshot) in
             self.comments.removeAll()
             if let data = snapshot.value as? [String: [String: Any]] {
@@ -128,6 +128,12 @@ class DetailViewController: UIViewController {
                     comment1.createdTime < comment2.createdTime
                 })
                 self.tableView.reloadData()
+                if goToBottom {
+                    DispatchQueue.main.async {
+                        let index = IndexPath(row: self.comments.count-1, section: 0) // use your index number or Indexpath
+                        self.tableView.scrollToRow(at: index, at: .middle, animated: true) //here .middle is the scroll position can change it as per your need
+                    }
+                }
             }
         }
     }
@@ -202,6 +208,7 @@ class DetailViewController: UIViewController {
             "comment": comment,
             "createdTime": Firebase.ServerValue.timestamp()
             ])
+        getComments(of: youtubeId, goToBottom: true)
     }
 
     @IBAction func reportButtonPressed(_ sender: Any) {
