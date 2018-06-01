@@ -24,6 +24,7 @@ class FeedCell: UITableViewCell {
         }(UIView())
         setupTag()
         setupImage()
+        self.selectionStyle = .none
     }
 
     func setupTag() {
@@ -37,22 +38,21 @@ class FeedCell: UITableViewCell {
         videoImage.layer.maskedCorners = [.layerMaxXMinYCorner, .layerMinXMinYCorner]
     }
 
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        let color = feedView.backgroundColor
-        super.setSelected(selected, animated: animated)
-
-        if selected {
-            feedView.backgroundColor = color
-        }
-    }
-
-    override func setHighlighted(_ highlighted: Bool, animated: Bool) {
-        let color = feedView.backgroundColor
-        super.setHighlighted(highlighted, animated: animated)
-
-        if highlighted {
-            feedView.backgroundColor = color
-        }
-    }
-
+//    override func setSelected(_ selected: Bool, animated: Bool) {
+//        let color = feedView.backgroundColor
+//        super.setSelected(selected, animated: animated)
+//
+//        if selected {
+//            feedView.backgroundColor = color
+//        }
+//    }
+//
+//    override func setHighlighted(_ highlighted: Bool, animated: Bool) {
+//        let color = feedView.backgroundColor
+//        super.setHighlighted(highlighted, animated: animated)
+//
+//        if highlighted {
+//            feedView.backgroundColor = color
+//        }
+//    }
 }

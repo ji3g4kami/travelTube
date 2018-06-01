@@ -20,7 +20,7 @@
                 <rect key="frame" x="0.0" y="0.0" width="496" height="420.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <view contentMode="scaleToFill" restorationIdentifier="FeedCell" translatesAutoresizingMaskIntoConstraints="NO" id="GqO-gl-GDJ" customClass="CardView" customModule="travelTube" customModuleProvider="target">
+                    <view clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="FeedCell" translatesAutoresizingMaskIntoConstraints="NO" id="GqO-gl-GDJ" customClass="CardView" customModule="travelTube" customModuleProvider="target">
                         <rect key="frame" x="25" y="16" width="446" height="389"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="主題" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="15" adjustsLetterSpacingToFitWidth="YES" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="TAS-bu-7ec">
@@ -34,7 +34,7 @@
                                     <constraint firstAttribute="width" secondItem="Y5S-M5-Q7p" secondAttribute="height" multiplier="16:9" id="Egr-Rf-SC2"/>
                                 </constraints>
                             </imageView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jf7-hy-yt0" customClass="TagListView" customModule="TagListView">
+                            <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jf7-hy-yt0" customClass="TagListView" customModule="TagListView">
                                 <rect key="frame" x="15" y="339" width="416" height="30"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
