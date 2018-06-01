@@ -19,11 +19,11 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="1000"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oAL-m8-yBa">
+                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="oAL-m8-yBa">
                                 <rect key="frame" x="0.0" y="951" width="375" height="49"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qGV-Eo-nyN">
-                                        <rect key="frame" x="325" y="11" width="30" height="30"/>
+                                        <rect key="frame" x="325" y="-22" width="30" height="30"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="30" id="fZx-NL-PIa"/>
                                             <constraint firstAttribute="width" constant="30" id="iug-dh-8Jg"/>
@@ -34,7 +34,7 @@
                                             <action selector="sendCommentPressed:" destination="tXp-2y-NYO" eventType="touchUpInside" id="xwo-rX-7Ka"/>
                                         </connections>
                                     </button>
-                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="fZq-6L-1Ks" customClass="GrowingTextView" customModule="travelTube" customModuleProvider="target">
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="fZq-6L-1Ks" customClass="GrowingTextView" customModule="travelTube" customModuleProvider="target">
                                         <rect key="frame" x="20" y="8" width="297" height="33"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -59,7 +59,7 @@
                                     <constraint firstAttribute="bottom" secondItem="fZq-6L-1Ks" secondAttribute="bottom" constant="8" id="tLa-WT-P3c"/>
                                 </constraints>
                             </view>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="igJ-Hf-zRF">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="igJ-Hf-zRF">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="951"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <view key="tableHeaderView" contentMode="scaleToFill" id="od0-30-u75">
@@ -193,6 +193,17 @@
                                                                 <constraint firstItem="7bW-Io-GdY" firstAttribute="top" secondItem="pm8-Ut-dDQ" secondAttribute="bottom" constant="2.5" id="wK0-Yf-cN2"/>
                                                             </constraints>
                                                         </view>
+                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zhz-dh-xTN">
+                                                            <rect key="frame" x="340" y="55.5" width="25" height="25"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="width" constant="25" id="SWV-fx-yXn"/>
+                                                                <constraint firstAttribute="height" constant="25" id="oO0-Wx-Dbs"/>
+                                                            </constraints>
+                                                            <state key="normal" image="trash"/>
+                                                            <connections>
+                                                                <action selector="deleteArticlePressed:" destination="tXp-2y-NYO" eventType="touchUpInside" id="dMF-1I-XJQ"/>
+                                                            </connections>
+                                                        </button>
                                                     </subviews>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <constraints>
@@ -200,11 +211,13 @@
                                                         <constraint firstAttribute="trailing" secondItem="wtG-Fv-uQF" secondAttribute="trailing" constant="20" id="4Oz-Mc-a4n"/>
                                                         <constraint firstItem="poW-Fw-cC6" firstAttribute="leading" secondItem="jeQ-aW-GOb" secondAttribute="leading" constant="20" id="B7F-ug-Bpb"/>
                                                         <constraint firstItem="9Bv-4P-Q5w" firstAttribute="leading" secondItem="jeQ-aW-GOb" secondAttribute="leading" constant="15" id="Fne-Iw-hc8"/>
+                                                        <constraint firstAttribute="trailing" secondItem="Zhz-dh-xTN" secondAttribute="trailing" constant="10" id="HUu-hT-Bdo"/>
                                                         <constraint firstItem="9Bv-4P-Q5w" firstAttribute="top" secondItem="jeQ-aW-GOb" secondAttribute="top" constant="10" id="IfZ-3f-gnT"/>
                                                         <constraint firstAttribute="bottom" secondItem="poW-Fw-cC6" secondAttribute="bottom" constant="15" id="Sqg-MI-ahR"/>
                                                         <constraint firstItem="wtG-Fv-uQF" firstAttribute="leading" secondItem="poW-Fw-cC6" secondAttribute="trailing" id="WmV-TL-pxG"/>
                                                         <constraint firstItem="wtG-Fv-uQF" firstAttribute="centerY" secondItem="poW-Fw-cC6" secondAttribute="centerY" id="aju-Qe-EGl"/>
                                                         <constraint firstItem="poW-Fw-cC6" firstAttribute="top" secondItem="9Bv-4P-Q5w" secondAttribute="bottom" constant="10" id="ciH-an-n7x"/>
+                                                        <constraint firstItem="Zhz-dh-xTN" firstAttribute="centerY" secondItem="pm8-Ut-dDQ" secondAttribute="centerY" constant="3" id="x61-81-lim"/>
                                                     </constraints>
                                                 </view>
                                             </subviews>
@@ -334,11 +347,13 @@
                         <outlet property="bannerView" destination="W8l-dA-MNL" id="srb-Ff-GTw"/>
                         <outlet property="commentTextView" destination="fZq-6L-1Ks" id="J7T-gD-car"/>
                         <outlet property="commentView" destination="oAL-m8-yBa" id="VOg-yB-ZQc"/>
+                        <outlet property="deleteButton" destination="Zhz-dh-xTN" id="XQM-Eg-1Vv"/>
                         <outlet property="editButton" destination="vay-nE-KEc" id="LDj-6w-IpL"/>
                         <outlet property="infoView" destination="jeQ-aW-GOb" id="1Z3-kU-q7v"/>
                         <outlet property="mapView" destination="8Pb-7M-Mis" id="Cpx-La-SZd"/>
                         <outlet property="mapViewContainer" destination="sRk-Gd-XMo" id="eOa-mg-vdd"/>
                         <outlet property="openInMapButton" destination="w3n-D6-LgR" id="5ZJ-g7-kwB"/>
+                        <outlet property="reportView" destination="wtG-Fv-uQF" id="wvY-ty-L5v"/>
                         <outlet property="segmentControl" destination="f7A-ob-Mor" id="bP5-fC-Lmx"/>
                         <outlet property="tableView" destination="igJ-Hf-zRF" id="z2H-Nm-0eC"/>
                         <outlet property="tagsView" destination="poW-Fw-cC6" id="wao-Mn-l2e"/>
@@ -694,6 +709,7 @@
         <image name="ban" width="25" height="25"/>
         <image name="btn_send" width="30" height="30"/>
         <image name="edit" width="50" height="50"/>
+        <image name="trash" width="25" height="25"/>
         <image name="youtube" width="25" height="25"/>
     </resources>
 </document>

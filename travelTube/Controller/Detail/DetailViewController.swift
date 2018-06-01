@@ -28,6 +28,8 @@ class DetailViewController: UIViewController {
     @IBOutlet weak var mapViewContainer: UIView!
     @IBOutlet weak var openInMapButton: UIButton!
     @IBOutlet weak var editButton: UIButton!
+    @IBOutlet weak var deleteButton: UIButton!
+    @IBOutlet weak var reportView: UIView!
 
     var youtubeId: String?
     var articleInfo: Article?
@@ -154,6 +156,9 @@ class DetailViewController: UIViewController {
                 if self.articleInfo?.uid != UserManager.shared.uid {
                     self.editButton.isUserInteractionEnabled = false
                     self.editButton.alpha = 0.3
+                    self.deleteButton.alpha = 0
+                } else {
+                    self.reportView.alpha = 0
                 }
             } catch {
                 print(error)
@@ -244,6 +249,15 @@ class DetailViewController: UIViewController {
     }
     @IBAction func leaveButtonPressed(_ sender: Any) {
         dismiss(animated: true, completion: nil)
+    }
+
+    @IBAction func deleteArticlePressed(_ sender: Any) {
+        let alert = UIAlertController(title: "刪除貼文", message: nil, preferredStyle: .alert)
+        let deleteAction = UIAlertAction(title: "刪除", style: .destructive, handler: nil)
+        let cancelAction = UIAlertAction(title: "取消", style: .cancel, handler: nil)
+        alert.addAction(deleteAction)
+        alert.addAction(cancelAction)
+        present(alert, animated: true, completion: nil)
     }
 
     @IBAction func openMapPressed(_ sender: Any) {
