@@ -32,6 +32,7 @@ class DetailViewController: UIViewController {
     @IBOutlet weak var reportView: UIView!
 
     var youtubeId: String?
+    var articleId: String?
     var articleInfo: Article?
     var comments = [Comment]()
     var annotations = [MKPointAnnotation]()
@@ -40,12 +41,12 @@ class DetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        guard let youtubeId = youtubeId else { return }
+        guard let youtubeId = youtubeId, let articleId = articleId else { return }
         setupTableView()
         setupNavigationBar()
         setupYoutubePlayer(of: youtubeId)
-        getArticleInfo(of: youtubeId)
-        getComments(of: youtubeId, goToBottom: false)
+        getArticleInfo(of: articleId)
+        getComments(of: articleId, goToBottom: false)
         mapView.delegate = self
         NotificationCenter.default.addObserver(self, selector: #selector(self.updateFromEdit(_:)), name: NSNotification.Name(rawValue: "updateFromEdit"), object: nil)
     }
@@ -145,8 +146,8 @@ class DetailViewController: UIViewController {
     }
 
     // TODO: closure or delegate
-    func getArticleInfo(of youtubeId: String) {
-        FirebaseManager.shared.ref.child("articles").child(youtubeId).observeSingleEvent(of: .value, with: { (snapshot) in
+    func getArticleInfo(of articleId: String) {
+        FirebaseManager.shared.ref.child("articles").child(articleId).observeSingleEvent(of: .value, with: { (snapshot) in
             guard let value = snapshot.value else { return }
             do {
                 self.articleInfo = try FirebaseDecoder().decode(Article.self, from: value)
@@ -203,17 +204,17 @@ class DetailViewController: UIViewController {
         }
 
     @IBAction func sendCommentPressed(_ sender: Any) {
-        guard let youtubeId = youtubeId else { return }
+        guard let articleId = articleId else { return }
         guard let comment = commentTextView.text else { return }
         commentTextView.text = nil
-        FirebaseManager.shared.ref.child("comments").child(youtubeId).childByAutoId().setValue([
+        FirebaseManager.shared.ref.child("comments").child(articleId).childByAutoId().setValue([
             "userId": UserManager.shared.uid,
             "userName": UserManager.shared.userName,
             "userImage": UserManager.shared.userImage ?? "https://image.flaticon.com/icons/svg/17/17004.svg",
             "comment": comment,
             "createdTime": Firebase.ServerValue.timestamp()
             ])
-        getComments(of: youtubeId, goToBottom: true)
+        getComments(of: articleId, goToBottom: true)
     }
 
     @IBAction func reportButtonPressed(_ sender: Any) {
@@ -255,8 +256,19 @@ class DetailViewController: UIViewController {
         let alert = UIAlertController(title: "刪除貼文", message: nil, preferredStyle: .alert)
         let deleteAction = UIAlertAction(title: "刪除", style: .destructive, handler: { _ in
             guard let article  = self.articleInfo else { return }
-            guard let articleId = self.articleInfo?.youtubeId else { return }
+            guard let articleId = self.articleInfo?.articleId else { return }
+            guard let tags = self.articleInfo?.tag else { return }
             FirebaseManager.shared.ref.child("articles").child(articleId).removeValue()
+            FirebaseManager.shared.ref.child("comments").child(articleId).removeValue()
+            for tag in tags {
+                FirebaseManager.shared.ref.child("tags").child(tag).observeSingleEvent(of: .value, with: { (snapshot) in
+                    if let value = snapshot.value as? NSArray, var tempTagsArray = value as? [String] {
+                        tempTagsArray = tempTagsArray.filter { $0 != articleId }
+                        FirebaseManager.shared.ref.child("tags").updateChildValues([tag: tempTagsArray])
+                    }
+                })
+            }
+
             NotificationCenter.default.post(name: NSNotification.Name(rawValue: "deleteArticle"), object: nil, userInfo: ["article": article])
             self.dismiss(animated: true, completion: nil)
         })

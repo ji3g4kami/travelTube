@@ -53,6 +53,7 @@ struct Article: Codable {
     var annotations: [Annotation]
     var tag: [String]?
     let uid: String
+    let articleId: String
     var updateTime: Date
     let youtubeId: String
     let youtubeImage: String

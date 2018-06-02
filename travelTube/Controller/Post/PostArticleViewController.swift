@@ -189,7 +189,9 @@ class PostArticleViewController: UIViewController, UIPopoverPresentationControll
             tags[0] = String(tag0)
         }
 
-        FirebaseManager.shared.ref.child("articles").child(video.youtubeId).setValue([
+        let autoId = FirebaseManager.shared.ref.childByAutoId().key
+        FirebaseManager.shared.ref.child("articles").child(autoId).setValue([
+            "articleId": autoId,
             "youtubeId": video.youtubeId,
             "youtubeTitle": video.title,
             "youtubeImage": video.image,
@@ -205,7 +207,7 @@ class PostArticleViewController: UIViewController, UIPopoverPresentationControll
             let ref = FirebaseManager.shared.ref.child("tags").child("\(tag)")
             // new tag
             if !storedTags.contains(tag) {
-                tempArticleIdArray.append(video.youtubeId)
+                tempArticleIdArray.append(autoId)
                 ref.setValue(tempArticleIdArray)
             } else {
                 ref.observeSingleEvent(of: .value, with: { (snapshot) in
@@ -214,7 +216,7 @@ class PostArticleViewController: UIViewController, UIPopoverPresentationControll
                             guard let articleID = articleId as? String else { return }
                             tempArticleIdArray.append(articleID)
                         }
-                        tempArticleIdArray.append(video.youtubeId)
+                        tempArticleIdArray.append(autoId)
                         ref.setValue(tempArticleIdArray)
                     }
                 })

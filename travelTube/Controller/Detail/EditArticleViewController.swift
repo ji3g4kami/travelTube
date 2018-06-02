@@ -136,14 +136,14 @@ class EditArticleViewController: UIViewController {
         }
 
         let childUpdates = ["annotations": markers, "tag": tags]
-        FirebaseManager.shared.ref.child("articles").child(articleInfo.youtubeId).updateChildValues(childUpdates)
+        FirebaseManager.shared.ref.child("articles").child(articleInfo.articleId).updateChildValues(childUpdates)
         //          Making tags
         for tag in tags {
             var tempArticleIdArray = [String]()
             let ref = FirebaseManager.shared.ref.child("tags").child("\(tag)")
             // new tag
             if !storedTags.contains(tag) {
-                tempArticleIdArray.append(articleInfo.youtubeId)
+                tempArticleIdArray.append(articleInfo.articleId)
                 ref.setValue(tempArticleIdArray)
             } else {
                 ref.observeSingleEvent(of: .value, with: { (snapshot) in
@@ -152,7 +152,7 @@ class EditArticleViewController: UIViewController {
                             guard let articleID = articleId as? String else { return }
                             tempArticleIdArray.append(articleID)
                         }
-                        tempArticleIdArray.append(articleInfo.youtubeId)
+                        tempArticleIdArray.append(articleInfo.articleId)
                         ref.setValue(tempArticleIdArray)
                     }
                 })
