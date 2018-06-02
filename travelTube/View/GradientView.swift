@@ -13,8 +13,7 @@ class GradientView: UIView {
         let gradientLayer = CAGradientLayer()
         gradientLayer.colors = [
             TTColor.lightBlue.color().cgColor,
-            TTColor.darkBlue.color().cgColor,
-            TTColor.pink.color().cgColor
+            TTColor.darkBlue.color().cgColor
         ]
         gradientLayer.startPoint = CGPoint(x: 0, y: 0)
         gradientLayer.endPoint = CGPoint(x: 1, y: 1)
