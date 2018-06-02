@@ -31,8 +31,7 @@ class GradientNavigationController: UINavigationController {
 
         layer.colors = [
             TTColor.lightBlue.color().cgColor,
-            TTColor.darkBlue.color().cgColor,
-            TTColor.pink.color().cgColor
+            TTColor.darkBlue.color().cgColor
         ]
 
         layer.startPoint = CGPoint(x: 0.0, y: 0.5)
@@ -52,13 +51,13 @@ class GradientNavigationController: UINavigationController {
     }
 
     private func arrangeShadowLayer() {
-        
+
         self.navigationBar.layer.shadowColor = UIColor.black.cgColor
-        
+
         self.navigationBar.layer.shadowOffset = CGSize(width: 0, height: 4 )
-        
+
         self.navigationBar.layer.shadowRadius = 4.0
-        
+
         self.navigationBar.layer.shadowOpacity = 0.25
     }
 }

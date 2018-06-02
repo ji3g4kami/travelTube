@@ -93,9 +93,37 @@ class TabBarViewController: UITabBarController {
         if UserManager.shared.isAnonymous {
             tabs = [.feed, .anonymousProfile]
         } else {
-            tabs = [.post, .feed, .profile]
+            tabs = [.feed, .post, .profile]
         }
         setupTab()
+        setGradient()
+        setItemColor()
+    }
+
+    private func setItemColor() {
+        self.tabBar.unselectedItemTintColor = #colorLiteral(red: 0.6941176471, green: 0.7098039216, blue: 0.7529411765, alpha: 1)
+    }
+
+    private func setGradient() {
+        let layer = CAGradientLayer()
+
+        layer.colors = [
+            TTColor.lightBlue.color().cgColor,
+            TTColor.darkBlue.color().cgColor
+        ]
+
+        layer.startPoint = CGPoint(x: 0.0, y: 0.5)
+
+        layer.endPoint = CGPoint(x: 1.0, y: 0.5)
+
+        layer.bounds = CGRect(
+            x: 0,
+            y: 0,
+            width: self.tabBar.bounds.width,
+            height: self.tabBar.bounds.height
+        )
+
+        self.tabBar.backgroundImage = layer.createGradientImage()
     }
 
     private func setupTab() {
