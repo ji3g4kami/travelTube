@@ -28,7 +28,6 @@ class SearchYoutubeViewController: UIViewController {
         videoTableView.dataSource = self
 
         searchBar.delegate = self
-        searchBar.becomeFirstResponder()
         hideKeyboardWhenTappedAround()
     }
 

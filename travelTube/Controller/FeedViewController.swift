@@ -35,7 +35,7 @@ class FeedViewController: UIViewController {
     }
 
     func setupTableView() {
-        tableView.backgroundView = UIImageView(image: #imageLiteral(resourceName: "blur-lake"))
+//        tableView.backgroundView = UIImageView(image: #imageLiteral(resourceName: "blur-lake"))
         tableView.delegate = self
         tableView.dataSource = self
         let xib = UINib(nibName: String(describing: FeedCell.self), bundle: nil)

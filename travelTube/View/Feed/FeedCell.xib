@@ -20,7 +20,7 @@
                 <rect key="frame" x="0.0" y="0.0" width="496" height="420.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <view clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="FeedCell" translatesAutoresizingMaskIntoConstraints="NO" id="GqO-gl-GDJ" customClass="CardView" customModule="travelTube" customModuleProvider="target">
+                    <view contentMode="scaleToFill" restorationIdentifier="FeedCell" translatesAutoresizingMaskIntoConstraints="NO" id="GqO-gl-GDJ" customClass="CardView" customModule="travelTube" customModuleProvider="target">
                         <rect key="frame" x="25" y="16" width="446" height="389"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="主題" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="15" adjustsLetterSpacingToFitWidth="YES" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="TAS-bu-7ec">
@@ -71,22 +71,22 @@
                         </constraints>
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="color" keyPath="shadowColor">
-                                <color key="value" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="value" red="0.69411764705882351" green="0.70980392156862748" blue="0.75294117647058822" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </userDefinedRuntimeAttribute>
                             <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                                 <real key="value" value="20"/>
                             </userDefinedRuntimeAttribute>
                             <userDefinedRuntimeAttribute type="number" keyPath="shadowOffSetWidth">
-                                <real key="value" value="5"/>
+                                <real key="value" value="0.0"/>
                             </userDefinedRuntimeAttribute>
                             <userDefinedRuntimeAttribute type="number" keyPath="shadowOffSetHeight">
-                                <real key="value" value="5"/>
+                                <real key="value" value="0.0"/>
                             </userDefinedRuntimeAttribute>
                             <userDefinedRuntimeAttribute type="number" keyPath="shadowOpacity">
-                                <real key="value" value="0.69999999999999996"/>
+                                <real key="value" value="1"/>
                             </userDefinedRuntimeAttribute>
                             <userDefinedRuntimeAttribute type="number" keyPath="shadowBlur">
-                                <real key="value" value="5"/>
+                                <real key="value" value="7"/>
                             </userDefinedRuntimeAttribute>
                         </userDefinedRuntimeAttributes>
                     </view>
