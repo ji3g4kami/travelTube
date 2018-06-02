@@ -31,6 +31,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
             toLoginPage()
         }
         Fabric.with([Crashlytics.self])
+        // set statusbar to white
+        UIApplication.shared.statusBarStyle = UIStatusBarStyle.lightContent
         return true
     }
 

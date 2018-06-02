@@ -72,7 +72,7 @@ class ProfileViewController: UIViewController {
 
     private func setupNavigationBarItems() {
         let menuButton = UIButton(type: .system)
-        menuButton.setImage(#imageLiteral(resourceName: "menu").withRenderingMode(.alwaysOriginal), for: .normal)
+        menuButton.setImage(#imageLiteral(resourceName: "menu").withRenderingMode(.automatic), for: .normal)
         menuButton.frame = CGRect(x: 0, y: 0, width: 34, height: 34)
         navigationItem.rightBarButtonItem = UIBarButtonItem(customView: menuButton)
         menuButton.addTarget(self.revealViewController(), action: #selector(SWRevealViewController.rightRevealToggle(_:)), for: .touchUpInside)
