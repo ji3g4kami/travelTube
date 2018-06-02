@@ -47,7 +47,6 @@ extension SearchYoutubeViewController: YoutubeManagerDelegate {
 
 extension SearchYoutubeViewController: UISearchBarDelegate {
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        searchBar.resignFirstResponder()
         if let searchText = searchBar.text {
             youtubeArray.removeAll()
             youtubeManager.searchYouTube(of: searchText)
