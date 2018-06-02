@@ -20,6 +20,7 @@ class FeedViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        navigationController?.navigationBar.setGradientBackground()
         SKActivityIndicator.show("Loading...")
         setupTableView()
         getFeeds()
@@ -27,8 +28,8 @@ class FeedViewController: UIViewController {
     }
 
     @objc func updateFromDelete(_ notification: NSNotification) {
-        if let article = notification.userInfo?["article"] as? Article{
-            articleArray = articleArray.filter{ $0 == article }
+        if let article = notification.userInfo?["article"] as? Article {
+            articleArray = articleArray.filter { $0 == article }
             tableView.reloadData()
         }
     }

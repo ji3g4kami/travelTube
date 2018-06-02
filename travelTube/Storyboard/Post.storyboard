@@ -499,10 +499,10 @@
             </objects>
             <point key="canvasLocation" x="2301" y="-39"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--Gradient Navigation Controller-->
         <scene sceneID="F8j-mF-Xl1">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="VAd-xE-s97" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="VAd-xE-s97" customClass="GradientNavigationController" customModule="travelTube" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="dW9-TX-oTI">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>

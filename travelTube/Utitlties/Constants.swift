@@ -13,9 +13,10 @@ struct TTConstants {
 }
 
 enum TTColor: String {
-    case tabBarTintColor = "428DFF"
-    case lightGray = "E7E7E7" // 231, 231, 231
-    case darkGray = "CDCDCD"  // 205, 205, 205
+    case tabBarTintColor = "FFFFFF"
+    case lightBlue = "448FEC" // 68, 143, 236
+    case darkBlue = "715EC3"  // 113, 94, 195
+    case pink = "D577CC" // 213, 119, 204
 
     func color() -> UIColor {
 

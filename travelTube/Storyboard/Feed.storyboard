@@ -1,16 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="VcD-Fp-zZN">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="VcD-Fp-zZN">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--動態時報-->
+        <!--travelTube-->
         <scene sceneID="5Ze-7g-pu6">
             <objects>
                 <viewController id="jeR-ZA-1qN" customClass="FeedViewController" customModule="travelTube" customModuleProvider="target" sceneMemberID="viewController">
@@ -42,7 +41,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="QJA-vK-vhf"/>
                     </view>
-                    <navigationItem key="navigationItem" title="動態時報" id="w0i-t1-Wbv"/>
+                    <navigationItem key="navigationItem" title="travelTube" id="w0i-t1-Wbv"/>
                     <connections>
                         <outlet property="tableView" destination="RfD-P1-M5K" id="jeW-bE-8Dy"/>
                     </connections>
@@ -51,10 +50,10 @@
             </objects>
             <point key="canvasLocation" x="1064.8" y="156.97151424287858"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--Gradient Navigation Controller-->
         <scene sceneID="Fua-3J-2Lc">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="VcD-Fp-zZN" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="VcD-Fp-zZN" customClass="GradientNavigationController" customModule="travelTube" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="wck-70-am6">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>

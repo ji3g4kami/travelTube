@@ -15,6 +15,8 @@
 		1417FEB720B9682600CFB50A /* FeedCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1417FEB520B9682600CFB50A /* FeedCell.swift */; };
 		1417FEB820B9682600CFB50A /* FeedCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1417FEB620B9682600CFB50A /* FeedCell.xib */; };
 		14259D4A20BCF8E400AB8FF5 /* DesignableLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14259D4920BCF8E400AB8FF5 /* DesignableLabel.swift */; };
+		1433CB9120C18A1A003C8A12 /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1433CB9020C18A1A003C8A12 /* GradientView.swift */; };
+		1433CB9320C21730003C8A12 /* GradientNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1433CB9220C21730003C8A12 /* GradientNavigationController.swift */; };
 		1439892920BBB62200E8DF9F /* VideoPopupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1439892820BBB62200E8DF9F /* VideoPopupViewController.swift */; };
 		1439892B20BBD35C00E8DF9F /* PrivacyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1439892A20BBD35C00E8DF9F /* PrivacyViewController.swift */; };
 		143F3ECD20B2B14900784EB9 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 143F3ECC20B2B14900784EB9 /* Extensions.swift */; };
@@ -67,6 +69,8 @@
 		1417FEB520B9682600CFB50A /* FeedCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedCell.swift; sourceTree = "<group>"; };
 		1417FEB620B9682600CFB50A /* FeedCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FeedCell.xib; sourceTree = "<group>"; };
 		14259D4920BCF8E400AB8FF5 /* DesignableLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesignableLabel.swift; sourceTree = "<group>"; };
+		1433CB9020C18A1A003C8A12 /* GradientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
+		1433CB9220C21730003C8A12 /* GradientNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientNavigationController.swift; sourceTree = "<group>"; };
 		1439892820BBB62200E8DF9F /* VideoPopupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoPopupViewController.swift; sourceTree = "<group>"; };
 		1439892A20BBD35C00E8DF9F /* PrivacyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivacyViewController.swift; sourceTree = "<group>"; };
 		143F3ECC20B2B14900784EB9 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
@@ -161,6 +165,8 @@
 				14259D4920BCF8E400AB8FF5 /* DesignableLabel.swift */,
 				1417FEB320B961E900CFB50A /* CardView.swift */,
 				1445521720C04DD50005B126 /* GrowingTextView.swift */,
+				1433CB9020C18A1A003C8A12 /* GradientView.swift */,
+				1433CB9220C21730003C8A12 /* GradientNavigationController.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -551,6 +557,7 @@
 				143F3EF120B5465500784EB9 /* CommentViewController.swift in Sources */,
 				143F3ECD20B2B14900784EB9 /* Extensions.swift in Sources */,
 				1417FEB720B9682600CFB50A /* FeedCell.swift in Sources */,
+				1433CB9320C21730003C8A12 /* GradientNavigationController.swift in Sources */,
 				14DA419C20A13F3000A74254 /* SWRevealViewController.m in Sources */,
 				143F3EF320B5513500784EB9 /* DesignableView.swift in Sources */,
 				14F7BD992099AB7900DE78C9 /* YoutubeManager.swift in Sources */,
@@ -580,6 +587,7 @@
 				14259D4A20BCF8E400AB8FF5 /* DesignableLabel.swift in Sources */,
 				1439892B20BBD35C00E8DF9F /* PrivacyViewController.swift in Sources */,
 				1445521820C04DD60005B126 /* GrowingTextView.swift in Sources */,
+				1433CB9120C18A1A003C8A12 /* GradientView.swift in Sources */,
 				14DA419F20A141D600A74254 /* LogoutViewController.swift in Sources */,
 				1414065620A0821800BFB170 /* UserManager.swift in Sources */,
 			);
