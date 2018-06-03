@@ -16,7 +16,7 @@ enum TTColor: String {
     case tabBarTintColor = "FFFFFF"
     case lightBlue = "448FEC" // 68, 143, 236
     case darkBlue = "715EC3"  // 113, 94, 195
-    case pink = "D577CC" // 213, 119, 204
+    case gradientMiddleblue = "6B87D5" // 107, 135, 213
 
     func color() -> UIColor {
 

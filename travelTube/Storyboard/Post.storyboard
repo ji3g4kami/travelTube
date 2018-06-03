@@ -381,7 +381,6 @@
                     </view>
                     <navigationItem key="navigationItem" title="分享影片地點" id="Koa-qR-bri">
                         <barButtonItem key="rightBarButtonItem" title="Item" image="youtube" id="zHg-CX-Rp8">
-                            <color key="tintColor" red="0.84705882349999995" green="0.22352941179999999" blue="0.1215686275" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <connections>
                                 <segue destination="0rL-Lg-4Ei" kind="popoverPresentation" identifier="videoPopOver" popoverAnchorBarButtonItem="zHg-CX-Rp8" id="dO3-iY-Yp1">
                                     <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>

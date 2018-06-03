@@ -8,7 +8,15 @@
 
 import UIKit
 
+@IBDesignable
 class GradientView: UIView {
+
+    @IBInspectable var cornerRadius: CGFloat = 0 {
+        didSet {
+            self.layer.cornerRadius = cornerRadius
+        }
+    }
+
     override func layoutSubviews() {
         let gradientLayer = CAGradientLayer()
         gradientLayer.colors = [

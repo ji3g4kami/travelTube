@@ -7,7 +7,7 @@
 //
 
 @IBDesignable
-class CircularView: UIImageView {
+class CircularGradientView: UIImageView {
     
     override init(frame: CGRect) {
         super.init(frame: frame)

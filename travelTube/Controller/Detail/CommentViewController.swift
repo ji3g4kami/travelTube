@@ -13,12 +13,14 @@ class CommentViewController: UIViewController {
 
     @IBOutlet weak var userImage: UIImageView!
     @IBOutlet weak var commentTextView: DesignableTextView!
+    @IBOutlet weak var nameLabel: DesignableLabel!
     var articleId: String?
     var comment: Comment?
 
     override func viewDidLoad() {
         super.viewDidLoad()
         commentTextView.text = comment?.comment
+        nameLabel.text = UserManager.shared.userName
         if let userImageUrl = UserManager.shared.userImage {
             userImage.sd_setImage(with: URL(string: userImageUrl), placeholderImage: #imageLiteral(resourceName: "profile_placeholder"))
         }
