@@ -78,7 +78,7 @@
                                 </constraints>
                             </view>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="ygD-vg-VPP">
-                                <rect key="frame" x="0.0" y="283" width="375" height="384"/>
+                                <rect key="frame" x="10" y="283" width="355" height="384"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Ekg-5C-t3W">
                                     <size key="itemSize" width="50" height="50"/>
@@ -107,8 +107,8 @@
                             <constraint firstItem="me8-BB-wKo" firstAttribute="top" secondItem="cpR-wc-LKt" secondAttribute="top" id="e24-jW-19P"/>
                             <constraint firstItem="me8-BB-wKo" firstAttribute="leading" secondItem="cpR-wc-LKt" secondAttribute="leading" id="hu6-6f-Ylk"/>
                             <constraint firstItem="ygD-vg-VPP" firstAttribute="top" secondItem="me8-BB-wKo" secondAttribute="bottom" constant="20" id="jg4-iA-O6G"/>
-                            <constraint firstItem="ygD-vg-VPP" firstAttribute="leading" secondItem="cpR-wc-LKt" secondAttribute="leading" id="oth-7K-U2P"/>
-                            <constraint firstItem="cpR-wc-LKt" firstAttribute="trailing" secondItem="ygD-vg-VPP" secondAttribute="trailing" id="y4s-av-4Yg"/>
+                            <constraint firstItem="ygD-vg-VPP" firstAttribute="leading" secondItem="cpR-wc-LKt" secondAttribute="leading" constant="10" id="oth-7K-U2P"/>
+                            <constraint firstItem="cpR-wc-LKt" firstAttribute="trailing" secondItem="ygD-vg-VPP" secondAttribute="trailing" constant="10" id="y4s-av-4Yg"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="cpR-wc-LKt"/>
                     </view>
