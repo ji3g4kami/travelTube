@@ -52,10 +52,12 @@ class EditArticleViewController: UIViewController {
     }
 
     func queryTags() {
-        FirebaseManager.shared.ref.child("tags").observeSingleEvent(of: .value) { (snapshot) in
-            if let tagsDict = snapshot.value as? [String: AnyObject] {
-                for tag in tagsDict.keys {
-                    self.storedTags.append(tag)
+        FirebaseManager.shared.ref.child("tags").queryOrdered(byChild: "tag").observeSingleEvent(of: .value) { (snapshot) in
+            if let articleTag = snapshot.value as? [String: Any] {
+                for (_, value) in articleTag {
+                    guard let valueDict = value as? [String: String], let tagName = valueDict["tag"] else { return }
+                    self.storedTags.append(tagName)
+                    self.storedTags = Array(Set(self.storedTags))
                 }
             }
         }
@@ -100,6 +102,7 @@ class EditArticleViewController: UIViewController {
     }
 
     @IBAction func postArticle(_ sender: Any) {
+        guard let articleInfo = articleInfo else { return }
         // Annotations cannot be empty
         if mapView.annotations.count < 1 {
             let alertController = UIAlertController(title: "缺少地標資訊", message: "請用Add在地圖上新增標籤", preferredStyle: .alert)
@@ -108,10 +111,6 @@ class EditArticleViewController: UIViewController {
             return
         }
 
-        guard let articleInfo = articleInfo else {
-            print("failed unwrapping youtube")
-            return
-        }
         var markers = [Any]()
         for annotation in mapView.annotations {
             guard let title2 = annotation.title, let title = title2 else { return }
@@ -137,27 +136,29 @@ class EditArticleViewController: UIViewController {
 
         let childUpdates = ["annotations": markers, "tag": tags]
         FirebaseManager.shared.ref.child("articles").child(articleInfo.articleId).updateChildValues(childUpdates)
-        //          Making tags
-        for tag in tags {
-            var tempArticleIdArray = [String]()
-            let ref = FirebaseManager.shared.ref.child("tags").child("\(tag)")
-            // new tag
-            if !storedTags.contains(tag) {
-                tempArticleIdArray.append(articleInfo.articleId)
-                ref.setValue(tempArticleIdArray)
-            } else {
-                ref.observeSingleEvent(of: .value, with: { (snapshot) in
-                    if let value = snapshot.value as? NSArray {
-                        for articleId in value {
-                            guard let articleID = articleId as? String else { return }
-                            tempArticleIdArray.append(articleID)
+
+        guard let originalTags = articleInfo.tag else { return }
+        if tags != originalTags {
+            // remove original tags
+            FirebaseManager.shared.ref.child("tags").queryOrdered(byChild: "articleId").queryEqual(toValue: articleInfo.articleId).observeSingleEvent(of: .value) { (snapshot) in
+                let dispatchGroup = DispatchGroup()
+                if let articleTag = snapshot.value as? [String: Any] {
+                    for (key, _) in articleTag {
+                        dispatchGroup.enter()
+                        FirebaseManager.shared.ref.child("tags").child(key).removeValue { (_, _) in
+                            dispatchGroup.leave()
                         }
-                        tempArticleIdArray.append(articleInfo.articleId)
-                        ref.setValue(tempArticleIdArray)
                     }
-                })
+                }
+                // append modified tags
+                dispatchGroup.notify(queue: .global()) {
+                    for tag in tags {
+                        FirebaseManager.shared.ref.child("tags").childByAutoId().setValue(["articleId": articleInfo.articleId, "tag": tag])
+                    }
+                }
             }
         }
+
         NotificationCenter.default.post(name: NSNotification.Name(rawValue: "updateFromEdit"), object: nil, userInfo: ["annotations": mapView.annotations, "tags": tags])
         dismiss(animated: true, completion: nil)
     }

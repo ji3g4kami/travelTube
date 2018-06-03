@@ -257,16 +257,13 @@ class DetailViewController: UIViewController {
         let deleteAction = UIAlertAction(title: "刪除", style: .destructive, handler: { _ in
             guard let article  = self.articleInfo else { return }
             guard let articleId = self.articleInfo?.articleId else { return }
-            guard let tags = self.articleInfo?.tag else { return }
             FirebaseManager.shared.ref.child("articles").child(articleId).removeValue()
             FirebaseManager.shared.ref.child("comments").child(articleId).removeValue()
-            for tag in tags {
-                FirebaseManager.shared.ref.child("tags").child(tag).observeSingleEvent(of: .value, with: { (snapshot) in
-                    if let value = snapshot.value as? NSArray, var tempTagsArray = value as? [String] {
-                        tempTagsArray = tempTagsArray.filter { $0 != articleId }
-                        FirebaseManager.shared.ref.child("tags").updateChildValues([tag: tempTagsArray])
-                    }
-                })
+            FirebaseManager.shared.ref.child("tags").queryOrdered(byChild: "articleId").queryEqual(toValue: articleId).observeSingleEvent(of: .value) { (snapshot) in
+                guard let valueDict = snapshot.value as? [String: Any] else { return }
+                for (key, _) in valueDict {
+                    FirebaseManager.shared.ref.child("tags").child(key).removeValue()
+                }
             }
 
             NotificationCenter.default.post(name: NSNotification.Name(rawValue: "deleteArticle"), object: nil, userInfo: ["article": article])

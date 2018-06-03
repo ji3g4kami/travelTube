@@ -116,10 +116,12 @@ class PostArticleViewController: UIViewController, UIPopoverPresentationControll
     }
 
     func queryTags() {
-        FirebaseManager.shared.ref.child("tags").observeSingleEvent(of: .value) { (snapshot) in
-            if let tagsDict = snapshot.value as? [String: AnyObject] {
-                for tag in tagsDict.keys {
-                    self.storedTags.append(tag)
+        FirebaseManager.shared.ref.child("tags").queryOrdered(byChild: "tag").observeSingleEvent(of: .value) { (snapshot) in
+            if let articleTag = snapshot.value as? [String: Any] {
+                for (_, value) in articleTag {
+                    guard let valueDict = value as? [String: String], let tagName = valueDict["tag"] else { return }
+                    self.storedTags.append(tagName)
+                    self.storedTags = Array(Set(self.storedTags))
                 }
             }
         }
@@ -201,26 +203,9 @@ class PostArticleViewController: UIViewController, UIPopoverPresentationControll
             "annotations": markers,
             "tag": tags
         ])
-//          Making tags
+        // Making tags
         for tag in tags {
-            var tempArticleIdArray = [String]()
-            let ref = FirebaseManager.shared.ref.child("tags").child("\(tag)")
-            // new tag
-            if !storedTags.contains(tag) {
-                tempArticleIdArray.append(autoId)
-                ref.setValue(tempArticleIdArray)
-            } else {
-                ref.observeSingleEvent(of: .value, with: { (snapshot) in
-                    if let value = snapshot.value as? NSArray {
-                        for articleId in value {
-                            guard let articleID = articleId as? String else { return }
-                            tempArticleIdArray.append(articleID)
-                        }
-                        tempArticleIdArray.append(autoId)
-                        ref.setValue(tempArticleIdArray)
-                    }
-                })
-            }
+            FirebaseManager.shared.ref.child("tags").childByAutoId().setValue(["articleId": autoId, "tag": tag])
         }
 
         navigationController?.popToRootViewController(animated: true)
