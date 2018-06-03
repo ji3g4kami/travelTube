@@ -19,7 +19,6 @@ class CommentViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         commentTextView.text = comment?.comment
-        userImage.setRounded()
         if let userImageUrl = UserManager.shared.userImage {
             userImage.sd_setImage(with: URL(string: userImageUrl), placeholderImage: #imageLiteral(resourceName: "profile_placeholder"))
         }

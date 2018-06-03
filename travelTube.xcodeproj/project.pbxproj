@@ -17,6 +17,8 @@
 		14259D4A20BCF8E400AB8FF5 /* DesignableLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14259D4920BCF8E400AB8FF5 /* DesignableLabel.swift */; };
 		1433CB9120C18A1A003C8A12 /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1433CB9020C18A1A003C8A12 /* GradientView.swift */; };
 		1433CB9320C21730003C8A12 /* GradientNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1433CB9220C21730003C8A12 /* GradientNavigationController.swift */; };
+		1433CB9520C3D3BA003C8A12 /* CircularImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1433CB9420C3D3BA003C8A12 /* CircularImageView.swift */; };
+		1433CB9720C3D603003C8A12 /* CircularGradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1433CB9620C3D603003C8A12 /* CircularGradientView.swift */; };
 		1439892920BBB62200E8DF9F /* VideoPopupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1439892820BBB62200E8DF9F /* VideoPopupViewController.swift */; };
 		1439892B20BBD35C00E8DF9F /* PrivacyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1439892A20BBD35C00E8DF9F /* PrivacyViewController.swift */; };
 		143F3ECD20B2B14900784EB9 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 143F3ECC20B2B14900784EB9 /* Extensions.swift */; };
@@ -71,6 +73,8 @@
 		14259D4920BCF8E400AB8FF5 /* DesignableLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesignableLabel.swift; sourceTree = "<group>"; };
 		1433CB9020C18A1A003C8A12 /* GradientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
 		1433CB9220C21730003C8A12 /* GradientNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientNavigationController.swift; sourceTree = "<group>"; };
+		1433CB9420C3D3BA003C8A12 /* CircularImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircularImageView.swift; sourceTree = "<group>"; };
+		1433CB9620C3D603003C8A12 /* CircularGradientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircularGradientView.swift; sourceTree = "<group>"; };
 		1439892820BBB62200E8DF9F /* VideoPopupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoPopupViewController.swift; sourceTree = "<group>"; };
 		1439892A20BBD35C00E8DF9F /* PrivacyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivacyViewController.swift; sourceTree = "<group>"; };
 		143F3ECC20B2B14900784EB9 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
@@ -167,6 +171,8 @@
 				1445521720C04DD50005B126 /* GrowingTextView.swift */,
 				1433CB9020C18A1A003C8A12 /* GradientView.swift */,
 				1433CB9220C21730003C8A12 /* GradientNavigationController.swift */,
+				1433CB9420C3D3BA003C8A12 /* CircularImageView.swift */,
+				1433CB9620C3D603003C8A12 /* CircularGradientView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -570,6 +576,7 @@
 				145D19CD2098647400BE71D0 /* TabBarViewController.swift in Sources */,
 				145D19C12098545900BE71D0 /* Keys.swift in Sources */,
 				14F7BD972099935500DE78C9 /* SearchYoutubeResultCell.swift in Sources */,
+				1433CB9520C3D3BA003C8A12 /* CircularImageView.swift in Sources */,
 				14F7BD8F2099597C00DE78C9 /* SearchYoutubeViewController.swift in Sources */,
 				14DF3BF720970F0F00215368 /* FeedViewController.swift in Sources */,
 				14DF3C0A2097191600215368 /* ArticleCollectionViewCell.swift in Sources */,
@@ -584,6 +591,7 @@
 				14DA41A620A162C600A74254 /* FirebaseManager.swift in Sources */,
 				144F808620B68B08002D19CD /* DesignableButton.swift in Sources */,
 				143F3EF520B55DF200784EB9 /* DesignableTextView.swift in Sources */,
+				1433CB9720C3D603003C8A12 /* CircularGradientView.swift in Sources */,
 				14259D4A20BCF8E400AB8FF5 /* DesignableLabel.swift in Sources */,
 				1439892B20BBD35C00E8DF9F /* PrivacyViewController.swift in Sources */,
 				1445521820C04DD60005B126 /* GrowingTextView.swift in Sources */,

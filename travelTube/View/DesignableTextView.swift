@@ -8,6 +8,7 @@
 
 import UIKit
 
+@IBDesignable
 class DesignableTextView: UITextView {
     @IBInspectable var cornerRadius: CGFloat = 0 {
         didSet {
