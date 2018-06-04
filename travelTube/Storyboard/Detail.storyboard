@@ -70,26 +70,27 @@
                                             <rect key="frame" x="0.0" y="90" width="375" height="380"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sRk-Gd-XMo">
-                                                    <rect key="frame" x="0.0" y="0.0" width="375" height="316.5"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="375" height="380"/>
                                                     <subviews>
                                                         <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="8Pb-7M-Mis">
-                                                            <rect key="frame" x="0.0" y="0.0" width="375" height="266.5"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="375" height="330"/>
                                                         </mapView>
                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="w3n-D6-LgR" customClass="DesignableButton" customModule="travelTube" customModuleProvider="target">
-                                                            <rect key="frame" x="56" y="276.5" width="262.5" height="30"/>
+                                                            <rect key="frame" x="56" y="340" width="262.5" height="30"/>
+                                                            <color key="backgroundColor" red="0.41960784309999999" green="0.52941176469999995" blue="0.83529411760000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <inset key="titleEdgeInsets" minX="1" minY="0.0" maxX="0.0" maxY="0.0"/>
                                                             <state key="normal" title="Open in Map">
-                                                                <color key="titleColor" red="0.25882352939999997" green="0.55294117649999996" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                             </state>
                                                             <userDefinedRuntimeAttributes>
                                                                 <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                                                                     <real key="value" value="5"/>
                                                                 </userDefinedRuntimeAttribute>
-                                                                <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
-                                                                    <color key="value" red="0.25882352939999997" green="0.55294117649999996" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                                </userDefinedRuntimeAttribute>
                                                                 <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
-                                                                    <real key="value" value="1"/>
+                                                                    <real key="value" value="0.0"/>
+                                                                </userDefinedRuntimeAttribute>
+                                                                <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                                                    <color key="value" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 </userDefinedRuntimeAttribute>
                                                             </userDefinedRuntimeAttributes>
                                                             <connections>
@@ -105,7 +106,6 @@
                                                         <constraint firstItem="w3n-D6-LgR" firstAttribute="top" secondItem="8Pb-7M-Mis" secondAttribute="bottom" constant="10" id="Esw-1K-MB3"/>
                                                         <constraint firstAttribute="bottom" secondItem="w3n-D6-LgR" secondAttribute="bottom" constant="10" id="GOD-Gh-bLl"/>
                                                         <constraint firstItem="w3n-D6-LgR" firstAttribute="centerX" secondItem="sRk-Gd-XMo" secondAttribute="centerX" id="fhy-Hz-PFa"/>
-                                                        <constraint firstAttribute="bottom" secondItem="8Pb-7M-Mis" secondAttribute="bottom" constant="50" id="lZq-Bg-3uT"/>
                                                         <constraint firstAttribute="trailing" secondItem="8Pb-7M-Mis" secondAttribute="trailing" id="mef-vw-OtF"/>
                                                     </constraints>
                                                 </view>
@@ -229,12 +229,12 @@
                                                 <constraint firstItem="aS8-EM-iUg" firstAttribute="top" secondItem="kcE-aH-3eu" secondAttribute="top" id="JPj-qJ-DqC"/>
                                                 <constraint firstAttribute="bottom" secondItem="jeQ-aW-GOb" secondAttribute="bottom" id="Nog-Nq-i9T"/>
                                                 <constraint firstAttribute="trailing" secondItem="jeQ-aW-GOb" secondAttribute="trailing" id="YEP-Mi-1Xz"/>
-                                                <constraint firstItem="sRk-Gd-XMo" firstAttribute="height" secondItem="aS8-EM-iUg" secondAttribute="height" multiplier="1.5" id="YeF-ld-uFx"/>
                                                 <constraint firstItem="sRk-Gd-XMo" firstAttribute="top" secondItem="kcE-aH-3eu" secondAttribute="top" id="bQI-lM-wYp"/>
                                                 <constraint firstItem="aS8-EM-iUg" firstAttribute="leading" secondItem="kcE-aH-3eu" secondAttribute="leading" id="fVZ-3z-ZOI"/>
                                                 <constraint firstAttribute="bottom" secondItem="jeQ-aW-GOb" secondAttribute="bottom" id="gWm-yx-mNT"/>
                                                 <constraint firstItem="jeQ-aW-GOb" firstAttribute="top" secondItem="aS8-EM-iUg" secondAttribute="bottom" id="oho-g7-7UN"/>
                                                 <constraint firstAttribute="trailing" secondItem="aS8-EM-iUg" secondAttribute="trailing" id="pQA-OG-UlW"/>
+                                                <constraint firstAttribute="bottom" secondItem="sRk-Gd-XMo" secondAttribute="bottom" id="shT-5u-Mdi"/>
                                                 <constraint firstItem="sRk-Gd-XMo" firstAttribute="leading" secondItem="kcE-aH-3eu" secondAttribute="leading" id="tr6-bR-8PA"/>
                                                 <constraint firstAttribute="trailing" secondItem="sRk-Gd-XMo" secondAttribute="trailing" id="z5E-fy-GsZ"/>
                                             </constraints>
