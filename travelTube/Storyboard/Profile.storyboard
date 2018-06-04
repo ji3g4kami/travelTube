@@ -75,7 +75,7 @@
                                 </constraints>
                             </view>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="B5f-5o-0Dz">
-                                <rect key="frame" x="10" y="319" width="355" height="348"/>
+                                <rect key="frame" x="0.0" y="319" width="375" height="348"/>
                                 <connections>
                                     <segue destination="kpR-es-jPw" kind="embed" id="DwQ-sb-iCY"/>
                                 </connections>
@@ -96,9 +96,9 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <gestureRecognizers/>
                         <constraints>
-                            <constraint firstItem="B5f-5o-0Dz" firstAttribute="leading" secondItem="cpR-wc-LKt" secondAttribute="leading" constant="10" id="32E-h3-XNZ"/>
+                            <constraint firstItem="B5f-5o-0Dz" firstAttribute="leading" secondItem="cpR-wc-LKt" secondAttribute="leading" id="32E-h3-XNZ"/>
                             <constraint firstItem="cpR-wc-LKt" firstAttribute="trailing" secondItem="me8-BB-wKo" secondAttribute="trailing" id="49k-78-ej4"/>
-                            <constraint firstItem="B5f-5o-0Dz" firstAttribute="trailing" secondItem="cpR-wc-LKt" secondAttribute="trailing" constant="-10" id="81q-8P-TEE"/>
+                            <constraint firstItem="B5f-5o-0Dz" firstAttribute="trailing" secondItem="cpR-wc-LKt" secondAttribute="trailing" id="81q-8P-TEE"/>
                             <constraint firstItem="nDg-6U-S1q" firstAttribute="centerX" secondItem="Jb2-sq-LdA" secondAttribute="centerX" id="Kuv-Q1-AnD"/>
                             <constraint firstItem="nDg-6U-S1q" firstAttribute="top" secondItem="me8-BB-wKo" secondAttribute="bottom" constant="10" id="SPW-xR-FZm"/>
                             <constraint firstItem="B5f-5o-0Dz" firstAttribute="bottom" secondItem="cpR-wc-LKt" secondAttribute="bottom" id="VIt-gO-OIZ"/>
@@ -313,11 +313,11 @@
             <objects>
                 <viewController id="kpR-es-jPw" customClass="HistoryArticleViewController" customModule="travelTube" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Gtq-qv-tnx">
-                        <rect key="frame" x="0.0" y="0.0" width="355" height="348"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="348"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="ygD-vg-VPP">
-                                <rect key="frame" x="0.0" y="0.0" width="355" height="342"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="342"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Ekg-5C-t3W">
                                     <size key="itemSize" width="50" height="50"/>
