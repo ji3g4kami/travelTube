@@ -67,7 +67,7 @@
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <subviews>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kcE-aH-3eu">
-                                            <rect key="frame" x="0.0" y="90" width="375" height="306"/>
+                                            <rect key="frame" x="0.0" y="90" width="375" height="380"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sRk-Gd-XMo">
                                                     <rect key="frame" x="0.0" y="0.0" width="375" height="316.5"/>
@@ -117,10 +117,10 @@
                                                     </constraints>
                                                 </view>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jeQ-aW-GOb">
-                                                    <rect key="frame" x="0.0" y="211" width="375" height="95"/>
+                                                    <rect key="frame" x="0.0" y="211" width="375" height="169"/>
                                                     <subviews>
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="poW-Fw-cC6" customClass="TagListView" customModule="TagListView">
-                                                            <rect key="frame" x="20" y="50" width="295" height="30"/>
+                                                            <rect key="frame" x="20" y="124" width="295" height="30"/>
                                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <color key="tintColor" red="0.41960784309999999" green="0.52941176469999995" blue="0.83529411760000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <constraints>
@@ -157,7 +157,7 @@
                                                             </userDefinedRuntimeAttributes>
                                                         </view>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" lineBreakMode="characterWrap" numberOfLines="0" minimumFontSize="13" translatesAutoresizingMaskIntoConstraints="NO" id="9Bv-4P-Q5w">
-                                                            <rect key="frame" x="15" y="10" width="345" height="30"/>
+                                                            <rect key="frame" x="15" y="10" width="345" height="104"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="30" id="jUM-Ac-oMX"/>
                                                             </constraints>
@@ -166,7 +166,7 @@
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wtG-Fv-uQF">
-                                                            <rect key="frame" x="315" y="45" width="40" height="40"/>
+                                                            <rect key="frame" x="315" y="119" width="40" height="40"/>
                                                             <subviews>
                                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pm8-Ut-dDQ">
                                                                     <rect key="frame" x="7.5" y="7.5" width="25" height="25"/>
@@ -195,7 +195,7 @@
                                                             </constraints>
                                                         </view>
                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zhz-dh-xTN">
-                                                            <rect key="frame" x="340" y="55.5" width="25" height="25"/>
+                                                            <rect key="frame" x="340" y="129.5" width="25" height="25"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" constant="25" id="SWV-fx-yXn"/>
                                                                 <constraint firstAttribute="height" constant="25" id="oO0-Wx-Dbs"/>
@@ -313,6 +313,7 @@
                                         <constraint firstItem="W8l-dA-MNL" firstAttribute="top" secondItem="od0-30-u75" secondAttribute="top" id="NL7-MM-JeE"/>
                                         <constraint firstAttribute="trailing" secondItem="W8l-dA-MNL" secondAttribute="trailing" id="ShK-0m-sIa"/>
                                         <constraint firstAttribute="trailing" secondItem="kcE-aH-3eu" secondAttribute="trailing" id="XdB-0U-y4d"/>
+                                        <constraint firstAttribute="bottom" secondItem="jeQ-aW-GOb" secondAttribute="bottom" id="hof-SM-Qdr"/>
                                         <constraint firstItem="kcE-aH-3eu" firstAttribute="leading" secondItem="od0-30-u75" secondAttribute="leading" id="wOG-H2-Gjp"/>
                                         <constraint firstItem="W8l-dA-MNL" firstAttribute="leading" secondItem="od0-30-u75" secondAttribute="leading" id="wph-vd-eT0"/>
                                     </constraints>
@@ -669,7 +670,7 @@
                                             </userDefinedRuntimeAttributes>
                                         </view>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9in-x0-NVg" customClass="DesignableLabel" customModule="travelTube" customModuleProvider="target">
-                                            <rect key="frame" x="83" y="14" width="40" height="26"/>
+                                            <rect key="frame" x="83" y="14" width="60" height="26"/>
                                             <color key="backgroundColor" white="0.94999999999999996" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="26" id="OTl-TN-fxJ"/>

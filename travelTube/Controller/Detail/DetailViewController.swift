@@ -80,10 +80,12 @@ class DetailViewController: UIViewController {
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         guard let headerView = self.tableView.tableHeaderView else { return }
-        headerView.frame.size.height = youtubePlayer.frame.size.height + infoView.frame.height + bannerView.frame.size.height
-        mapViewContainer.frame.size.height = youtubePlayer.frame.size.height + infoView.frame.height
-        mapView.frame.size.height = mapViewContainer.frame.size.height - 40
-        openInMapButton.frame.origin.y = mapView.frame.origin.y + mapView.frame.size.height + 7
+        let size = headerView.systemLayoutSizeFitting(UILayoutFittingCompressedSize)
+        if headerView.frame.size.height != size.height {
+            headerView.frame.size.height = size.height
+            tableView.tableHeaderView = headerView
+            tableView.layoutIfNeeded()
+        }
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
