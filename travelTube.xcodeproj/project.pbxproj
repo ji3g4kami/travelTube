@@ -26,6 +26,7 @@
 		143F3EF120B5465500784EB9 /* CommentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 143F3EF020B5465500784EB9 /* CommentViewController.swift */; };
 		143F3EF320B5513500784EB9 /* DesignableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 143F3EF220B5513500784EB9 /* DesignableView.swift */; };
 		143F3EF520B55DF200784EB9 /* DesignableTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 143F3EF420B55DF200784EB9 /* DesignableTextView.swift */; };
+		1443272120C513FA00BFCC94 /* HistoryArticleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1443272020C513FA00BFCC94 /* HistoryArticleViewController.swift */; };
 		1445521620BFA55B0005B126 /* EditArticleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1445521520BFA55B0005B126 /* EditArticleViewController.swift */; };
 		1445521820C04DD60005B126 /* GrowingTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1445521720C04DD50005B126 /* GrowingTextView.swift */; };
 		144F808620B68B08002D19CD /* DesignableButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 144F808520B68B08002D19CD /* DesignableButton.swift */; };
@@ -82,6 +83,7 @@
 		143F3EF020B5465500784EB9 /* CommentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentViewController.swift; sourceTree = "<group>"; };
 		143F3EF220B5513500784EB9 /* DesignableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesignableView.swift; sourceTree = "<group>"; };
 		143F3EF420B55DF200784EB9 /* DesignableTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesignableTextView.swift; sourceTree = "<group>"; };
+		1443272020C513FA00BFCC94 /* HistoryArticleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryArticleViewController.swift; sourceTree = "<group>"; };
 		1445521520BFA55B0005B126 /* EditArticleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditArticleViewController.swift; sourceTree = "<group>"; };
 		1445521720C04DD50005B126 /* GrowingTextView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GrowingTextView.swift; sourceTree = "<group>"; };
 		144F808520B68B08002D19CD /* DesignableButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesignableButton.swift; sourceTree = "<group>"; };
@@ -283,6 +285,7 @@
 				14DA41A020A1420200A74254 /* ProfileViewController.swift */,
 				1439892A20BBD35C00E8DF9F /* PrivacyViewController.swift */,
 				14F7BD9220995A7E00DE78C9 /* AnonymousProfileViewController.swift */,
+				1443272020C513FA00BFCC94 /* HistoryArticleViewController.swift */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -589,6 +592,7 @@
 				14DF3BF720970F0F00215368 /* FeedViewController.swift in Sources */,
 				14DF3C0A2097191600215368 /* ArticleCollectionViewCell.swift in Sources */,
 				14DF3BF520970F0F00215368 /* AppDelegate.swift in Sources */,
+				1443272120C513FA00BFCC94 /* HistoryArticleViewController.swift in Sources */,
 				1414065320A04F9900BFB170 /* LoginViewController.swift in Sources */,
 				14AE66BA20AAB5CD007D7851 /* DetailViewController.swift in Sources */,
 				145D19CA20985CED00BE71D0 /* Constants.swift in Sources */,
