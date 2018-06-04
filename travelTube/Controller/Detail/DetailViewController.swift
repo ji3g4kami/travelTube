@@ -355,7 +355,7 @@ extension DetailViewController: UITableViewDelegate, UITableViewDataSource {
 
     func deleteAction(at indexPath: IndexPath) -> UIContextualAction {
         let action = UIContextualAction(style: .destructive, title: "Delete") { (_, _, completion) in
-            guard let articleId = self.youtubeId else { return }
+            guard let articleId = self.articleId else { return }
             FirebaseManager.shared.ref.child("comments/\(articleId)").child(self.comments[indexPath.row].commentId).removeValue()
             completion(true)
         }
