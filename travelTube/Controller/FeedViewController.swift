@@ -61,6 +61,10 @@ class FeedViewController: UIViewController {
             }
         }
     }
+
+    @objc func saveArticleToCoreData(_ sender: UIButton) {
+        print("\nLike button\(sender.tag) pressed\n")
+    }
 }
 
 extension FeedViewController: UITableViewDelegate, UITableViewDataSource {
@@ -80,6 +84,8 @@ extension FeedViewController: UITableViewDelegate, UITableViewDataSource {
         if let tags = articleArray[indexPath.row].tag {
             cell.tagsView.addTags(tags)
         }
+        cell.likeButton.tag = indexPath.row
+        cell.likeButton.addTarget(self, action: #selector(saveArticleToCoreData), for: .touchUpInside)
         return cell
     }
 

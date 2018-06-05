@@ -15,6 +15,7 @@ class FeedCell: UITableViewCell {
     @IBOutlet weak var feedView: CardView!
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var tagsView: TagListView!
+    @IBOutlet weak var likeButton: UIButton!
 
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -38,21 +39,11 @@ class FeedCell: UITableViewCell {
         videoImage.layer.maskedCorners = [.layerMaxXMinYCorner, .layerMinXMinYCorner]
     }
 
-//    override func setSelected(_ selected: Bool, animated: Bool) {
-//        let color = feedView.backgroundColor
-//        super.setSelected(selected, animated: animated)
-//
-//        if selected {
-//            feedView.backgroundColor = color
-//        }
-//    }
-//
-//    override func setHighlighted(_ highlighted: Bool, animated: Bool) {
-//        let color = feedView.backgroundColor
-//        super.setHighlighted(highlighted, animated: animated)
-//
-//        if highlighted {
-//            feedView.backgroundColor = color
-//        }
-//    }
+    @IBAction func likeButtonPressed(_ sender: UIButton) {
+        if sender.currentImage == #imageLiteral(resourceName: "btn_like_normal") {
+            sender.setImage(#imageLiteral(resourceName: "btn_like_selected"), for: .normal)
+        } else {
+            sender.setImage(#imageLiteral(resourceName: "btn_like_normal"), for: .normal)
+        }
+    }
 }
