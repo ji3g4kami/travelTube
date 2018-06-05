@@ -17,7 +17,9 @@ class ProfileViewController: UIViewController, HistoryScrollDelegate {
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var userImageView: UIImageView!
     @IBOutlet weak var userProfileView: UIView!
-
+    @IBOutlet weak var historyArticleContainer: UIView!
+    @IBOutlet weak var preserveArticleContainer: UIView!
+    
     var collectionViewController: HistoryArticleViewController?
 
     override func viewDidLoad() {
@@ -72,6 +74,17 @@ class ProfileViewController: UIViewController, HistoryScrollDelegate {
 
         // set profile name
         nameLabel.text = UserManager.shared.userName
+    }
+
+    @IBAction func toggleSegment(_ sender: UISegmentedControl) {
+        switch sender.selectedSegmentIndex {
+        case 1:
+            historyArticleContainer.alpha = 0
+            preserveArticleContainer.alpha = 1
+        default:
+            historyArticleContainer.alpha = 1
+            preserveArticleContainer.alpha = 0
+        }
     }
 }
 
