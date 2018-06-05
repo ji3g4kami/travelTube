@@ -12,10 +12,13 @@ import SDWebImage
 import Firebase
 import CodableFirebase
 
-class ProfileViewController: UIViewController {
+class ProfileViewController: UIViewController, HistoryScrollDelegate {
 
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var userImageView: UIImageView!
+    @IBOutlet weak var userProfileView: UIView!
+
+    var collectionViewController: HistoryArticleViewController?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,6 +28,24 @@ class ProfileViewController: UIViewController {
         userImageView.addGestureRecognizer(touch)
         setUserProfile()
         swipeRightToLogout()
+    }
+
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        collectionViewController?.profileViewHeight =  userProfileView.frame.size.height
+        collectionViewController?.setupCollectionView()
+    }
+
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let historyArticleViewController = segue.destination as? HistoryArticleViewController
+        historyArticleViewController?.delegate = self
+        collectionViewController = historyArticleViewController
+    }
+
+    func moveAccordingTo(scrollY: CGFloat) {
+        guard let navigationbarHight = self.navigationController?.navigationBar.frame.size.height else { return }
+        let statusbarHeight = UIApplication.shared.statusBarFrame.height
+        userProfileView.frame = CGRect(origin: CGPoint(x: 0, y: navigationbarHight + statusbarHeight - userProfileView.frame.size.height - scrollY), size: userProfileView.frame.size)
     }
 
     func swipeRightToLogout() {

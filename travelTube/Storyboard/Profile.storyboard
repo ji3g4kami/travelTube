@@ -41,21 +41,27 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="B5f-5o-0Dz">
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <connections>
+                                    <segue destination="kpR-es-jPw" kind="embed" id="DwQ-sb-iCY"/>
+                                </connections>
+                            </containerView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="me8-BB-wKo">
-                                <rect key="frame" x="0.0" y="64" width="375" height="209"/>
+                                <rect key="frame" x="0.0" y="64" width="375" height="199"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="k2i-Dg-Ah6" customClass="CircularGradientView" customModule="travelTube" customModuleProvider="target">
-                                        <rect key="frame" x="133" y="50.5" width="109" height="109"/>
+                                        <rect key="frame" x="135.5" y="48" width="104" height="104"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </view>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="profile_placeholder" translatesAutoresizingMaskIntoConstraints="NO" id="qfR-Q0-s4x" customClass="CircularImageView" customModule="travelTube" customModuleProvider="target">
-                                        <rect key="frame" x="135" y="52.5" width="105" height="105"/>
+                                        <rect key="frame" x="137.5" y="50" width="100" height="100"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="qfR-Q0-s4x" secondAttribute="height" multiplier="1:1" id="Jqb-BX-eaW"/>
                                         </constraints>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5DN-sg-jVL">
-                                        <rect key="frame" x="165" y="168" width="45" height="20.5"/>
+                                        <rect key="frame" x="165" y="160.5" width="45" height="20.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -74,36 +80,16 @@
                                     <constraint firstItem="qfR-Q0-s4x" firstAttribute="height" secondItem="me8-BB-wKo" secondAttribute="height" multiplier="0.5" constant="0.5" id="vC1-Ko-Ajn"/>
                                 </constraints>
                             </view>
-                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="B5f-5o-0Dz">
-                                <rect key="frame" x="0.0" y="319" width="375" height="348"/>
-                                <connections>
-                                    <segue destination="kpR-es-jPw" kind="embed" id="DwQ-sb-iCY"/>
-                                </connections>
-                            </containerView>
-                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="nDg-6U-S1q">
-                                <rect key="frame" x="87.5" y="283" width="200" height="29"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="28" id="7HW-Dx-AIT"/>
-                                    <constraint firstAttribute="width" constant="200" id="yuQ-sQ-6s9"/>
-                                </constraints>
-                                <segments>
-                                    <segment title="First"/>
-                                    <segment title="Second"/>
-                                </segments>
-                                <color key="tintColor" red="0.41960784309999999" green="0.52941176469999995" blue="0.83529411760000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                            </segmentedControl>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <gestureRecognizers/>
                         <constraints>
+                            <constraint firstItem="me8-BB-wKo" firstAttribute="height" secondItem="cpR-wc-LKt" secondAttribute="height" multiplier="0.33" id="2Iu-h3-bpj"/>
                             <constraint firstItem="B5f-5o-0Dz" firstAttribute="leading" secondItem="cpR-wc-LKt" secondAttribute="leading" id="32E-h3-XNZ"/>
                             <constraint firstItem="cpR-wc-LKt" firstAttribute="trailing" secondItem="me8-BB-wKo" secondAttribute="trailing" id="49k-78-ej4"/>
                             <constraint firstItem="B5f-5o-0Dz" firstAttribute="trailing" secondItem="cpR-wc-LKt" secondAttribute="trailing" id="81q-8P-TEE"/>
-                            <constraint firstItem="nDg-6U-S1q" firstAttribute="centerX" secondItem="Jb2-sq-LdA" secondAttribute="centerX" id="Kuv-Q1-AnD"/>
-                            <constraint firstItem="nDg-6U-S1q" firstAttribute="top" secondItem="me8-BB-wKo" secondAttribute="bottom" constant="10" id="SPW-xR-FZm"/>
+                            <constraint firstItem="B5f-5o-0Dz" firstAttribute="top" secondItem="cpR-wc-LKt" secondAttribute="top" id="Jyu-MY-shg"/>
                             <constraint firstItem="B5f-5o-0Dz" firstAttribute="bottom" secondItem="cpR-wc-LKt" secondAttribute="bottom" id="VIt-gO-OIZ"/>
-                            <constraint firstItem="B5f-5o-0Dz" firstAttribute="top" secondItem="nDg-6U-S1q" secondAttribute="bottom" constant="8" id="bo5-sJ-6Yo"/>
-                            <constraint firstItem="B5f-5o-0Dz" firstAttribute="height" secondItem="cpR-wc-LKt" secondAttribute="height" multiplier="0.66" constant="-50" id="cCc-PI-ihR"/>
                             <constraint firstItem="me8-BB-wKo" firstAttribute="top" secondItem="cpR-wc-LKt" secondAttribute="top" id="e24-jW-19P"/>
                             <constraint firstItem="me8-BB-wKo" firstAttribute="leading" secondItem="cpR-wc-LKt" secondAttribute="leading" id="hu6-6f-Ylk"/>
                         </constraints>
@@ -113,6 +99,7 @@
                     <connections>
                         <outlet property="nameLabel" destination="5DN-sg-jVL" id="rTZ-bL-amh"/>
                         <outlet property="userImageView" destination="qfR-Q0-s4x" id="zRd-xc-viu"/>
+                        <outlet property="userProfileView" destination="me8-BB-wKo" id="KGV-lY-hll"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0sO-mG-Fey" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -313,11 +300,11 @@
             <objects>
                 <viewController id="kpR-es-jPw" customClass="HistoryArticleViewController" customModule="travelTube" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Gtq-qv-tnx">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="348"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="ygD-vg-VPP">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="342"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="597"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Ekg-5C-t3W">
                                     <size key="itemSize" width="50" height="50"/>

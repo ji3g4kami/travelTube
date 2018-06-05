@@ -11,16 +11,21 @@ import Firebase
 import SDWebImage
 import CodableFirebase
 
+protocol HistoryScrollDelegate: class {
+    func moveAccordingTo(scrollY: CGFloat)
+}
+
 class HistoryArticleViewController: UIViewController {
 
     @IBOutlet weak var collectionView: UICollectionView!
 
     var articleArray = [Article]()
+    weak var delegate: HistoryScrollDelegate?
+    var profileViewHeight: CGFloat = 300
 
     override func viewDidLoad() {
         super.viewDidLoad()
         requestUserArticle()
-        setupCollectionView()
     }
 
     func requestUserArticle() {
@@ -43,11 +48,17 @@ class HistoryArticleViewController: UIViewController {
         }
     }
 
-    private func setupCollectionView() {
+    func setupCollectionView() {
         collectionView.delegate = self
         collectionView.dataSource = self
         let xib = UINib(nibName: "ArticleCollectionViewCell", bundle: nil)
         collectionView.register(xib, forCellWithReuseIdentifier: "articleCell")
+
+        collectionView.contentInset = UIEdgeInsets(top: profileViewHeight, left: 0, bottom: 0, right: 0)
+    }
+
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        self.delegate?.moveAccordingTo(scrollY: scrollView.contentOffset.y)
     }
 }
 
