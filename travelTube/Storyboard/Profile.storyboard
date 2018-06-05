@@ -374,10 +374,10 @@
             </objects>
             <point key="canvasLocation" x="3914" y="85"/>
         </scene>
-        <!--View Controller-->
+        <!--Preserved Article View Controller-->
         <scene sceneID="G9w-ey-oR2">
             <objects>
-                <viewController id="EYp-Y3-hLH" sceneMemberID="viewController">
+                <viewController id="EYp-Y3-hLH" customClass="PreservedArticleViewController" customModule="travelTube" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Gss-i1-Z5s">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

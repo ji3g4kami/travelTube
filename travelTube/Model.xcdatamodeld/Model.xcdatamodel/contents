@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="14135" systemVersion="17E202" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="Preserved" representedClassName="Preserved" syncable="YES" codeGenerationType="class">
+        <attribute name="articleId" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="tags" optional="YES" attributeType="Transformable" customClassName="[String]" syncable="YES"/>
+        <attribute name="youtubeImage" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="youtubeTitle" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="Preserved" positionX="-63" positionY="-18" width="128" height="105"/>
+    </elements>
+</model>

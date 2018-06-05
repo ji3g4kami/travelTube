@@ -19,7 +19,7 @@ class ProfileViewController: UIViewController, HistoryScrollDelegate {
     @IBOutlet weak var userProfileView: UIView!
     @IBOutlet weak var historyArticleContainer: UIView!
     @IBOutlet weak var preserveArticleContainer: UIView!
-    
+
     var collectionViewController: HistoryArticleViewController?
 
     override func viewDidLoad() {

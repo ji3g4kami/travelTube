@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1408F56620C6697C0047E05B /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 1408F56420C6697C0047E05B /* Model.xcdatamodeld */; };
+		1408F58920C66DD50047E05B /* PreservedArticleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1408F58820C66DD50047E05B /* PreservedArticleViewController.swift */; };
 		1414065020A023D800BFB170 /* AnnotationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1414064E20A023D800BFB170 /* AnnotationCell.swift */; };
 		1414065120A023D800BFB170 /* AnnotationCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1414064F20A023D800BFB170 /* AnnotationCell.xib */; };
 		1414065320A04F9900BFB170 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1414065220A04F9900BFB170 /* LoginViewController.swift */; };
@@ -63,6 +65,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1408F56520C6697C0047E05B /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
+		1408F58820C66DD50047E05B /* PreservedArticleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreservedArticleViewController.swift; sourceTree = "<group>"; };
 		1414064E20A023D800BFB170 /* AnnotationCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnnotationCell.swift; sourceTree = "<group>"; };
 		1414064F20A023D800BFB170 /* AnnotationCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AnnotationCell.xib; sourceTree = "<group>"; };
 		1414065220A04F9900BFB170 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -286,6 +290,7 @@
 				1439892A20BBD35C00E8DF9F /* PrivacyViewController.swift */,
 				14F7BD9220995A7E00DE78C9 /* AnonymousProfileViewController.swift */,
 				1443272020C513FA00BFCC94 /* HistoryArticleViewController.swift */,
+				1408F58820C66DD50047E05B /* PreservedArticleViewController.swift */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -323,6 +328,7 @@
 				14DF3C0020970F1100215368 /* Info.plist */,
 				145D19B820980C1D00BE71D0 /* GoogleService-Info.plist */,
 				143F3EEE20B405E600784EB9 /* Assets.xcassets */,
+				1408F56420C6697C0047E05B /* Model.xcdatamodeld */,
 			);
 			path = travelTube;
 			sourceTree = "<group>";
@@ -597,7 +603,9 @@
 				14AE66BA20AAB5CD007D7851 /* DetailViewController.swift in Sources */,
 				145D19CA20985CED00BE71D0 /* Constants.swift in Sources */,
 				1414065020A023D800BFB170 /* AnnotationCell.swift in Sources */,
+				1408F58920C66DD50047E05B /* PreservedArticleViewController.swift in Sources */,
 				14DA41A120A1420200A74254 /* ProfileViewController.swift in Sources */,
+				1408F56620C6697C0047E05B /* Model.xcdatamodeld in Sources */,
 				1439892920BBB62200E8DF9F /* VideoPopupViewController.swift in Sources */,
 				14DA41A420A1522B00A74254 /* AuthManager.swift in Sources */,
 				14DA41A620A162C600A74254 /* FirebaseManager.swift in Sources */,
@@ -819,6 +827,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		1408F56420C6697C0047E05B /* Model.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				1408F56520C6697C0047E05B /* Model.xcdatamodel */,
+			);
+			currentVersion = 1408F56520C6697C0047E05B /* Model.xcdatamodel */;
+			path = Model.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 14DF3BE920970F0F00215368 /* Project object */;
 }
