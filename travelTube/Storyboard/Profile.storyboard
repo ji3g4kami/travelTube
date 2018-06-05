@@ -48,43 +48,61 @@
                                 </connections>
                             </containerView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="me8-BB-wKo">
-                                <rect key="frame" x="0.0" y="64" width="375" height="199"/>
+                                <rect key="frame" x="0.0" y="64" width="375" height="249"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="k2i-Dg-Ah6" customClass="CircularGradientView" customModule="travelTube" customModuleProvider="target">
-                                        <rect key="frame" x="135.5" y="48" width="104" height="104"/>
+                                        <rect key="frame" x="138.5" y="60.5" width="98" height="98"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </view>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="profile_placeholder" translatesAutoresizingMaskIntoConstraints="NO" id="qfR-Q0-s4x" customClass="CircularImageView" customModule="travelTube" customModuleProvider="target">
-                                        <rect key="frame" x="137.5" y="50" width="100" height="100"/>
+                                        <rect key="frame" x="140.5" y="62.5" width="94" height="94"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="qfR-Q0-s4x" secondAttribute="height" multiplier="1:1" id="Jqb-BX-eaW"/>
                                         </constraints>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5DN-sg-jVL">
-                                        <rect key="frame" x="165" y="160.5" width="45" height="20.5"/>
+                                        <rect key="frame" x="165" y="167" width="45" height="22"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="22" id="BXE-ZK-1v0"/>
+                                        </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="GW6-kN-CzP">
+                                        <rect key="frame" x="10" y="220" width="355" height="29"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="28" id="a0a-3R-B0p"/>
+                                        </constraints>
+                                        <segments>
+                                            <segment title="" image="youtube"/>
+                                            <segment title="" image="btn_like_selected"/>
+                                        </segments>
+                                        <color key="tintColor" red="0.41960784309999999" green="0.52941176469999995" blue="0.83529411760000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </segmentedControl>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstItem="qfR-Q0-s4x" firstAttribute="centerY" secondItem="me8-BB-wKo" secondAttribute="centerY" id="6bW-fz-h4Z"/>
+                                    <constraint firstAttribute="trailing" secondItem="GW6-kN-CzP" secondAttribute="trailing" constant="10" id="0ZS-bd-vOr"/>
+                                    <constraint firstItem="qfR-Q0-s4x" firstAttribute="centerY" secondItem="me8-BB-wKo" secondAttribute="centerY" constant="-15" id="6bW-fz-h4Z"/>
                                     <constraint firstItem="k2i-Dg-Ah6" firstAttribute="width" secondItem="qfR-Q0-s4x" secondAttribute="width" constant="4" id="C1c-18-aJa"/>
                                     <constraint firstItem="k2i-Dg-Ah6" firstAttribute="centerX" secondItem="qfR-Q0-s4x" secondAttribute="centerX" id="EJa-2X-baW"/>
+                                    <constraint firstItem="GW6-kN-CzP" firstAttribute="leading" secondItem="me8-BB-wKo" secondAttribute="leading" constant="10" id="KYe-pT-CvZ"/>
                                     <constraint firstItem="qfR-Q0-s4x" firstAttribute="centerX" secondItem="me8-BB-wKo" secondAttribute="centerX" id="MFv-CS-HiM"/>
+                                    <constraint firstAttribute="bottom" secondItem="GW6-kN-CzP" secondAttribute="bottom" constant="1" id="Q3H-f1-o0d"/>
                                     <constraint firstItem="5DN-sg-jVL" firstAttribute="centerX" secondItem="me8-BB-wKo" secondAttribute="centerX" id="Sn2-2A-K0K"/>
                                     <constraint firstItem="5DN-sg-jVL" firstAttribute="top" secondItem="qfR-Q0-s4x" secondAttribute="bottom" constant="10" id="UF1-zz-qQa"/>
+                                    <constraint firstItem="GW6-kN-CzP" firstAttribute="centerX" secondItem="me8-BB-wKo" secondAttribute="centerX" id="Wbx-qU-vrM"/>
+                                    <constraint firstItem="qfR-Q0-s4x" firstAttribute="width" secondItem="me8-BB-wKo" secondAttribute="width" multiplier="0.25" id="XTE-ar-Oc8"/>
                                     <constraint firstItem="k2i-Dg-Ah6" firstAttribute="height" secondItem="qfR-Q0-s4x" secondAttribute="height" constant="4" id="bKS-oc-d0i"/>
                                     <constraint firstItem="k2i-Dg-Ah6" firstAttribute="centerY" secondItem="qfR-Q0-s4x" secondAttribute="centerY" id="hxY-fy-CS9"/>
-                                    <constraint firstItem="qfR-Q0-s4x" firstAttribute="height" secondItem="me8-BB-wKo" secondAttribute="height" multiplier="0.5" constant="0.5" id="vC1-Ko-Ajn"/>
                                 </constraints>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <gestureRecognizers/>
                         <constraints>
-                            <constraint firstItem="me8-BB-wKo" firstAttribute="height" secondItem="cpR-wc-LKt" secondAttribute="height" multiplier="0.33" id="2Iu-h3-bpj"/>
+                            <constraint firstItem="me8-BB-wKo" firstAttribute="height" secondItem="cpR-wc-LKt" secondAttribute="height" multiplier="0.33" constant="50" id="2Iu-h3-bpj"/>
                             <constraint firstItem="B5f-5o-0Dz" firstAttribute="leading" secondItem="cpR-wc-LKt" secondAttribute="leading" id="32E-h3-XNZ"/>
                             <constraint firstItem="cpR-wc-LKt" firstAttribute="trailing" secondItem="me8-BB-wKo" secondAttribute="trailing" id="49k-78-ej4"/>
                             <constraint firstItem="B5f-5o-0Dz" firstAttribute="trailing" secondItem="cpR-wc-LKt" secondAttribute="trailing" id="81q-8P-TEE"/>
@@ -343,8 +361,10 @@
         </scene>
     </scenes>
     <resources>
+        <image name="btn_like_selected" width="20" height="20"/>
         <image name="error" width="64" height="64"/>
         <image name="menu" width="25" height="25"/>
         <image name="profile_placeholder" width="36" height="36"/>
+        <image name="youtube" width="25" height="25"/>
     </resources>
 </document>
