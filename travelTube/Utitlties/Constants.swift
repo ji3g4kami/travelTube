@@ -42,3 +42,6 @@ enum TTColor: String {
 
     }
 }
+
+// AppDelegate
+let appDelegate = UIApplication.shared.delegate as? AppDelegate

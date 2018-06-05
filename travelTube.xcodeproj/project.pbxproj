@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		1408F56620C6697C0047E05B /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 1408F56420C6697C0047E05B /* Model.xcdatamodeld */; };
 		1408F58920C66DD50047E05B /* PreservedArticleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1408F58820C66DD50047E05B /* PreservedArticleViewController.swift */; };
+		1408F58F20C68F490047E05B /* PreserveManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1408F58E20C68F490047E05B /* PreserveManager.swift */; };
 		1414065020A023D800BFB170 /* AnnotationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1414064E20A023D800BFB170 /* AnnotationCell.swift */; };
 		1414065120A023D800BFB170 /* AnnotationCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1414064F20A023D800BFB170 /* AnnotationCell.xib */; };
 		1414065320A04F9900BFB170 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1414065220A04F9900BFB170 /* LoginViewController.swift */; };
@@ -67,6 +68,7 @@
 /* Begin PBXFileReference section */
 		1408F56520C6697C0047E05B /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
 		1408F58820C66DD50047E05B /* PreservedArticleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreservedArticleViewController.swift; sourceTree = "<group>"; };
+		1408F58E20C68F490047E05B /* PreserveManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreserveManager.swift; sourceTree = "<group>"; };
 		1414064E20A023D800BFB170 /* AnnotationCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnnotationCell.swift; sourceTree = "<group>"; };
 		1414064F20A023D800BFB170 /* AnnotationCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AnnotationCell.xib; sourceTree = "<group>"; };
 		1414065220A04F9900BFB170 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -208,6 +210,7 @@
 				145D19C820985AD800BE71D0 /* Search Youtube */,
 				14DA41A520A162C600A74254 /* FirebaseManager.swift */,
 				14DA41A320A1522B00A74254 /* AuthManager.swift */,
+				1408F58E20C68F490047E05B /* PreserveManager.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -594,6 +597,7 @@
 				145D19C12098545900BE71D0 /* Keys.swift in Sources */,
 				14F7BD972099935500DE78C9 /* SearchYoutubeResultCell.swift in Sources */,
 				1433CB9520C3D3BA003C8A12 /* CircularImageView.swift in Sources */,
+				1408F58F20C68F490047E05B /* PreserveManager.swift in Sources */,
 				14F7BD8F2099597C00DE78C9 /* SearchYoutubeViewController.swift in Sources */,
 				14DF3BF720970F0F00215368 /* FeedViewController.swift in Sources */,
 				14DF3C0A2097191600215368 /* ArticleCollectionViewCell.swift in Sources */,

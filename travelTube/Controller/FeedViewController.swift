@@ -12,6 +12,7 @@ import CodableFirebase
 import SDWebImage
 import TagListView
 import SKActivityIndicatorView
+import CoreData
 
 class FeedViewController: UIViewController {
 
@@ -20,7 +21,6 @@ class FeedViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationController?.navigationBar.setGradientBackground()
         SKActivityIndicator.show("Loading...")
         setupTableView()
         getFeeds()
@@ -35,7 +35,6 @@ class FeedViewController: UIViewController {
     }
 
     func setupTableView() {
-//        tableView.backgroundView = UIImageView(image: #imageLiteral(resourceName: "blur-lake"))
         tableView.delegate = self
         tableView.dataSource = self
         let xib = UINib(nibName: String(describing: FeedCell.self), bundle: nil)
@@ -63,7 +62,42 @@ class FeedViewController: UIViewController {
     }
 
     @objc func saveArticleToCoreData(_ sender: UIButton) {
-        print("\nLike button\(sender.tag) pressed\n")
+        guard let managedContext = appDelegate?.persistentContainer.viewContext else { return }
+        print(articleArray[sender.tag].youtubeTitle)
+        if !PreserveManager.shared.preservedArticleId.contains(articleArray[sender.tag].articleId) {
+            let preserved = Preserved(context: managedContext)
+            preserved.articleId = articleArray[sender.tag].articleId
+            preserved.tags = articleArray[sender.tag].tag
+            preserved.youtubeImage = articleArray[sender.tag].youtubeImage
+            preserved.youtubeTitle = articleArray[sender.tag].youtubeTitle
+            do {
+                try managedContext.save()
+                print("\nSuccessfully saved data\n")
+                PreserveManager.shared.getArticleIdsFromCoreData()
+            } catch {
+                debugPrint("\nCould not save: \(error.localizedDescription)\n")
+            }
+        } else {
+            let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Preserved")
+            do {
+                guard let result = try managedContext.fetch(fetchRequest) as? [Preserved] else { return }
+                for record in result {
+                    if record.articleId == articleArray[sender.tag].articleId {
+                        managedContext.delete(record)
+                        print("Deleted: \(String(describing: record.youtubeTitle))")
+                        PreserveManager.shared.getArticleIdsFromCoreData()
+                    }
+                }
+            } catch {
+                debugPrint("Could not delete: \(error.localizedDescription)")
+            }
+            do {
+                try managedContext.save()
+                print("\nSuccessfully deleted data\n")
+            } catch {
+                debugPrint("\nCould not delete: \(error.localizedDescription)\n")
+            }
+        }
     }
 }
 
@@ -86,6 +120,11 @@ extension FeedViewController: UITableViewDelegate, UITableViewDataSource {
         }
         cell.likeButton.tag = indexPath.row
         cell.likeButton.addTarget(self, action: #selector(saveArticleToCoreData), for: .touchUpInside)
+        if PreserveManager.shared.preservedArticleId.contains(articleArray[indexPath.row].articleId) {
+            cell.likeButton.setImage(#imageLiteral(resourceName: "btn_like_selected"), for: .normal)
+        } else {
+            cell.likeButton.setImage(#imageLiteral(resourceName: "btn_like_normal"), for: .normal)
+        }
         return cell
     }
 

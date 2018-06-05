@@ -34,6 +34,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
         Fabric.with([Crashlytics.self])
         // set statusbar to white
         UIApplication.shared.statusBarStyle = UIStatusBarStyle.lightContent
+        PreserveManager.shared.getArticleIdsFromCoreData()
         return true
     }
 
@@ -122,7 +123,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
     }
 
     // MARK: - Core Data stack
-    
+
     lazy var persistentContainer: NSPersistentContainer = {
         /*
          The persistent container for the application. This implementation
@@ -130,12 +131,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
          application to it. This property is optional since there are legitimate
          error conditions that could cause the creation of the store to fail.
          */
-        let container = NSPersistentContainer(name: "model")
-        container.loadPersistentStores(completionHandler: { (storeDescription, error) in
+        let container = NSPersistentContainer(name: "Model")
+        container.loadPersistentStores(completionHandler: { (_, error) in
             if let error = error as NSError? {
                 // Replace this implementation with code to handle the error appropriately.
                 // fatalError() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
-                
+
                 /*
                  Typical reasons for an error here include:
                  * The parent directory does not exist, cannot be created, or disallows writing.
@@ -149,9 +150,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
         })
         return container
     }()
-    
+
     // MARK: - Core Data Saving support
-    
+
     func saveContext () {
         let context = persistentContainer.viewContext
         if context.hasChanges {
