@@ -44,13 +44,13 @@
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HTW-m9-tOG">
                                 <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                                 <connections>
-                                    <segue destination="EYp-Y3-hLH" kind="embed" id="tfB-DJ-8sA"/>
+                                    <segue destination="EYp-Y3-hLH" kind="embed" identifier="toPreserve" id="tfB-DJ-8sA"/>
                                 </connections>
                             </containerView>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="B5f-5o-0Dz">
                                 <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                                 <connections>
-                                    <segue destination="kpR-es-jPw" kind="embed" id="DwQ-sb-iCY"/>
+                                    <segue destination="kpR-es-jPw" kind="embed" identifier="toHistory" id="DwQ-sb-iCY"/>
                                 </connections>
                             </containerView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="me8-BB-wKo">
@@ -382,19 +382,39 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="tbu-Fc-2dU">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="fmW-Ix-A4K">
+                                <rect key="frame" x="0.0" y="20" width="375" height="583"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            </tableView>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="q3H-YI-AEe">
+                                    <size key="itemSize" width="50" height="50"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="6GO-R6-eOr">
+                                        <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
+                                            <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </view>
+                                    </collectionViewCell>
+                                </cells>
+                            </collectionView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstAttribute="trailing" secondItem="tbu-Fc-2dU" secondAttribute="trailing" id="4Fk-Wb-j0J"/>
-                            <constraint firstItem="tbu-Fc-2dU" firstAttribute="top" secondItem="Gss-i1-Z5s" secondAttribute="top" id="D3n-PP-Ulp"/>
-                            <constraint firstItem="tbu-Fc-2dU" firstAttribute="leading" secondItem="Gss-i1-Z5s" secondAttribute="leading" id="IjY-tq-SSF"/>
-                            <constraint firstAttribute="bottom" secondItem="tbu-Fc-2dU" secondAttribute="bottom" id="wmM-lx-Yru"/>
+                            <constraint firstItem="fmW-Ix-A4K" firstAttribute="top" secondItem="qut-SX-gYa" secondAttribute="top" id="BrJ-3D-JVh"/>
+                            <constraint firstItem="fmW-Ix-A4K" firstAttribute="leading" secondItem="qut-SX-gYa" secondAttribute="leading" id="MOu-Sa-q95"/>
+                            <constraint firstItem="qut-SX-gYa" firstAttribute="trailing" secondItem="fmW-Ix-A4K" secondAttribute="trailing" id="fY4-eB-fGS"/>
+                            <constraint firstItem="qut-SX-gYa" firstAttribute="bottom" secondItem="fmW-Ix-A4K" secondAttribute="bottom" id="p4O-8m-vID"/>
                         </constraints>
+                        <viewLayoutGuide key="safeArea" id="qut-SX-gYa"/>
                     </view>
+                    <connections>
+                        <outlet property="collectionView" destination="fmW-Ix-A4K" id="7ZW-8j-BeE"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Bi2-6F-HHv" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

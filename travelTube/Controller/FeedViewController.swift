@@ -63,17 +63,18 @@ class FeedViewController: UIViewController {
 
     @objc func saveArticleToCoreData(_ sender: UIButton) {
         guard let managedContext = appDelegate?.persistentContainer.viewContext else { return }
-        print(articleArray[sender.tag].youtubeTitle)
         if !PreserveManager.shared.preservedArticleId.contains(articleArray[sender.tag].articleId) {
             let preserved = Preserved(context: managedContext)
             preserved.articleId = articleArray[sender.tag].articleId
+            preserved.youtubeId = articleArray[sender.tag].youtubeId
             preserved.tags = articleArray[sender.tag].tag
             preserved.youtubeImage = articleArray[sender.tag].youtubeImage
             preserved.youtubeTitle = articleArray[sender.tag].youtubeTitle
             do {
                 try managedContext.save()
                 print("\nSuccessfully saved data\n")
-                PreserveManager.shared.getArticleIdsFromCoreData()
+                PreserveManager.shared.getArticlesFromCoreData()
+                NotificationCenter.default.post(name: NSNotification.Name(rawValue: "updateFromCoreData"), object: nil)
             } catch {
                 debugPrint("\nCould not save: \(error.localizedDescription)\n")
             }
@@ -85,7 +86,8 @@ class FeedViewController: UIViewController {
                     if record.articleId == articleArray[sender.tag].articleId {
                         managedContext.delete(record)
                         print("Deleted: \(String(describing: record.youtubeTitle))")
-                        PreserveManager.shared.getArticleIdsFromCoreData()
+                        PreserveManager.shared.getArticlesFromCoreData()
+                        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "updateFromCoreData"), object: nil)
                     }
                 }
             } catch {

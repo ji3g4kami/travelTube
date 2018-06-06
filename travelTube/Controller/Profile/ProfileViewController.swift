@@ -12,7 +12,7 @@ import SDWebImage
 import Firebase
 import CodableFirebase
 
-class ProfileViewController: UIViewController, HistoryScrollDelegate {
+class ProfileViewController: UIViewController, HistoryScrollDelegate, PreseveScrollDelegate {
 
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var userImageView: UIImageView!
@@ -21,6 +21,7 @@ class ProfileViewController: UIViewController, HistoryScrollDelegate {
     @IBOutlet weak var preserveArticleContainer: UIView!
 
     var collectionViewController: HistoryArticleViewController?
+    var preserveViewController: PreservedArticleViewController?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,12 +37,21 @@ class ProfileViewController: UIViewController, HistoryScrollDelegate {
         super.viewDidLayoutSubviews()
         collectionViewController?.profileViewHeight =  userProfileView.frame.size.height
         collectionViewController?.setupCollectionView()
+
+        preserveViewController?.profileViewHeight =  userProfileView.frame.size.height
+        preserveViewController?.setupCollectionView()
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let historyArticleViewController = segue.destination as? HistoryArticleViewController
-        historyArticleViewController?.delegate = self
-        collectionViewController = historyArticleViewController
+        if segue.identifier == "toHistory" {
+            let historyArticleViewController = segue.destination as? HistoryArticleViewController
+            historyArticleViewController?.delegate = self
+            collectionViewController = historyArticleViewController
+        } else if segue.identifier == "toPreserve" {
+            let preserveArticleViewController = segue.destination as? PreservedArticleViewController
+            preserveArticleViewController?.delegate = self
+            preserveViewController = preserveArticleViewController
+        }
     }
 
     func moveAccordingTo(scrollY: CGFloat) {

@@ -12,8 +12,9 @@ class PreserveManager {
     static let shared = PreserveManager()
 
     var preservedArticleId = [String]()
+    var preservedArticle = [PreserveArticle]()
 
-    func getArticleIdsFromCoreData() {
+    func getArticlesFromCoreData() {
 
         do {
             if let managedContext = appDelegate?.persistentContainer.viewContext {
@@ -21,9 +22,13 @@ class PreserveManager {
                 let result = try managedContext.fetch(fetchRequest)
                 guard let articles = result as? [NSManagedObject] else { return }
                 preservedArticleId.removeAll()
+                preservedArticle.removeAll()
                 for article in articles {
                     if let articleId = article.value(forKey: "articleId") as? String {
                         self.preservedArticleId.append(articleId)
+                    }
+                    if let articleId = article.value(forKey: "articleId") as? String, let youtubeId = article.value(forKey: "youtubeId") as? String, let tags = article.value(forKey: "tags") as? [String], let youtubeImage = article.value(forKey: "youtubeImage") as? String, let youtubeTitle = article.value(forKey: "youtubeTitle") as? String {
+                        self.preservedArticle.append(PreserveArticle(articleId: articleId, youtubeId: youtubeId, tags: tags, youtubeImage: youtubeImage, youtubeTitle: youtubeTitle))
                     }
                 }
             }
@@ -36,26 +41,8 @@ class PreserveManager {
 
 struct PreserveArticle {
     let articleId: String
+    let youtubeId: String
     let tags: [String]
     let youtubeImage: String
     let youtubeTitle: String
-}
-
-class ArticleNSManagedObject: NSManagedObject {
-    @NSManaged var articleId: String
-    @NSManaged var tags: [String]
-    @NSManaged var youtubeImage: String
-    @NSManaged var youtubeTitle: String
-
-    var preserveArticle: PreserveArticle {
-        get {
-            return PreserveArticle(articleId: self.articleId, tags: self.tags, youtubeImage: self.youtubeImage, youtubeTitle: self.youtubeImage)
-        }
-        set {
-            self.articleId = newValue.articleId
-            self.tags = newValue.tags
-            self.youtubeImage = newValue.youtubeImage
-            self.youtubeTitle = newValue.youtubeTitle
-        }
-    }
 }

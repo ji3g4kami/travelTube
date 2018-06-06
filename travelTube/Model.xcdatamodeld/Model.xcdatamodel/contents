@@ -3,10 +3,11 @@
     <entity name="Preserved" representedClassName="Preserved" syncable="YES" codeGenerationType="class">
         <attribute name="articleId" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="tags" optional="YES" attributeType="Transformable" customClassName="[String]" syncable="YES"/>
+        <attribute name="youtubeId" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="youtubeImage" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="youtubeTitle" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Preserved" positionX="-63" positionY="-18" width="128" height="105"/>
+        <element name="Preserved" positionX="-63" positionY="-18" width="128" height="120"/>
     </elements>
 </model>
