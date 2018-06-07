@@ -12,7 +12,8 @@ import SDWebImage
 import CodableFirebase
 
 protocol HistoryScrollDelegate: class {
-    func moveAccordingTo(scrollY: CGFloat)
+
+    func moveAccordingTo(collectionView: UICollectionView, scrollY: CGFloat)
 }
 
 class HistoryArticleViewController: UIViewController {
@@ -58,7 +59,7 @@ class HistoryArticleViewController: UIViewController {
     }
 
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        self.delegate?.moveAccordingTo(scrollY: scrollView.contentOffset.y)
+        self.delegate?.moveAccordingTo(collectionView: collectionView, scrollY: scrollView.contentOffset.y)
     }
 }
 

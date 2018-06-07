@@ -20,8 +20,9 @@ class ProfileViewController: UIViewController, HistoryScrollDelegate, PreseveScr
     @IBOutlet weak var historyArticleContainer: UIView!
     @IBOutlet weak var preserveArticleContainer: UIView!
 
-    var collectionViewController: HistoryArticleViewController?
+    var historyViewController: HistoryArticleViewController?
     var preserveViewController: PreservedArticleViewController?
+    var statusBarAndNavbarHeight: CGFloat = 65.0
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,8 +36,13 @@ class ProfileViewController: UIViewController, HistoryScrollDelegate, PreseveScr
 
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
-        collectionViewController?.profileViewHeight =  userProfileView.frame.size.height
-        collectionViewController?.setupCollectionView()
+        if let navigationbarHight = self.navigationController?.navigationBar.frame.size.height {
+            let statusbarHeight = UIApplication.shared.statusBarFrame.height
+            self.statusBarAndNavbarHeight = navigationbarHight + statusbarHeight
+        }
+
+        historyViewController?.profileViewHeight =  userProfileView.frame.size.height
+        historyViewController?.setupCollectionView()
 
         preserveViewController?.profileViewHeight =  userProfileView.frame.size.height
         preserveViewController?.setupCollectionView()
@@ -46,7 +52,7 @@ class ProfileViewController: UIViewController, HistoryScrollDelegate, PreseveScr
         if segue.identifier == "toHistory" {
             let historyArticleViewController = segue.destination as? HistoryArticleViewController
             historyArticleViewController?.delegate = self
-            collectionViewController = historyArticleViewController
+            historyViewController = historyArticleViewController
         } else if segue.identifier == "toPreserve" {
             let preserveArticleViewController = segue.destination as? PreservedArticleViewController
             preserveArticleViewController?.delegate = self
@@ -54,10 +60,14 @@ class ProfileViewController: UIViewController, HistoryScrollDelegate, PreseveScr
         }
     }
 
-    func moveAccordingTo(scrollY: CGFloat) {
-        guard let navigationbarHight = self.navigationController?.navigationBar.frame.size.height else { return }
-        let statusbarHeight = UIApplication.shared.statusBarFrame.height
-        userProfileView.frame = CGRect(origin: CGPoint(x: 0, y: navigationbarHight + statusbarHeight - userProfileView.frame.size.height - scrollY), size: userProfileView.frame.size)
+    func moveAccordingTo(collectionView: UICollectionView, scrollY: CGFloat) {
+        userProfileView.frame = CGRect(origin: CGPoint(x: 0, y: statusBarAndNavbarHeight - userProfileView.frame.size.height - scrollY), size: userProfileView.frame.size)
+        preserveViewController?.collectionView.contentOffset.y = scrollY
+    }
+
+    func moveAccordingToPreserve(collectionView: UICollectionView, scrollY: CGFloat) {
+        userProfileView.frame = CGRect(origin: CGPoint(x: 0, y: statusBarAndNavbarHeight - userProfileView.frame.size.height - scrollY), size: userProfileView.frame.size)
+        historyViewController?.collectionView.contentOffset.y = scrollY
     }
 
     func swipeRightToLogout() {

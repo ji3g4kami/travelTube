@@ -289,9 +289,9 @@
 			isa = PBXGroup;
 			children = (
 				14DA419E20A141D600A74254 /* LogoutViewController.swift */,
-				14DA41A020A1420200A74254 /* ProfileViewController.swift */,
 				1439892A20BBD35C00E8DF9F /* PrivacyViewController.swift */,
 				14F7BD9220995A7E00DE78C9 /* AnonymousProfileViewController.swift */,
+				14DA41A020A1420200A74254 /* ProfileViewController.swift */,
 				1443272020C513FA00BFCC94 /* HistoryArticleViewController.swift */,
 				1408F58820C66DD50047E05B /* PreservedArticleViewController.swift */,
 			);

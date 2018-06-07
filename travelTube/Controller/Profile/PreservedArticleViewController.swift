@@ -10,7 +10,7 @@ import UIKit
 import CoreData
 
 protocol PreseveScrollDelegate: class {
-    func moveAccordingTo(scrollY: CGFloat)
+    func moveAccordingToPreserve(collectionView: UICollectionView, scrollY: CGFloat)
 }
 
 class PreservedArticleViewController: UIViewController {
@@ -39,7 +39,7 @@ class PreservedArticleViewController: UIViewController {
     }
 
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        self.delegate?.moveAccordingTo(scrollY: scrollView.contentOffset.y)
+        self.delegate?.moveAccordingToPreserve(collectionView: collectionView, scrollY: scrollView.contentOffset.y)
     }
 
 }
