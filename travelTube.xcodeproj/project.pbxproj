@@ -17,6 +17,9 @@
 		1417FEB420B961E900CFB50A /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1417FEB320B961E900CFB50A /* CardView.swift */; };
 		1417FEB720B9682600CFB50A /* FeedCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1417FEB520B9682600CFB50A /* FeedCell.swift */; };
 		1417FEB820B9682600CFB50A /* FeedCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1417FEB620B9682600CFB50A /* FeedCell.xib */; };
+		1418280620C91260001E2188 /* TagSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1418280520C91260001E2188 /* TagSearchViewController.swift */; };
+		1418280920C91B0F001E2188 /* TagCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1418280720C91B0F001E2188 /* TagCell.swift */; };
+		1418280A20C91B0F001E2188 /* TagCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1418280820C91B0F001E2188 /* TagCell.xib */; };
 		14259D4A20BCF8E400AB8FF5 /* DesignableLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14259D4920BCF8E400AB8FF5 /* DesignableLabel.swift */; };
 		1433CB9120C18A1A003C8A12 /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1433CB9020C18A1A003C8A12 /* GradientView.swift */; };
 		1433CB9320C21730003C8A12 /* GradientNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1433CB9220C21730003C8A12 /* GradientNavigationController.swift */; };
@@ -77,6 +80,9 @@
 		1417FEB320B961E900CFB50A /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
 		1417FEB520B9682600CFB50A /* FeedCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedCell.swift; sourceTree = "<group>"; };
 		1417FEB620B9682600CFB50A /* FeedCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FeedCell.xib; sourceTree = "<group>"; };
+		1418280520C91260001E2188 /* TagSearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagSearchViewController.swift; sourceTree = "<group>"; };
+		1418280720C91B0F001E2188 /* TagCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagCell.swift; sourceTree = "<group>"; };
+		1418280820C91B0F001E2188 /* TagCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TagCell.xib; sourceTree = "<group>"; };
 		14259D4920BCF8E400AB8FF5 /* DesignableLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesignableLabel.swift; sourceTree = "<group>"; };
 		1433CB9020C18A1A003C8A12 /* GradientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
 		1433CB9220C21730003C8A12 /* GradientNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientNavigationController.swift; sourceTree = "<group>"; };
@@ -143,6 +149,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1408F59420C90A2C0047E05B /* Feed */ = {
+			isa = PBXGroup;
+			children = (
+				14DF3BF620970F0F00215368 /* FeedViewController.swift */,
+				1418280520C91260001E2188 /* TagSearchViewController.swift */,
+			);
+			path = Feed;
+			sourceTree = "<group>";
+		};
 		1433CB9820C3DEAA003C8A12 /* Profile */ = {
 			isa = PBXGroup;
 			children = (
@@ -164,10 +179,10 @@
 		145D19C2209859A900BE71D0 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				1408F59420C90A2C0047E05B /* Feed */,
 				14AE66B620AAB59A007D7851 /* Detail */,
 				14DA419D20A141BB00A74254 /* Profile */,
 				148F90FD209AAEBA00308179 /* Post */,
-				14DF3BF620970F0F00215368 /* FeedViewController.swift */,
 				145D19CC2098647400BE71D0 /* TabBarViewController.swift */,
 				1414065220A04F9900BFB170 /* LoginViewController.swift */,
 			);
@@ -200,6 +215,8 @@
 			children = (
 				1417FEB520B9682600CFB50A /* FeedCell.swift */,
 				1417FEB620B9682600CFB50A /* FeedCell.xib */,
+				1418280720C91B0F001E2188 /* TagCell.swift */,
+				1418280820C91B0F001E2188 /* TagCell.xib */,
 			);
 			path = Feed;
 			sourceTree = "<group>";
@@ -440,6 +457,7 @@
 				14DF3BFF20970F1100215368 /* LaunchScreen.storyboard in Resources */,
 				14DF3C0B2097191600215368 /* ArticleCollectionViewCell.xib in Resources */,
 				145CAF1920AD7AA700057DB7 /* CommentCell.xib in Resources */,
+				1418280A20C91B0F001E2188 /* TagCell.xib in Resources */,
 				145D19D02098657200BE71D0 /* Feed.storyboard in Resources */,
 				14AE66B520AAB577007D7851 /* Detail.storyboard in Resources */,
 				14F7BD9120995A5900DE78C9 /* AnonymousProfile.storyboard in Resources */,
@@ -580,6 +598,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1418280920C91B0F001E2188 /* TagCell.swift in Sources */,
 				143F3EF120B5465500784EB9 /* CommentViewController.swift in Sources */,
 				143F3ECD20B2B14900784EB9 /* Extensions.swift in Sources */,
 				1417FEB720B9682600CFB50A /* FeedCell.swift in Sources */,
@@ -595,6 +614,7 @@
 				148F90FF209AAFF300308179 /* PostArticleViewController.swift in Sources */,
 				145D19CD2098647400BE71D0 /* TabBarViewController.swift in Sources */,
 				145D19C12098545900BE71D0 /* Keys.swift in Sources */,
+				1418280620C91260001E2188 /* TagSearchViewController.swift in Sources */,
 				14F7BD972099935500DE78C9 /* SearchYoutubeResultCell.swift in Sources */,
 				1433CB9520C3D3BA003C8A12 /* CircularImageView.swift in Sources */,
 				1408F58F20C68F490047E05B /* PreserveManager.swift in Sources */,
