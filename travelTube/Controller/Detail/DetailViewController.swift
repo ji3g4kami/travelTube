@@ -118,8 +118,8 @@ class DetailViewController: UIViewController {
         tableView.rowHeight = UITableViewAutomaticDimension
     }
 
-    func getComments(of youtubeId: String, goToBottom: Bool) {
-        FirebaseManager.shared.ref.child("comments").child(youtubeId).queryOrdered(byChild: "createdTime").queryStarting(atValue: 0).observe(.value) { (snapshot) in
+    func getComments(of articleId: String, goToBottom: Bool) {
+        FirebaseManager.shared.ref.child("comments").child(articleId).queryOrdered(byChild: "createdTime").queryStarting(atValue: 0).observe(.value) { (snapshot) in
             self.comments.removeAll()
             if let data = snapshot.value as? [String: [String: Any]] {
                 self.comments.removeAll()
@@ -344,7 +344,7 @@ extension DetailViewController: UITableViewDelegate, UITableViewDataSource {
             let storyboard = UIStoryboard(name: "Detail", bundle: nil)
             if let controller = storyboard.instantiateViewController(withIdentifier: "CommentViewController") as? CommentViewController {
                 controller.comment = self.comments[indexPath.row]
-                controller.articleId = self.youtubeId
+                controller.articleId = self.articleId
                 self.present(controller, animated: true, completion: nil)
             }
             completion(true)
