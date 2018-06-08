@@ -132,6 +132,14 @@ class FeedViewController: UIViewController {
         articleArray.removeAll()
         getFeeds()
     }
+
+    @IBAction func searchNavBarButtonPressed(_ sender: Any) {
+        let storyboard = UIStoryboard(name: "Feed", bundle: nil)
+        guard let tagSearchViewController = storyboard.instantiateViewController(
+            withIdentifier: String(describing: TagSearchViewController.self)
+            ) as? TagSearchViewController else { return }
+        tabBarController?.present(tagSearchViewController, animated: true, completion: nil)
+    }
 }
 
 extension FeedViewController: UITableViewDelegate, UITableViewDataSource {

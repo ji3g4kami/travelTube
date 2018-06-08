@@ -58,7 +58,7 @@
                     <navigationItem key="navigationItem" title="travelTube" id="w0i-t1-Wbv">
                         <barButtonItem key="rightBarButtonItem" systemItem="search" id="uLt-6Y-UsM">
                             <connections>
-                                <segue destination="Mp5-2E-hmr" kind="presentation" modalPresentationStyle="overCurrentContext" modalTransitionStyle="crossDissolve" id="2ZM-ze-vt6"/>
+                                <action selector="searchNavBarButtonPressed:" destination="jeR-ZA-1qN" id="v2c-kA-xGM"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -74,7 +74,7 @@
         <!--Tag Search View Controller-->
         <scene sceneID="9py-If-cEM">
             <objects>
-                <viewController modalPresentationStyle="overCurrentContext" id="Mp5-2E-hmr" customClass="TagSearchViewController" customModule="travelTube" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="TagSearchViewController" modalPresentationStyle="overCurrentContext" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Mp5-2E-hmr" customClass="TagSearchViewController" customModule="travelTube" customModuleProvider="target" sceneMemberID="viewController">
                     <visualEffectView key="view" opaque="NO" contentMode="scaleToFill" id="Dha-QW-Mlz">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
