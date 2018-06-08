@@ -10,19 +10,25 @@ import UIKit
 import Firebase
 import SKActivityIndicatorView
 
+protocol TagSearchViewDelegate: class {
+    func getAllFeed()
+
+    func getFeeds(with tags: [String])
+}
+
 class TagSearchViewController: UIViewController {
 
     @IBOutlet weak var collectionView: UICollectionView!
 
     var storedTags = [String]()
     var selectedTags = [String]()
+    weak var delegate: TagSearchViewDelegate?
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         queryTags()
         setupCollectionView()
-        selectedTags.removeAll()
     }
 
     func setupCollectionView() {
@@ -46,33 +52,6 @@ class TagSearchViewController: UIViewController {
         }
     }
 
-    @IBAction func dismissButtonPressed(_ sender: Any) {
-        dismiss(animated: true, completion: nil)
-    }
-
-    @IBAction func searchTagPressed(_ sender: Any) {
-        SKActivityIndicator.show("Loading")
-        var selectedArticleIds = [String]()
-        let dispatchGroup = DispatchGroup()
-        for tag in selectedTags {
-            dispatchGroup.enter()
-            FirebaseManager.shared.ref.child("tags").queryOrdered(byChild: "tag").queryEqual(toValue: tag).observeSingleEvent(of: .value) { (snapshot) in
-                if let articleTag = snapshot.value as? [String: Any] {
-                    for (_, value) in articleTag {
-                        guard let valueDict = value as? [String: String], let articleId = valueDict["articleId"] else { return }
-                        selectedArticleIds.append(articleId)
-                    }
-                }
-                dispatchGroup.leave()
-            }
-        }
-        dispatchGroup.notify(queue: .global()) {
-            selectedArticleIds = Array(Set(selectedArticleIds))
-            NotificationCenter.default.post(name: NSNotification.Name(rawValue: "tagSearch"), object: nil, userInfo: ["selectedArticleIds": selectedArticleIds])
-            SKActivityIndicator.dismiss()
-            self.dismiss(animated: true, completion: nil)
-        }
-    }
 }
 
 extension TagSearchViewController: UICollectionViewDelegate, UICollectionViewDataSource {
@@ -101,6 +80,7 @@ extension TagSearchViewController: UICollectionViewDelegate, UICollectionViewDat
             sender.backgroundColor = TTColor.gradientMiddleblue.color()
             selectedTags.append(tagName)
         }
+        delegate?.getFeeds(with: selectedTags)
     }
 }
 
@@ -114,8 +94,8 @@ extension TagSearchViewController: UICollectionViewDelegateFlowLayout {
 
         let attributes = [NSAttributedStringKey.font: font]
         let text = storedTags[indexPath.row]
-        let width = text.size(withAttributes: attributes).width + 15
-        let height = text.size(withAttributes: attributes).height + 10
+        let width = text.size(withAttributes: attributes).width + 10
+        let height = text.size(withAttributes: attributes).height + 5
         return CGSize(width: width, height: height)
     }
 }

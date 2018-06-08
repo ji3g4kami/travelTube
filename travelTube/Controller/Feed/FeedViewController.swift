@@ -14,10 +14,12 @@ import TagListView
 import SKActivityIndicatorView
 import CoreData
 
-class FeedViewController: UIViewController {
+class FeedViewController: UIViewController, TagSearchViewDelegate {
 
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var refreshButton: UIButton!
+    @IBOutlet weak var tagSearchView: UIView!
+    @IBOutlet weak var tableToTopConstraint: NSLayoutConstraint!
 
     var articleArray = [Article]()
 
@@ -27,10 +29,22 @@ class FeedViewController: UIViewController {
         setupTableView()
         getFeeds()
         NotificationCenter.default.addObserver(self, selector: #selector(self.updateFromDelete(_:)), name: NSNotification.Name(rawValue: "deleteArticle"), object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(self.updateFromTagSearch(_:)), name: NSNotification.Name(rawValue: "tagSearch"), object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(self.updateFromCoreData(_:)), name: NSNotification.Name(rawValue: "updateFromCoreData"), object: nil)
     }
 
+    @IBAction func toggleTagSeachView(_ sender: Any) {
+        if tagSearchView.alpha != 1 {
+            UIView.animate(withDuration: 0.5, animations: {
+                self.tagSearchView.alpha = 1
+                self.tableView.center.y += self.tagSearchView.frame.size.height
+            }, completion: nil)
+        } else {
+            UIView.animate(withDuration: 0.5, animations: {
+                self.tagSearchView.alpha = 0
+                self.tableView.center.y -= self.tagSearchView.frame.size.height
+            }, completion: nil)
+        }
+    }
     @objc func updateFromCoreData(_ notification: NSNotification) {
         self.tableView.reloadData()
     }
@@ -42,22 +56,55 @@ class FeedViewController: UIViewController {
         }
     }
 
-    @objc func updateFromTagSearch(_ notification: NSNotification) {
-        guard let selectedArticleIds = notification.userInfo?["selectedArticleIds"] as? [String] else { return }
+    func getAllFeed() {
         articleArray.removeAll()
         FirebaseManager.shared.ref.child("articles").observe(.childAdded) { (snapshot) in
             guard let value = snapshot.value else { return }
             do {
                 let article = try FirebaseDecoder().decode(Article.self, from: value)
                 self.articleArray.append(article)
-                self.articleArray = self.articleArray.filter { selectedArticleIds.contains($0.articleId) }
                 DispatchQueue.main.async {
+                    self.articleArray.sort(by: { (article1, article2) -> Bool in
+                        article1.updateTime > article2.updateTime
+                    })
                     self.tableView.reloadData()
                 }
             } catch {
                 print(error)
             }
         }
+    }
+
+    func getFeeds(with tags: [String]) {
+        SKActivityIndicator.show("Loading")
+        getFeeds()
+        var selectedArticleIds = [String]()
+        let dispatchGroup = DispatchGroup()
+        for tag in tags {
+            dispatchGroup.enter()
+            FirebaseManager.shared.ref.child("tags").queryOrdered(byChild: "tag").queryEqual(toValue: tag).observeSingleEvent(of: .value) { (snapshot) in
+                if let articleTag = snapshot.value as? [String: Any] {
+                    for (_, value) in articleTag {
+                        guard let valueDict = value as? [String: String], let articleId = valueDict["articleId"] else { return }
+                        selectedArticleIds.append(articleId)
+                    }
+                }
+                dispatchGroup.leave()
+            }
+        }
+        dispatchGroup.notify(queue: .global()) {
+            selectedArticleIds = Array(Set(selectedArticleIds))
+            self.articleArray = self.articleArray.filter { selectedArticleIds.contains($0.articleId) }
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
+            }
+            SKActivityIndicator.dismiss()
+        }
+    }
+
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard let controller = segue.destination as? TagSearchViewController else { return }
+        controller.delegate = self
     }
 
     func setupTableView() {
@@ -70,6 +117,7 @@ class FeedViewController: UIViewController {
     }
 
     func getFeeds() {
+        articleArray.removeAll()
         FirebaseManager.shared.ref.child("articles").queryOrdered(byChild: "updateTime").queryStarting(atValue: 0).observe(.childAdded) { (snapshot) in
             guard let value = snapshot.value else { return }
             do {
@@ -131,14 +179,6 @@ class FeedViewController: UIViewController {
     @IBAction func refreshedPressed(_ sender: Any) {
         articleArray.removeAll()
         getFeeds()
-    }
-
-    @IBAction func searchNavBarButtonPressed(_ sender: Any) {
-        let storyboard = UIStoryboard(name: "Feed", bundle: nil)
-        guard let tagSearchViewController = storyboard.instantiateViewController(
-            withIdentifier: String(describing: TagSearchViewController.self)
-            ) as? TagSearchViewController else { return }
-        tabBarController?.present(tagSearchViewController, animated: true, completion: nil)
     }
 }
 
