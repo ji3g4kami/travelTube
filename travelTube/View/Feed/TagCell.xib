@@ -36,9 +36,6 @@
                                 <color key="value" red="0.41960784309999999" green="0.52941176469999995" blue="0.83529411760000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </userDefinedRuntimeAttribute>
                         </userDefinedRuntimeAttributes>
-                        <connections>
-                            <action selector="buttonPressed:" destination="gTV-IL-0wX" eventType="touchUpInside" id="HCb-NG-LaE"/>
-                        </connections>
                     </button>
                 </subviews>
             </view>

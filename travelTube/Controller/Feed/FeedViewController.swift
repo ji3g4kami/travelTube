@@ -17,6 +17,8 @@ import CoreData
 class FeedViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var refreshButton: UIButton!
+
     var articleArray = [Article]()
 
     override func viewDidLoad() {
@@ -25,12 +27,30 @@ class FeedViewController: UIViewController {
         setupTableView()
         getFeeds()
         NotificationCenter.default.addObserver(self, selector: #selector(self.updateFromDelete(_:)), name: NSNotification.Name(rawValue: "deleteArticle"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(self.updateFromTagSearch(_:)), name: NSNotification.Name(rawValue: "tagSearch"), object: nil)
     }
 
     @objc func updateFromDelete(_ notification: NSNotification) {
         if let article = notification.userInfo?["article"] as? Article {
             articleArray = articleArray.filter { $0 == article }
             tableView.reloadData()
+        }
+    }
+
+    @objc func updateFromTagSearch(_ notification: NSNotification) {
+        guard let selectedArticleIds = notification.userInfo?["selectedArticleIds"] as? [String] else { return }
+        FirebaseManager.shared.ref.child("articles").observe(.childAdded) { (snapshot) in
+            guard let value = snapshot.value else { return }
+            do {
+                let article = try FirebaseDecoder().decode(Article.self, from: value)
+                self.articleArray.append(article)
+                self.articleArray = self.articleArray.filter { selectedArticleIds.contains($0.articleId) }
+                DispatchQueue.main.async {
+                    self.tableView.reloadData()
+                }
+            } catch {
+                print(error)
+            }
         }
     }
 
@@ -101,12 +121,22 @@ class FeedViewController: UIViewController {
             }
         }
     }
+
+    @IBAction func refreshedPressed(_ sender: Any) {
+        articleArray.removeAll()
+        getFeeds()
+    }
 }
 
 extension FeedViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if articleArray.count > 0 {
             SKActivityIndicator.dismiss()
+        }
+        if self.articleArray.count > 0 {
+            self.refreshButton.isHidden = true
+        } else {
+            self.refreshButton.isHidden = false
         }
         return articleArray.count
     }

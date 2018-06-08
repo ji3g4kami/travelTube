@@ -16,14 +16,4 @@ class TagCell: UICollectionViewCell {
         super.awakeFromNib()
         // Initialization code
     }
-
-    @IBAction func buttonPressed(_ sender: DesignableButton) {
-        if sender.backgroundColor == .white {
-            sender.setTitleColor(.white, for: .normal)
-            sender.backgroundColor = TTColor.gradientMiddleblue.color()
-        } else {
-            sender.setTitleColor(TTColor.gradientMiddleblue.color(), for: .normal)
-            sender.backgroundColor = .white
-        }
-    }
 }

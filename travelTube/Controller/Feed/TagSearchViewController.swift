@@ -8,18 +8,21 @@
 
 import UIKit
 import Firebase
+import SKActivityIndicatorView
 
 class TagSearchViewController: UIViewController {
 
     @IBOutlet weak var collectionView: UICollectionView!
 
     var storedTags = [String]()
+    var selectedTags = [String]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         queryTags()
         setupCollectionView()
+        selectedTags.removeAll()
     }
 
     func setupCollectionView() {
@@ -46,6 +49,30 @@ class TagSearchViewController: UIViewController {
     @IBAction func dismissButtonPressed(_ sender: Any) {
         dismiss(animated: true, completion: nil)
     }
+
+    @IBAction func searchTagPressed(_ sender: Any) {
+        SKActivityIndicator.show("Loading")
+        var selectedArticleIds = [String]()
+        let dispatchGroup = DispatchGroup()
+        for tag in selectedTags {
+            dispatchGroup.enter()
+            FirebaseManager.shared.ref.child("tags").queryOrdered(byChild: "tag").queryEqual(toValue: tag).observeSingleEvent(of: .value) { (snapshot) in
+                if let articleTag = snapshot.value as? [String: Any] {
+                    for (_, value) in articleTag {
+                        guard let valueDict = value as? [String: String], let articleId = valueDict["articleId"] else { return }
+                        selectedArticleIds.append(articleId)
+                    }
+                }
+                dispatchGroup.leave()
+            }
+        }
+        dispatchGroup.notify(queue: .global()) {
+            selectedArticleIds = Array(Set(selectedArticleIds))
+            NotificationCenter.default.post(name: NSNotification.Name(rawValue: "tagSearch"), object: nil, userInfo: ["selectedArticleIds": selectedArticleIds])
+            SKActivityIndicator.dismiss()
+            self.dismiss(animated: true, completion: nil)
+        }
+    }
 }
 
 extension TagSearchViewController: UICollectionViewDelegate, UICollectionViewDataSource {
@@ -56,9 +83,24 @@ extension TagSearchViewController: UICollectionViewDelegate, UICollectionViewDat
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "TagCell", for: indexPath) as? TagCell {
             cell.tagButton.setTitle(storedTags[indexPath.row], for: .normal)
+            cell.tagButton.tag = indexPath.row
+            cell.tagButton.addTarget(self, action: #selector(getSelectedTags), for: .touchUpInside)
             return cell
         }
         return UICollectionViewCell()
+    }
+
+    @objc func getSelectedTags(_ sender: DesignableButton) {
+        guard let tagName = sender.title(for: .normal) else { return }
+        if selectedTags.contains(tagName) {
+            sender.setTitleColor(TTColor.gradientMiddleblue.color(), for: .normal)
+            sender.backgroundColor = .white
+            selectedTags = selectedTags.filter { $0 != tagName }
+        } else {
+            sender.setTitleColor(.white, for: .normal)
+            sender.backgroundColor = TTColor.gradientMiddleblue.color()
+            selectedTags.append(tagName)
+        }
     }
 }
 

@@ -32,13 +32,26 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sKo-XA-z8m">
+                                <rect key="frame" x="152.5" y="298.5" width="70" height="70"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="70" id="Mdb-Zj-S6i"/>
+                                    <constraint firstAttribute="width" constant="70" id="aBI-EJ-H5n"/>
+                                </constraints>
+                                <state key="normal" image="refresh"/>
+                                <connections>
+                                    <action selector="refreshedPressed:" destination="jeR-ZA-1qN" eventType="touchUpInside" id="Ch7-DH-4fg"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="QJA-vK-vhf" firstAttribute="trailing" secondItem="RfD-P1-M5K" secondAttribute="trailing" id="DT2-hu-6tK"/>
                             <constraint firstItem="QJA-vK-vhf" firstAttribute="bottom" secondItem="RfD-P1-M5K" secondAttribute="bottom" id="L8j-8O-GAg"/>
+                            <constraint firstItem="sKo-XA-z8m" firstAttribute="centerY" secondItem="rg2-Yg-UHG" secondAttribute="centerY" id="NeB-mH-ZU0"/>
                             <constraint firstItem="RfD-P1-M5K" firstAttribute="top" secondItem="QJA-vK-vhf" secondAttribute="top" id="OcM-kX-mVb"/>
                             <constraint firstItem="RfD-P1-M5K" firstAttribute="leading" secondItem="QJA-vK-vhf" secondAttribute="leading" id="Rc5-Kh-JMb"/>
+                            <constraint firstItem="sKo-XA-z8m" firstAttribute="centerX" secondItem="rg2-Yg-UHG" secondAttribute="centerX" id="j8J-rp-pcV"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="QJA-vK-vhf"/>
                     </view>
@@ -50,6 +63,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="refreshButton" destination="sKo-XA-z8m" id="mms-T8-lJX"/>
                         <outlet property="tableView" destination="RfD-P1-M5K" id="jeW-bE-8Dy"/>
                     </connections>
                 </viewController>
@@ -122,6 +136,9 @@
                                                     <real key="value" value="0.0"/>
                                                 </userDefinedRuntimeAttribute>
                                             </userDefinedRuntimeAttributes>
+                                            <connections>
+                                                <action selector="searchTagPressed:" destination="Mp5-2E-hmr" eventType="touchUpInside" id="Klu-aY-hKR"/>
+                                            </connections>
                                         </button>
                                     </subviews>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -183,4 +200,7 @@
             <point key="canvasLocation" x="286" y="157"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="refresh" width="256" height="256"/>
+    </resources>
 </document>
