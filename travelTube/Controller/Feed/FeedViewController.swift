@@ -44,6 +44,7 @@ class FeedViewController: UIViewController {
 
     @objc func updateFromTagSearch(_ notification: NSNotification) {
         guard let selectedArticleIds = notification.userInfo?["selectedArticleIds"] as? [String] else { return }
+        articleArray.removeAll()
         FirebaseManager.shared.ref.child("articles").observe(.childAdded) { (snapshot) in
             guard let value = snapshot.value else { return }
             do {
