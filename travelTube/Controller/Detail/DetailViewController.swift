@@ -12,6 +12,7 @@ import Firebase
 import YouTubePlayer
 import CodableFirebase
 import TagListView
+import CoreData
 
 class DetailViewController: UIViewController {
 
@@ -165,6 +166,34 @@ class DetailViewController: UIViewController {
                 }
             } catch {
                 print(error)
+                let alert = UIAlertController(title: "找不到此文章", message: nil, preferredStyle: .alert)
+                let action = UIAlertAction(title: "OK", style: .cancel, handler: { _ in
+                    guard let managedContext = appDelegate?.persistentContainer.viewContext else { return }
+                    let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Preserved")
+                    do {
+                        guard let result = try managedContext.fetch(fetchRequest) as? [Preserved] else { return }
+                        for record in result {
+                            if record.articleId == articleId {
+                                managedContext.delete(record)
+                                print("Deleted: \(String(describing: record.youtubeTitle))")
+                                PreserveManager.shared.getArticlesFromCoreData()
+                                NotificationCenter.default.post(name: NSNotification.Name(rawValue: "updateFromCoreData"), object: nil)
+                            }
+                        }
+                    } catch {
+                        debugPrint("Could not delete: \(error.localizedDescription)")
+                    }
+                    do {
+                        try managedContext.save()
+                        print("\nSuccessfully deleted data\n")
+                        self.dismiss(animated: true, completion: nil)
+                    } catch {
+                        debugPrint("\nCould not delete: \(error.localizedDescription)\n")
+                        self.dismiss(animated: true, completion: nil)
+                    }
+                })
+                alert.addAction(action)
+                self.present(alert, animated: true, completion: nil)
             }
         })
     }
