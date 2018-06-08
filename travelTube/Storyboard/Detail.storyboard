@@ -292,11 +292,24 @@
                                                         <segue destination="2Zv-LQ-pwQ" kind="show" identifier="toEdit" id="pkF-QJ-sQa"/>
                                                     </connections>
                                                 </button>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DIz-4f-jcc">
+                                                    <rect key="frame" x="337" y="46" width="28" height="28"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="28" id="2q4-ZX-2MS"/>
+                                                        <constraint firstAttribute="height" constant="28" id="eHA-kC-sNz"/>
+                                                    </constraints>
+                                                    <state key="normal" image="like_btn_unselected"/>
+                                                    <connections>
+                                                        <action selector="preservePressed:" destination="tXp-2y-NYO" eventType="touchUpInside" id="hQj-UP-8uc"/>
+                                                    </connections>
+                                                </button>
                                             </subviews>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <constraints>
+                                                <constraint firstItem="DIz-4f-jcc" firstAttribute="centerY" secondItem="f7A-ob-Mor" secondAttribute="centerY" id="4Lt-wO-Piq"/>
                                                 <constraint firstItem="djB-Nd-Se9" firstAttribute="top" secondItem="W8l-dA-MNL" secondAttribute="top" constant="10" id="6ZH-9K-7I2"/>
                                                 <constraint firstAttribute="trailing" secondItem="vay-nE-KEc" secondAttribute="trailing" constant="10" id="AWp-QC-4WM"/>
+                                                <constraint firstAttribute="trailing" secondItem="DIz-4f-jcc" secondAttribute="trailing" constant="10" id="PiI-8j-QaK"/>
                                                 <constraint firstItem="djB-Nd-Se9" firstAttribute="centerX" secondItem="W8l-dA-MNL" secondAttribute="centerX" id="SXF-c1-85s"/>
                                                 <constraint firstItem="vay-nE-KEc" firstAttribute="centerY" secondItem="f7A-ob-Mor" secondAttribute="centerY" id="UP0-0y-752"/>
                                                 <constraint firstItem="HOw-CO-CFm" firstAttribute="centerY" secondItem="f7A-ob-Mor" secondAttribute="centerY" id="WM8-0H-R3P"/>
@@ -353,6 +366,7 @@
                         <outlet property="deleteButton" destination="Zhz-dh-xTN" id="XQM-Eg-1Vv"/>
                         <outlet property="editButton" destination="vay-nE-KEc" id="LDj-6w-IpL"/>
                         <outlet property="infoView" destination="jeQ-aW-GOb" id="1Z3-kU-q7v"/>
+                        <outlet property="likeButton" destination="DIz-4f-jcc" id="Keb-RB-XzG"/>
                         <outlet property="mapView" destination="8Pb-7M-Mis" id="Cpx-La-SZd"/>
                         <outlet property="mapViewContainer" destination="sRk-Gd-XMo" id="eOa-mg-vdd"/>
                         <outlet property="openInMapButton" destination="w3n-D6-LgR" id="5ZJ-g7-kwB"/>
@@ -762,6 +776,7 @@
         <image name="ban" width="25" height="25"/>
         <image name="btn_send" width="30" height="30"/>
         <image name="edit" width="50" height="50"/>
+        <image name="like_btn_unselected" width="64" height="64"/>
         <image name="marker" width="20" height="20"/>
         <image name="trash" width="25" height="25"/>
         <image name="youtube" width="25" height="25"/>

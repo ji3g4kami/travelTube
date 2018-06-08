@@ -31,6 +31,7 @@ class DetailViewController: UIViewController {
     @IBOutlet weak var editButton: UIButton!
     @IBOutlet weak var deleteButton: UIButton!
     @IBOutlet weak var reportView: UIView!
+    @IBOutlet weak var likeButton: UIButton!
 
     var youtubeId: String?
     var articleId: String?
@@ -50,6 +51,16 @@ class DetailViewController: UIViewController {
         getComments(of: articleId, goToBottom: false)
         mapView.delegate = self
         NotificationCenter.default.addObserver(self, selector: #selector(self.updateFromEdit(_:)), name: NSNotification.Name(rawValue: "updateFromEdit"), object: nil)
+        setupLikeButton()
+    }
+
+    func setupLikeButton() {
+        guard let articleId = articleId else { return }
+        if PreserveManager.shared.preservedArticleId.contains(articleId) {
+            likeButton.setImage(#imageLiteral(resourceName: "like_btn_selected"), for: .normal)
+        } else {
+            likeButton.setImage(#imageLiteral(resourceName: "like_btn_unselected"), for: .normal)
+        }
     }
 
     @objc func updateFromEdit(_ notification: NSNotification) {
@@ -158,10 +169,12 @@ class DetailViewController: UIViewController {
                 self.setupInfo()
                 self.setupTags()
                 if self.articleInfo?.uid != UserManager.shared.uid {
-                    self.editButton.isUserInteractionEnabled = false
-                    self.editButton.alpha = 0.3
+                    self.likeButton.isHidden = false
+                    self.editButton.isHidden = true
                     self.deleteButton.alpha = 0
                 } else {
+                    self.likeButton.isHidden = true
+                    self.editButton.isHidden = false
                     self.reportView.alpha = 0
                 }
             } catch {
@@ -281,6 +294,50 @@ class DetailViewController: UIViewController {
     }
     @IBAction func leaveButtonPressed(_ sender: Any) {
         dismiss(animated: true, completion: nil)
+    }
+
+    @IBAction func preservePressed(_ sender: UIButton) {
+        guard let managedContext = appDelegate?.persistentContainer.viewContext else { return }
+        guard let articleInfo = articleInfo else { return }
+        if !PreserveManager.shared.preservedArticleId.contains(articleInfo.articleId) {
+            likeButton.setImage(#imageLiteral(resourceName: "like_btn_selected"), for: .normal)
+            let preserved = Preserved(context: managedContext)
+            preserved.articleId = articleInfo.articleId
+            preserved.youtubeId = articleInfo.youtubeId
+            preserved.tags = articleInfo.tag
+            preserved.youtubeImage = articleInfo.youtubeImage
+            preserved.youtubeTitle = articleInfo.youtubeTitle
+            do {
+                try managedContext.save()
+                print("\nSuccessfully saved data\n")
+                PreserveManager.shared.getArticlesFromCoreData()
+                NotificationCenter.default.post(name: NSNotification.Name(rawValue: "updateFromCoreData"), object: nil)
+            } catch {
+                debugPrint("\nCould not save: \(error.localizedDescription)\n")
+            }
+        } else {
+            likeButton.setImage(#imageLiteral(resourceName: "like_btn_unselected"), for: .normal)
+            let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Preserved")
+            do {
+                guard let result = try managedContext.fetch(fetchRequest) as? [Preserved] else { return }
+                for record in result {
+                    if record.articleId == articleInfo.articleId {
+                        managedContext.delete(record)
+                        print("Deleted: \(String(describing: record.youtubeTitle))")
+                        PreserveManager.shared.getArticlesFromCoreData()
+                        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "updateFromCoreData"), object: nil)
+                    }
+                }
+            } catch {
+                debugPrint("Could not delete: \(error.localizedDescription)")
+            }
+            do {
+                try managedContext.save()
+                print("\nSuccessfully deleted data\n")
+            } catch {
+                debugPrint("\nCould not delete: \(error.localizedDescription)\n")
+            }
+        }
     }
 
     @IBAction func deleteArticlePressed(_ sender: Any) {

@@ -28,6 +28,11 @@ class FeedViewController: UIViewController {
         getFeeds()
         NotificationCenter.default.addObserver(self, selector: #selector(self.updateFromDelete(_:)), name: NSNotification.Name(rawValue: "deleteArticle"), object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(self.updateFromTagSearch(_:)), name: NSNotification.Name(rawValue: "tagSearch"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(self.updateFromCoreData(_:)), name: NSNotification.Name(rawValue: "updateFromCoreData"), object: nil)
+    }
+
+    @objc func updateFromCoreData(_ notification: NSNotification) {
+        self.tableView.reloadData()
     }
 
     @objc func updateFromDelete(_ notification: NSNotification) {
