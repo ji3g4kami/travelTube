@@ -81,7 +81,7 @@
                                             <constraint firstAttribute="height" constant="28" id="a0a-3R-B0p"/>
                                         </constraints>
                                         <segments>
-                                            <segment title="" image="youtube"/>
+                                            <segment title="" image="post"/>
                                             <segment title="" image="btn_like_selected"/>
                                         </segments>
                                         <color key="tintColor" red="0.41960784309999999" green="0.52941176469999995" blue="0.83529411760000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -425,7 +425,7 @@
         <image name="btn_like_selected" width="20" height="20"/>
         <image name="error" width="64" height="64"/>
         <image name="menu" width="25" height="25"/>
+        <image name="post" width="25" height="25"/>
         <image name="profile_placeholder" width="36" height="36"/>
-        <image name="youtube" width="25" height="25"/>
     </resources>
 </document>

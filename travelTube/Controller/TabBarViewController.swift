@@ -43,7 +43,7 @@ enum TabBar {
         case .feed:
             return #imageLiteral(resourceName: "news")
         case .post:
-            return #imageLiteral(resourceName: "youtube")
+            return #imageLiteral(resourceName: "post")
         case .anonymousProfile:
             return #imageLiteral(resourceName: "anonymous-logo")
         case .profile:
@@ -73,7 +73,7 @@ enum TabBar {
             return #imageLiteral(resourceName: "news").withRenderingMode(.alwaysTemplate)
 
         case .post:
-            return #imageLiteral(resourceName: "youtube").withRenderingMode(.alwaysTemplate)
+            return #imageLiteral(resourceName: "post").withRenderingMode(.alwaysTemplate)
 
         case .anonymousProfile:
             return #imageLiteral(resourceName: "anonymous-logo").withRenderingMode(.alwaysTemplate)
