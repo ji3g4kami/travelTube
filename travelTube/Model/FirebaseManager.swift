@@ -25,7 +25,7 @@ class FirebaseManager {
         let metadata = StorageMetadata()
         metadata.contentType = "image/jpeg"
 
-        let uid = UserManager.shared.uid
+        guard let uid = UserManager.shared.uid else { return }
         let imageRef = profileImageRef.child("\(uid).jpg")
 
         guard let image = uploadImage, let data = UIImageJPEGRepresentation(image, 0.1) else { return }
@@ -39,7 +39,7 @@ class FirebaseManager {
                         print(error.localizedDescription)
                     }
                     // store imageUrl to users in firebase
-                    if let url = url?.absoluteString, let uid = uid {
+                    if let url = url?.absoluteString {
                         self.ref.child("users").child(uid).updateChildValues(["image": url ])
                         UserManager.shared.userImage = url
                     }

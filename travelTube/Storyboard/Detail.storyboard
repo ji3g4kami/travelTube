@@ -7,6 +7,7 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -28,7 +29,7 @@
                                             <constraint firstAttribute="height" constant="30" id="fZx-NL-PIa"/>
                                             <constraint firstAttribute="width" constant="30" id="iug-dh-8Jg"/>
                                         </constraints>
-                                        <color key="tintColor" red="0.41960784309999999" green="0.52941176469999995" blue="0.83529411760000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="tintColor" name="GradientMiddle"/>
                                         <state key="normal" image="btn_send"/>
                                         <connections>
                                             <action selector="sendCommentPressed:" destination="tXp-2y-NYO" eventType="touchUpInside" id="xwo-rX-7Ka"/>
@@ -122,7 +123,7 @@
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="poW-Fw-cC6" customClass="TagListView" customModule="TagListView">
                                                             <rect key="frame" x="20" y="124" width="295" height="30"/>
                                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                            <color key="tintColor" red="0.41960784309999999" green="0.52941176469999995" blue="0.83529411760000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            <color key="tintColor" name="GradientMiddle"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="30" id="8ei-9S-Vig"/>
                                                             </constraints>
@@ -200,7 +201,7 @@
                                                                 <constraint firstAttribute="width" constant="25" id="SWV-fx-yXn"/>
                                                                 <constraint firstAttribute="height" constant="25" id="oO0-Wx-Dbs"/>
                                                             </constraints>
-                                                            <color key="tintColor" red="0.41960784309999999" green="0.52941176469999995" blue="0.83529411760000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            <color key="tintColor" name="GradientMiddle"/>
                                                             <state key="normal" image="trash"/>
                                                             <connections>
                                                                 <action selector="deleteArticlePressed:" destination="tXp-2y-NYO" eventType="touchUpInside" id="dMF-1I-XJQ"/>
@@ -251,7 +252,7 @@
                                                         <segment title="" image="youtube"/>
                                                         <segment title="" image="marker"/>
                                                     </segments>
-                                                    <color key="tintColor" red="0.41960784309999999" green="0.52941176469999995" blue="0.83529411760000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <color key="tintColor" name="GradientMiddle"/>
                                                     <connections>
                                                         <action selector="toggleSegment:" destination="tXp-2y-NYO" eventType="valueChanged" id="qrn-1c-i8F"/>
                                                     </connections>
@@ -639,7 +640,7 @@
                                         </textView>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dNL-h3-Vea" customClass="DesignableButton" customModule="travelTube" customModuleProvider="target">
                                             <rect key="frame" x="275" y="160.5" width="50" height="30"/>
-                                            <color key="backgroundColor" red="0.41960784309999999" green="0.52941176469999995" blue="0.83529411760000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <color key="backgroundColor" name="GradientMiddle"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="50" id="rQo-04-cyH"/>
                                             </constraints>
@@ -780,5 +781,8 @@
         <image name="marker" width="20" height="20"/>
         <image name="trash" width="25" height="25"/>
         <image name="youtube" width="25" height="25"/>
+        <namedColor name="GradientMiddle">
+            <color red="0.41999998688697815" green="0.52899998426437378" blue="0.83499997854232788" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
     </resources>
 </document>
