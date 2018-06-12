@@ -3,7 +3,7 @@ Watch Youtube and travel!</br>
 有時候看 youtuber 們吃美食或出去玩，youtube 並沒有相關的地理資訊。或者我們過了一兩天就忘記這件事了，結果到週末難得可以出去玩，卻又不知道該去哪裡。 travelTube 讓使用者可以記錄自己會想去的地方，做成卡片；或者是在動態牆上看看、用 tag 查詢其他人的卡片，並加以保存。<br />
 
 
-# Featrue
+# Feature
 * 登入
 	* google 登入
 	* 匿名登入：只可遠觀而不能褻玩焉

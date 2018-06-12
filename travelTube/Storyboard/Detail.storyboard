@@ -619,10 +619,10 @@
                                     </connections>
                                 </button>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pFf-8g-f6x">
-                                    <rect key="frame" x="20" y="233.5" width="335" height="200.5"/>
+                                    <rect key="frame" x="20" y="133.5" width="335" height="200.5"/>
                                     <subviews>
                                         <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Comment" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="zyc-zU-T0J" customClass="DesignableTextView" customModule="travelTube" customModuleProvider="target">
-                                            <rect key="frame" x="83" y="45" width="242" height="108"/>
+                                            <rect key="frame" x="83" y="45.5" width="242" height="108"/>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                             <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -639,7 +639,7 @@
                                             </userDefinedRuntimeAttributes>
                                         </textView>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dNL-h3-Vea" customClass="DesignableButton" customModule="travelTube" customModuleProvider="target">
-                                            <rect key="frame" x="275" y="160.5" width="50" height="30"/>
+                                            <rect key="frame" x="275" y="161" width="50" height="30"/>
                                             <color key="backgroundColor" name="GradientMiddle"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="50" id="rQo-04-cyH"/>
@@ -663,10 +663,10 @@
                                             </connections>
                                         </button>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UuY-bC-qCi" customClass="DesignableView" customModule="travelTube" customModuleProvider="target">
-                                            <rect key="frame" x="10" y="10" width="70" height="70"/>
+                                            <rect key="frame" x="10" y="10.5" width="70" height="70"/>
                                             <subviews>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="IDW-fz-F9h" customClass="CircularImageView" customModule="travelTube" customModuleProvider="target">
-                                                    <rect key="frame" x="4" y="4" width="62" height="62"/>
+                                                    <rect key="frame" x="4" y="4.5" width="62" height="62"/>
                                                 </imageView>
                                             </subviews>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -685,7 +685,7 @@
                                             </userDefinedRuntimeAttributes>
                                         </view>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9in-x0-NVg" customClass="DesignableLabel" customModule="travelTube" customModuleProvider="target">
-                                            <rect key="frame" x="83" y="14" width="60" height="26"/>
+                                            <rect key="frame" x="83" y="14.5" width="60" height="26"/>
                                             <color key="backgroundColor" white="0.94999999999999996" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="26" id="OTl-TN-fxJ"/>
@@ -753,7 +753,7 @@
                                 <constraint firstAttribute="trailing" secondItem="pFf-8g-f6x" secondAttribute="trailing" constant="20" id="KEb-t6-jut"/>
                                 <constraint firstItem="U2s-Wj-cNI" firstAttribute="top" secondItem="oYq-cX-gDZ" secondAttribute="top" id="NrE-fz-94r"/>
                                 <constraint firstItem="pFf-8g-f6x" firstAttribute="leading" secondItem="oYq-cX-gDZ" secondAttribute="leading" constant="20" id="bK4-g9-YxX"/>
-                                <constraint firstItem="pFf-8g-f6x" firstAttribute="centerY" secondItem="oYq-cX-gDZ" secondAttribute="centerY" id="dTa-YH-xg0"/>
+                                <constraint firstItem="pFf-8g-f6x" firstAttribute="centerY" secondItem="oYq-cX-gDZ" secondAttribute="centerY" constant="-100" id="dTa-YH-xg0"/>
                                 <constraint firstItem="U2s-Wj-cNI" firstAttribute="leading" secondItem="oYq-cX-gDZ" secondAttribute="leading" id="emy-cZ-fae"/>
                                 <constraint firstAttribute="bottom" secondItem="U2s-Wj-cNI" secondAttribute="bottom" id="fKZ-H8-v1W"/>
                                 <constraint firstAttribute="trailing" secondItem="U2s-Wj-cNI" secondAttribute="trailing" id="gVC-2s-O8S"/>

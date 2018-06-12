@@ -42,8 +42,8 @@ class DetailViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
         guard let youtubeId = youtubeId, let articleId = articleId else { return }
+        hideKeyboardWhenTappedAround()
         setupTableView()
         setupNavigationBar()
         setupYoutubePlayer(of: youtubeId)
@@ -385,10 +385,6 @@ extension DetailViewController: CLLocationManagerDelegate, MKMapViewDelegate {
         guard let destination = view.annotation?.title, let title = destination else { return }
         openInMapButton.setTitle("Open \(title) in Map", for: .normal)
     }
-
-    func mapView(_ mapView: MKMapView, didDeselect view: MKAnnotationView) {
-    }
-
 }
 
 extension DetailViewController: UITableViewDelegate, UITableViewDataSource {

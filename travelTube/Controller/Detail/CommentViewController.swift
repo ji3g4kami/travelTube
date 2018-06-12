@@ -19,6 +19,8 @@ class CommentViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        hideKeyboardWhenTappedAround()
+        commentTextView.becomeFirstResponder()
         commentTextView.text = comment?.comment
         nameLabel.text = UserManager.shared.userName
         if let userImageUrl = UserManager.shared.userImage {
