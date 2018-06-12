@@ -26,8 +26,8 @@ class PostArticleViewController: UIViewController, UIPopoverPresentationControll
     @IBOutlet weak var removeButton: DesignableButton!
     @IBOutlet weak var tokenView: KSTokenView!
     @IBOutlet weak var scrollView: UIScrollView!
-    @IBOutlet weak var hintView: DesignableView!
-
+    @IBOutlet weak var blurView: UIVisualEffectView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.tabBarController?.tabBar.isHidden = true
@@ -74,12 +74,9 @@ class PostArticleViewController: UIViewController, UIPopoverPresentationControll
         }
     }
 
-    @IBAction func dismissHintPressed(_ sender: Any) {
-        UIView.animate(withDuration: 0.5, animations: {
-            self.hintView.alpha =
-                CGFloat(0)
-        }, completion: nil
-    )}
+    @IBAction func startEditPressed(_ sender: Any) {
+        blurView.removeFromSuperview()
+    }
 
     @IBAction func searchButtonPressed(_ sender: Any) {
         searchBar.resignFirstResponder()
