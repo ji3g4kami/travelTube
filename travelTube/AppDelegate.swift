@@ -25,6 +25,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
         GIDSignIn.sharedInstance().clientID = FirebaseApp.app()?.options.clientID
         GIDSignIn.sharedInstance().delegate = self
         IQKeyboardManager.shared.enable = true
+        IQKeyboardManager.shared.enableAutoToolbar = false
+        IQKeyboardManager.shared.disabledDistanceHandlingClasses.append(PostArticleViewController.self)
 
         if UserManager.shared.isLoggedIn {
             print("LoggedIn with \(UserManager.shared.isLoggedIn)")
