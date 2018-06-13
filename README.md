@@ -3,7 +3,18 @@ Watch Youtube and travel!</br>
 有時候看 youtuber 們吃美食或出去玩，youtube 並沒有相關的地理資訊。或者我們過了一兩天就忘記這件事了，結果到週末難得可以出去玩，卻又不知道該去哪裡。 travelTube 讓使用者可以記錄自己會想去的地方，做成卡片；或者是在動態牆上看看、用 tag 查詢其他人的卡片，並加以保存。<br />
 
 
-# Feature
+# Screenshot
+<h3>用標籤搜尋文章、留言與保存文章、新增文章</h3>
+<img src="https://github.com/ji3g4kami/travelTube/blob/master/screenshots/findArticle.gif" width="270" height="480"> <img src="https://github.com/ji3g4kami/travelTube/blob/master/screenshots/commentAndPreserve.gif" width="270" height="480"> <img src="https://github.com/ji3g4kami/travelTube/blob/master/screenshots/postArticle.gif" width="270" height="480"> 
+
+
+# Video Demo
+[新增貼文](https://www.youtube.com/watch?v=r9dLFk6IZnQ)
+[編輯與刪除貼文](https://www.youtube.com/watch?v=ARJ4lQ29ev4&feature=youtu.be)
+[搜尋並收藏貼文](https://www.youtube.com/watch?v=O7NFEdgFdAw&feature=youtu.be)
+
+
+# Featrue
 * 登入
 	* google 登入
 	* 匿名登入：只可遠觀而不能褻玩焉
@@ -54,7 +65,7 @@ Watch Youtube and travel!</br>
 # Requirement
 * iOS 11.0+
 * Xcode 9.2+
- 
+
 
 # Contacts
 Deng-Li Wu <br />
