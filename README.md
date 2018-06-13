@@ -4,7 +4,9 @@ Watch Youtube and travel!</br>
 
 
 # Screenshot
-<img src="https://github.com/ji3g4kami/travelTube/blob/master/screenshots/IMG_6C7C53B2051B-1.jpeg" width="270" height="480"> <img src="https://github.com/ji3g4kami/travelTube/blob/master/screenshots/IMG_0360.PNG" width="270" height="480"> <img src="https://github.com/ji3g4kami/travelTube/blob/master/screenshots/IMG_0361.PNG" width="270" height="480"> 
+<p>用標籤搜尋文章、留言與保存文章、新增文章</p>
+
+<img src="https://github.com/ji3g4kami/travelTube/blob/master/screenshots/findArticle.gif" width="252" height="442"> <img src="https://github.com/ji3g4kami/travelTube/blob/master/screenshots/commentAndPreserve.gif" width="252" height="442"> <img src="https://github.com/ji3g4kami/travelTube/blob/master/screenshots/postArticle.gif" width="252" height="442"> 
 
 
 # Video Demo
