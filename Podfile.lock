@@ -3,6 +3,8 @@ PODS:
   - Crashlytics (3.10.1):
     - Fabric (~> 1.7.5)
   - Fabric (1.7.6)
+  - Firebase (4.13.0):
+    - Firebase/Core (= 4.13.0)
   - Firebase/Auth (4.13.0):
     - Firebase/Core
     - FirebaseAuth (= 4.6.1)
@@ -118,6 +120,7 @@ DEPENDENCIES:
   - CodableFirebase
   - Crashlytics
   - Fabric
+  - Firebase
   - Firebase/Auth
   - Firebase/Core
   - Firebase/Invites
@@ -175,6 +178,6 @@ SPEC CHECKSUMS:
   YoutubeEngine: a4d3b460c6f1415ddcbfc18afb094a8f113282c7
   YouTubePlayer: b6b44df6bb613dbb6e82f8130ed468f7e04cc1e5
 
-PODFILE CHECKSUM: 269a94696c13c15179ea630a2610be718bc75f77
+PODFILE CHECKSUM: ec3a15f82a8c3a3e20502505af59a962fba1a31a
 
 COCOAPODS: 1.4.0

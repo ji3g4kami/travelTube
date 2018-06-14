@@ -44,6 +44,7 @@
 		145D19D32098667D00BE71D0 /* UIStoryboard+David.swift in Sources */ = {isa = PBXBuildFile; fileRef = 145D19D22098667D00BE71D0 /* UIStoryboard+David.swift */; };
 		145D19D52098774C00BE71D0 /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 145D19D42098774C00BE71D0 /* Profile.storyboard */; };
 		146C6D3920D26AF7001CC8AF /* DVStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = 146C6D3820D26AF7001CC8AF /* DVStruct.swift */; };
+		146C6D6F20D27F84001CC8AF /* travelTubeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 146C6D6E20D27F84001CC8AF /* travelTubeTests.swift */; };
 		148F90FF209AAFF300308179 /* PostArticleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 148F90FE209AAFF300308179 /* PostArticleViewController.swift */; };
 		14AE66B520AAB577007D7851 /* Detail.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 14AE66B420AAB577007D7851 /* Detail.storyboard */; };
 		14AE66BA20AAB5CD007D7851 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14AE66B920AAB5CD007D7851 /* DetailViewController.swift */; };
@@ -65,7 +66,18 @@
 		14F7BD972099935500DE78C9 /* SearchYoutubeResultCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14F7BD962099935500DE78C9 /* SearchYoutubeResultCell.swift */; };
 		14F7BD992099AB7900DE78C9 /* YoutubeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14F7BD982099AB7900DE78C9 /* YoutubeManager.swift */; };
 		3E15DB99CF42332B27E8708D /* Pods_travelTube.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9EF6FD6775363B416D24F975 /* Pods_travelTube.framework */; };
+		ED0582E5232803B6252B6057 /* Pods_travelTubeTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 23819A42AF877039688BA6B9 /* Pods_travelTubeTests.framework */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		146C6D7120D27F84001CC8AF /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 14DF3BE920970F0F00215368 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 14DF3BF020970F0F00215368;
+			remoteInfo = travelTube;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		1408F56520C6697C0047E05B /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
@@ -106,6 +118,9 @@
 		145D19D22098667D00BE71D0 /* UIStoryboard+David.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIStoryboard+David.swift"; sourceTree = "<group>"; };
 		145D19D42098774C00BE71D0 /* Profile.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Profile.storyboard; sourceTree = "<group>"; };
 		146C6D3820D26AF7001CC8AF /* DVStruct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DVStruct.swift; sourceTree = "<group>"; };
+		146C6D6C20D27F84001CC8AF /* travelTubeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = travelTubeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		146C6D6E20D27F84001CC8AF /* travelTubeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = travelTubeTests.swift; sourceTree = "<group>"; };
+		146C6D7020D27F84001CC8AF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		148F90FE209AAFF300308179 /* PostArticleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostArticleViewController.swift; sourceTree = "<group>"; };
 		14AE66B420AAB577007D7851 /* Detail.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Detail.storyboard; sourceTree = "<group>"; };
 		14AE66B920AAB5CD007D7851 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
@@ -131,11 +146,22 @@
 		14F7BD962099935500DE78C9 /* SearchYoutubeResultCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchYoutubeResultCell.swift; sourceTree = "<group>"; };
 		14F7BD982099AB7900DE78C9 /* YoutubeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YoutubeManager.swift; sourceTree = "<group>"; };
 		15D59881016A19A150B9C552 /* Pods-travelTube.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-travelTube.release.xcconfig"; path = "Pods/Target Support Files/Pods-travelTube/Pods-travelTube.release.xcconfig"; sourceTree = "<group>"; };
+		23819A42AF877039688BA6B9 /* Pods_travelTubeTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_travelTubeTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		39FF391F2531FBB6D9C8833C /* Pods-travelTubeTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-travelTubeTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-travelTubeTests/Pods-travelTubeTests.debug.xcconfig"; sourceTree = "<group>"; };
+		995B7961D02804D38731007A /* Pods-travelTubeTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-travelTubeTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-travelTubeTests/Pods-travelTubeTests.release.xcconfig"; sourceTree = "<group>"; };
 		9EF6FD6775363B416D24F975 /* Pods_travelTube.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_travelTube.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9FAB0768B9171738B4DBFC13 /* Pods-travelTube.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-travelTube.debug.xcconfig"; path = "Pods/Target Support Files/Pods-travelTube/Pods-travelTube.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		146C6D6920D27F84001CC8AF /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				ED0582E5232803B6252B6057 /* Pods_travelTubeTests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		14DF3BEE20970F0F00215368 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -272,6 +298,15 @@
 			path = Extension;
 			sourceTree = "<group>";
 		};
+		146C6D6D20D27F84001CC8AF /* travelTubeTests */ = {
+			isa = PBXGroup;
+			children = (
+				146C6D6E20D27F84001CC8AF /* travelTubeTests.swift */,
+				146C6D7020D27F84001CC8AF /* Info.plist */,
+			);
+			path = travelTubeTests;
+			sourceTree = "<group>";
+		};
 		148F90FD209AAEBA00308179 /* Post */ = {
 			isa = PBXGroup;
 			children = (
@@ -318,6 +353,7 @@
 			isa = PBXGroup;
 			children = (
 				14DF3BF320970F0F00215368 /* travelTube */,
+				146C6D6D20D27F84001CC8AF /* travelTubeTests */,
 				14DF3BF220970F0F00215368 /* Products */,
 				5DBA1ACDF6B48D756D38F1C0 /* Pods */,
 				334061F52D564A6E593203E8 /* Frameworks */,
@@ -328,6 +364,7 @@
 			isa = PBXGroup;
 			children = (
 				14DF3BF120970F0F00215368 /* travelTube.app */,
+				146C6D6C20D27F84001CC8AF /* travelTubeTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -365,6 +402,7 @@
 			isa = PBXGroup;
 			children = (
 				9EF6FD6775363B416D24F975 /* Pods_travelTube.framework */,
+				23819A42AF877039688BA6B9 /* Pods_travelTubeTests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -374,6 +412,8 @@
 			children = (
 				9FAB0768B9171738B4DBFC13 /* Pods-travelTube.debug.xcconfig */,
 				15D59881016A19A150B9C552 /* Pods-travelTube.release.xcconfig */,
+				39FF391F2531FBB6D9C8833C /* Pods-travelTubeTests.debug.xcconfig */,
+				995B7961D02804D38731007A /* Pods-travelTubeTests.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -381,6 +421,27 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		146C6D6B20D27F84001CC8AF /* travelTubeTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 146C6D7520D27F84001CC8AF /* Build configuration list for PBXNativeTarget "travelTubeTests" */;
+			buildPhases = (
+				28F432E8C5A929C2F0F652A9 /* [CP] Check Pods Manifest.lock */,
+				146C6D6820D27F84001CC8AF /* Sources */,
+				146C6D6920D27F84001CC8AF /* Frameworks */,
+				146C6D6A20D27F84001CC8AF /* Resources */,
+				94275E4D7F8D22BEA1E4D4BB /* [CP] Embed Pods Frameworks */,
+				716E9B32A398BE3EB5544188 /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				146C6D7220D27F84001CC8AF /* PBXTargetDependency */,
+			);
+			name = travelTubeTests;
+			productName = travelTubeTests;
+			productReference = 146C6D6C20D27F84001CC8AF /* travelTubeTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		14DF3BF020970F0F00215368 /* travelTube */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 14DF3C0320970F1100215368 /* Build configuration list for PBXNativeTarget "travelTube" */;
@@ -409,10 +470,14 @@
 		14DF3BE920970F0F00215368 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 0930;
+				LastSwiftUpdateCheck = 0940;
 				LastUpgradeCheck = 0930;
 				ORGANIZATIONNAME = DavidWu;
 				TargetAttributes = {
+					146C6D6B20D27F84001CC8AF = {
+						CreatedOnToolsVersion = 9.4;
+						TestTargetID = 14DF3BF020970F0F00215368;
+					};
 					14DF3BF020970F0F00215368 = {
 						CreatedOnToolsVersion = 9.3;
 						LastSwiftMigration = 0930;
@@ -441,11 +506,19 @@
 			projectRoot = "";
 			targets = (
 				14DF3BF020970F0F00215368 /* travelTube */,
+				146C6D6B20D27F84001CC8AF /* travelTubeTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		146C6D6A20D27F84001CC8AF /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		14DF3BEF20970F0F00215368 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -517,6 +590,24 @@
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/SwiftLint/swiftlint\"";
 		};
+		28F432E8C5A929C2F0F652A9 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-travelTubeTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
 		46DBF131AD7E72443AA993D8 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -528,7 +619,7 @@
 				"${BUILT_PRODUCTS_DIR}/GTMOAuth2/GTMOAuth2.framework",
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleAPIClientForREST/GoogleAPIClientForREST.framework",
-				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac-a483a505/GoogleToolboxForMac.framework",
 				"${BUILT_PRODUCTS_DIR}/IQKeyboardManagerSwift/IQKeyboardManagerSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/KSTokenView/KSTokenView.framework",
 				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
@@ -587,9 +678,52 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		716E9B32A398BE3EB5544188 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-travelTubeTests/Pods-travelTubeTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		94275E4D7F8D22BEA1E4D4BB /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-travelTubeTests/Pods-travelTubeTests-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac-Defines-NSData+zlib/GoogleToolboxForMac.framework",
+				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-travelTubeTests/Pods-travelTubeTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		146C6D6820D27F84001CC8AF /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				146C6D6F20D27F84001CC8AF /* travelTubeTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		14DF3BED20970F0F00215368 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -643,6 +777,14 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		146C6D7220D27F84001CC8AF /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 14DF3BF020970F0F00215368 /* travelTube */;
+			targetProxy = 146C6D7120D27F84001CC8AF /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin PBXVariantGroup section */
 		14DF3BF820970F0F00215368 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
@@ -663,6 +805,42 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		146C6D7320D27F84001CC8AF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 39FF391F2531FBB6D9C8833C /* Pods-travelTubeTests.debug.xcconfig */;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = ND2LGZT6B5;
+				INFOPLIST_FILE = travelTubeTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.davidwu.travelTubeTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/travelTube.app/travelTube";
+			};
+			name = Debug;
+		};
+		146C6D7420D27F84001CC8AF /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 995B7961D02804D38731007A /* Pods-travelTubeTests.release.xcconfig */;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = ND2LGZT6B5;
+				INFOPLIST_FILE = travelTubeTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.davidwu.travelTubeTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/travelTube.app/travelTube";
+			};
+			name = Release;
+		};
 		14DF3C0120970F1100215368 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -789,10 +967,7 @@
 				DEVELOPMENT_TEAM = ND2LGZT6B5;
 				INFOPLIST_FILE = travelTube/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.davidwu.travelTube;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "travelTube/Utitlties/SWReveal/travelTube-Bridging-Header.h";
@@ -813,10 +988,7 @@
 				DEVELOPMENT_TEAM = ND2LGZT6B5;
 				INFOPLIST_FILE = travelTube/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.davidwu.travelTube;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "travelTube/Utitlties/SWReveal/travelTube-Bridging-Header.h";
@@ -828,6 +1000,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		146C6D7520D27F84001CC8AF /* Build configuration list for PBXNativeTarget "travelTubeTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				146C6D7320D27F84001CC8AF /* Debug */,
+				146C6D7420D27F84001CC8AF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		14DF3BEC20970F0F00215368 /* Build configuration list for PBXProject "travelTube" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

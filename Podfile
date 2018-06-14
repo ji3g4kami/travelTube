@@ -23,4 +23,8 @@ target 'travelTube' do
   pod 'KSTokenView'
   pod 'Fabric'
   pod 'Crashlytics'
+  target 'travelTubeTests' do
+    inherit! :search_paths
+    pod 'Firebase'
+  end
 end
