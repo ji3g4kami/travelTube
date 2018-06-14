@@ -11,7 +11,6 @@ import Firebase
 import SKActivityIndicatorView
 
 protocol TagSearchViewDelegate: class {
-    func getAllFeed()
 
     func getFeeds(with tags: [String])
 }

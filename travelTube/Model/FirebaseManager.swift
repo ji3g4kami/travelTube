@@ -21,6 +21,52 @@ class FirebaseManager {
         return storageRef.child("profile")
     }
 
+    func getAllFeeds(completion: @escaping ([Article]) -> Void) {
+        var articleArray = [Article]()
+        ref.child("articles").observeSingleEvent(of: .value) { (snapshot) in
+            guard let value = snapshot.value, let valueDict = value as? [String: Any] else { return }
+            valueDict.forEach({ (_, dictValue) in
+                do {
+                    let article = try FirebaseDecoder().decode(Article.self, from: dictValue)
+                    articleArray.append(article)
+                } catch {
+                    print(error)
+                }
+            })
+            completion(articleArray)
+        }
+    }
+
+    func getFeeds(with tags: [String], completion: @escaping ([Article]) -> Void) {
+        if tags.count < 1 {
+            self.getAllFeeds(completion: { (articles) in
+                completion(articles)
+            })
+        } else {
+            var selectedArticleIds = [String]()
+            let dispatchGroup = DispatchGroup()
+            for tag in tags {
+                dispatchGroup.enter()
+                ref.child("tags").queryOrdered(byChild: "tag").queryEqual(toValue: tag).observeSingleEvent(of: .value) { (snapshot) in
+                    if let articleTag = snapshot.value as? [String: Any] {
+                        for (_, value) in articleTag {
+                            guard let valueDict = value as? [String: String], let articleId = valueDict["articleId"] else { return }
+                            selectedArticleIds.append(articleId)
+                        }
+                    }
+                    dispatchGroup.leave()
+                }
+            }
+            dispatchGroup.notify(queue: .global()) {
+                selectedArticleIds = Array(Set(selectedArticleIds))
+                self.getAllFeeds(completion: { (articles) in
+                    let articleArray = articles.filter { selectedArticleIds.contains($0.articleId) }
+                    completion(articleArray)
+                })
+            }
+        }
+    }
+
     func updateProfilePhoto(uploadImage: UIImage?) {
         let metadata = StorageMetadata()
         metadata.contentType = "image/jpeg"
@@ -47,22 +93,4 @@ class FirebaseManager {
             }
         }
     }
-}
-
-struct Article: Codable {
-    var annotations: [Annotation]
-    var tag: [String]?
-    let uid: String
-    let articleId: String
-    var updateTime: Date
-    let youtubeId: String
-    let youtubeImage: String
-    let youtubePublishDate: Date
-    let youtubeTitle: String
-}
-
-struct Annotation: Codable {
-    let latitude: Double
-    let logitutde: Double
-    let title: String
 }

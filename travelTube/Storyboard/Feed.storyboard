@@ -4,7 +4,6 @@
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -76,7 +75,6 @@
                     </navigationItem>
                     <connections>
                         <outlet property="refreshButton" destination="sKo-XA-z8m" id="mms-T8-lJX"/>
-                        <outlet property="tableToTopConstraint" destination="zRH-N8-pLB" id="G4t-vz-sXf"/>
                         <outlet property="tableView" destination="RfD-P1-M5K" id="jeW-bE-8Dy"/>
                         <outlet property="tagSearchView" destination="IdN-AG-PV0" id="LMF-aT-hEx"/>
                     </connections>

@@ -458,12 +458,3 @@ extension DetailViewController: UITableViewDelegate, UITableViewDataSource {
         return action
     }
 }
-
-struct Comment {
-    let commentId: String
-    var comment: String
-    let createdTime: TimeInterval
-    let userId: String
-    let userName: String
-    let userImage: String
-}

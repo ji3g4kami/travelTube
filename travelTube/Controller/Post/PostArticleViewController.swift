@@ -27,7 +27,7 @@ class PostArticleViewController: UIViewController, UIPopoverPresentationControll
     @IBOutlet weak var tokenView: KSTokenView!
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var blurView: UIVisualEffectView!
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         self.tabBarController?.tabBar.isHidden = true

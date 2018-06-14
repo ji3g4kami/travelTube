@@ -38,11 +38,3 @@ class PreserveManager {
         }
     }
 }
-
-struct PreserveArticle {
-    let articleId: String
-    let youtubeId: String
-    let tags: [String]
-    let youtubeImage: String
-    let youtubeTitle: String
-}

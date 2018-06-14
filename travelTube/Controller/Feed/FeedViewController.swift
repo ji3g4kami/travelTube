@@ -7,8 +7,6 @@
 //
 
 import UIKit
-import FirebaseDatabase
-import CodableFirebase
 import SDWebImage
 import TagListView
 import SKActivityIndicatorView
@@ -19,7 +17,6 @@ class FeedViewController: UIViewController, TagSearchViewDelegate {
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var refreshButton: UIButton!
     @IBOutlet weak var tagSearchView: UIView!
-    @IBOutlet weak var tableToTopConstraint: NSLayoutConstraint!
 
     var articleArray = [Article]()
 
@@ -28,6 +25,10 @@ class FeedViewController: UIViewController, TagSearchViewDelegate {
         SKActivityIndicator.show("Loading...")
         setupTableView()
         getFeeds()
+        setupNotificationCenter()
+    }
+
+    func setupNotificationCenter() {
         NotificationCenter.default.addObserver(self, selector: #selector(self.updateFromDelete(_:)), name: NSNotification.Name(rawValue: "deleteArticle"), object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(self.updateFromCoreData(_:)), name: NSNotification.Name(rawValue: "updateFromCoreData"), object: nil)
     }
@@ -45,6 +46,7 @@ class FeedViewController: UIViewController, TagSearchViewDelegate {
             }, completion: nil)
         }
     }
+
     @objc func updateFromCoreData(_ notification: NSNotification) {
         self.tableView.reloadData()
     }
@@ -56,48 +58,27 @@ class FeedViewController: UIViewController, TagSearchViewDelegate {
         }
     }
 
-    func getAllFeed() {
-        articleArray.removeAll()
-        FirebaseManager.shared.ref.child("articles").observe(.childAdded) { (snapshot) in
-            guard let value = snapshot.value else { return }
-            do {
-                let article = try FirebaseDecoder().decode(Article.self, from: value)
-                self.articleArray.append(article)
-                DispatchQueue.main.async {
-                    self.articleArray.sort(by: { (article1, article2) -> Bool in
-                        article1.updateTime > article2.updateTime
-                    })
-                    self.tableView.reloadData()
-                }
-            } catch {
-                print(error)
-            }
+    func getFeeds() {
+        FirebaseManager.shared.getAllFeeds { articles in
+            self.articleArray = articles
+            self.refreshTableView()
+        }
+    }
+
+    func refreshTableView() {
+        DispatchQueue.main.async {
+            self.articleArray.sort(by: { (article1, article2) -> Bool in
+                article1.updateTime > article2.updateTime
+            })
+            self.tableView.reloadData()
         }
     }
 
     func getFeeds(with tags: [String]) {
         SKActivityIndicator.show("Loading")
-        getFeeds()
-        var selectedArticleIds = [String]()
-        let dispatchGroup = DispatchGroup()
-        for tag in tags {
-            dispatchGroup.enter()
-            FirebaseManager.shared.ref.child("tags").queryOrdered(byChild: "tag").queryEqual(toValue: tag).observeSingleEvent(of: .value) { (snapshot) in
-                if let articleTag = snapshot.value as? [String: Any] {
-                    for (_, value) in articleTag {
-                        guard let valueDict = value as? [String: String], let articleId = valueDict["articleId"] else { return }
-                        selectedArticleIds.append(articleId)
-                    }
-                }
-                dispatchGroup.leave()
-            }
-        }
-        dispatchGroup.notify(queue: .global()) {
-            selectedArticleIds = Array(Set(selectedArticleIds))
-            self.articleArray = self.articleArray.filter { selectedArticleIds.contains($0.articleId) }
-            DispatchQueue.main.async {
-                self.tableView.reloadData()
-            }
+        FirebaseManager.shared.getFeeds(with: tags) { articles in
+            self.articleArray = articles
+            self.refreshTableView()
             SKActivityIndicator.dismiss()
         }
     }
@@ -114,25 +95,6 @@ class FeedViewController: UIViewController, TagSearchViewDelegate {
         tableView.register(xib, forCellReuseIdentifier: String(describing: FeedCell.self))
         self.tableView.estimatedRowHeight = 300
         self.tableView.rowHeight = UITableViewAutomaticDimension
-    }
-
-    func getFeeds() {
-        articleArray.removeAll()
-        FirebaseManager.shared.ref.child("articles").queryOrdered(byChild: "updateTime").queryStarting(atValue: 0).observe(.childAdded) { (snapshot) in
-            guard let value = snapshot.value else { return }
-            do {
-                let article = try FirebaseDecoder().decode(Article.self, from: value)
-                self.articleArray.append(article)
-                DispatchQueue.main.async {
-                    self.articleArray.sort(by: { (article1, article2) -> Bool in
-                        article1.updateTime > article2.updateTime
-                    })
-                    self.tableView.reloadData()
-                }
-            } catch {
-                print(error)
-            }
-        }
     }
 
     @objc func saveArticleToCoreData(_ sender: UIButton) {
