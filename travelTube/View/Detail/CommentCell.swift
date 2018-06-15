@@ -8,11 +8,17 @@
 
 import UIKit
 
+protocol CommentCellDelegate: class {
+    func commentCellDidTapProfile(_ sender: CommentCell)
+}
+
 class CommentCell: UITableViewCell {
 
     @IBOutlet weak var commentLabel: UILabel!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var userProfileImage: UIImageView!
+
+    weak var delegate: CommentCellDelegate?
 
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -23,4 +29,7 @@ class CommentCell: UITableViewCell {
         // Configure the view for the selected state
     }
 
+    @IBAction func profileTapped(_ sender: UIButton) {
+        delegate?.commentCellDidTapProfile(self)
+    }
 }

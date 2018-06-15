@@ -111,16 +111,26 @@
                                             <constraint firstAttribute="width" constant="50" id="kIp-tv-Dos"/>
                                         </constraints>
                                     </imageView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="k7q-8E-Fd8">
+                                        <rect key="frame" x="0.0" y="0.0" width="75" height="60"/>
+                                        <connections>
+                                            <action selector="profileTapped:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="fKQ-Xa-uLe"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
+                                    <constraint firstItem="k7q-8E-Fd8" firstAttribute="bottom" secondItem="Hjg-rc-GME" secondAttribute="bottom" id="8NJ-gd-rO5"/>
                                     <constraint firstItem="Hjg-rc-GME" firstAttribute="leading" secondItem="bB4-Zx-nCG" secondAttribute="leading" constant="15" id="8lE-6T-Bv6"/>
                                     <constraint firstItem="Hjg-rc-GME" firstAttribute="top" secondItem="bB4-Zx-nCG" secondAttribute="top" constant="10" id="Dui-YY-5cI"/>
                                     <constraint firstItem="gI6-dq-3ii" firstAttribute="top" secondItem="Hjg-rc-GME" secondAttribute="top" constant="-5" id="Pnc-yV-9Hk"/>
                                     <constraint firstAttribute="trailing" secondItem="gI6-dq-3ii" secondAttribute="trailing" constant="15" id="cdD-FT-HXd"/>
+                                    <constraint firstItem="ucG-Us-roc" firstAttribute="leading" secondItem="k7q-8E-Fd8" secondAttribute="trailing" id="h0c-MM-OhH"/>
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="70" id="hF4-66-5Oe"/>
                                     <constraint firstItem="gI6-dq-3ii" firstAttribute="leading" secondItem="Hjg-rc-GME" secondAttribute="trailing" constant="5" id="jLq-zh-ODl"/>
+                                    <constraint firstItem="k7q-8E-Fd8" firstAttribute="top" secondItem="bB4-Zx-nCG" secondAttribute="top" id="l10-bh-cYD"/>
                                     <constraint firstAttribute="bottom" secondItem="gI6-dq-3ii" secondAttribute="bottom" constant="10" id="nEA-Ol-vhM"/>
+                                    <constraint firstItem="k7q-8E-Fd8" firstAttribute="leading" secondItem="bB4-Zx-nCG" secondAttribute="leading" id="ymx-nX-lhx"/>
                                 </constraints>
                             </view>
                         </subviews>

@@ -387,7 +387,19 @@ extension DetailViewController: CLLocationManagerDelegate, MKMapViewDelegate {
     }
 }
 
-extension DetailViewController: UITableViewDelegate, UITableViewDataSource {
+extension DetailViewController: UITableViewDelegate, UITableViewDataSource, CommentCellDelegate {
+    func commentCellDidTapProfile(_ sender: CommentCell) {
+        guard let tappedIndexPath = tableView.indexPath(for: sender) else { return }
+        let alertController = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+        let cancelAction = UIAlertAction(title: "取消", style: .cancel, handler: nil)
+        let banAction = UIAlertAction(title: "把 \(comments[tappedIndexPath.row].userName) 加入黑名單", style: .destructive, handler: { _ in
+            
+        })
+        alertController.addAction(cancelAction)
+        alertController.addAction(banAction)
+        self.present(alertController, animated: true, completion: nil)
+    }
+
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         return "留言"
     }
@@ -401,6 +413,7 @@ extension DetailViewController: UITableViewDelegate, UITableViewDataSource {
             cell.commentLabel.text = comments[indexPath.row].comment
             cell.nameLabel.text = comments[indexPath.row].userName
             cell.userProfileImage.sd_setImage(with: URL(string: comments[indexPath.row].userImage), placeholderImage: #imageLiteral(resourceName: "profile_placeholder"))
+            cell.delegate = self
             return cell
         }
         return UITableViewCell()
