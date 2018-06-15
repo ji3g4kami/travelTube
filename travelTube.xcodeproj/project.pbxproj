@@ -45,6 +45,9 @@
 		145D19D52098774C00BE71D0 /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 145D19D42098774C00BE71D0 /* Profile.storyboard */; };
 		146C6D3920D26AF7001CC8AF /* DVStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = 146C6D3820D26AF7001CC8AF /* DVStruct.swift */; };
 		146C6D6F20D27F84001CC8AF /* travelTubeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 146C6D6E20D27F84001CC8AF /* travelTubeTests.swift */; };
+		146C6D9520D36163001CC8AF /* BlackListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 146C6D9420D36163001CC8AF /* BlackListViewController.swift */; };
+		146C6D9820D36294001CC8AF /* BlackListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 146C6D9620D36294001CC8AF /* BlackListCell.swift */; };
+		146C6D9920D36294001CC8AF /* BlackListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 146C6D9720D36294001CC8AF /* BlackListCell.xib */; };
 		148F90FF209AAFF300308179 /* PostArticleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 148F90FE209AAFF300308179 /* PostArticleViewController.swift */; };
 		14AE66B520AAB577007D7851 /* Detail.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 14AE66B420AAB577007D7851 /* Detail.storyboard */; };
 		14AE66BA20AAB5CD007D7851 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14AE66B920AAB5CD007D7851 /* DetailViewController.swift */; };
@@ -121,6 +124,9 @@
 		146C6D6C20D27F84001CC8AF /* travelTubeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = travelTubeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		146C6D6E20D27F84001CC8AF /* travelTubeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = travelTubeTests.swift; sourceTree = "<group>"; };
 		146C6D7020D27F84001CC8AF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		146C6D9420D36163001CC8AF /* BlackListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlackListViewController.swift; sourceTree = "<group>"; };
+		146C6D9620D36294001CC8AF /* BlackListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlackListCell.swift; sourceTree = "<group>"; };
+		146C6D9720D36294001CC8AF /* BlackListCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BlackListCell.xib; sourceTree = "<group>"; };
 		148F90FE209AAFF300308179 /* PostArticleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostArticleViewController.swift; sourceTree = "<group>"; };
 		14AE66B420AAB577007D7851 /* Detail.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Detail.storyboard; sourceTree = "<group>"; };
 		14AE66B920AAB5CD007D7851 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
@@ -187,6 +193,8 @@
 			children = (
 				14DF3C082097191600215368 /* ArticleCollectionViewCell.swift */,
 				14DF3C092097191600215368 /* ArticleCollectionViewCell.xib */,
+				146C6D9620D36294001CC8AF /* BlackListCell.swift */,
+				146C6D9720D36294001CC8AF /* BlackListCell.xib */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -345,6 +353,7 @@
 				14DA41A020A1420200A74254 /* ProfileViewController.swift */,
 				1443272020C513FA00BFCC94 /* HistoryArticleViewController.swift */,
 				1408F58820C66DD50047E05B /* PreservedArticleViewController.swift */,
+				146C6D9420D36163001CC8AF /* BlackListViewController.swift */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -532,6 +541,7 @@
 				14AE66B520AAB577007D7851 /* Detail.storyboard in Resources */,
 				14F7BD9120995A5900DE78C9 /* AnonymousProfile.storyboard in Resources */,
 				1417FEB820B9682600CFB50A /* FeedCell.xib in Resources */,
+				146C6D9920D36294001CC8AF /* BlackListCell.xib in Resources */,
 				14F7BD8D2099580300DE78C9 /* Post.storyboard in Resources */,
 				145D19B920980C1D00BE71D0 /* GoogleService-Info.plist in Resources */,
 				143F3EEF20B405E600784EB9 /* Assets.xcassets in Resources */,
@@ -732,6 +742,7 @@
 				143F3EF120B5465500784EB9 /* CommentViewController.swift in Sources */,
 				143F3ECD20B2B14900784EB9 /* Extensions.swift in Sources */,
 				1417FEB720B9682600CFB50A /* FeedCell.swift in Sources */,
+				146C6D9520D36163001CC8AF /* BlackListViewController.swift in Sources */,
 				1433CB9320C21730003C8A12 /* GradientNavigationController.swift in Sources */,
 				14DA419C20A13F3000A74254 /* SWRevealViewController.m in Sources */,
 				143F3EF320B5513500784EB9 /* DesignableView.swift in Sources */,
@@ -772,6 +783,7 @@
 				1433CB9120C18A1A003C8A12 /* GradientView.swift in Sources */,
 				14DA419F20A141D600A74254 /* LogoutViewController.swift in Sources */,
 				1414065620A0821800BFB170 /* UserManager.swift in Sources */,
+				146C6D9820D36294001CC8AF /* BlackListCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

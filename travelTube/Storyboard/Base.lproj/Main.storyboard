@@ -62,7 +62,7 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="travelTube" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="4qB-3w-w9E">
-                                <rect key="frame" x="109" y="140" width="201.5" height="58.5"/>
+                                <rect key="frame" x="109.5" y="140" width="201.5" height="58.5"/>
                                 <fontDescription key="fontDescription" name="Roboto-Bold" family="Roboto" pointSize="42"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -70,7 +70,7 @@
                                 <size key="shadowOffset" width="3" height="3"/>
                             </label>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon" translatesAutoresizingMaskIntoConstraints="NO" id="rb5-Ta-inC">
-                                <rect key="frame" x="57" y="138.5" width="44" height="63"/>
+                                <rect key="frame" x="57.5" y="138" width="44" height="63"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="44" id="34f-A4-4Vi"/>
                                     <constraint firstAttribute="height" constant="63" id="ZJX-KM-wat"/>
