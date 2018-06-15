@@ -16,6 +16,7 @@ class BlackListViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupTableView()
+        setupNotificationCenter()
     }
 
     func setupTableView() {
@@ -27,24 +28,40 @@ class BlackListViewController: UIViewController {
         self.tableView.rowHeight = UITableViewAutomaticDimension
     }
 
+    func setupNotificationCenter() {
+        NotificationCenter.default.addObserver(self, selector: #selector(self.updateFromCoreData(_:)), name: NSNotification.Name(rawValue: "updateFromCoreData"), object: nil)
+    }
+
+    @objc func updateFromCoreData(_ notification: NSNotification) {
+        self.tableView.reloadData()
+    }
+
     @IBAction func exitPressed(_ sender: Any) {
         dismiss(animated: true, completion: nil)
     }
 }
 
-extension BlackListViewController: UITableViewDelegate, UITableViewDataSource {
+extension BlackListViewController: UITableViewDelegate, UITableViewDataSource, BlackListCellDelegate {
+
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        return CoreDataManager.shared.blackList.count
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: BlackListCell.self), for: indexPath) as? BlackListCell else { return UITableViewCell() }
-        cell.userImage.sd_setImage(with: URL(string: "https://image.flaticon.com/icons/svg/17/17004.svg"), placeholderImage: #imageLiteral(resourceName: "profile_placeholder"))
-
+        let blackUser = CoreDataManager.shared.blackList[indexPath.row]
+        cell.userImage.sd_setImage(with: URL(string: blackUser.userImage), placeholderImage: #imageLiteral(resourceName: "profile_placeholder"))
+        cell.userNameLabel.text = blackUser.userName
+        cell.delegate = self
         return cell
     }
 
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return UITableViewAutomaticDimension
+    }
+
+    func tableViewCellDidTapTrash(_ sender: BlackListCell) {
+        guard let tappedIndexPath = tableView.indexPath(for: sender) else { return }
+        CoreDataManager.shared.removeFromBlackList(uid: CoreDataManager.shared.blackList[tappedIndexPath.row].uid)
     }
 }

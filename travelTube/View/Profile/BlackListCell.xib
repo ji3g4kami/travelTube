@@ -44,8 +44,8 @@
                 </subviews>
                 <constraints>
                     <constraint firstItem="1xa-Na-cHf" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="8" id="1ms-hP-rN0"/>
-                    <constraint firstItem="1xa-Na-cHf" firstAttribute="centerY" secondItem="Kio-CE-k3q" secondAttribute="centerY" id="9P4-VY-CcL"/>
                     <constraint firstItem="dYL-gY-e4o" firstAttribute="centerY" secondItem="Kio-CE-k3q" secondAttribute="centerY" id="M94-ob-XNV"/>
+                    <constraint firstItem="Kio-CE-k3q" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="QOM-Yw-Atp"/>
                     <constraint firstItem="1xa-Na-cHf" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="fRd-Ks-9Br"/>
                     <constraint firstAttribute="trailingMargin" secondItem="dYL-gY-e4o" secondAttribute="trailing" constant="20" id="lDV-sM-ndc"/>
                     <constraint firstItem="Kio-CE-k3q" firstAttribute="leading" secondItem="1xa-Na-cHf" secondAttribute="trailing" constant="20" id="uMK-T0-lcN"/>

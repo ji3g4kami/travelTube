@@ -56,7 +56,7 @@ class DetailViewController: UIViewController {
 
     func setupLikeButton() {
         guard let articleId = articleId else { return }
-        if PreserveManager.shared.preservedArticleId.contains(articleId) {
+        if CoreDataManager.shared.preservedArticleId.contains(articleId) {
             likeButton.setImage(#imageLiteral(resourceName: "like_btn_selected"), for: .normal)
         } else {
             likeButton.setImage(#imageLiteral(resourceName: "like_btn_unselected"), for: .normal)
@@ -141,6 +141,9 @@ class DetailViewController: UIViewController {
                         self.comments.append(comment)
                     }
                 }
+                CoreDataManager.shared.blackList.forEach({ (blackListUser) in
+                    self.comments = self.comments.filter { $0.userId != blackListUser.uid }
+                })
                 self.comments.sort(by: { (comment1, comment2) -> Bool in
                     comment1.createdTime < comment2.createdTime
                 })
@@ -189,7 +192,7 @@ class DetailViewController: UIViewController {
                             if record.articleId == articleId {
                                 managedContext.delete(record)
                                 print("Deleted: \(String(describing: record.youtubeTitle))")
-                                PreserveManager.shared.getArticlesFromCoreData()
+                                CoreDataManager.shared.getArticlesFromCoreData()
                                 NotificationCenter.default.post(name: NSNotification.Name(rawValue: "updateFromCoreData"), object: nil)
                             }
                         }
@@ -299,7 +302,7 @@ class DetailViewController: UIViewController {
     @IBAction func preservePressed(_ sender: UIButton) {
         guard let managedContext = appDelegate?.persistentContainer.viewContext else { return }
         guard let articleInfo = articleInfo else { return }
-        if !PreserveManager.shared.preservedArticleId.contains(articleInfo.articleId) {
+        if !CoreDataManager.shared.preservedArticleId.contains(articleInfo.articleId) {
             likeButton.setImage(#imageLiteral(resourceName: "like_btn_selected"), for: .normal)
             let preserved = Preserved(context: managedContext)
             preserved.articleId = articleInfo.articleId
@@ -310,7 +313,7 @@ class DetailViewController: UIViewController {
             do {
                 try managedContext.save()
                 print("\nSuccessfully saved data\n")
-                PreserveManager.shared.getArticlesFromCoreData()
+                CoreDataManager.shared.getArticlesFromCoreData()
                 NotificationCenter.default.post(name: NSNotification.Name(rawValue: "updateFromCoreData"), object: nil)
             } catch {
                 debugPrint("\nCould not save: \(error.localizedDescription)\n")
@@ -324,7 +327,7 @@ class DetailViewController: UIViewController {
                     if record.articleId == articleInfo.articleId {
                         managedContext.delete(record)
                         print("Deleted: \(String(describing: record.youtubeTitle))")
-                        PreserveManager.shared.getArticlesFromCoreData()
+                        CoreDataManager.shared.getArticlesFromCoreData()
                         NotificationCenter.default.post(name: NSNotification.Name(rawValue: "updateFromCoreData"), object: nil)
                     }
                 }
@@ -390,10 +393,16 @@ extension DetailViewController: CLLocationManagerDelegate, MKMapViewDelegate {
 extension DetailViewController: UITableViewDelegate, UITableViewDataSource, CommentCellDelegate {
     func commentCellDidTapProfile(_ sender: CommentCell) {
         guard let tappedIndexPath = tableView.indexPath(for: sender) else { return }
+        if comments[tappedIndexPath.row].userId == UserManager.shared.uid {
+            return
+        }
         let alertController = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
         let cancelAction = UIAlertAction(title: "取消", style: .cancel, handler: nil)
         let banAction = UIAlertAction(title: "把 \(comments[tappedIndexPath.row].userName) 加入黑名單", style: .destructive, handler: { _ in
-            
+            CoreDataManager.shared.addToBlackList(uid: self.comments[tappedIndexPath.row].userId, userName: self.comments[tappedIndexPath.row].userName, userImage: self.comments[tappedIndexPath.row].userImage)
+            CoreDataManager.shared.getBlackList()
+            guard let articleId = self.articleId else { return }
+            self.getComments(of: articleId, goToBottom: false)
         })
         alertController.addAction(cancelAction)
         alertController.addAction(banAction)

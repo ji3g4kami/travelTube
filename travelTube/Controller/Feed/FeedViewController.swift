@@ -19,6 +19,7 @@ class FeedViewController: UIViewController, TagSearchViewDelegate {
     @IBOutlet weak var tagSearchView: UIView!
 
     var articleArray = [Article]()
+    var tagSearchController: TagSearchViewController?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -48,7 +49,11 @@ class FeedViewController: UIViewController, TagSearchViewDelegate {
     }
 
     @objc func updateFromCoreData(_ notification: NSNotification) {
-        self.tableView.reloadData()
+        guard let tags = tagSearchController?.selectedTags else {
+            getFeeds()
+            return
+        }
+        getFeeds(with: tags)
     }
 
     @objc func updateFromDelete(_ notification: NSNotification) {
@@ -85,6 +90,7 @@ class FeedViewController: UIViewController, TagSearchViewDelegate {
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         guard let controller = segue.destination as? TagSearchViewController else { return }
+        tagSearchController = controller
         controller.delegate = self
     }
 
@@ -99,7 +105,7 @@ class FeedViewController: UIViewController, TagSearchViewDelegate {
 
     @objc func saveArticleToCoreData(_ sender: UIButton) {
         guard let managedContext = appDelegate?.persistentContainer.viewContext else { return }
-        if !PreserveManager.shared.preservedArticleId.contains(articleArray[sender.tag].articleId) {
+        if !CoreDataManager.shared.preservedArticleId.contains(articleArray[sender.tag].articleId) {
             let preserved = Preserved(context: managedContext)
             preserved.articleId = articleArray[sender.tag].articleId
             preserved.youtubeId = articleArray[sender.tag].youtubeId
@@ -109,7 +115,7 @@ class FeedViewController: UIViewController, TagSearchViewDelegate {
             do {
                 try managedContext.save()
                 print("\nSuccessfully saved data\n")
-                PreserveManager.shared.getArticlesFromCoreData()
+                CoreDataManager.shared.getArticlesFromCoreData()
                 NotificationCenter.default.post(name: NSNotification.Name(rawValue: "updateFromCoreData"), object: nil)
             } catch {
                 debugPrint("\nCould not save: \(error.localizedDescription)\n")
@@ -122,7 +128,7 @@ class FeedViewController: UIViewController, TagSearchViewDelegate {
                     if record.articleId == articleArray[sender.tag].articleId {
                         managedContext.delete(record)
                         print("Deleted: \(String(describing: record.youtubeTitle))")
-                        PreserveManager.shared.getArticlesFromCoreData()
+                        CoreDataManager.shared.getArticlesFromCoreData()
                         NotificationCenter.default.post(name: NSNotification.Name(rawValue: "updateFromCoreData"), object: nil)
                     }
                 }
@@ -168,7 +174,7 @@ extension FeedViewController: UITableViewDelegate, UITableViewDataSource {
         }
         cell.likeButton.tag = indexPath.row
         cell.likeButton.addTarget(self, action: #selector(saveArticleToCoreData), for: .touchUpInside)
-        if PreserveManager.shared.preservedArticleId.contains(articleArray[indexPath.row].articleId) {
+        if CoreDataManager.shared.preservedArticleId.contains(articleArray[indexPath.row].articleId) {
             cell.likeButton.setImage(#imageLiteral(resourceName: "btn_like_selected"), for: .normal)
         } else {
             cell.likeButton.setImage(#imageLiteral(resourceName: "btn_like_normal"), for: .normal)

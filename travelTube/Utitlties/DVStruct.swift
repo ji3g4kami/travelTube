@@ -40,3 +40,9 @@ struct Comment {
     let userName: String
     let userImage: String
 }
+
+struct BlackListUser {
+    let uid: String
+    let userName: String
+    let userImage: String
+}

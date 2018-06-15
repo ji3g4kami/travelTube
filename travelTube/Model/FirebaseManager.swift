@@ -33,6 +33,9 @@ class FirebaseManager {
                     print(error)
                 }
             })
+            CoreDataManager.shared.blackList.forEach({ (blackListUser) in
+                articleArray = articleArray.filter { $0.uid != blackListUser.uid }
+            })
             completion(articleArray)
         }
     }

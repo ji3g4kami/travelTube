@@ -47,13 +47,13 @@ class PreservedArticleViewController: UIViewController {
 extension PreservedArticleViewController: UICollectionViewDelegate, UICollectionViewDataSource {
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return PreserveManager.shared.preservedArticle.count
+        return CoreDataManager.shared.preservedArticle.count
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if let cell: ArticleCollectionViewCell = collectionView.dequeueReusableCell(withReuseIdentifier: "articleCell", for: indexPath) as? ArticleCollectionViewCell {
-            cell.youtubeImage.sd_setImage(with: URL(string: PreserveManager.shared.preservedArticle[indexPath.row].youtubeImage), placeholderImage: #imageLiteral(resourceName: "lantern"))
-            cell.titleLabel.text = PreserveManager.shared.preservedArticle[indexPath.row].youtubeTitle
+            cell.youtubeImage.sd_setImage(with: URL(string: CoreDataManager.shared.preservedArticle[indexPath.row].youtubeImage), placeholderImage: #imageLiteral(resourceName: "lantern"))
+            cell.titleLabel.text = CoreDataManager.shared.preservedArticle[indexPath.row].youtubeTitle
             return cell
         }
         return UICollectionViewCell()
@@ -63,8 +63,8 @@ extension PreservedArticleViewController: UICollectionViewDelegate, UICollection
         guard let controller = UIStoryboard.detailStoryboard().instantiateViewController(
             withIdentifier: String(describing: DetailViewController.self)
             ) as? DetailViewController else { return }
-        controller.youtubeId = PreserveManager.shared.preservedArticle[indexPath.row].youtubeId
-        controller.articleId = PreserveManager.shared.preservedArticle[indexPath.row].articleId
+        controller.youtubeId = CoreDataManager.shared.preservedArticle[indexPath.row].youtubeId
+        controller.articleId = CoreDataManager.shared.preservedArticle[indexPath.row].articleId
         controller.hidesBottomBarWhenPushed = true
         self.present(controller, animated: true, completion: nil)
     }

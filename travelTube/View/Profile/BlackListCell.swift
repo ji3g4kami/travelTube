@@ -8,11 +8,16 @@
 
 import UIKit
 
+protocol BlackListCellDelegate: class {
+    func tableViewCellDidTapTrash(_ sender: BlackListCell)
+}
+
 class BlackListCell: UITableViewCell {
 
     @IBOutlet weak var userImage: CircularImageView!
-
     @IBOutlet weak var userNameLabel: UILabel!
+
+    weak var delegate: BlackListCellDelegate?
 
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -26,6 +31,6 @@ class BlackListCell: UITableViewCell {
     }
 
     @IBAction func deletePressed(_ sender: Any) {
-        print("Deleted")
+        delegate?.tableViewCellDidTapTrash(self)
     }
 }
