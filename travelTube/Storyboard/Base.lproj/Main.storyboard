@@ -62,7 +62,7 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="travelTube" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="4qB-3w-w9E">
-                                <rect key="frame" x="108" y="140" width="203.5" height="52.5"/>
+                                <rect key="frame" x="109" y="140" width="201.5" height="58.5"/>
                                 <fontDescription key="fontDescription" name="Roboto-Bold" family="Roboto" pointSize="42"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -70,7 +70,7 @@
                                 <size key="shadowOffset" width="3" height="3"/>
                             </label>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon" translatesAutoresizingMaskIntoConstraints="NO" id="rb5-Ta-inC">
-                                <rect key="frame" x="56" y="135.5" width="44" height="63"/>
+                                <rect key="frame" x="57" y="138.5" width="44" height="63"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="44" id="34f-A4-4Vi"/>
                                     <constraint firstAttribute="height" constant="63" id="ZJX-KM-wat"/>
@@ -97,6 +97,15 @@
                                     <action selector="readOnlyLogin:" destination="KX3-cp-gMa" eventType="touchUpInside" id="ZCi-aT-Z0u"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VWy-gN-atA">
+                                <rect key="frame" x="94" y="617" width="188" height="30"/>
+                                <state key="normal" title="註冊即同意 隱私權保護政策">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="privacyButtonPressed:" destination="KX3-cp-gMa" eventType="touchUpInside" id="dTE-2g-Dk8"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -111,8 +120,10 @@
                             <constraint firstItem="QHO-J5-Ra4" firstAttribute="trailing" secondItem="NvU-nd-41i" secondAttribute="trailing" constant="36" id="cQF-fZ-4UH"/>
                             <constraint firstItem="kBI-X2-HbD" firstAttribute="leading" secondItem="QHO-J5-Ra4" secondAttribute="leading" constant="36" id="fJy-bn-Y5t"/>
                             <constraint firstItem="4qB-3w-w9E" firstAttribute="top" secondItem="QHO-J5-Ra4" secondAttribute="top" constant="120" id="hmU-ZZ-4Lc"/>
+                            <constraint firstItem="QHO-J5-Ra4" firstAttribute="bottom" secondItem="VWy-gN-atA" secondAttribute="bottom" constant="20" id="jLC-bP-NhL"/>
                             <constraint firstItem="QHO-J5-Ra4" firstAttribute="bottom" secondItem="NvU-nd-41i" secondAttribute="bottom" constant="140" id="rEd-ZN-gIe"/>
                             <constraint firstItem="kBI-X2-HbD" firstAttribute="top" secondItem="NvU-nd-41i" secondAttribute="bottom" constant="10" id="rQe-zR-RbE"/>
+                            <constraint firstItem="VWy-gN-atA" firstAttribute="centerX" secondItem="0Tf-2W-Njr" secondAttribute="centerX" id="rZo-Tx-Pqh"/>
                             <constraint firstItem="rb5-Ta-inC" firstAttribute="centerY" secondItem="4qB-3w-w9E" secondAttribute="centerY" id="vah-cj-wqs"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="QHO-J5-Ra4"/>

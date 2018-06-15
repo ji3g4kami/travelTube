@@ -31,4 +31,10 @@ class LoginViewController: UIViewController, GIDSignInUIDelegate {
             UIApplication.shared.endIgnoringInteractionEvents()
         }
     }
+    @IBAction func privacyButtonPressed(_ sender: Any) {
+        guard let controller = UIStoryboard.profileStoryboard().instantiateViewController(
+            withIdentifier: String(describing: PrivacyViewController.self)
+            ) as? PrivacyViewController else { return }
+        self.present(controller, animated: true, completion: nil)
+    }
 }

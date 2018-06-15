@@ -233,7 +233,7 @@
         <!--Privacy View Controller-->
         <scene sceneID="EfU-6y-WWm">
             <objects>
-                <viewController id="rFx-NS-KqX" customClass="PrivacyViewController" customModule="travelTube" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="PrivacyViewController" id="rFx-NS-KqX" customClass="PrivacyViewController" customModule="travelTube" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="JgM-CI-XOK">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
