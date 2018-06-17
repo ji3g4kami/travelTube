@@ -32,6 +32,8 @@ class DetailViewController: UIViewController {
     @IBOutlet weak var deleteButton: UIButton!
     @IBOutlet weak var reportView: UIView!
     @IBOutlet weak var likeButton: UIButton!
+    @IBOutlet weak var blockRightYoutubeButton: UIButton!
+    @IBOutlet weak var blockLeftToutubeButton: UIButton!
 
     var youtubeId: String?
     var articleId: String?
@@ -82,10 +84,14 @@ class DetailViewController: UIViewController {
             mapViewContainer.alpha = 1
             youtubePlayer.alpha = 0
             infoView.alpha = 0
+            blockLeftToutubeButton.isHidden = true
+            blockRightYoutubeButton.isHidden = true
         default:
             mapViewContainer.alpha = 0
             youtubePlayer.alpha = 1
             infoView.alpha = 1
+            blockLeftToutubeButton.isHidden = false
+            blockRightYoutubeButton.isHidden = false
         }
     }
 

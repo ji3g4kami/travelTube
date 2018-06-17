@@ -117,6 +117,10 @@
                                                         <constraint firstAttribute="width" secondItem="aS8-EM-iUg" secondAttribute="height" multiplier="16:9" id="Ukh-tj-XeA"/>
                                                     </constraints>
                                                 </view>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="L6i-J9-YGO">
+                                                    <rect key="frame" x="0.0" y="86.5" width="150" height="84.5"/>
+                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </button>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jeQ-aW-GOb">
                                                     <rect key="frame" x="0.0" y="211" width="375" height="169"/>
                                                     <subviews>
@@ -223,20 +227,32 @@
                                                         <constraint firstItem="Zhz-dh-xTN" firstAttribute="centerY" secondItem="pm8-Ut-dDQ" secondAttribute="centerY" constant="3" id="x61-81-lim"/>
                                                     </constraints>
                                                 </view>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5s0-OI-BQ4">
+                                                    <rect key="frame" x="187.5" y="147.5" width="187.5" height="63.5"/>
+                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </button>
                                             </subviews>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <constraints>
+                                                <constraint firstItem="L6i-J9-YGO" firstAttribute="bottom" secondItem="aS8-EM-iUg" secondAttribute="bottom" constant="-40" id="Ays-k3-Bhr"/>
+                                                <constraint firstItem="5s0-OI-BQ4" firstAttribute="bottom" secondItem="aS8-EM-iUg" secondAttribute="bottom" id="HKm-am-80F"/>
                                                 <constraint firstItem="jeQ-aW-GOb" firstAttribute="leading" secondItem="kcE-aH-3eu" secondAttribute="leading" id="JNx-Uh-fqv"/>
                                                 <constraint firstItem="aS8-EM-iUg" firstAttribute="top" secondItem="kcE-aH-3eu" secondAttribute="top" id="JPj-qJ-DqC"/>
+                                                <constraint firstItem="L6i-J9-YGO" firstAttribute="width" secondItem="aS8-EM-iUg" secondAttribute="width" multiplier="0.4" id="KWP-Qk-3sl"/>
+                                                <constraint firstItem="L6i-J9-YGO" firstAttribute="height" secondItem="aS8-EM-iUg" secondAttribute="height" multiplier="0.4" id="Luw-X0-HEX"/>
                                                 <constraint firstAttribute="bottom" secondItem="jeQ-aW-GOb" secondAttribute="bottom" id="Nog-Nq-i9T"/>
+                                                <constraint firstItem="L6i-J9-YGO" firstAttribute="leading" secondItem="kcE-aH-3eu" secondAttribute="leading" id="PAK-1b-73V"/>
                                                 <constraint firstAttribute="trailing" secondItem="jeQ-aW-GOb" secondAttribute="trailing" id="YEP-Mi-1Xz"/>
                                                 <constraint firstItem="sRk-Gd-XMo" firstAttribute="top" secondItem="kcE-aH-3eu" secondAttribute="top" id="bQI-lM-wYp"/>
                                                 <constraint firstItem="aS8-EM-iUg" firstAttribute="leading" secondItem="kcE-aH-3eu" secondAttribute="leading" id="fVZ-3z-ZOI"/>
+                                                <constraint firstItem="5s0-OI-BQ4" firstAttribute="height" secondItem="aS8-EM-iUg" secondAttribute="height" multiplier="0.3" id="fZf-Cf-VCZ"/>
                                                 <constraint firstAttribute="bottom" secondItem="jeQ-aW-GOb" secondAttribute="bottom" id="gWm-yx-mNT"/>
+                                                <constraint firstAttribute="trailing" secondItem="5s0-OI-BQ4" secondAttribute="trailing" id="nDC-0y-Urv"/>
                                                 <constraint firstItem="jeQ-aW-GOb" firstAttribute="top" secondItem="aS8-EM-iUg" secondAttribute="bottom" id="oho-g7-7UN"/>
                                                 <constraint firstAttribute="trailing" secondItem="aS8-EM-iUg" secondAttribute="trailing" id="pQA-OG-UlW"/>
                                                 <constraint firstAttribute="bottom" secondItem="sRk-Gd-XMo" secondAttribute="bottom" id="shT-5u-Mdi"/>
                                                 <constraint firstItem="sRk-Gd-XMo" firstAttribute="leading" secondItem="kcE-aH-3eu" secondAttribute="leading" id="tr6-bR-8PA"/>
+                                                <constraint firstItem="5s0-OI-BQ4" firstAttribute="width" secondItem="aS8-EM-iUg" secondAttribute="width" multiplier="0.5" id="wOo-oq-six"/>
                                                 <constraint firstAttribute="trailing" secondItem="sRk-Gd-XMo" secondAttribute="trailing" id="z5E-fy-GsZ"/>
                                             </constraints>
                                         </view>
@@ -362,6 +378,8 @@
                     <size key="freeformSize" width="375" height="1000"/>
                     <connections>
                         <outlet property="bannerView" destination="W8l-dA-MNL" id="srb-Ff-GTw"/>
+                        <outlet property="blockLeftToutubeButton" destination="L6i-J9-YGO" id="ZA6-Cx-IEs"/>
+                        <outlet property="blockRightYoutubeButton" destination="5s0-OI-BQ4" id="efH-nx-KTb"/>
                         <outlet property="commentTextView" destination="fZq-6L-1Ks" id="J7T-gD-car"/>
                         <outlet property="commentView" destination="oAL-m8-yBa" id="VOg-yB-ZQc"/>
                         <outlet property="deleteButton" destination="Zhz-dh-xTN" id="XQM-Eg-1Vv"/>
