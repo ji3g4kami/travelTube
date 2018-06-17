@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import FirebaseDatabase
+import CodableFirebase
 import SDWebImage
 import TagListView
 import SKActivityIndicatorView
@@ -64,9 +66,16 @@ class FeedViewController: UIViewController, TagSearchViewDelegate {
     }
 
     func getFeeds() {
-        FirebaseManager.shared.getAllFeeds { articles in
-            self.articleArray = articles
-            self.refreshTableView()
+        articleArray.removeAll()
+        FirebaseManager.shared.ref.child("articles").queryOrdered(byChild: "updateTime").queryStarting(atValue: 0).observe(.childAdded) { (snapshot) in
+            guard let value = snapshot.value else { return }
+            do {
+                let article = try FirebaseDecoder().decode(Article.self, from: value)
+                self.articleArray.append(article)
+                self.refreshTableView()
+            } catch {
+                print(error)
+            }
         }
     }
 
