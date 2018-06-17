@@ -23,7 +23,6 @@
 		1433CB9320C21730003C8A12 /* GradientNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1433CB9220C21730003C8A12 /* GradientNavigationController.swift */; };
 		1433CB9520C3D3BA003C8A12 /* CircularImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1433CB9420C3D3BA003C8A12 /* CircularImageView.swift */; };
 		1433CB9720C3D603003C8A12 /* CircularGradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1433CB9620C3D603003C8A12 /* CircularGradientView.swift */; };
-		1439892920BBB62200E8DF9F /* VideoPopupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1439892820BBB62200E8DF9F /* VideoPopupViewController.swift */; };
 		1439892B20BBD35C00E8DF9F /* PrivacyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1439892A20BBD35C00E8DF9F /* PrivacyViewController.swift */; };
 		143F3ECD20B2B14900784EB9 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 143F3ECC20B2B14900784EB9 /* Extensions.swift */; };
 		143F3EEF20B405E600784EB9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 143F3EEE20B405E600784EB9 /* Assets.xcassets */; };
@@ -100,7 +99,6 @@
 		1433CB9220C21730003C8A12 /* GradientNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientNavigationController.swift; sourceTree = "<group>"; };
 		1433CB9420C3D3BA003C8A12 /* CircularImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircularImageView.swift; sourceTree = "<group>"; };
 		1433CB9620C3D603003C8A12 /* CircularGradientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircularGradientView.swift; sourceTree = "<group>"; };
-		1439892820BBB62200E8DF9F /* VideoPopupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoPopupViewController.swift; sourceTree = "<group>"; };
 		1439892A20BBD35C00E8DF9F /* PrivacyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivacyViewController.swift; sourceTree = "<group>"; };
 		143F3ECC20B2B14900784EB9 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		143F3EEE20B405E600784EB9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -402,7 +400,6 @@
 			isa = PBXGroup;
 			children = (
 				14F7BD962099935500DE78C9 /* SearchYoutubeResultCell.swift */,
-				1439892820BBB62200E8DF9F /* VideoPopupViewController.swift */,
 			);
 			path = Post;
 			sourceTree = "<group>";
@@ -771,7 +768,6 @@
 				1408F58920C66DD50047E05B /* PreservedArticleViewController.swift in Sources */,
 				14DA41A120A1420200A74254 /* ProfileViewController.swift in Sources */,
 				1408F56620C6697C0047E05B /* Model.xcdatamodeld in Sources */,
-				1439892920BBB62200E8DF9F /* VideoPopupViewController.swift in Sources */,
 				14DA41A420A1522B00A74254 /* AuthManager.swift in Sources */,
 				14DA41A620A162C600A74254 /* FirebaseManager.swift in Sources */,
 				144F808620B68B08002D19CD /* DesignableButton.swift in Sources */,

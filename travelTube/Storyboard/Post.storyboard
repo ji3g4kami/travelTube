@@ -359,15 +359,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Tuf-YX-KkI"/>
                     </view>
-                    <navigationItem key="navigationItem" title="分享影片地點" id="Koa-qR-bri">
-                        <barButtonItem key="rightBarButtonItem" title="Item" image="youtube" id="zHg-CX-Rp8">
-                            <connections>
-                                <segue destination="0rL-Lg-4Ei" kind="popoverPresentation" identifier="videoPopOver" popoverAnchorBarButtonItem="zHg-CX-Rp8" id="dO3-iY-Yp1">
-                                    <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
-                                </segue>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="分享影片地點" id="Koa-qR-bri"/>
                     <size key="freeformSize" width="375" height="800"/>
                     <connections>
                         <outlet property="blurView" destination="7Uz-V5-tzm" id="3TM-lg-AP6"/>
@@ -437,37 +429,6 @@
             </objects>
             <point key="canvasLocation" x="2269" y="198"/>
         </scene>
-        <!--Video Popup View Controller-->
-        <scene sceneID="pII-nR-4PH">
-            <objects>
-                <viewController id="0rL-Lg-4Ei" customClass="VideoPopupViewController" customModule="travelTube" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="6GP-Bp-Ufa">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="180"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bZX-Ae-Kfn" customClass="YouTubePlayerView" customModule="YouTubePlayer">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="180"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            </view>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <constraints>
-                            <constraint firstItem="bZX-Ae-Kfn" firstAttribute="top" secondItem="3J8-xC-hWz" secondAttribute="top" id="9W8-yX-HL3"/>
-                            <constraint firstItem="3J8-xC-hWz" firstAttribute="trailing" secondItem="bZX-Ae-Kfn" secondAttribute="trailing" id="GVt-yn-aEd"/>
-                            <constraint firstItem="3J8-xC-hWz" firstAttribute="bottom" secondItem="bZX-Ae-Kfn" secondAttribute="bottom" id="pkr-PH-1SK"/>
-                            <constraint firstItem="bZX-Ae-Kfn" firstAttribute="leading" secondItem="3J8-xC-hWz" secondAttribute="leading" id="uyU-P5-Ou5"/>
-                        </constraints>
-                        <viewLayoutGuide key="safeArea" id="3J8-xC-hWz"/>
-                    </view>
-                    <size key="freeformSize" width="320" height="180"/>
-                    <connections>
-                        <outlet property="youtubePlayer" destination="bZX-Ae-Kfn" id="cZh-wo-Z6f"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Iaj-qy-9F2" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2301" y="-39"/>
-        </scene>
         <!--Gradient Navigation Controller-->
         <scene sceneID="F8j-mF-Xl1">
             <objects>
@@ -490,6 +451,5 @@
     <resources>
         <image name="searchLocation" width="590" height="74"/>
         <image name="tags" width="328" height="54"/>
-        <image name="youtube" width="25" height="25"/>
     </resources>
 </document>

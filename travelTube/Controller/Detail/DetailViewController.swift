@@ -123,6 +123,7 @@ class DetailViewController: UIViewController {
     }
 
     func setupYoutubePlayer(of youtubeId: String) {
+        youtubePlayer.delegate = self
         youtubePlayer.playerVars = ["playsinline": "1", "showinfo": "0", "modestbranding": "1"] as YouTubePlayerView.YouTubePlayerParameters
         youtubePlayer.loadVideoID(youtubeId)
     }
@@ -484,5 +485,13 @@ extension DetailViewController: UITableViewDelegate, UITableViewDataSource, Comm
         }
         action.image = #imageLiteral(resourceName: "ban")
         return action
+    }
+}
+
+extension DetailViewController: YouTubePlayerDelegate {
+    func playerStateChanged(_ videoPlayer: YouTubePlayerView, playerState: YouTubePlayerState) {
+        if playerState.rawValue == "1" {
+            blockRightYoutubeButton.isHidden = true
+        }
     }
 }
