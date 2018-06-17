@@ -272,36 +272,42 @@ class DetailViewController: UIViewController {
     }
 
     @IBAction func reportButtonPressed(_ sender: Any) {
-        let alertController = UIAlertController(
-            title: "Report",
-            message: "Tell us why is this content inappropriate",
-            preferredStyle: .alert)
-        alertController.addTextField(configurationHandler: nil)
-
-        let cancelAction = UIAlertAction(
-            title: "Cancel",
-            style: .cancel,
-            handler: nil)
-        alertController.addAction(cancelAction)
-
-        let okAction = UIAlertAction(
-            title: "Submit",
-            style: UIAlertActionStyle.default) { (action: UIAlertAction!) -> Void in
-                let acc = (alertController.textFields?.first)! as UITextField
-                let alert = UIAlertController(title: "Report Sent", message: "We will see whether this content is inappropriate", preferredStyle: .alert)
+        let alertController = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+        let cancelAction = UIAlertAction(title: "取消", style: .cancel, handler: nil)
+        let reportAction = UIAlertAction(title: "檢舉不良內容", style: .default) { _ in
+            let reportController = UIAlertController(title: "檢舉", message: "請告訴我們為什麼要檢舉此篇", preferredStyle: .alert)
+            reportController.addTextField(configurationHandler: nil)
+            let cancelAct = UIAlertAction(title: "取消", style: .cancel, handler: nil)
+            let submitAct = UIAlertAction(title: "送出", style: .default) { (action: UIAlertAction!) in
+                let alert = UIAlertController(title: "您的檢舉已送出", message: nil, preferredStyle: .alert)
                 let action = UIAlertAction(title: "OK", style: .cancel, handler: nil)
                 alert.addAction(action)
                 self.present(alert, animated: true, completion: nil)
-                print("\(acc.text)")
+            }
+            reportController.addAction(cancelAct)
+            reportController.addAction(submitAct)
+            self.present(reportController, animated: true, completion: nil)
         }
-        alertController.addAction(okAction)
+        let hideAction = UIAlertAction(title: "我不想看到這個", style: .default) { _ in
+            let alert = UIAlertController(title: "隱藏此貼文", message: "您將再也不會看到此貼文", preferredStyle: .alert)
+            let confirm = UIAlertAction(title: "確認", style: .default) { _ in
+                guard let articleId = self.articleId else { return }
+                CoreDataManager.shared.addToBlackArticle(articleId: articleId)
+                CoreDataManager.shared.getBlackArticle()
+                self.dismiss(animated: true, completion: nil)
+            }
+            let cancel = UIAlertAction(title: "取消", style: .cancel, handler: nil)
+            alert.addAction(cancel)
+            alert.addAction(confirm)
+            self.present(alert, animated: true, completion: nil)
+        }
 
-        // 顯示提示框
-        self.present(
-            alertController,
-            animated: true,
-            completion: nil)
+        alertController.addAction(cancelAction)
+        alertController.addAction(reportAction)
+        alertController.addAction(hideAction)
+        self.present(alertController, animated: true, completion: nil)
     }
+
     @IBAction func leaveButtonPressed(_ sender: Any) {
         dismiss(animated: true, completion: nil)
     }

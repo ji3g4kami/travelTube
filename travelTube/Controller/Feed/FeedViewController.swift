@@ -72,6 +72,9 @@ class FeedViewController: UIViewController, TagSearchViewDelegate {
             do {
                 let article = try FirebaseDecoder().decode(Article.self, from: value)
                 self.articleArray.append(article)
+                CoreDataManager.shared.blackArticle.forEach({ articleId in
+                    self.articleArray = self.articleArray.filter { $0.articleId != articleId }
+                })
                 self.refreshTableView()
             } catch {
                 print(error)

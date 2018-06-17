@@ -14,6 +14,7 @@ class CoreDataManager {
     var preservedArticleId = [String]()
     var preservedArticle = [PreserveArticle]()
     var blackList = [BlackListUser]()
+    var blackArticle = [String]()
 
     func getArticlesFromCoreData() {
         do {
@@ -87,6 +88,37 @@ class CoreDataManager {
                 for user in users {
                     if let uid = user.value(forKey: "uid") as? String, let userName = user.value(forKey: "userName") as? String, let userImage = user.value(forKey: "userImage") as? String {
                         self.blackList.append(BlackListUser(uid: uid, userName: userName, userImage: userImage))
+                    }
+                }
+            }
+        } catch {
+            debugPrint("Could not fetch: \(error.localizedDescription)")
+        }
+    }
+
+    func addToBlackArticle(articleId: String) {
+        guard let managedContext = appDelegate?.persistentContainer.viewContext else { return }
+        let blackArticle = BlackArticle(context: managedContext)
+        blackArticle.articleId = articleId
+        do {
+            try managedContext.save()
+            print("\nSuccessfully saved data\n")
+            NotificationCenter.default.post(name: NSNotification.Name(rawValue: "updateFromCoreData"), object: nil)
+        } catch {
+            debugPrint("\nCould not save: \(error.localizedDescription)\n")
+        }
+    }
+
+    func getBlackArticle() {
+        do {
+            if let managedContext = appDelegate?.persistentContainer.viewContext {
+                let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "BlackArticle")
+                let result = try managedContext.fetch(fetchRequest)
+                guard let articles = result as? [NSManagedObject] else { return }
+                blackArticle.removeAll()
+                for article in articles {
+                    if let articleId = article.value(forKey: "articleId") as? String {
+                        self.blackArticle.append(articleId)
                     }
                 }
             }

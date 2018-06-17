@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="14135" systemVersion="17E202" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="14135" systemVersion="17F77" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="BlackArticle" representedClassName="BlackArticle" syncable="YES" codeGenerationType="class">
+        <attribute name="articleId" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
     <entity name="BlackList" representedClassName="BlackList" syncable="YES" codeGenerationType="class">
         <attribute name="uid" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="userImage" optional="YES" attributeType="String" syncable="YES"/>
@@ -13,7 +16,8 @@
         <attribute name="youtubeTitle" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Preserved" positionX="-63" positionY="-18" width="128" height="120"/>
         <element name="BlackList" positionX="-63" positionY="18" width="128" height="90"/>
+        <element name="Preserved" positionX="-63" positionY="-18" width="128" height="120"/>
+        <element name="BlackArticle" positionX="-63" positionY="27" width="128" height="60"/>
     </elements>
 </model>

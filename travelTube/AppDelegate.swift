@@ -38,6 +38,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
         UIApplication.shared.statusBarStyle = UIStatusBarStyle.lightContent
         CoreDataManager.shared.getArticlesFromCoreData()
         CoreDataManager.shared.getBlackList()
+        CoreDataManager.shared.getBlackArticle()
         return true
     }
 

@@ -36,6 +36,9 @@ class FirebaseManager {
             CoreDataManager.shared.blackList.forEach({ (blackListUser) in
                 articleArray = articleArray.filter { $0.uid != blackListUser.uid }
             })
+            CoreDataManager.shared.blackArticle.forEach({ articleId in
+                articleArray = articleArray.filter { $0.articleId != articleId }
+            })
             completion(articleArray)
         }
     }
