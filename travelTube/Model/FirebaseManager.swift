@@ -63,9 +63,9 @@ class FirebaseManager {
                     dispatchGroup.leave()
                 }
             }
-            dispatchGroup.notify(queue: .global()) {
+            dispatchGroup.notify(queue: .global()) { [weak self] in
                 selectedArticleIds = Array(Set(selectedArticleIds))
-                self.getAllFeeds(completion: { (articles) in
+                self?.getAllFeeds(completion: { (articles) in
                     let articleArray = articles.filter { selectedArticleIds.contains($0.articleId) }
                     completion(articleArray)
                 })

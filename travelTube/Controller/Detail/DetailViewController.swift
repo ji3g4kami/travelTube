@@ -169,7 +169,6 @@ class DetailViewController: UIViewController {
         self.navigationController?.popToRootViewController(animated: true)
     }
 
-    // TODO: closure or delegate
     func getArticleInfo(of articleId: String) {
         FirebaseManager.shared.ref.child("articles").child(articleId).observeSingleEvent(of: .value, with: { (snapshot) in
             guard let value = snapshot.value else { return }

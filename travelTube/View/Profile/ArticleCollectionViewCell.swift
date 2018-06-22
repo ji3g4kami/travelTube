@@ -21,7 +21,6 @@ class ArticleCollectionViewCell: UICollectionViewCell {
         titleLabel.sizeToFit()
         titleTopToImageContraint.constant = self.frame.height/30
         titleBottomContraint.constant = titleTopToImageContraint.constant
-//        youtubeImage.layer.cornerRadius = youtubeImage.frame.height*0.1
         setupImage()
     }
 

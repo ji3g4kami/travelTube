@@ -31,7 +31,7 @@ class HistoryArticleViewController: UIViewController {
 
     func requestUserArticle() {
         guard let uid = UserManager.shared.uid else { return }
-        FirebaseManager.shared.ref.child("articles").queryOrdered(byChild: "uid").queryEqual(toValue: uid).observe(.value) { (snapshot) in
+        FirebaseManager.shared.ref.child("articles").queryOrdered(byChild: "uid").queryEqual(toValue: uid).observe(.value) { [unowned self] (snapshot) in
             guard let children = snapshot.children.allObjects as? [DataSnapshot] else { return }
             self.articleArray.removeAll()
             for child in children {
