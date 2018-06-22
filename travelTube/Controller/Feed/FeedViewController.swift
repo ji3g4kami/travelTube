@@ -93,9 +93,9 @@ class FeedViewController: UIViewController, TagSearchViewDelegate {
 
     func getFeeds(with tags: [String]) {
         SKActivityIndicator.show("Loading")
-        FirebaseManager.shared.getFeeds(with: tags) { articles in
-            self.articleArray = articles
-            self.refreshTableView()
+        FirebaseManager.shared.getFeeds(with: tags) { [weak self] articles in
+            self?.articleArray = articles
+            self?.refreshTableView()
             SKActivityIndicator.dismiss()
         }
     }

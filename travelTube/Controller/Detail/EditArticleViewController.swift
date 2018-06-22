@@ -30,11 +30,11 @@ class EditArticleViewController: UIViewController {
         setupMap()
         setupTokenView()
         queryTags()
-        mapView.delegate = self
-        mapSearchBar.delegate = self
     }
 
     private func setupMap() {
+        mapView.delegate = self
+        mapSearchBar.delegate = self
         guard let annotaions = articleInfo?.annotations else { return }
         for annotaion in annotaions {
             let marker = MKPointAnnotation()
