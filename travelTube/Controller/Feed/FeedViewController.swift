@@ -186,6 +186,11 @@ extension FeedViewController: UITableViewDelegate, UITableViewDataSource {
         }
         cell.likeButton.tag = indexPath.row
         cell.likeButton.addTarget(self, action: #selector(saveArticleToCoreData), for: .touchUpInside)
+        if UserManager.shared.uid == articleArray[indexPath.row].uid {
+            cell.likeButton.isHidden = true
+        } else {
+            cell.likeButton.isHidden = false
+        }
         if CoreDataManager.shared.preservedArticleId.contains(articleArray[indexPath.row].articleId) {
             cell.likeButton.setImage(#imageLiteral(resourceName: "btn_like_selected"), for: .normal)
         } else {
