@@ -9,7 +9,6 @@
 import UIKit
 import FirebaseInvites
 import GoogleSignIn
-import SKActivityIndicatorView
 import Crashlytics
 
 class LogoutViewController: UIViewController, InviteDelegate {
@@ -26,12 +25,10 @@ class LogoutViewController: UIViewController, InviteDelegate {
     }
 
     @IBAction func logoutPressed(_ sender: UIButton) {
-        SKActivityIndicator.show("Loading...")
         AuthManager.shared.logout {
             // get a reference to the app delegate
             let appDelegate: AppDelegate? = UIApplication.shared.delegate as? AppDelegate
             appDelegate?.toLoginPage()
-            SKActivityIndicator.dismiss()
         }
     }
 

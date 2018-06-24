@@ -25,10 +25,10 @@ class FeedViewController: UIViewController, TagSearchViewDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        SKActivityIndicator.show("Loading...")
         setupTableView()
         getFeeds()
         setupNotificationCenter()
+        SKActivityIndicator.show("Loading")
     }
 
     func setupNotificationCenter() {

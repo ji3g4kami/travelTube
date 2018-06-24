@@ -15,12 +15,6 @@ public class UserManager {
 
     let defaults = UserDefaults.standard
 
-    enum UserLogInStatus: String {
-        case gmail
-        case anonymous
-        case out
-    }
-
     var isLoggedIn: Bool {
         get {
             guard let isLoggedIn = defaults.value(forKey: "LoggedIn") as? Bool else { return false }
@@ -28,16 +22,6 @@ public class UserManager {
         }
         set {
             defaults.set(newValue, forKey: "LoggedIn")
-        }
-    }
-
-    var isAnonymous: Bool {
-        get {
-            guard let isAnonymous = defaults.value(forKey: "isAnonymous") as? Bool else { return false }
-            return isAnonymous
-        }
-        set {
-            defaults.set(newValue, forKey: "isAnonymous")
         }
     }
 

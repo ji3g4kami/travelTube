@@ -20,11 +20,6 @@ extension UIStoryboard {
         return UIStoryboard(name: "Post", bundle: nil)
     }
 
-    static func anonymousProfileStoryboard() -> UIStoryboard {
-
-        return UIStoryboard(name: "AnonymousProfile", bundle: nil)
-    }
-
     static func profileStoryboard() -> UIStoryboard {
 
         return UIStoryboard(name: "Profile", bundle: nil)

@@ -7,14 +7,13 @@
 //
 
 import UIKit
+import SKActivityIndicatorView
 
 enum TabBar {
 
     case feed
 
     case post
-
-    case anonymousProfile
 
     case profile
 
@@ -24,9 +23,6 @@ enum TabBar {
 
         case .feed:
             return UIStoryboard.feedStoryboard().instantiateInitialViewController()!
-
-        case .anonymousProfile:
-            return UIStoryboard.anonymousProfileStoryboard().instantiateInitialViewController()!
 
         case .post:
             return UIStoryboard.postStoryboard().instantiateInitialViewController()!
@@ -44,8 +40,6 @@ enum TabBar {
             return #imageLiteral(resourceName: "news")
         case .post:
             return #imageLiteral(resourceName: "post")
-        case .anonymousProfile:
-            return #imageLiteral(resourceName: "anonymous-logo")
         case .profile:
             return #imageLiteral(resourceName: "user")
         }
@@ -56,8 +50,6 @@ enum TabBar {
 
         case .feed:
             return "feed"
-        case .anonymousProfile:
-            return  "anonymous"
         case .post:
             return "post"
         case .profile:
@@ -75,9 +67,6 @@ enum TabBar {
         case .post:
             return #imageLiteral(resourceName: "post").withRenderingMode(.alwaysTemplate)
 
-        case .anonymousProfile:
-            return #imageLiteral(resourceName: "anonymous-logo").withRenderingMode(.alwaysTemplate)
-
         case .profile:
             return #imageLiteral(resourceName: "user").withRenderingMode(.alwaysTemplate)
         }
@@ -86,18 +75,22 @@ enum TabBar {
 
 class TabBarViewController: UITabBarController {
 
-    var tabs: [TabBar] = [.feed, .post, .profile, .anonymousProfile]
+    var tabs: [TabBar] = [.feed, .post, .profile]
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        if UserManager.shared.isAnonymous {
-            tabs = [.feed, .anonymousProfile]
-        } else {
-            tabs = [.feed, .post, .profile]
-        }
         setupTab()
         setGradient()
         setItemColor()
+    }
+
+    override func viewDidAppear(_ animated: Bool) {
+        if !CheckInternet.connection() {
+            let alert = UIAlertController(title: "無網路連線", message: nil, preferredStyle: .alert)
+            let action = UIAlertAction(title: "OK", style: .cancel, handler: nil)
+            alert.addAction(action)
+            present(alert, animated: true, completion: nil)
+        }
     }
 
     private func setItemColor() {
