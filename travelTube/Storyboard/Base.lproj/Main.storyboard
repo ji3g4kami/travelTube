@@ -77,26 +77,6 @@
                                     <constraint firstAttribute="width" secondItem="rb5-Ta-inC" secondAttribute="height" multiplier="44:63" id="fk0-g1-CcA"/>
                                 </constraints>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kBI-X2-HbD" customClass="DesignableButton" customModule="travelTube" customModuleProvider="target">
-                                <rect key="frame" x="36" y="537" width="303" height="40"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="40" id="6N3-ob-eYq"/>
-                                </constraints>
-                                <inset key="titleEdgeInsets" minX="0.0" minY="0.0" maxX="-10" maxY="0.0"/>
-                                <inset key="imageEdgeInsets" minX="-7" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                <state key="normal" title="匿名登入" image="anonymous-logo">
-                                    <color key="titleColor" red="0.1215686275" green="0.12941176469999999" blue="0.14117647059999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                </state>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                        <real key="value" value="6"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                                <connections>
-                                    <action selector="readOnlyLogin:" destination="KX3-cp-gMa" eventType="touchUpInside" id="ZCi-aT-Z0u"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VWy-gN-atA">
                                 <rect key="frame" x="94" y="617" width="188" height="30"/>
                                 <state key="normal" title="註冊即同意 隱私權保護政策">
@@ -112,17 +92,14 @@
                             <constraint firstItem="QHO-J5-Ra4" firstAttribute="bottom" secondItem="TU1-Af-QCy" secondAttribute="bottom" id="E4C-Ul-Z6N"/>
                             <constraint firstItem="TU1-Af-QCy" firstAttribute="top" secondItem="0Tf-2W-Njr" secondAttribute="top" id="IUc-E5-HxK"/>
                             <constraint firstItem="NvU-nd-41i" firstAttribute="centerX" secondItem="0Tf-2W-Njr" secondAttribute="centerX" id="J2w-uE-fMk"/>
-                            <constraint firstItem="QHO-J5-Ra4" firstAttribute="trailing" secondItem="kBI-X2-HbD" secondAttribute="trailing" constant="36" id="Mkd-Dj-bhS"/>
                             <constraint firstItem="TU1-Af-QCy" firstAttribute="leading" secondItem="QHO-J5-Ra4" secondAttribute="leading" id="QTS-MU-X5h"/>
                             <constraint firstItem="4qB-3w-w9E" firstAttribute="leading" secondItem="rb5-Ta-inC" secondAttribute="trailing" constant="8" id="U2D-qh-3fR"/>
                             <constraint firstItem="4qB-3w-w9E" firstAttribute="centerX" secondItem="0Tf-2W-Njr" secondAttribute="centerX" constant="22" id="UMl-pl-2Yd"/>
                             <constraint firstItem="QHO-J5-Ra4" firstAttribute="trailing" secondItem="TU1-Af-QCy" secondAttribute="trailing" id="V1t-2W-RUZ"/>
                             <constraint firstItem="QHO-J5-Ra4" firstAttribute="trailing" secondItem="NvU-nd-41i" secondAttribute="trailing" constant="36" id="cQF-fZ-4UH"/>
-                            <constraint firstItem="kBI-X2-HbD" firstAttribute="leading" secondItem="QHO-J5-Ra4" secondAttribute="leading" constant="36" id="fJy-bn-Y5t"/>
                             <constraint firstItem="4qB-3w-w9E" firstAttribute="top" secondItem="QHO-J5-Ra4" secondAttribute="top" constant="120" id="hmU-ZZ-4Lc"/>
                             <constraint firstItem="QHO-J5-Ra4" firstAttribute="bottom" secondItem="VWy-gN-atA" secondAttribute="bottom" constant="20" id="jLC-bP-NhL"/>
                             <constraint firstItem="QHO-J5-Ra4" firstAttribute="bottom" secondItem="NvU-nd-41i" secondAttribute="bottom" constant="140" id="rEd-ZN-gIe"/>
-                            <constraint firstItem="kBI-X2-HbD" firstAttribute="top" secondItem="NvU-nd-41i" secondAttribute="bottom" constant="10" id="rQe-zR-RbE"/>
                             <constraint firstItem="VWy-gN-atA" firstAttribute="centerX" secondItem="0Tf-2W-Njr" secondAttribute="centerX" id="rZo-Tx-Pqh"/>
                             <constraint firstItem="rb5-Ta-inC" firstAttribute="centerY" secondItem="4qB-3w-w9E" secondAttribute="centerY" id="vah-cj-wqs"/>
                         </constraints>
@@ -138,7 +115,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="anonymous-logo" width="25" height="25"/>
         <image name="google" width="18" height="18"/>
         <image name="icon" width="311" height="416"/>
         <image name="lake" width="1080" height="1920"/>
