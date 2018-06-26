@@ -207,8 +207,7 @@ extension FeedViewController: UITableViewDelegate, UITableViewDataSource {
         guard let controller = UIStoryboard.detailStoryboard().instantiateViewController(
             withIdentifier: String(describing: DetailViewController.self)
             ) as? DetailViewController else { return }
-        controller.youtubeId = articleArray[indexPath.row].youtubeId
-        controller.articleId = articleArray[indexPath.row].articleId
+        controller.articleInfo = articleArray[indexPath.row]
         controller.hidesBottomBarWhenPushed = true
         self.present(controller, animated: true, completion: nil)
     }

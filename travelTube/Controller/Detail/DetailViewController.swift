@@ -9,34 +9,25 @@
 import UIKit
 import MapKit
 import Firebase
-import YouTubePlayer
 import CodableFirebase
-import TagListView
 import CoreData
 
-class DetailViewController: UIViewController {
+class DetailViewController: UIViewController, DetailVideoDelegate {
+    func resize(_ contentsize: CGSize) {
+        videoContainerView.frame = CGRect(origin: videoContainerView.frame.origin, size: contentsize)
+        videoContainerHeightConstraint.constant = contentsize.height
+        tableView.layoutIfNeeded()
+    }
 
-    @IBOutlet weak var youtubePlayer: YouTubePlayerView!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var commentTextView: GrowingTextView!
-    @IBOutlet weak var titleLabel: UILabel!
-    @IBOutlet weak var infoView: UIView!
-    @IBOutlet weak var tagsView: TagListView!
     @IBOutlet weak var commentView: UIView!
     @IBOutlet weak var bannerView: UIView!
-    @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var segmentControl: UISegmentedControl!
-    @IBOutlet weak var mapViewContainer: UIView!
-    @IBOutlet weak var openInMapButton: UIButton!
     @IBOutlet weak var editButton: UIButton!
-    @IBOutlet weak var deleteButton: UIButton!
-    @IBOutlet weak var reportView: UIView!
     @IBOutlet weak var likeButton: UIButton!
-    @IBOutlet weak var blockRightYoutubeButton: UIButton!
-    @IBOutlet weak var blockLeftToutubeButton: UIButton!
-
-    var youtubeId: String?
-    var articleId: String?
+    @IBOutlet weak var videoContainerView: UIView!
+    @IBOutlet weak var videoContainerHeightConstraint: NSLayoutConstraint!
     var articleInfo: Article?
     var comments = [Comment]()
     var annotations = [MKPointAnnotation]()
@@ -44,59 +35,80 @@ class DetailViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        guard let youtubeId = youtubeId, let articleId = articleId else { return }
+        guard let articleId = articleInfo?.articleId else { return }
+        syncWithFirebase(of: articleId)
         hideKeyboardWhenTappedAround()
         setupTableView()
         setupNavigationBar()
-        setupYoutubePlayer(of: youtubeId)
-        getArticleInfo(of: articleId)
         getComments(of: articleId, goToBottom: false)
-        mapView.delegate = self
-        NotificationCenter.default.addObserver(self, selector: #selector(self.updateFromEdit(_:)), name: NSNotification.Name(rawValue: "updateFromEdit"), object: nil)
-        setupLikeButton()
+//        NotificationCenter.default.addObserver(self, selector: #selector(self.updateFromEdit(_:)), name: NSNotification.Name(rawValue: "updateFromEdit"), object: nil)
+
     }
 
-    func setupLikeButton() {
-        guard let articleId = articleId else { return }
-        if CoreDataManager.shared.preservedArticleId.contains(articleId) {
-            likeButton.setImage(#imageLiteral(resourceName: "like_btn_selected"), for: .normal)
-        } else {
-            likeButton.setImage(#imageLiteral(resourceName: "like_btn_unselected"), for: .normal)
+    func syncWithFirebase(of articleId: String) {
+        FirebaseManager.shared.getArticleInfo(of: articleId) { (article, error) in
+            if error == nil {
+                self.articleInfo = article
+                self.setupNavigationBar()
+                self.tableView.reloadData()
+            } else {
+                let alert = UIAlertController(title: "找不到此文章", message: nil, preferredStyle: .alert)
+                let action = UIAlertAction(title: "OK", style: .cancel, handler: { _ in
+                    guard let managedContext = appDelegate?.persistentContainer.viewContext else { return }
+                    let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Preserved")
+                    do {
+                        guard let result = try managedContext.fetch(fetchRequest) as? [Preserved] else { return }
+                        for record in result {
+                            if record.articleId == articleId {
+                                managedContext.delete(record)
+                                print("Deleted: \(String(describing: record.youtubeTitle))")
+                                CoreDataManager.shared.getArticlesFromCoreData()
+                                NotificationCenter.default.post(name: NSNotification.Name(rawValue: "updateFromCoreData"), object: nil)
+                            }
+                        }
+                    } catch {
+                        debugPrint("Could not delete: \(error.localizedDescription)")
+                    }
+                    do {
+                        try managedContext.save()
+                        print("\nSuccessfully deleted data\n")
+                        self.dismiss(animated: true, completion: nil)
+                    } catch {
+                        debugPrint("\nCould not delete: \(error.localizedDescription)\n")
+                        self.dismiss(animated: true, completion: nil)
+                    }
+                })
+                alert.addAction(action)
+                self.present(alert, animated: true, completion: nil)
+            }
         }
     }
 
-    @objc func updateFromEdit(_ notification: NSNotification) {
-        let allAnnotations = self.mapView.annotations
-        mapView.removeAnnotations(allAnnotations)
-        if let annotations = notification.userInfo?["annotations"] as? [MKAnnotation] {
-            mapView.addAnnotations(annotations)
-        }
-        if let tags = notification.userInfo?["tags"] as? [String] {
-            tagsView.removeAllTags()
-            articleInfo?.tag = tags
-            setupTags()
-        }
-    }
+//    @objc func updateFromEdit(_ notification: NSNotification) {
+//        let allAnnotations = self.mapView.annotations
+//        mapView.removeAnnotations(allAnnotations)
+//        if let annotations = notification.userInfo?["annotations"] as? [MKAnnotation] {
+//            mapView.addAnnotations(annotations)
+//        }
+//        if let tags = notification.userInfo?["tags"] as? [String] {
+//            tagsView.removeAllTags()
+//            articleInfo?.tag = tags
+//            setupTags()
+//        }
+//    }
 
     @IBAction func toggleSegment(_ sender: AnyObject) {
         switch segmentControl.selectedSegmentIndex {
         case 1:
-            mapViewContainer.alpha = 1
-            youtubePlayer.alpha = 0
-            infoView.alpha = 0
-            blockLeftToutubeButton.isHidden = true
-            blockRightYoutubeButton.isHidden = true
+            print("video")
         default:
-            mapViewContainer.alpha = 0
-            youtubePlayer.alpha = 1
-            infoView.alpha = 1
-            blockLeftToutubeButton.isHidden = false
-            blockRightYoutubeButton.isHidden = false
+            print("map")
         }
     }
 
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
+
         guard let headerView = self.tableView.tableHeaderView else { return }
         let size = headerView.systemLayoutSizeFitting(UILayoutFittingCompressedSize)
         if headerView.frame.size.height != size.height {
@@ -110,6 +122,10 @@ class DetailViewController: UIViewController {
         if segue.identifier == "toEdit" {
             guard let controller = segue.destination as? EditArticleViewController else { return }
             controller.articleInfo = self.articleInfo
+        } else if segue.identifier == "toVideo" {
+            guard let controller = segue.destination as? DetailVideoViewController else { return }
+            controller.articleInfo = self.articleInfo
+            controller.delegate = self
         }
     }
 
@@ -120,12 +136,23 @@ class DetailViewController: UIViewController {
     func setupNavigationBar() {
         let newBackButton = UIBarButtonItem(title: "Back", style: UIBarButtonItemStyle.plain, target: self, action: #selector(backToRootView))
         self.navigationItem.leftBarButtonItem = newBackButton
+        if articleInfo?.uid == UserManager.shared.uid {
+            editButton.isHidden = false
+            likeButton.isHidden = true
+        } else {
+            editButton.isHidden = true
+            likeButton.isHidden = false
+            setupLikeButton()
+        }
     }
 
-    func setupYoutubePlayer(of youtubeId: String) {
-        youtubePlayer.delegate = self
-        youtubePlayer.playerVars = ["playsinline": "1", "showinfo": "0", "modestbranding": "1"] as YouTubePlayerView.YouTubePlayerParameters
-        youtubePlayer.loadVideoID(youtubeId)
+    func setupLikeButton() {
+        guard let articleId = articleInfo?.articleId else { return }
+        if CoreDataManager.shared.preservedArticleId.contains(articleId) {
+            likeButton.setImage(#imageLiteral(resourceName: "like_btn_selected"), for: .normal)
+        } else {
+            likeButton.setImage(#imageLiteral(resourceName: "like_btn_unselected"), for: .normal)
+        }
     }
 
     func setupTableView() {
@@ -168,96 +195,45 @@ class DetailViewController: UIViewController {
     @objc func backToRootView() {
         self.navigationController?.popToRootViewController(animated: true)
     }
-
-    func getArticleInfo(of articleId: String) {
-        FirebaseManager.shared.ref.child("articles").child(articleId).observeSingleEvent(of: .value, with: { (snapshot) in
-            guard let value = snapshot.value else { return }
-            do {
-                self.articleInfo = try FirebaseDecoder().decode(Article.self, from: value)
-                self.setupMap()
-                self.setupInfo()
-                self.setupTags()
-                if self.articleInfo?.uid != UserManager.shared.uid {
-                    self.likeButton.isHidden = false
-                    self.editButton.isHidden = true
-                    self.deleteButton.alpha = 0
-                } else {
-                    self.likeButton.isHidden = true
-                    self.editButton.isHidden = false
-                    self.reportView.alpha = 0
-                }
-            } catch {
-                print(error)
-                let alert = UIAlertController(title: "找不到此文章", message: nil, preferredStyle: .alert)
-                let action = UIAlertAction(title: "OK", style: .cancel, handler: { _ in
-                    guard let managedContext = appDelegate?.persistentContainer.viewContext else { return }
-                    let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Preserved")
-                    do {
-                        guard let result = try managedContext.fetch(fetchRequest) as? [Preserved] else { return }
-                        for record in result {
-                            if record.articleId == articleId {
-                                managedContext.delete(record)
-                                print("Deleted: \(String(describing: record.youtubeTitle))")
-                                CoreDataManager.shared.getArticlesFromCoreData()
-                                NotificationCenter.default.post(name: NSNotification.Name(rawValue: "updateFromCoreData"), object: nil)
-                            }
-                        }
-                    } catch {
-                        debugPrint("Could not delete: \(error.localizedDescription)")
-                    }
-                    do {
-                        try managedContext.save()
-                        print("\nSuccessfully deleted data\n")
-                        self.dismiss(animated: true, completion: nil)
-                    } catch {
-                        debugPrint("\nCould not delete: \(error.localizedDescription)\n")
-                        self.dismiss(animated: true, completion: nil)
-                    }
-                })
-                alert.addAction(action)
-                self.present(alert, animated: true, completion: nil)
-            }
-        })
-    }
-
-    func setupTags() {
-        guard let articleTags = articleInfo?.tag else { return }
-        self.tagsView.addTags(articleTags)
-        tagsView.textFont = UIFont.systemFont(ofSize: 18)
-        tagsView.alignment = .left
-    }
-
-    func setupInfo() {
-        guard let article = articleInfo else { return }
-        titleLabel.text = article.youtubeTitle
-        DispatchQueue.main.async {
-            self.tableView.reloadData()
-        }
-    }
-
-        func setupMap() {
-            guard let annotaions = articleInfo?.annotations else { return }
-            for annotaion in annotaions {
-                let marker = MKPointAnnotation()
-                marker.title = annotaion.title
-                marker.coordinate = CLLocationCoordinate2DMake(annotaion.latitude, annotaion.logitutde)
-                self.annotations.append(marker)
-            }
-            mapView.addAnnotations(self.annotations)
-            mapView.showAnnotations(mapView.annotations, animated: true)
-
-            // resize rect to make it look better MKMapRect
-            let resizedSpan = MKCoordinateSpan(latitudeDelta: mapView.region.span.latitudeDelta*1.1, longitudeDelta: mapView.region.span.longitudeDelta*1.1)
-            let resizedRegion = MKCoordinateRegion(center: mapView.region.center, span: resizedSpan)
-            mapView.setRegion(resizedRegion, animated: true)
-
-            destination = self.annotations[0]
-            guard let titleOptional = destination?.title, let title = titleOptional else { return }
-            openInMapButton.setTitle("Open \(title) in Map", for: .normal)
-        }
+////
+////    func setupTags() {
+////        guard let articleTags = articleInfo?.tag else { return }
+////        self.tagsView.addTags(articleTags)
+////        tagsView.textFont = UIFont.systemFont(ofSize: 18)
+////        tagsView.alignment = .left
+////    }
+////
+////    func setupInfo() {
+////        guard let article = articleInfo else { return }
+////        titleLabel.text = article.youtubeTitle
+////        DispatchQueue.main.async {
+////            self.tableView.reloadData()
+////        }
+////    }
+//
+//        func setupMap() {
+//            guard let annotaions = articleInfo?.annotations else { return }
+//            for annotaion in annotaions {
+//                let marker = MKPointAnnotation()
+//                marker.title = annotaion.title
+//                marker.coordinate = CLLocationCoordinate2DMake(annotaion.latitude, annotaion.logitutde)
+//                self.annotations.append(marker)
+//            }
+//            mapView.addAnnotations(self.annotations)
+//            mapView.showAnnotations(mapView.annotations, animated: true)
+//
+//            // resize rect to make it look better MKMapRect
+//            let resizedSpan = MKCoordinateSpan(latitudeDelta: mapView.region.span.latitudeDelta*1.1, longitudeDelta: mapView.region.span.longitudeDelta*1.1)
+//            let resizedRegion = MKCoordinateRegion(center: mapView.region.center, span: resizedSpan)
+//            mapView.setRegion(resizedRegion, animated: true)
+//
+//            destination = self.annotations[0]
+//            guard let titleOptional = destination?.title, let title = titleOptional else { return }
+//            openInMapButton.setTitle("Open \(title) in Map", for: .normal)
+//        }
 
     @IBAction func sendCommentPressed(_ sender: Any) {
-        guard let articleId = articleId else { return }
+        guard let articleId = articleInfo?.articleId else { return }
         guard let comment = commentTextView.text else { return }
         commentTextView.text = nil
         FirebaseManager.shared.ref.child("comments").child(articleId).childByAutoId().setValue([
@@ -268,43 +244,6 @@ class DetailViewController: UIViewController {
             "createdTime": Firebase.ServerValue.timestamp()
             ])
         getComments(of: articleId, goToBottom: true)
-    }
-
-    @IBAction func reportButtonPressed(_ sender: Any) {
-        let alertController = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
-        let cancelAction = UIAlertAction(title: "取消", style: .cancel, handler: nil)
-        let reportAction = UIAlertAction(title: "檢舉不良內容", style: .default) { _ in
-            let reportController = UIAlertController(title: "檢舉", message: "請告訴我們為什麼要檢舉此篇", preferredStyle: .alert)
-            reportController.addTextField(configurationHandler: nil)
-            let cancelAct = UIAlertAction(title: "取消", style: .cancel, handler: nil)
-            let submitAct = UIAlertAction(title: "送出", style: .default) { (action: UIAlertAction!) in
-                let alert = UIAlertController(title: "您的檢舉已送出", message: nil, preferredStyle: .alert)
-                let action = UIAlertAction(title: "OK", style: .cancel, handler: nil)
-                alert.addAction(action)
-                self.present(alert, animated: true, completion: nil)
-            }
-            reportController.addAction(cancelAct)
-            reportController.addAction(submitAct)
-            self.present(reportController, animated: true, completion: nil)
-        }
-        let hideAction = UIAlertAction(title: "我不想看到這個", style: .default) { _ in
-            let alert = UIAlertController(title: "隱藏此貼文", message: "您將再也不會看到此貼文", preferredStyle: .alert)
-            let confirm = UIAlertAction(title: "確認", style: .default) { _ in
-                guard let articleId = self.articleId else { return }
-                CoreDataManager.shared.addToBlackArticle(articleId: articleId)
-                CoreDataManager.shared.getBlackArticle()
-                self.dismiss(animated: true, completion: nil)
-            }
-            let cancel = UIAlertAction(title: "取消", style: .cancel, handler: nil)
-            alert.addAction(cancel)
-            alert.addAction(confirm)
-            self.present(alert, animated: true, completion: nil)
-        }
-
-        alertController.addAction(cancelAction)
-        alertController.addAction(reportAction)
-        alertController.addAction(hideAction)
-        self.present(alertController, animated: true, completion: nil)
     }
 
     @IBAction func leaveButtonPressed(_ sender: Any) {
@@ -355,51 +294,29 @@ class DetailViewController: UIViewController {
         }
     }
 
-    @IBAction func deleteArticlePressed(_ sender: Any) {
-        let alert = UIAlertController(title: "刪除貼文", message: nil, preferredStyle: .alert)
-        let deleteAction = UIAlertAction(title: "刪除", style: .destructive, handler: { _ in
-            guard let article  = self.articleInfo else { return }
-            guard let articleId = self.articleInfo?.articleId else { return }
-            FirebaseManager.shared.ref.child("articles").child(articleId).removeValue()
-            FirebaseManager.shared.ref.child("comments").child(articleId).removeValue()
-            FirebaseManager.shared.ref.child("tags").queryOrdered(byChild: "articleId").queryEqual(toValue: articleId).observeSingleEvent(of: .value) { (snapshot) in
-                guard let valueDict = snapshot.value as? [String: Any] else { return }
-                for (key, _) in valueDict {
-                    FirebaseManager.shared.ref.child("tags").child(key).removeValue()
-                }
-            }
+//
+//    @IBAction func openMapPressed(_ sender: Any) {
+//        let regionDistance: CLLocationDistance = 10000
+//        guard let coordinates = self.destination?.coordinate else { return }
+//        guard let title = self.destination?.title else { return }
+//        let regionSpan = MKCoordinateRegionMakeWithDistance(coordinates, regionDistance, regionDistance)
+//        let options = [
+//            MKLaunchOptionsMapCenterKey: NSValue(mkCoordinate: regionSpan.center),
+//            MKLaunchOptionsMapSpanKey: NSValue(mkCoordinateSpan: regionSpan.span)
+//        ]
+//        let placemark = MKPlacemark(coordinate: coordinates, addressDictionary: nil)
+//        let mapItem = MKMapItem(placemark: placemark)
+//        mapItem.name = title
+//        mapItem.openInMaps(launchOptions: options)
+//    }
+//}
 
-            NotificationCenter.default.post(name: NSNotification.Name(rawValue: "deleteArticle"), object: nil, userInfo: ["article": article])
-            self.dismiss(animated: true, completion: nil)
-        })
-        let cancelAction = UIAlertAction(title: "取消", style: .cancel, handler: nil)
-        alert.addAction(deleteAction)
-        alert.addAction(cancelAction)
-        present(alert, animated: true, completion: nil)
-    }
-
-    @IBAction func openMapPressed(_ sender: Any) {
-        let regionDistance: CLLocationDistance = 10000
-        guard let coordinates = self.destination?.coordinate else { return }
-        guard let title = self.destination?.title else { return }
-        let regionSpan = MKCoordinateRegionMakeWithDistance(coordinates, regionDistance, regionDistance)
-        let options = [
-            MKLaunchOptionsMapCenterKey: NSValue(mkCoordinate: regionSpan.center),
-            MKLaunchOptionsMapSpanKey: NSValue(mkCoordinateSpan: regionSpan.span)
-        ]
-        let placemark = MKPlacemark(coordinate: coordinates, addressDictionary: nil)
-        let mapItem = MKMapItem(placemark: placemark)
-        mapItem.name = title
-        mapItem.openInMaps(launchOptions: options)
-    }
-}
-
-extension DetailViewController: CLLocationManagerDelegate, MKMapViewDelegate {
-    func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
-        self.destination = view.annotation
-        guard let destination = view.annotation?.title, let title = destination else { return }
-        openInMapButton.setTitle("Open \(title) in Map", for: .normal)
-    }
+//extension DetailViewController: CLLocationManagerDelegate, MKMapViewDelegate {
+//    func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
+//        self.destination = view.annotation
+//        guard let destination = view.annotation?.title, let title = destination else { return }
+//        openInMapButton.setTitle("Open \(title) in Map", for: .normal)
+//    }
 }
 
 extension DetailViewController: UITableViewDelegate, UITableViewDataSource, CommentCellDelegate {
@@ -413,7 +330,7 @@ extension DetailViewController: UITableViewDelegate, UITableViewDataSource, Comm
         let banAction = UIAlertAction(title: "把 \(comments[tappedIndexPath.row].userName) 加入黑名單", style: .destructive, handler: { _ in
             CoreDataManager.shared.addToBlackList(uid: self.comments[tappedIndexPath.row].userId, userName: self.comments[tappedIndexPath.row].userName, userImage: self.comments[tappedIndexPath.row].userImage)
             CoreDataManager.shared.getBlackList()
-            guard let articleId = self.articleId else { return }
+            guard let articleId = self.articleInfo?.articleId else { return }
             self.getComments(of: articleId, goToBottom: false)
         })
         alertController.addAction(cancelAction)
@@ -460,7 +377,7 @@ extension DetailViewController: UITableViewDelegate, UITableViewDataSource, Comm
             let storyboard = UIStoryboard(name: "Detail", bundle: nil)
             if let controller = storyboard.instantiateViewController(withIdentifier: "CommentViewController") as? CommentViewController {
                 controller.comment = self.comments[indexPath.row]
-                controller.articleId = self.articleId
+                controller.articleId = self.articleInfo?.articleId
                 self.present(controller, animated: true, completion: nil)
             }
             completion(true)
@@ -471,7 +388,7 @@ extension DetailViewController: UITableViewDelegate, UITableViewDataSource, Comm
 
     func deleteAction(at indexPath: IndexPath) -> UIContextualAction {
         let action = UIContextualAction(style: .destructive, title: "Delete") { (_, _, completion) in
-            guard let articleId = self.articleId else { return }
+            guard let articleId = self.articleInfo?.articleId else { return }
             FirebaseManager.shared.ref.child("comments/\(articleId)").child(self.comments[indexPath.row].commentId).removeValue()
             completion(true)
         }
@@ -490,13 +407,5 @@ extension DetailViewController: UITableViewDelegate, UITableViewDataSource, Comm
         }
         action.image = #imageLiteral(resourceName: "ban")
         return action
-    }
-}
-
-extension DetailViewController: YouTubePlayerDelegate {
-    func playerStateChanged(_ videoPlayer: YouTubePlayerView, playerState: YouTubePlayerState) {
-        if playerState.rawValue == "1" {
-            blockRightYoutubeButton.isHidden = true
-        }
     }
 }
