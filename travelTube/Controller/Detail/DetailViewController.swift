@@ -26,6 +26,7 @@ class DetailViewController: UIViewController, DetailVideoDelegate {
     @IBOutlet weak var segmentControl: UISegmentedControl!
     @IBOutlet weak var editButton: UIButton!
     @IBOutlet weak var likeButton: UIButton!
+    @IBOutlet weak var mapContainerView: UIView!
     @IBOutlet weak var videoContainerView: UIView!
     @IBOutlet weak var videoContainerHeightConstraint: NSLayoutConstraint!
     var articleInfo: Article?
@@ -100,9 +101,11 @@ class DetailViewController: UIViewController, DetailVideoDelegate {
     @IBAction func toggleSegment(_ sender: AnyObject) {
         switch segmentControl.selectedSegmentIndex {
         case 1:
-            print("video")
+            videoContainerView.alpha = 0
+            mapContainerView.alpha = 1
         default:
-            print("map")
+            videoContainerView.alpha = 1
+            mapContainerView.alpha = 0
         }
     }
 
