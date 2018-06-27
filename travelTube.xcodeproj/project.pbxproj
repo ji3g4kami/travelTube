@@ -53,6 +53,7 @@
 		14AA0B8F20E2239D00FC5257 /* HashTagCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14AA0B8D20E2239C00FC5257 /* HashTagCell.swift */; };
 		14AA0B9020E2239D00FC5257 /* HashTagCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 14AA0B8E20E2239D00FC5257 /* HashTagCell.xib */; };
 		14AA0B9420E33F0100FC5257 /* Emitter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14AA0B9320E33F0100FC5257 /* Emitter.swift */; };
+		14AA0B9620E36B1400FC5257 /* DetailMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14AA0B9520E36B1400FC5257 /* DetailMapViewController.swift */; };
 		14AE66B520AAB577007D7851 /* Detail.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 14AE66B420AAB577007D7851 /* Detail.storyboard */; };
 		14AE66BA20AAB5CD007D7851 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14AE66B920AAB5CD007D7851 /* DetailViewController.swift */; };
 		14DA419C20A13F3000A74254 /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 14DA419A20A13F3000A74254 /* SWRevealViewController.m */; };
@@ -134,6 +135,7 @@
 		14AA0B8D20E2239C00FC5257 /* HashTagCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HashTagCell.swift; sourceTree = "<group>"; };
 		14AA0B8E20E2239D00FC5257 /* HashTagCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HashTagCell.xib; sourceTree = "<group>"; };
 		14AA0B9320E33F0100FC5257 /* Emitter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Emitter.swift; sourceTree = "<group>"; };
+		14AA0B9520E36B1400FC5257 /* DetailMapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailMapViewController.swift; sourceTree = "<group>"; };
 		14AE66B420AAB577007D7851 /* Detail.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Detail.storyboard; sourceTree = "<group>"; };
 		14AE66B920AAB5CD007D7851 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		14DA419920A13F2F00A74254 /* travelTube-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "travelTube-Bridging-Header.h"; sourceTree = "<group>"; };
@@ -334,6 +336,7 @@
 		14AE66B620AAB59A007D7851 /* Detail */ = {
 			isa = PBXGroup;
 			children = (
+				14AA0B9520E36B1400FC5257 /* DetailMapViewController.swift */,
 				14AE66B920AAB5CD007D7851 /* DetailViewController.swift */,
 				143F3EF020B5465500784EB9 /* CommentViewController.swift */,
 				1445521520BFA55B0005B126 /* EditArticleViewController.swift */,
@@ -761,6 +764,7 @@
 				148F90FF209AAFF300308179 /* PostArticleViewController.swift in Sources */,
 				145D19CD2098647400BE71D0 /* TabBarViewController.swift in Sources */,
 				1425A2F820E0B52300A20FC2 /* DetailVideoViewController.swift in Sources */,
+				14AA0B9620E36B1400FC5257 /* DetailMapViewController.swift in Sources */,
 				145D19C12098545900BE71D0 /* Keys.swift in Sources */,
 				1418280620C91260001E2188 /* TagSearchViewController.swift in Sources */,
 				14F7BD972099935500DE78C9 /* SearchYoutubeResultCell.swift in Sources */,

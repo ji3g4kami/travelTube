@@ -735,20 +735,32 @@
             </objects>
             <point key="canvasLocation" x="4768.8000000000002" y="-199.70014992503749"/>
         </scene>
-        <!--View Controller-->
+        <!--Detail Map View Controller-->
         <scene sceneID="JSB-8J-z9J">
             <objects>
-                <viewController id="X4c-Io-Mp4" sceneMemberID="viewController">
+                <viewController id="X4c-Io-Mp4" customClass="DetailMapViewController" customModule="travelTube" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="sNm-ug-maj">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="380"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="vTq-0u-bc7">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="325"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="329"/>
                             </mapView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gw4-4U-u04">
-                                <rect key="frame" x="172" y="335" width="31" height="30"/>
-                                <state key="normal" title="地圖"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gw4-4U-u04" customClass="DesignableButton" customModule="travelTube" customModuleProvider="target">
+                                <rect key="frame" x="165" y="339" width="45" height="26"/>
+                                <color key="backgroundColor" name="GradientMiddle"/>
+                                <inset key="contentEdgeInsets" minX="7" minY="4" maxX="7" maxY="4"/>
+                                <state key="normal" title="地圖">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="5"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="openMapPressed:" destination="X4c-Io-Mp4" eventType="touchUpInside" id="pVF-CO-CBb"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -762,6 +774,10 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="2Dg-Bh-Azc"/>
                     </view>
+                    <connections>
+                        <outlet property="mapView" destination="vTq-0u-bc7" id="jTk-Zz-99n"/>
+                        <outlet property="openInMapButton" destination="gw4-4U-u04" id="HKk-Rt-2J9"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Kbn-FZ-T71" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -778,7 +794,7 @@
         <image name="trash" width="25" height="25"/>
         <image name="youtube" width="25" height="25"/>
         <namedColor name="GradientMiddle">
-            <color red="0.41999998690000001" green="0.52899998429999995" blue="0.83499997849999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.41999998688697815" green="0.52899998426437378" blue="0.83499997854232788" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
     </resources>
 </document>

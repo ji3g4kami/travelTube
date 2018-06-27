@@ -29,10 +29,13 @@ class DetailViewController: UIViewController, DetailVideoDelegate {
     @IBOutlet weak var mapContainerView: UIView!
     @IBOutlet weak var videoContainerView: UIView!
     @IBOutlet weak var videoContainerHeightConstraint: NSLayoutConstraint!
+
     var articleInfo: Article?
     var comments = [Comment]()
     var annotations = [MKPointAnnotation]()
     var destination: MKAnnotation?
+    weak var mapController: DetailMapViewController?
+    weak var videoController: DetailVideoViewController?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -42,8 +45,7 @@ class DetailViewController: UIViewController, DetailVideoDelegate {
         setupTableView()
         setupNavigationBar()
         getComments(of: articleId, goToBottom: false)
-//        NotificationCenter.default.addObserver(self, selector: #selector(self.updateFromEdit(_:)), name: NSNotification.Name(rawValue: "updateFromEdit"), object: nil)
-
+        NotificationCenter.default.addObserver(self, selector: #selector(self.updateFromEdit(_:)), name: NSNotification.Name(rawValue: "updateFromEdit"), object: nil)
     }
 
     func syncWithFirebase(of articleId: String) {
@@ -51,7 +53,10 @@ class DetailViewController: UIViewController, DetailVideoDelegate {
             if error == nil {
                 self.articleInfo = article
                 self.setupNavigationBar()
-                self.tableView.reloadData()
+                self.mapController?.articleInfo = article
+                self.mapController?.setupMap()
+                self.videoController?.articleInfo = article
+                self.videoController?.collectionView.reloadData()
             } else {
                 let alert = UIAlertController(title: "找不到此文章", message: nil, preferredStyle: .alert)
                 let action = UIAlertAction(title: "OK", style: .cancel, handler: { _ in
@@ -85,19 +90,6 @@ class DetailViewController: UIViewController, DetailVideoDelegate {
         }
     }
 
-//    @objc func updateFromEdit(_ notification: NSNotification) {
-//        let allAnnotations = self.mapView.annotations
-//        mapView.removeAnnotations(allAnnotations)
-//        if let annotations = notification.userInfo?["annotations"] as? [MKAnnotation] {
-//            mapView.addAnnotations(annotations)
-//        }
-//        if let tags = notification.userInfo?["tags"] as? [String] {
-//            tagsView.removeAllTags()
-//            articleInfo?.tag = tags
-//            setupTags()
-//        }
-//    }
-
     @IBAction func toggleSegment(_ sender: AnyObject) {
         switch segmentControl.selectedSegmentIndex {
         case 1:
@@ -125,10 +117,16 @@ class DetailViewController: UIViewController, DetailVideoDelegate {
         if segue.identifier == "toEdit" {
             guard let controller = segue.destination as? EditArticleViewController else { return }
             controller.articleInfo = self.articleInfo
+            controller.detailController = self
         } else if segue.identifier == "toVideo" {
             guard let controller = segue.destination as? DetailVideoViewController else { return }
             controller.articleInfo = self.articleInfo
             controller.delegate = self
+            videoController = controller
+        } else if segue.identifier == "toMap" {
+            guard let controller = segue.destination as? DetailMapViewController else { return }
+            controller.articleInfo = self.articleInfo
+            mapController = controller
         }
     }
 
@@ -198,42 +196,15 @@ class DetailViewController: UIViewController, DetailVideoDelegate {
     @objc func backToRootView() {
         self.navigationController?.popToRootViewController(animated: true)
     }
-////
-////    func setupTags() {
-////        guard let articleTags = articleInfo?.tag else { return }
-////        self.tagsView.addTags(articleTags)
-////        tagsView.textFont = UIFont.systemFont(ofSize: 18)
-////        tagsView.alignment = .left
-////    }
-////
-////    func setupInfo() {
-////        guard let article = articleInfo else { return }
-////        titleLabel.text = article.youtubeTitle
-////        DispatchQueue.main.async {
-////            self.tableView.reloadData()
-////        }
-////    }
-//
-//        func setupMap() {
-//            guard let annotaions = articleInfo?.annotations else { return }
-//            for annotaion in annotaions {
-//                let marker = MKPointAnnotation()
-//                marker.title = annotaion.title
-//                marker.coordinate = CLLocationCoordinate2DMake(annotaion.latitude, annotaion.logitutde)
-//                self.annotations.append(marker)
-//            }
-//            mapView.addAnnotations(self.annotations)
-//            mapView.showAnnotations(mapView.annotations, animated: true)
-//
-//            // resize rect to make it look better MKMapRect
-//            let resizedSpan = MKCoordinateSpan(latitudeDelta: mapView.region.span.latitudeDelta*1.1, longitudeDelta: mapView.region.span.longitudeDelta*1.1)
-//            let resizedRegion = MKCoordinateRegion(center: mapView.region.center, span: resizedSpan)
-//            mapView.setRegion(resizedRegion, animated: true)
-//
-//            destination = self.annotations[0]
-//            guard let titleOptional = destination?.title, let title = titleOptional else { return }
-//            openInMapButton.setTitle("Open \(title) in Map", for: .normal)
-//        }
+
+    @objc func updateFromEdit(_ notification: NSNotification) {
+        if let annotations = notification.userInfo?["annotations"] as? [Annotation] {
+            articleInfo?.annotations = annotations
+        }
+        if let tags = notification.userInfo?["tags"] as? [String] {
+            articleInfo?.tag = tags
+        }
+    }
 
     @IBAction func sendCommentPressed(_ sender: Any) {
         guard let articleId = articleInfo?.articleId else { return }
@@ -296,30 +267,6 @@ class DetailViewController: UIViewController, DetailVideoDelegate {
             }
         }
     }
-
-//
-//    @IBAction func openMapPressed(_ sender: Any) {
-//        let regionDistance: CLLocationDistance = 10000
-//        guard let coordinates = self.destination?.coordinate else { return }
-//        guard let title = self.destination?.title else { return }
-//        let regionSpan = MKCoordinateRegionMakeWithDistance(coordinates, regionDistance, regionDistance)
-//        let options = [
-//            MKLaunchOptionsMapCenterKey: NSValue(mkCoordinate: regionSpan.center),
-//            MKLaunchOptionsMapSpanKey: NSValue(mkCoordinateSpan: regionSpan.span)
-//        ]
-//        let placemark = MKPlacemark(coordinate: coordinates, addressDictionary: nil)
-//        let mapItem = MKMapItem(placemark: placemark)
-//        mapItem.name = title
-//        mapItem.openInMaps(launchOptions: options)
-//    }
-//}
-
-//extension DetailViewController: CLLocationManagerDelegate, MKMapViewDelegate {
-//    func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
-//        self.destination = view.annotation
-//        guard let destination = view.annotation?.title, let title = destination else { return }
-//        openInMapButton.setTitle("Open \(title) in Map", for: .normal)
-//    }
 }
 
 extension DetailViewController: UITableViewDelegate, UITableViewDataSource, CommentCellDelegate {

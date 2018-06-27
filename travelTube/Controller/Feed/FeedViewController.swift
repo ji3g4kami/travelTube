@@ -34,6 +34,7 @@ class FeedViewController: UIViewController, TagSearchViewDelegate {
     func setupNotificationCenter() {
         NotificationCenter.default.addObserver(self, selector: #selector(self.updateFromDelete(_:)), name: NSNotification.Name(rawValue: "deleteArticle"), object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(self.updateFromCoreData(_:)), name: NSNotification.Name(rawValue: "updateFromCoreData"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(self.updateFromEdit(_:)), name: NSNotification.Name(rawValue: "updateFromEdit"), object: nil)
     }
 
     @IBAction func toggleTagSeachView(_ sender: Any) {
@@ -113,6 +114,14 @@ class FeedViewController: UIViewController, TagSearchViewDelegate {
         tableView.register(xib, forCellReuseIdentifier: String(describing: FeedCell.self))
         self.tableView.estimatedRowHeight = 300
         self.tableView.rowHeight = UITableViewAutomaticDimension
+    }
+
+    @objc func updateFromEdit(_ notification: NSNotification) {
+        guard let tags = tagSearchController?.selectedTags else {
+            getFeeds()
+            return
+        }
+        getFeeds(with: tags)
     }
 
     @objc func saveArticleToCoreData(_ sender: UIButton) {

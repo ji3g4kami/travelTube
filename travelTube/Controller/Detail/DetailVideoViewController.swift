@@ -125,6 +125,7 @@ class DetailVideoViewController: UIViewController {
         alertController.addAction(hideAction)
         self.present(alertController, animated: true, completion: nil)
     }
+
 }
 
 extension DetailVideoViewController: UICollectionViewDataSource {
