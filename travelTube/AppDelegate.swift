@@ -93,7 +93,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
                 UserManager.shared.userName = name
                 UserManager.shared.uid = uid
                 UserManager.shared.isLoggedIn = true
-                UserManager.shared.isAnonymous = false
                 FirebaseManager.shared.ref.child("users").child(uid).child("image").observeSingleEvent(of: .value, with: { (snapshot) in
                     if let userImage = snapshot.value as? String {
                         UserManager.shared.userImage = userImage

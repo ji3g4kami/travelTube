@@ -17,6 +17,7 @@ class EditArticleViewController: UIViewController {
     var annotations: [MKPointAnnotation] = []
     var destination: MKAnnotation?
     var keyboardHight = 300
+    weak var detailController: DetailViewController?
 
     @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var tokenView: KSTokenView!
@@ -158,8 +159,8 @@ class EditArticleViewController: UIViewController {
                 }
             }
         }
-
-        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "updateFromEdit"), object: nil, userInfo: ["annotations": mapView.annotations, "tags": tags])
+        detailController?.syncWithFirebase(of: articleInfo.articleId)
+        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "updateFromEdit"), object: nil, userInfo: ["tags": tags])
         dismiss(animated: true, completion: nil)
     }
 }

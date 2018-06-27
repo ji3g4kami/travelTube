@@ -63,8 +63,8 @@ extension PreservedArticleViewController: UICollectionViewDelegate, UICollection
         guard let controller = UIStoryboard.detailStoryboard().instantiateViewController(
             withIdentifier: String(describing: DetailViewController.self)
             ) as? DetailViewController else { return }
-        controller.youtubeId = CoreDataManager.shared.preservedArticle[indexPath.row].youtubeId
-        controller.articleId = CoreDataManager.shared.preservedArticle[indexPath.row].articleId
+        let article = CoreDataManager.shared.preservedArticle[indexPath.row]
+        controller.articleInfo = Article(annotations: [Annotation](), tag: article.tags, uid: "", articleId: article.articleId, updateTime: Date(timeIntervalSince1970: 0), youtubeId: article.youtubeId, youtubeImage: article.youtubeImage, youtubePublishDate: Date(timeIntervalSince1970: 0), youtubeTitle: article.youtubeTitle)
         controller.hidesBottomBarWhenPushed = true
         self.present(controller, animated: true, completion: nil)
     }

@@ -25,15 +25,16 @@ class FeedViewController: UIViewController, TagSearchViewDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        SKActivityIndicator.show("Loading...")
         setupTableView()
         getFeeds()
         setupNotificationCenter()
+        SKActivityIndicator.show("Loading")
     }
 
     func setupNotificationCenter() {
         NotificationCenter.default.addObserver(self, selector: #selector(self.updateFromDelete(_:)), name: NSNotification.Name(rawValue: "deleteArticle"), object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(self.updateFromCoreData(_:)), name: NSNotification.Name(rawValue: "updateFromCoreData"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(self.updateFromEdit(_:)), name: NSNotification.Name(rawValue: "updateFromEdit"), object: nil)
     }
 
     @IBAction func toggleTagSeachView(_ sender: Any) {
@@ -115,6 +116,14 @@ class FeedViewController: UIViewController, TagSearchViewDelegate {
         self.tableView.rowHeight = UITableViewAutomaticDimension
     }
 
+    @objc func updateFromEdit(_ notification: NSNotification) {
+        guard let tags = tagSearchController?.selectedTags else {
+            getFeeds()
+            return
+        }
+        getFeeds(with: tags)
+    }
+
     @objc func saveArticleToCoreData(_ sender: UIButton) {
         guard let managedContext = appDelegate?.persistentContainer.viewContext else { return }
         if !CoreDataManager.shared.preservedArticleId.contains(articleArray[sender.tag].articleId) {
@@ -186,6 +195,11 @@ extension FeedViewController: UITableViewDelegate, UITableViewDataSource {
         }
         cell.likeButton.tag = indexPath.row
         cell.likeButton.addTarget(self, action: #selector(saveArticleToCoreData), for: .touchUpInside)
+        if UserManager.shared.uid == articleArray[indexPath.row].uid {
+            cell.likeButton.isHidden = true
+        } else {
+            cell.likeButton.isHidden = false
+        }
         if CoreDataManager.shared.preservedArticleId.contains(articleArray[indexPath.row].articleId) {
             cell.likeButton.setImage(#imageLiteral(resourceName: "btn_like_selected"), for: .normal)
         } else {
@@ -202,8 +216,7 @@ extension FeedViewController: UITableViewDelegate, UITableViewDataSource {
         guard let controller = UIStoryboard.detailStoryboard().instantiateViewController(
             withIdentifier: String(describing: DetailViewController.self)
             ) as? DetailViewController else { return }
-        controller.youtubeId = articleArray[indexPath.row].youtubeId
-        controller.articleId = articleArray[indexPath.row].articleId
+        controller.articleInfo = articleArray[indexPath.row]
         controller.hidesBottomBarWhenPushed = true
         self.present(controller, animated: true, completion: nil)
     }

@@ -21,6 +21,19 @@ class FirebaseManager {
         return storageRef.child("profile")
     }
 
+    func getArticleInfo(of articleId: String, completion: @escaping (Article?, Error?) -> Void) {
+        ref.child("articles").child(articleId).observeSingleEvent(of: .value, with: { (snapshot) in
+            guard let value = snapshot.value else { return }
+            do {
+                let articleInfo = try FirebaseDecoder().decode(Article.self, from: value)
+                completion(articleInfo, nil)
+            } catch {
+                print(error)
+                completion(nil, error)
+            }
+        })
+    }
+
     func getAllFeeds(completion: @escaping ([Article]) -> Void) {
         var articleArray = [Article]()
         ref.child("articles").observeSingleEvent(of: .value) { (snapshot) in
