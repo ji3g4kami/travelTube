@@ -20,7 +20,7 @@ class FirebaseManager {
     var profileImageRef: StorageReference {
         return storageRef.child("profile")
     }
-    
+
     func getArticleInfo(of articleId: String, completion: @escaping (Article?, Error?) -> Void) {
         ref.child("articles").child(articleId).observeSingleEvent(of: .value, with: { (snapshot) in
             guard let value = snapshot.value else { return }

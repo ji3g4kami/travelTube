@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -19,18 +19,34 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon" translatesAutoresizingMaskIntoConstraints="NO" id="KYo-UA-qDD">
-                                <rect key="frame" x="122" y="268" width="131.5" height="131.5"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="gradientBG" translatesAutoresizingMaskIntoConstraints="NO" id="U5r-3h-D3G">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="travelTube" translatesAutoresizingMaskIntoConstraints="NO" id="D8z-cD-bcs">
+                                <rect key="frame" x="75" y="384" width="225" height="66"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" secondItem="KYo-UA-qDD" secondAttribute="height" multiplier="1:1" id="Hwo-nC-Dxe"/>
+                                    <constraint firstAttribute="height" constant="66" id="bYb-Eh-a8n"/>
+                                </constraints>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="hot-air-balloon" translatesAutoresizingMaskIntoConstraints="NO" id="KYo-UA-qDD">
+                                <rect key="frame" x="122" y="179" width="131" height="175"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="KYo-UA-qDD" secondAttribute="height" multiplier="193:258" id="c4M-cj-hrl"/>
                                 </constraints>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="KYo-UA-qDD" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="8hp-u1-TfX"/>
-                            <constraint firstItem="KYo-UA-qDD" firstAttribute="width" secondItem="Ze5-6b-2t3" secondAttribute="width" multiplier="0.35" id="AMc-b8-4A8"/>
-                            <constraint firstItem="KYo-UA-qDD" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="BEy-hK-aqj"/>
+                            <constraint firstItem="U5r-3h-D3G" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="59e-bh-00u"/>
+                            <constraint firstItem="D8z-cD-bcs" firstAttribute="top" secondItem="KYo-UA-qDD" secondAttribute="bottom" constant="30" id="B9z-8R-eML"/>
+                            <constraint firstItem="D8z-cD-bcs" firstAttribute="width" secondItem="Ze5-6b-2t3" secondAttribute="width" multiplier="0.6" id="Lob-yM-mrH"/>
+                            <constraint firstItem="D8z-cD-bcs" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="OPY-0a-NIl"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="U5r-3h-D3G" secondAttribute="bottom" id="QVe-PA-FI0"/>
+                            <constraint firstItem="KYo-UA-qDD" firstAttribute="width" secondItem="Ze5-6b-2t3" secondAttribute="width" multiplier="0.35" id="VCp-49-evd"/>
+                            <constraint firstItem="KYo-UA-qDD" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" multiplier="0.8" id="bAu-jS-wkr"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="U5r-3h-D3G" secondAttribute="trailing" id="hUq-ea-osL"/>
+                            <constraint firstItem="KYo-UA-qDD" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="wid-EH-RiK"/>
+                            <constraint firstItem="U5r-3h-D3G" firstAttribute="top" secondItem="Ze5-6b-2t3" secondAttribute="top" id="xC2-XV-j42"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
@@ -41,6 +57,8 @@
         </scene>
     </scenes>
     <resources>
-        <image name="icon" width="298" height="426"/>
+        <image name="gradientBG" width="562" height="1007"/>
+        <image name="hot-air-balloon" width="386" height="516"/>
+        <image name="travelTube" width="371" height="113"/>
     </resources>
 </document>

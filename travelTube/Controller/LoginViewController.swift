@@ -15,6 +15,7 @@ class LoginViewController: UIViewController, GIDSignInUIDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         GIDSignIn.sharedInstance().uiDelegate = self
+        balloonFlying()
     }
 
     @IBAction func login(_ sender: Any) {
@@ -26,5 +27,12 @@ class LoginViewController: UIViewController, GIDSignInUIDelegate {
             withIdentifier: String(describing: PrivacyViewController.self)
             ) as? PrivacyViewController else { return }
         self.present(controller, animated: true, completion: nil)
+    }
+
+    func balloonFlying() {
+        let emitter = Emmiter.get(with: #imageLiteral(resourceName: "hot-air-balloon"))
+        emitter.emitterPosition = CGPoint(x: view.frame.width/2, y: view.frame.height)
+        emitter.emitterSize = CGSize(width: view.frame.width, height: 2)
+        view.layer.insertSublayer(emitter, at: 1)
     }
 }

@@ -6,15 +6,11 @@
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
-    <customFonts key="customFonts">
-        <array key="Roboto-Bold.ttf">
-            <string>Roboto-Bold</string>
-        </array>
-    </customFonts>
     <scenes>
         <!--Tab Bar View Controller-->
         <scene sceneID="vef-YY-yHj">
@@ -38,11 +34,17 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="lake" translatesAutoresizingMaskIntoConstraints="NO" id="TU1-Af-QCy">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background" translatesAutoresizingMaskIntoConstraints="NO" id="Nnc-sC-A5m">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                             </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cloud" translatesAutoresizingMaskIntoConstraints="NO" id="f2r-bk-OFP">
+                                <rect key="frame" x="31.5" y="85" width="312.5" height="162"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="f2r-bk-OFP" secondAttribute="height" multiplier="345:179" id="IVx-2W-Q92"/>
+                                </constraints>
+                            </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NvU-nd-41i" customClass="DesignableButton" customModule="travelTube" customModuleProvider="target">
-                                <rect key="frame" x="36" y="487" width="303" height="40"/>
+                                <rect key="frame" x="75" y="487" width="225" height="40"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="kG0-jF-3FC"/>
@@ -61,47 +63,40 @@
                                     <action selector="login:" destination="KX3-cp-gMa" eventType="touchUpInside" id="PnH-ru-0qh"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="travelTube" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="4qB-3w-w9E">
-                                <rect key="frame" x="109" y="140" width="201.5" height="58.5"/>
-                                <fontDescription key="fontDescription" name="Roboto-Bold" family="Roboto" pointSize="42"/>
-                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                                <color key="shadowColor" name="GradientMiddle"/>
-                                <size key="shadowOffset" width="3" height="3"/>
-                            </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon" translatesAutoresizingMaskIntoConstraints="NO" id="rb5-Ta-inC">
-                                <rect key="frame" x="57" y="138.5" width="44" height="63"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="44" id="34f-A4-4Vi"/>
-                                    <constraint firstAttribute="height" constant="63" id="ZJX-KM-wat"/>
-                                    <constraint firstAttribute="width" secondItem="rb5-Ta-inC" secondAttribute="height" multiplier="44:63" id="fk0-g1-CcA"/>
-                                </constraints>
-                            </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VWy-gN-atA">
-                                <rect key="frame" x="94" y="617" width="188" height="30"/>
+                                <rect key="frame" x="106.5" y="619" width="163" height="28"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                 <state key="normal" title="註冊即同意 隱私權保護政策">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <color key="titleColor" name="GradientMiddle"/>
                                 </state>
                                 <connections>
                                     <action selector="privacyButtonPressed:" destination="KX3-cp-gMa" eventType="touchUpInside" id="dTE-2g-Dk8"/>
                                 </connections>
                             </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="travelTube" translatesAutoresizingMaskIntoConstraints="NO" id="dx2-Rx-93J">
+                                <rect key="frame" x="56.5" y="165" width="262.5" height="82"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="dx2-Rx-93J" secondAttribute="height" multiplier="227:71" id="htm-ty-PPQ"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="QHO-J5-Ra4" firstAttribute="bottom" secondItem="TU1-Af-QCy" secondAttribute="bottom" id="E4C-Ul-Z6N"/>
-                            <constraint firstItem="TU1-Af-QCy" firstAttribute="top" secondItem="0Tf-2W-Njr" secondAttribute="top" id="IUc-E5-HxK"/>
+                            <constraint firstItem="dx2-Rx-93J" firstAttribute="centerY" secondItem="QHO-J5-Ra4" secondAttribute="centerY" multiplier="0.6" id="9Tb-QD-dto"/>
+                            <constraint firstItem="f2r-bk-OFP" firstAttribute="centerY" secondItem="dx2-Rx-93J" secondAttribute="centerY" constant="-40" id="FTX-Y9-G2E"/>
+                            <constraint firstItem="Nnc-sC-A5m" firstAttribute="top" secondItem="0Tf-2W-Njr" secondAttribute="top" id="IF8-JZ-iQ9"/>
                             <constraint firstItem="NvU-nd-41i" firstAttribute="centerX" secondItem="0Tf-2W-Njr" secondAttribute="centerX" id="J2w-uE-fMk"/>
-                            <constraint firstItem="TU1-Af-QCy" firstAttribute="leading" secondItem="QHO-J5-Ra4" secondAttribute="leading" id="QTS-MU-X5h"/>
-                            <constraint firstItem="4qB-3w-w9E" firstAttribute="leading" secondItem="rb5-Ta-inC" secondAttribute="trailing" constant="8" id="U2D-qh-3fR"/>
-                            <constraint firstItem="4qB-3w-w9E" firstAttribute="centerX" secondItem="0Tf-2W-Njr" secondAttribute="centerX" constant="22" id="UMl-pl-2Yd"/>
-                            <constraint firstItem="QHO-J5-Ra4" firstAttribute="trailing" secondItem="TU1-Af-QCy" secondAttribute="trailing" id="V1t-2W-RUZ"/>
-                            <constraint firstItem="QHO-J5-Ra4" firstAttribute="trailing" secondItem="NvU-nd-41i" secondAttribute="trailing" constant="36" id="cQF-fZ-4UH"/>
-                            <constraint firstItem="4qB-3w-w9E" firstAttribute="top" secondItem="QHO-J5-Ra4" secondAttribute="top" constant="120" id="hmU-ZZ-4Lc"/>
+                            <constraint firstItem="f2r-bk-OFP" firstAttribute="centerX" secondItem="0Tf-2W-Njr" secondAttribute="centerX" id="MsX-hB-b91"/>
+                            <constraint firstItem="NvU-nd-41i" firstAttribute="width" secondItem="0Tf-2W-Njr" secondAttribute="width" multiplier="0.6" id="aNw-DR-ALM"/>
+                            <constraint firstItem="Nnc-sC-A5m" firstAttribute="trailing" secondItem="QHO-J5-Ra4" secondAttribute="trailing" id="cbk-GF-fkL"/>
+                            <constraint firstItem="Nnc-sC-A5m" firstAttribute="leading" secondItem="QHO-J5-Ra4" secondAttribute="leading" id="i9c-NS-RSH"/>
                             <constraint firstItem="QHO-J5-Ra4" firstAttribute="bottom" secondItem="VWy-gN-atA" secondAttribute="bottom" constant="20" id="jLC-bP-NhL"/>
+                            <constraint firstItem="f2r-bk-OFP" firstAttribute="width" secondItem="dx2-Rx-93J" secondAttribute="width" constant="50" id="jga-Ab-uB7"/>
+                            <constraint firstItem="Nnc-sC-A5m" firstAttribute="bottom" secondItem="QHO-J5-Ra4" secondAttribute="bottom" id="kad-oi-V8n"/>
+                            <constraint firstItem="dx2-Rx-93J" firstAttribute="centerX" secondItem="0Tf-2W-Njr" secondAttribute="centerX" id="pM6-yM-htD"/>
                             <constraint firstItem="QHO-J5-Ra4" firstAttribute="bottom" secondItem="NvU-nd-41i" secondAttribute="bottom" constant="140" id="rEd-ZN-gIe"/>
                             <constraint firstItem="VWy-gN-atA" firstAttribute="centerX" secondItem="0Tf-2W-Njr" secondAttribute="centerX" id="rZo-Tx-Pqh"/>
-                            <constraint firstItem="rb5-Ta-inC" firstAttribute="centerY" secondItem="4qB-3w-w9E" secondAttribute="centerY" id="vah-cj-wqs"/>
+                            <constraint firstItem="dx2-Rx-93J" firstAttribute="width" secondItem="0Tf-2W-Njr" secondAttribute="width" multiplier="0.7" id="uRI-hz-9cg"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="QHO-J5-Ra4"/>
                     </view>
@@ -115,9 +110,10 @@
         </scene>
     </scenes>
     <resources>
+        <image name="background" width="2344" height="4169"/>
+        <image name="cloud" width="525" height="273"/>
         <image name="google" width="18" height="18"/>
-        <image name="icon" width="311" height="416"/>
-        <image name="lake" width="1080" height="1920"/>
+        <image name="travelTube" width="371" height="113"/>
         <namedColor name="GradientMiddle">
             <color red="0.41999998688697815" green="0.52899998426437378" blue="0.83499997854232788" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

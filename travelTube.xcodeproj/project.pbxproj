@@ -52,6 +52,7 @@
 		148F90FF209AAFF300308179 /* PostArticleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 148F90FE209AAFF300308179 /* PostArticleViewController.swift */; };
 		14AA0B8F20E2239D00FC5257 /* HashTagCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14AA0B8D20E2239C00FC5257 /* HashTagCell.swift */; };
 		14AA0B9020E2239D00FC5257 /* HashTagCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 14AA0B8E20E2239D00FC5257 /* HashTagCell.xib */; };
+		14AA0B9420E33F0100FC5257 /* Emitter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14AA0B9320E33F0100FC5257 /* Emitter.swift */; };
 		14AE66B520AAB577007D7851 /* Detail.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 14AE66B420AAB577007D7851 /* Detail.storyboard */; };
 		14AE66BA20AAB5CD007D7851 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14AE66B920AAB5CD007D7851 /* DetailViewController.swift */; };
 		14DA419C20A13F3000A74254 /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 14DA419A20A13F3000A74254 /* SWRevealViewController.m */; };
@@ -132,6 +133,7 @@
 		148F90FE209AAFF300308179 /* PostArticleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostArticleViewController.swift; sourceTree = "<group>"; };
 		14AA0B8D20E2239C00FC5257 /* HashTagCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HashTagCell.swift; sourceTree = "<group>"; };
 		14AA0B8E20E2239D00FC5257 /* HashTagCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HashTagCell.xib; sourceTree = "<group>"; };
+		14AA0B9320E33F0100FC5257 /* Emitter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Emitter.swift; sourceTree = "<group>"; };
 		14AE66B420AAB577007D7851 /* Detail.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Detail.storyboard; sourceTree = "<group>"; };
 		14AE66B920AAB5CD007D7851 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		14DA419920A13F2F00A74254 /* travelTube-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "travelTube-Bridging-Header.h"; sourceTree = "<group>"; };
@@ -285,6 +287,7 @@
 				1414065520A0821800BFB170 /* UserManager.swift */,
 				146C6D3820D26AF7001CC8AF /* DVStruct.swift */,
 				1425A2F120DFE5A900A20FC2 /* CheckInternet.swift */,
+				14AA0B9320E33F0100FC5257 /* Emitter.swift */,
 			);
 			path = Utitlties;
 			sourceTree = "<group>";
@@ -743,6 +746,7 @@
 			files = (
 				1418280920C91B0F001E2188 /* TagCell.swift in Sources */,
 				143F3EF120B5465500784EB9 /* CommentViewController.swift in Sources */,
+				14AA0B9420E33F0100FC5257 /* Emitter.swift in Sources */,
 				143F3ECD20B2B14900784EB9 /* Extensions.swift in Sources */,
 				1417FEB720B9682600CFB50A /* FeedCell.swift in Sources */,
 				146C6D9520D36163001CC8AF /* BlackListViewController.swift in Sources */,
