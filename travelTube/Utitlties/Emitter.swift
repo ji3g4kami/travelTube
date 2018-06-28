@@ -26,7 +26,7 @@ class Emmiter {
         cell.velocity = CGFloat(25)
         cell.emissionRange = (30 * (.pi/180))
         cell.scale = 0.1
-        cell.scaleRange = 0.03
+        cell.scaleRange = 0.1
 
         cells.append(cell)
 
